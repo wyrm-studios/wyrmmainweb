@@ -1,1 +1,506 @@
 
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — HRWL®</title>
+    <meta name="description" content="About Djamel Haroual, Freelance Motion Designer crafting cinematic brand films.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/logos/hrwl-logo-icon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-1.5" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-16">
+            
+            <!-- Left Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                <a href="work.html" class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+                <a href="about.html" class="text-foreground font-medium underline underline-offset-4 decoration-1">About</a>
+                <a href="blog.html" class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-foreground" aria-label="Open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+
+            <!-- Center Logo -->
+            <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
+                <img src="assets/logos/hrwl-logo-black.svg" alt="HRWL Logo" class="h-8 w-auto dark:hidden">
+                <img src="assets/logos/hrwl-logo-white.svg" alt="HRWL Logo" class="h-8 w-auto hidden dark:block">
+            </a>
+
+            <!-- Right Navigation -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">Shop</a>
+                
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+
+                <!-- Inquiry Button -->
+                <a href="inquiry.html" class="flex items-center space-x-2 bg-secondary text-foreground px-5 py-2.5 rounded-full font-medium hover:bg-secondary/80 transition-colors">
+                    <span>Inquiry</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden" style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
+                <img src="assets/logos/hrwl-logo-black.svg" alt="HRWL Logo" class="h-8 w-auto dark:hidden">
+                <img src="assets/logos/hrwl-logo-white.svg" alt="HRWL Logo" class="h-8 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="index.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="work.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Work</a>
+            <a href="about.html" class="text-6xl font-bold text-foreground">About<span class="text-foreground">.</span></a>
+            <a href="blog.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="inquiry.html" class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start Inquiry</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="p-4 border border-border rounded-full text-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-24 px-4 sm:px-6 md:px-8">
+        
+        <div class="max-w-[800px] mx-auto">
+            
+            <!-- Voice Note Player -->
+            <div class="voice-note-player mb-16">
+                <div class="voice-note-header">
+                    <div class="voice-note-info">
+                        <img src="assets/images/about/djamel-profile.jpg" alt="Djamel Haroual" class="voice-note-avatar">
+                        <div>
+                            <div class="voice-note-title">A Personal Introduction</div>
+                            <div class="voice-note-subtitle">Djamel Haroual • Voice Note</div>
+                        </div>
+                    </div>
+                    <button class="voice-note-play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </button>
+                </div>
+                <div class="voice-note-progress">
+                    <div class="voice-note-progress-fill"></div>
+                </div>
+                <div class="voice-note-times">
+                    <span class="voice-note-current-time">0:00</span>
+                    <span class="voice-note-total-time">1:30</span>
+                </div>
+                <div class="voice-note-transcript typing">Press play to hear from Djamel</div>
+                <audio src="assets/audio/voice-note-intro.mp3" preload="metadata"></audio>
+            </div>
+
+            <!-- Bio Section -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4">Djamel Haroual</h1>
+                <p class="text-xl text-muted-foreground mb-2">Freelance Motion Designer crafting cinematic brand films.</p>
+                <p class="text-muted-foreground max-w-[600px] mx-auto">I help ambitious brands turn complex ideas into clear, memorable visuals.</p>
+                
+                <button class="mt-8 text-sm text-muted-foreground flex items-center space-x-1 mx-auto hover:text-foreground transition-colors">
+                    <span>Read All</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+            </div>
+
+            <!-- Accordions Section -->
+            <div class="space-y-0">
+                
+                <!-- Accordion 1: Who I Am -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="text-2xl font-bold">Who I Am</span>
+                        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pt-6 space-y-8">
+                            <div>
+                                <h4 class="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-4">Problems I Solve</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-muted-foreground">
+                                    <li>A product that is powerful but difficult to explain</li>
+                                    <li>Marketing visuals that feel generic or forgettable</li>
+                                    <li>A brand story that lacks emotional impact</li>
+                                    <li>Complex ideas that need to become clear and engaging</li>
+                                </ul>
+                                <p class="mt-4 text-muted-foreground">My work focuses on turning complexity into cinematic clarity.</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-4">The Journey</h4>
+                                <div class="space-y-6">
+                                    <div class="flex flex-col md:flex-row md:space-x-8 border-b border-border/50 pb-4">
+                                        <span class="text-sm font-bold text-foreground md:w-32 flex-shrink-0">2021</span>
+                                        <div>
+                                            <p class="font-bold text-foreground">AMV Editor</p>
+                                            <p class="text-sm text-muted-foreground">Started creating Anime Music Videos and discovering visual storytelling.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row md:space-x-8 border-b border-border/50 pb-4">
+                                        <span class="text-sm font-bold text-foreground md:w-32 flex-shrink-0">2022</span>
+                                        <div>
+                                            <p class="font-bold text-foreground">Motion Designer</p>
+                                            <p class="text-sm text-muted-foreground">Transitioned into motion design and began freelancing.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row md:space-x-8 border-b border-border/50 pb-4">
+                                        <span class="text-sm font-bold text-foreground md:w-32 flex-shrink-0">2023</span>
+                                        <div>
+                                            <p class="font-bold text-foreground">Noxisros Collective</p>
+                                            <p class="text-sm text-muted-foreground">Founded a small motion design collective focused on collaborative work.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row md:space-x-8 border-b border-border/50 pb-4">
+                                        <span class="text-sm font-bold text-foreground md:w-32 flex-shrink-0">2024</span>
+                                        <div>
+                                            <p class="font-bold text-foreground">HRWL Studios</p>
+                                            <p class="text-sm text-muted-foreground">Developed the HRWL personal brand and cinematic storytelling approach.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row md:space-x-8">
+                                        <span class="text-sm font-bold text-foreground md:w-32 flex-shrink-0">Today</span>
+                                        <div>
+                                            <p class="font-bold text-foreground">Independent</p>
+                                            <p class="text-sm text-muted-foreground">Working independently as a freelance motion designer creating brand films and commercial motion work.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 2: What I Do -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="text-2xl font-bold">What I Do</span>
+                        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pt-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div>
+                                <h4 class="text-lg font-bold text-foreground mb-2">Cinematic Brand Films</h4>
+                                <p class="text-sm text-muted-foreground">Narrative-driven motion pieces that introduce or elevate a brand.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-foreground mb-2">Commercial Motion Design</h4>
+                                <p class="text-sm text-muted-foreground">High-impact animated visuals built for marketing campaigns and product launches.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-foreground mb-2">Creative Direction</h4>
+                                <p class="text-sm text-muted-foreground">Helping brands translate complex ideas into clear and compelling visual stories.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 3: My Approach -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="text-2xl font-bold">My Approach</span>
+                        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="border border-border/50 rounded-xl p-6">
+                                <h4 class="font-bold text-foreground mb-2">Clarity first</h4>
+                                <p class="text-sm text-muted-foreground">If the audience doesn't understand the message, the work has failed.</p>
+                            </div>
+                            <div class="border border-border/50 rounded-xl p-6">
+                                <h4 class="font-bold text-foreground mb-2">Emotion matters</h4>
+                                <p class="text-sm text-muted-foreground">People remember how something made them feel long after they forget the visuals.</p>
+                            </div>
+                            <div class="border border-border/50 rounded-xl p-6">
+                                <h4 class="font-bold text-foreground mb-2">Sound completes motion</h4>
+                                <p class="text-sm text-muted-foreground">Great animation deserves equally thoughtful sound design.</p>
+                            </div>
+                            <div class="border border-border/50 rounded-xl p-6">
+                                <h4 class="font-bold text-foreground mb-2">Quality over volume</h4>
+                                <p class="text-sm text-muted-foreground">Fewer projects, deeper attention, stronger results.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 4: Beyond Work -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="text-2xl font-bold">Beyond Work</span>
+                        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pt-6 space-y-8">
+                            <div>
+                                <ul class="space-y-3 text-muted-foreground">
+                                    <li class="flex items-start space-x-3">
+                                        <svg class="mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                                        <span>Video games — Mario, Zelda, Sonic, Dispatch, Hollow Knight</span>
+                                    </li>
+                                    <li class="flex items-start space-x-3">
+                                        <svg class="mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                                        <span>Deep appreciation for sound design and music in motion work</span>
+                                    </li>
+                                    <li class="flex items-start space-x-3">
+                                        <svg class="mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                                        <span>Voice acting and narration</span>
+                                    </li>
+                                    <li class="flex items-start space-x-3">
+                                        <svg class="mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                                        <span>Anime, old TV shows and movies</span>
+                                    </li>
+                                    <li class="flex items-start space-x-3">
+                                        <svg class="mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                                        <span>Psychology and human nature</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-6">People I've Collaborated With</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Nsihrakhi Pitanta (Incie)</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">Sound Designer</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Uliania PchelinUley</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">Sound Designer & Music Producer</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Penrose Audio (Davies)</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">Sound Designer & Music Producer</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Hichem Ouali</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">Brand Strategist | Marketer</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Houssem Karim</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">Artist</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Ilias Lem</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">Sound Designer</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Nicholas M. Candeias</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">Motion Designer</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Samuel Martin</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">2D FX artist</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Yuhui (Kelvin) Jian</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">Composer & Sound Designer</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-border/50 pb-3">
+                                        <a href="#" class="font-bold text-foreground hover:underline flex items-center space-x-1">
+                                            <span>Salahuddin</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                                        </a>
+                                        <span class="text-sm text-muted-foreground">Web Developer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-24 text-center">
+                <p class="text-sm text-muted-foreground mb-6">Have a Project in mind ?</p>
+                <a href="inquiry.html" class="inline-flex items-center space-x-2 border border-border text-foreground px-8 py-4 rounded-full font-medium hover:bg-secondary transition-colors">
+                    <span>Start inquiry</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FLOATING VOICE NOTE PLAYER (Active on About Page) -->
+    <div id="floating-voice-note" class="fixed bottom-6 left-6 z-50 bg-foreground text-background px-4 py-3 rounded-full flex items-center space-x-3 shadow-xl">
+        <div class="flex space-x-1">
+            <div class="w-1 h-4 bg-background/50 rounded-full animate-pulse"></div>
+            <div class="w-1 h-6 bg-background/50 rounded-full animate-pulse" style="animation-delay: 0.1s;"></div>
+            <div class="w-1 h-3 bg-background/50 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+        </div>
+        <span class="text-sm font-medium">Djamel • Voice Note</span>
+        <button class="p-1 hover:bg-background/20 rounded-full transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <button class="p-1 hover:bg-background/20 rounded-full transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="assets/logos/hrwl-logo-white.svg" alt="HRWL Logo" class="h-8 w-auto mb-6">
+                    <h3 class="text-3xl font-bold mb-4">Let's create something worth watching.</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Freelance Motion Designer specializing in brand films and commercials for ambitious brands.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand Films</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Commercials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Creative Direction</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="inquiry.html" class="text-gray-400 hover:text-white transition-colors text-sm">Start Inquiry</a></li>
+                        <li><a href="mailto:djamel@hrwl.studio" class="text-gray-400 hover:text-white transition-colors text-sm">djamel@hrwl.studio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 HRWL LTD. All rights reserved.</p>
+                <p>Built by Salahuddin</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/main.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/accordion.js"></script>
+    <script src="js/voice-note.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/page-transitions.js"></script>
+
+</body>
+</html>
