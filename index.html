@@ -1,1 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRWL® — Freelance Motion Designer</title>
+    <meta name="description" content="Freelance Motion Designer & Creative Director crafting high-ROI visual stories for ambitious brands.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HRWL® — Freelance Motion Designer">
+    <meta property="og:description" content="Cinematic Brand Films That make your product impossible to ignore.">
+    <meta property="og:image" content="assets/images/og/og-home.jpg">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/logos/hrwl-logo-icon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (Matching original architecture) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-1.5" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-16">
+            
+            <!-- Left Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-foreground font-medium underline underline-offset-4 decoration-1">Home</a>
+                <a href="work.html" class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+                <a href="about.html" class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                <a href="blog.html" class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-foreground" aria-label="Open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+
+            <!-- Center Logo -->
+            <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
+                <img src="assets/logos/hrwl-logo-black.svg" alt="HRWL Logo" class="h-8 w-auto dark:hidden">
+                <img src="assets/logos/hrwl-logo-white.svg" alt="HRWL Logo" class="h-8 w-auto hidden dark:block">
+            </a>
+
+            <!-- Right Navigation -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">Shop</a>
+                
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+
+                <!-- Inquiry Button -->
+                <a href="inquiry.html" class="flex items-center space-x-2 bg-secondary text-foreground px-5 py-2.5 rounded-full font-medium hover:bg-secondary/80 transition-colors">
+                    <span>Inquiry</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden" style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
+                <img src="assets/logos/hrwl-logo-black.svg" alt="HRWL Logo" class="h-8 w-auto dark:hidden">
+                <img src="assets/logos/hrwl-logo-white.svg" alt="HRWL Logo" class="h-8 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="index.html" class="text-6xl font-bold text-foreground">Home<span class="text-foreground">.</span></a>
+            <a href="work.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Work</a>
+            <a href="about.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">About</a>
+            <a href="blog.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="inquiry.html" class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start Inquiry</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="p-4 border border-border rounded-full text-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-24">
+        
+        <!-- HERO SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-12 md:py-24 flex flex-col items-center overflow-hidden relative">
+            <div class="h-24 md:h-28 w-full flex-none"></div>
+            
+            <div class="flex-1 w-full flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 max-w-[1200px] mx-auto pb-5 md:pb-0 relative">
+                
+                <!-- Hero Video Card -->
+                <div class="relative flex justify-center w-full mb-8 md:mb-0">
+                    <div class="relative flex justify-center w-full mb-8 md:mb-0" style="max-width: 850px; z-index: auto; opacity: 1; transform: none;">
+                        <div class="absolute inset-0 z-0 pointer-events-none" style="z-index: auto; opacity: 1;"></div>
+                        
+                        <!-- Video Thumbnail Container -->
+                        <div id="hero-video-trigger" class="relative flex justify-center w-full mb-8 md:mb-0 cursor-pointer group" style="max-width: 850px;">
+                            <div class="w-full aspect-video bg-black rounded-3xl overflow-hidden relative shadow-2xl">
+                                
+                                <!-- Signature Graphic -->
+                                <div class="absolute inset-0 flex items-center justify-center z-10">
+                                    <img src="assets/logos/hrwl-signature.svg" alt="HRWL Signature" class="w-1/2 max-w-[400px] opacity-90">
+                                </div>
+
+                                <!-- Blue Gradient Bottom -->
+                                <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-blue-600 via-blue-800/80 to-transparent z-0"></div>
+
+                                <!-- Play Button -->
+                                <div class="absolute inset-0 flex items-center justify-center z-20">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                    </div>
+                                </div>
+
+                                <!-- Hero Text -->
+                                <div class="absolute bottom-16 md:bottom-20 left-0 right-0 text-center z-20 px-4">
+                                    <h2 class="text-white text-sm md:text-base font-bold tracking-wider mb-2">FREELANCE MOTION DESIGNER</h2>
+                                    <p class="text-white/70 text-xs md:text-sm max-w-md mx-auto">Born to fix business problems with creative solutions.</p>
+                                </div>
+
+                                <!-- Two Oval Shapes -->
+                                <div class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center space-x-3 z-20">
+                                    <div class="w-4 h-6 md:w-5 md:h-8 bg-white/80 rounded-full"></div>
+                                    <div class="w-4 h-6 md:w-5 md:h-8 bg-white/80 rounded-full"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Value Proposition Text -->
+                <div class="mb-2 text-center block md:hidden w-full max-w-[500px] overflow-hidden px-4" style="opacity: 1; height: auto; margin-top: 40px;">
+                    <h1 class="text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4">
+                        Cinematic Brand Films<br>
+                        That make your product impossible to ignore
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Desktop Value Proposition -->
+            <div class="hidden md:block w-full text-center mb-12 px-4">
+                <h1 class="text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+                    Cinematic Brand Films<br>
+                    That make your product impossible to ignore
+                </h1>
+                <p class="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+                    Freelance Motion Designer & Creative Director crafting high-ROI visual stories for ambitious brands.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="inquiry.html" class="flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-colors shadow-xl">
+                        <span>Start Inquiry</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="work.html" class="flex items-center space-x-2 bg-secondary text-foreground px-8 py-4 rounded-full font-medium text-lg hover:bg-secondary/80 transition-colors">
+                        <span>See Case Studies</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Value Proposition Buttons -->
+            <div class="md:hidden w-full text-center px-4 mb-16">
+                <div class="flex flex-col items-center space-y-4">
+                    <a href="inquiry.html" class="flex items-center justify-center space-x-2 w-full max-w-xs bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg shadow-xl">
+                        <span>Start Inquiry</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="work.html" class="flex items-center justify-center space-x-2 w-full max-w-xs bg-secondary text-foreground px-8 py-4 rounded-full font-medium text-lg">
+                        <span>See Case Studies</span>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SELECTED PROJECTS SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-16 md:py-24 hidden md:block">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="flex items-end justify-between mb-12">
+                    <div>
+                        <p class="text-xs font-bold tracking-widest text-muted-foreground mb-2">RECENT WORK</p>
+                        <h2 class="text-3xl font-bold text-foreground">Selected Projects</h2>
+                    </div>
+                    <a href="work.html" class="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors">
+                        <span>View All</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Project Card 1 -->
+                    <a href="case-studies/noxisros-brand-film.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4 relative">
+                            <img src="assets/images/projects/noxisros-thumb.jpg" alt="Noxisros Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">Noxisros — Visual Identity + Brand Film</h3>
+                                <p class="text-sm text-muted-foreground">Brand Identity + Film</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2023</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 2 -->
+                    <a href="case-studies/hrwl-visual-identity.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4 relative">
+                            <img src="assets/images/projects/hrwl-visual-identity-thumb.jpg" alt="HRWL Visual Identity Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">HRWL — Visual Identity + Demo Reel + OC Animations</h3>
+                                <p class="text-sm text-muted-foreground">Identity + Motion</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2024</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 3 -->
+                    <a href="case-studies/hrwl-brand-film.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4 relative">
+                            <img src="assets/images/projects/hrwl-brand-film-thumb.jpg" alt="HRWL Brand Film Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">HRWL — Brand Film</h3>
+                                <p class="text-sm text-muted-foreground">Brand Film</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOBILE SELECTED PROJECTS -->
+        <section class="px-4 sm:px-6 md:px-8 py-12 md:hidden">
+            <div class="max-w-[600px] mx-auto">
+                <div class="mb-8">
+                    <p class="text-xs font-bold tracking-widest text-muted-foreground mb-2">RECENT WORK</p>
+                    <div class="flex items-end justify-between">
+                        <h2 class="text-3xl font-bold text-foreground">Selected Projects</h2>
+                        <a href="work.html" class="flex items-center space-x-2 text-muted-foreground text-sm">
+                            <span>View All Work</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Project Card 1 -->
+                    <a href="case-studies/noxisros-brand-film.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4">
+                            <img src="assets/images/projects/noxisros-thumb.jpg" alt="Noxisros Project" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">Noxisros — Visual Identity + Brand Film</h3>
+                                <p class="text-sm text-muted-foreground">Brand Identity + Film</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2023</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 2 -->
+                    <a href="case-studies/hrwl-visual-identity.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4">
+                            <img src="assets/images/projects/hrwl-visual-identity-thumb.jpg" alt="HRWL Visual Identity Project" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">HRWL — Visual Identity + Demo Reel + OC Animations</h3>
+                                <p class="text-sm text-muted-foreground">Identity + Motion</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2024</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 3 -->
+                    <a href="case-studies/hrwl-brand-film.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4">
+                            <img src="assets/images/projects/hrwl-brand-film-thumb.jpg" alt="HRWL Brand Film Project" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">HRWL — Brand Film</h3>
+                                <p class="text-sm text-muted-foreground">Brand Film</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT I DO SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-background">
+            <div class="max-w-[1200px] mx-auto text-center mb-16">
+                <p class="text-xs font-bold tracking-widest text-muted-foreground mb-4">WHAT I DO</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground">Creative solutions for business problems.</h2>
+            </div>
+
+            <div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Service Card 1 -->
+                <div class="bg-background border border-border/50 rounded-2xl p-8 text-left hover:shadow-lg transition-shadow duration-300">
+                    <span class="text-xs font-bold text-muted-foreground/50 mb-4 block">01</span>
+                    <h3 class="text-xl font-bold text-foreground mb-3">Brand Films</h3>
+                    <p class="text-muted-foreground text-sm leading-relaxed">Cinematic stories that transform how audiences perceive your brand.</p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-background border border-border/50 rounded-2xl p-8 text-left hover:shadow-lg transition-shadow duration-300">
+                    <span class="text-xs font-bold text-muted-foreground/50 mb-4 block">02</span>
+                    <h3 class="text-xl font-bold text-foreground mb-3">Commercials</h3>
+                    <p class="text-muted-foreground text-sm leading-relaxed">Strategic ads that sell without feeling like selling.</p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-background border border-border/50 rounded-2xl p-8 text-left hover:shadow-lg transition-shadow duration-300">
+                    <span class="text-xs font-bold text-muted-foreground/50 mb-4 block">03</span>
+                    <h3 class="text-xl font-bold text-foreground mb-3">Motion Design</h3>
+                    <p class="text-muted-foreground text-sm leading-relaxed">Product demos, explainers, and UI animations that clarify.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-16 md:py-24">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-12 gap-6">
+                    <div>
+                        <h2 class="text-4xl md:text-6xl font-bold text-foreground leading-tight">Got any questions?</h2>
+                        <h2 class="text-4xl md:text-6xl font-bold text-muted-foreground/40 leading-tight">I've got answers.</h2>
+                    </div>
+                    <div class="md:pt-4">
+                        <a href="inquiry.html" class="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-foreground/90 transition-colors shadow-xl">
+                            <span>Start Inquiry</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">Why is a brand film worth more than a regular video?</h3>
+                            <span class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>A regular video fills a slot. A brand film creates a perception. It's the difference between showing what you do and making people feel why it matters — which is what drives conversions, loyalty, and pricing power.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">Why not just hire a video agency for less?</h3>
+                            <span class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>Agencies optimize for volume. I optimize for impact. Every frame, transition, and sound cue is designed to serve your brand strategy — not to fill a deliverable checklist. You're paying for thinking, not just output.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">Can't I just use stock footage and templates?</h3>
+                            <span class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>You can — and your competitors probably do. That's exactly why it won't differentiate you. Custom brand films position you as the premium choice. Templates position you as one of many.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">Why is your process different from other motion designers?</h3>
+                            <span class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>I don't start with animation — I start with your business problem. Narrative arc, color psychology, original sound design, and strategic pacing come before a single keyframe is touched. The result is a film that works, not just looks good.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">How does a brand film actually increase conversions?</h3>
+                            <span class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>A well-crafted brand film communicates your who, your why, and your how in under 60 seconds — faster and more memorably than any landing page. Companies using strategic video see up to 80% higher conversion rates on key pages.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">How do you position a brand as premium through video?</h3>
+                            <span class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>Perception is built through intention. Every creative choice — color grading, pacing, typography, original score — is calibrated to signal quality and authority. Premium brands don't shout; they resonate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-16 md:py-24 flex flex-col items-center justify-center text-center">
+            <p class="text-sm text-muted-foreground mb-6">Have a Project in mind ?</p>
+            <a href="inquiry.html" class="inline-flex items-center space-x-2 border border-border text-foreground px-8 py-4 rounded-full font-medium hover:bg-secondary transition-colors">
+                <span>Start inquiry</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="assets/logos/hrwl-logo-white.svg" alt="HRWL Logo" class="h-8 w-auto mb-6">
+                    <h3 class="text-3xl font-bold mb-4">Hire different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Freelance Motion Designer specializing in brand films and commercials for ambitious brands.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand Films</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Commercials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Creative Direction</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="inquiry.html" class="text-gray-400 hover:text-white transition-colors text-sm">Start Inquiry</a></li>
+                        <li><a href="mailto:djamel@hrwl.studio" class="text-gray-400 hover:text-white transition-colors text-sm">djamel@hrwl.studio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 HRWL LTD. All rights reserved.</p>
+                <p>Built by Salahuddin</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VIDEO MODAL (Hidden by default) -->
+    <div id="video-modal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
+            <button id="close-video-modal" class="absolute top-4 right-4 z-10 p-2 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <!-- Vimeo Embed Placeholder -->
+            <iframe id="vimeo-player" src="https://player.vimeo.com/video/YOUR_VIMEO_ID_HERE?autoplay=1&title=0&byline=0&portrait=0" class="absolute inset-0 w-full h-full" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- FLOATING VOICE NOTE PLAYER (Hidden on Home, shown on About/Inquiry) -->
+    <!-- <div id="floating-voice-note" class="fixed bottom-6 left-6 z-50 bg-foreground text-background px-4 py-3 rounded-full flex items-center space-x-3 shadow-xl hidden">
+        <div class="flex space-x-1">
+            <div class="w-1 h-4 bg-background/50 rounded-full animate-pulse"></div>
+            <div class="w-1 h-6 bg-background/50 rounded-full animate-pulse" style="animation-delay: 0.1s;"></div>
+            <div class="w-1 h-3 bg-background/50 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+        </div>
+        <span class="text-sm font-medium">Djamel • Voice Note</span>
+        <button class="p-1 hover:bg-background/20 rounded-full transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <button class="p-1 hover:bg-background/20 rounded-full transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+    </div> -->
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/main.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/accordion.js"></script>
+    <script src="js/video-modal.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/page-transitions.js"></script>
+
+</body>
+</html>s
