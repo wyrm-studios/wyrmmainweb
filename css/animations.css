@@ -1,1 +1,314 @@
+/* =========================================
+   CSS ANIMATIONS - Keyframes, Transitions & Effects
+   ========================================= */
 
+/* --- Keyframes --- */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-4px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(4px);
+    }
+}
+
+@keyframes blinkCursor {
+    0%, 100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: hsl(var(--foreground));
+    }
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* --- Utility Animation Classes --- */
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-fade-out {
+    animation: fadeOut 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.animate-shake {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* --- Page Load Transitions --- */
+
+body {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* --- Form Step Transitions --- */
+/* Used in the multi-step inquiry form to switch between steps smoothly */
+.form-step {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.form-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.4s ease-out forwards;
+}
+
+.form-step.exiting {
+    opacity: 0;
+    transform: translateY(-10px);
+    position: absolute;
+    width: 100%;
+}
+
+/* --- Form Validation Error Shake --- */
+/* Applied to the Continue button when user tries to proceed without input */
+.btn-shake-error {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+    position: relative;
+}
+
+.btn-shake-error::after {
+    content: '🚫'; /* Or use an SVG background, matching the red circle slash in video */
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.2rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* --- Voice Note Typing Effect --- */
+/* Creates the blinking cursor at the end of the live transcript text */
+.voice-note-transcript.typing::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: hsl(var(--foreground));
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blinkCursor 0.8s infinite;
+}
+
+/* --- Mobile Menu Overlay Transition --- */
+#mobile-menu {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#mobile-menu.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#mobile-menu:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+#mobile-menu nav a {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#mobile-menu nav a:hover {
+    transform: translateX(10px);
+}
+
+/* --- Video Modal Transition --- */
+#video-modal {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#video-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#video-modal:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#video-modal .relative {
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#video-modal:not(.hidden) .relative {
+    transform: scale(1);
+}
+
+/* --- FAQ & Accordion Content Transition --- */
+.faq-content,
+.accordion-content {
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease, 
+                padding 0.3s ease;
+    opacity: 0;
+}
+
+.faq-item.active .faq-content,
+.accordion-item.active .accordion-content {
+    opacity: 1;
+}
+
+/* --- Hero Play Button Hover Effect --- */
+#hero-video-trigger .group:hover .w-16 {
+    transform: scale(1.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Project Card Image Hover Effect --- */
+.project-card .card-image-wrapper img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+/* --- Button Hover Micro-interactions --- */
+.btn-primary,
+.btn-secondary {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* --- Scroll Reveal Animation Classes --- */
+/* Used by JS to animate elements as they scroll into view */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered delays for grid items */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* --- Custom Cursor for Interactive Elements (Optional, matching premium feel) --- */
+a, button, .cursor-pointer {
+    cursor: pointer;
+}
+
+/* --- Loading Spinner (for form submission or video loading) --- */
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid hsl(var(--border));
+    border-top-color: hsl(var(--foreground));
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
