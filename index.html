@@ -52,41 +52,49 @@
 
     <!-- HEADER / NAVIGATION -->
     <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-1.5" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-16">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16">
             
-            <!-- Left Navigation -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="text-foreground font-medium underline underline-offset-4 decoration-1">Home</a>
-                <a href="work.html" class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
-                <a href="about.html" class="text-muted-foreground hover:text-foreground transition-colors">About</a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-foreground" aria-label="Open menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-            </button>
-
-            <!-- Center Logo -->
-            <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
-                <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto dark:hidden">
-                <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto hidden dark:block">
-            </a>
-
-            <!-- Right Navigation -->
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">Shop</a>
+            <!-- 3-Column Grid Layout to prevent logo overlap -->
+            <div class="grid grid-cols-3 items-center h-full">
                 
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" class="p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-                </button>
+                <!-- Left Column: Navigation Links -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="text-foreground font-medium underline underline-offset-4 decoration-1">Home</a>
+                        <a href="work.html" class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+                        <a href="about.html" class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="blog.html" class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
 
-                <!-- Inquiry Button -->
-                <a href="inquiry.html" class="flex items-center space-x-2 bg-foreground text-background px-5 py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors">
-                    <span>Inquiry</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
+                <!-- Center Column: Logo (Perfectly Centered) -->
+                <div class="flex items-center justify-center">
+                    <a href="index.html" class="flex items-center justify-center">
+                        <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto dark:hidden">
+                        <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto hidden dark:block">
+                    </a>
+                </div>
+
+                <!-- Right Column: Shop, Theme Toggle, Inquiry -->
+                <div class="flex items-center justify-end space-x-4 md:space-x-6">
+                    <a href="#" class="hidden md:block text-muted-foreground hover:text-foreground transition-colors">Shop</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+
+                    <!-- Inquiry Button -->
+                    <a href="inquiry.html" class="flex items-center space-x-2 bg-foreground text-background px-4 md:px-5 py-2 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-sm md:text-base">
+                        <span>Inquiry</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
             </div>
         </div>
     </header>
@@ -97,7 +105,7 @@
             <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
-            <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
+            <a href="index.html" class="flex items-center justify-center flex-1">
                 <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto dark:hidden">
                 <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto hidden dark:block">
             </a>
