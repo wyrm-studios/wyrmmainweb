@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WYRM.studios — Creative Studio</title>
-    <meta name="description" content="WYRM.studios — Personal brand and creative studio crafting cinematic brand experiences.">
+    <meta name="description" content="WYRM.studios — Creative Studio crafting cinematic brand experiences.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo/icon.png">
@@ -13,7 +13,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -47,137 +47,34 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
-
-    <!-- Inline Header Fix Styles -->
-    <style>
-        /* Force header layout to match original HRWL design */
-        header nav.desktop-nav {
-            display: flex !important;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        header nav.desktop-nav-right {
-            display: flex !important;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        header .logo-center {
-            position: absolute !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-        }
-
-        header .logo-center img {
-            height: 2rem;
-            width: auto;
-            max-width: 120px;
-        }
-
-        /* Hide mobile button on desktop */
-        @media (min-width: 768px) {
-            #mobile-menu-btn {
-                display: none !important;
-            }
-            nav.desktop-nav {
-                display: flex !important;
-            }
-            nav.desktop-nav-right {
-                display: flex !important;
-            }
-        }
-
-        /* Show mobile button on mobile, hide desktop nav */
-        @media (max-width: 767px) {
-            #mobile-menu-btn {
-                display: flex !important;
-            }
-            nav.desktop-nav {
-                display: none !important;
-            }
-            nav.desktop-nav-right {
-                display: none !important;
-            }
-            header .logo-center {
-                position: static !important;
-                transform: none !important;
-            }
-        }
-
-        /* Nav link styles */
-        header nav a.nav-link {
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-            text-decoration: none;
-        }
-
-        header nav a.nav-link.active {
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-
-        header nav a.nav-link:not(.active) {
-            color: hsl(var(--muted-foreground));
-        }
-
-        header nav a.nav-link:not(.active):hover {
-            color: hsl(var(--foreground));
-        }
-
-        /* Inquiry button style */
-        .inquiry-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: hsl(var(--secondary));
-            color: hsl(var(--foreground));
-            padding: 0.625rem 1.25rem;
-            border-radius: 9999px;
-            font-weight: 500;
-            font-size: 0.875rem;
-            transition: background-color 0.2s ease;
-            text-decoration: none;
-        }
-
-        .inquiry-btn:hover {
-            background-color: hsl(var(--secondary) / 0.8);
-        }
-    </style>
 </head>
 <body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
 
     <!-- HEADER / NAVIGATION -->
-    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-16 relative">
+    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-1.5" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-16">
             
-            <!-- Left Navigation (Desktop) -->
-            <nav class="desktop-nav">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="work.html" class="nav-link">Work</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="blog.html" class="nav-link">Blog</a>
+            <!-- Left Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-foreground font-medium underline underline-offset-4 decoration-1">Home</a>
+                <a href="work.html" class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+                <a href="about.html" class="text-muted-foreground hover:text-foreground transition-colors">About</a>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="p-2 text-foreground" aria-label="Open menu" style="display: none;">
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-foreground" aria-label="Open menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
 
             <!-- Center Logo -->
-            <a href="index.html" class="logo-center">
-                <img src="assets/logo/black logo png.png" alt="WYRM.studios" class="dark:hidden" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span class="hidden dark:block text-foreground font-bold text-lg" style="display: none;">WYRM.studios</span>
-                <img src="assets/logo/white logo png.png" alt="WYRM.studios" class="hidden dark:block" onerror="this.style.display='none'; this.previousElementSibling.style.display='block';">
+            <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
+                <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto dark:hidden">
+                <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto hidden dark:block">
             </a>
 
-            <!-- Right Navigation (Desktop) -->
-            <nav class="desktop-nav-right">
-                <a href="#" class="nav-link">Shop</a>
+            <!-- Right Navigation -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">Shop</a>
                 
                 <!-- Theme Toggle -->
                 <button id="theme-toggle" class="p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
@@ -186,11 +83,11 @@
                 </button>
 
                 <!-- Inquiry Button -->
-                <a href="inquiry.html" class="inquiry-btn">
+                <a href="inquiry.html" class="flex items-center space-x-2 bg-foreground text-background px-5 py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors">
                     <span>Inquiry</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
-            </nav>
+            </div>
         </div>
     </header>
 
@@ -201,8 +98,8 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
             <a href="index.html" class="absolute left-1/2 transform -translate-x-1/2">
-                <img src="assets/logo/black logo png.png" alt="WYRM.studios" class="h-8 w-auto dark:hidden" onerror="this.style.display='none'">
-                <img src="assets/logo/white logo png.png" alt="WYRM.studios" class="h-8 w-auto hidden dark:block" onerror="this.style.display='none'">
+                <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto dark:hidden">
+                <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto hidden dark:block">
             </a>
             <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
@@ -246,8 +143,8 @@
                                 
                                 <!-- Signature Graphic -->
                                 <div class="absolute inset-0 flex items-center justify-center z-10">
-                                    <img src="assets/logo/signature.png" alt="WYRM Signature" class="w-1/2 max-w-[400px] opacity-90 dark:hidden" onerror="this.style.display='none'">
-                                    <img src="assets/logo/signature white.png" alt="WYRM Signature" class="w-1/2 max-w-[400px] opacity-90 hidden dark:block" onerror="this.style.display='none'">
+                                    <img src="assets/logo/signature.png" alt="WYRM Signature" class="w-1/2 max-w-[400px] opacity-90 dark:hidden">
+                                    <img src="assets/logo/signature white.png" alt="WYRM Signature" class="w-1/2 max-w-[400px] opacity-90 hidden dark:block">
                                 </div>
 
                                 <!-- Blue Gradient Bottom -->
@@ -576,7 +473,7 @@
                 
                 <!-- Footer Brand Column -->
                 <div class="md:col-span-5">
-                    <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto mb-6" onerror="this.style.display='none'">
+                    <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-8 w-auto mb-6">
                     <h3 class="text-3xl font-bold mb-4">Create different</h3>
                     <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Creative Studio specializing in brand identity, motion design, and web experiences for ambitious businesses.</p>
                     
