@@ -1,1 +1,173 @@
+/* =========================================
+   CSS THEME - Light/Dark Mode Transitions & Overrides
+   ========================================= */
 
+/* --- Smooth Theme Transitions --- */
+/* Applying transitions to major layout elements to prevent harsh flashing */
+body, 
+header, 
+footer, 
+main, 
+section, 
+div, 
+nav, 
+button, 
+a, 
+input, 
+textarea, 
+select {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent transition on initial page load to avoid flash of incorrect theme */
+.no-transition, 
+.no-transition *, 
+.no-transition *::before, 
+.no-transition *::after {
+    transition: none !important;
+}
+
+/* --- Text Selection Colors --- */
+/* Light Mode Selection */
+::selection {
+    background-color: hsl(240 5.9% 10%);
+    color: hsl(0 0% 98%);
+}
+
+/* Dark Mode Selection */
+.dark ::selection {
+    background-color: hsl(0 0% 98%);
+    color: hsl(240 10% 3.9%);
+}
+
+/* --- Focus Visible States (Accessibility & Theme) --- */
+/* Light Mode Focus Ring */
+:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+}
+
+/* Dark Mode Focus Ring */
+.dark :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+}
+
+/* Remove default focus outline for mouse users, keep for keyboard */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* --- Theme Toggle Button Specifics --- */
+#theme-toggle, 
+#mobile-theme-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle svg, 
+#mobile-theme-toggle svg {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#theme-toggle:hover svg, 
+#mobile-theme-toggle:hover svg {
+    transform: rotate(15deg);
+}
+
+/* --- Custom Scrollbar Theme Adaptation --- */
+/* Light Mode Scrollbar */
+::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border: 2px solid hsl(var(--background));
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+}
+
+/* Dark Mode Scrollbar */
+.dark ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border: 2px solid hsl(var(--background));
+    border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+}
+
+/* --- Specific Component Theme Overrides --- */
+
+/* Header Background Blur Adaptation */
+header {
+    background-color: hsla(var(--background), 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Mobile Menu Overlay Theme */
+#mobile-menu {
+    background-color: hsl(var(--background));
+}
+
+/* Video Modal Overlay Theme */
+#video-modal {
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Form Inputs Theme Adaptation */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea {
+    background-color: transparent;
+    border-bottom: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+    border-bottom-color: hsl(var(--foreground));
+}
+
+/* Placeholder Text Theme */
+::placeholder {
+    color: hsl(var(--muted-foreground));
+    opacity: 0.6;
+}
+
+/* --- Print Media Theme Override --- */
+/* Force light mode and black text for printing */
+@media print {
+    body, .dark body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+    
+    header, footer, #mobile-menu, #video-modal, #floating-voice-note {
+        display: none !important;
+    }
+    
+    a {
+        color: #000000 !important;
+        text-decoration: underline !important;
+    }
+}
