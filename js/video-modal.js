@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Store the base Vimeo URL to reset the iframe when closed
     // This ensures the video stops playing and audio cuts off when the modal is closed
-    const baseVimeoUrl = "https://player.vimeo.com/video/YOUR_VIMEO_ID_HERE?autoplay=1&title=0&byline=0&portrait=0&background=1";
+    const baseVimeoUrl = "https://player.vimeo.com/video/1190794803?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479";
     const emptyUrl = "about:blank";
 
 
