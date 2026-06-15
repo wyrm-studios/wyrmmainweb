@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Djappa Man — Music Artist Visual Identity — Case Study</title>
+    <meta name="description" content="Visual identity and branding for music artist - Mental Files podcast series, cover design, and animation">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- PDF Viewer Styles -->
+    <style>
+        .pdf-container {
+            width: 100%;
+            height: 800px;
+            border: 1px solid hsl(var(--border));
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .pdf-container {
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-1.5" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16">
+            
+            <!-- 3-Column Grid Layout to prevent logo overlap -->
+            <div class="grid grid-cols-3 items-center h-full">
+                
+                <!-- Left Column: Navigation Links -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="../index.html" class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="../work.html" class="text-foreground font-medium underline underline-offset-4 decoration-1">Work</a>
+                        <a href="../about.html" class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="../blog.html" class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
+
+                <!-- Center Column: Logo (Perfectly Centered) -->
+                <div class="flex items-center justify-center">
+                    <a href="../index.html" class="flex items-center justify-center">
+                        <img src="../assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-10 md:h-12 w-auto dark:hidden">
+                        <img src="../assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-10 md:h-12 w-auto hidden dark:block">
+                    </a>
+                </div>
+
+                <!-- Right Column: Shop, Theme Toggle, Inquiry -->
+                <div class="flex items-center justify-end space-x-4 md:space-x-6">
+                    <a href="#" class="hidden md:block text-muted-foreground hover:text-foreground transition-colors">Shop</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+
+                    <!-- Inquiry Button -->
+                    <a href="../inquiry.html" class="flex items-center space-x-2 bg-foreground text-background px-4 md:px-5 py-2 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-sm md:text-base">
+                        <span>Inquiry</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden" style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="../index.html" class="flex items-center justify-center flex-1">
+                <img src="../assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-10 md:h-12 w-auto dark:hidden">
+                <img src="../assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-10 md:h-12 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../index.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="../work.html" class="text-6xl font-bold text-foreground">Work<span class="text-foreground">.</span></a>
+            <a href="../about.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">About</a>
+            <a href="../blog.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="../inquiry.html" class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start Inquiry</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="p-4 border border-border rounded-full text-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-24 px-4 sm:px-6 md:px-8">
+        
+        <div class="max-w-[1200px] mx-auto">
+            
+            <!-- Top Navigation & Tags -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+                <a href="../work.html" class="inline-flex items-center space-x-2 border border-border text-foreground px-5 py-2.5 rounded-full font-medium hover:bg-secondary transition-colors w-fit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                    <span>BACK TO WORK</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span class="badge">CASE STUDY</span>
+                    <span class="text-sm text-muted-foreground">2023-2025</span>
+                </div>
+            </div>
+
+            <!-- Case Study Header -->
+            <div class="mb-12 md:mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">Djappa Man — Music Artist Visual Identity</h1>
+                <p class="text-xl text-muted-foreground max-w-3xl">Visual identity and branding for music artist</p>
+                <p class="text-sm text-muted-foreground mt-2">Artist Branding • Music Industry • Visual Identity • Motion Design • Video Editing</p>
+            </div>
+
+            <!-- Story Section -->
+            <div class="mb-16 md:mb-24">
+                <div class="prose prose-lg max-w-none">
+                    <h2 class="text-3xl font-bold text-foreground mb-6">How It All Started — The WYRM x Djappa Man Story</h2>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                        I still remember the day Djappa Man reached out to us. For those who don't know, this man is a legend. He's the founder of <strong class="text-foreground">ZOMRA</strong> – the crew that literally built the foundation of underground hip-hop in Tunisia. Anti-system, raw, real – that's ZOMRA. That's Djappa Man.
+                    </p>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                        But here's the thing: he had been gone for a long time. Years away from the scene. No rap, no art, completely silent. When someone like that disappears, you feel it in the culture.
+                    </p>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                        Then out of nowhere, he hit us up at WYRM. <em>"I'm back,"</em> he told us. <em>"I want to create something new. I need a complete branding – something personal, something that represents who I am now."</em>
+                    </p>
+                    <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                        I won't lie – I was honored. Nervous too. This is Djappa Man we're talking about. The guy who pioneered the movement. And he chose us to bring his vision back to life. He trusted us with his legacy.
+                    </p>
+                    <p class="text-lg text-muted-foreground leading-relaxed">
+                        This wasn't just another project. This was history in the making. And it all started with one message: <strong>"I'm back in the game."</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project Phases -->
+            <div class="mb-16 md:mb-24">
+                <h2 class="text-3xl font-bold text-foreground mb-8">The Creative Process</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="service-card border-2 border-border/50">
+                        <div class="text-5xl font-bold text-foreground/20 mb-4">01</div>
+                        <h3 class="text-xl font-bold text-foreground mb-3">Branding & Sketching</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">Initial concept development, character design, logo brainstorming, and visual identity exploration. Creating the foundation for the entire brand.</p>
+                    </div>
+                    <div class="service-card border-2 border-border/50">
+                        <div class="text-5xl font-bold text-foreground/20 mb-4">02</div>
+                        <h3 class="text-xl font-bold text-foreground mb-3">Mental Files Production</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">Video editing for the podcast series, intro animation with character movement, Mental Files logo animation, and montage work for the streaming platform.</p>
+                    </div>
+                    <div class="service-card border-2 border-border/50">
+                        <div class="text-5xl font-bold text-foreground/20 mb-4">03</div>
+                        <h3 class="text-xl font-bold text-foreground mb-3">Covers & Animation</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">Music cover design, thumbnail creation, clip animations, and complete visual assets for music releases and social media presence.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Embeds Section -->
+            <div class="mb-16 md:mb-24">
+                <h2 class="text-3xl font-bold text-foreground mb-8">Mental Files Podcast Series</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/y5FDMRISFgg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/OJHhjCyZirg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music & Animation Section -->
+            <div class="mb-16 md:mb-24">
+                <h2 class="text-3xl font-bold text-foreground mb-6">Music Cover Design & Animation</h2>
+                <p class="text-muted-foreground mb-8">Complete visual identity for music releases including cover art, thumbnails, and clip animations.</p>
+                <div class="video-wrapper mb-8">
+                    <iframe src="https://www.youtube.com/embed/srgP-D0cp8E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Brand Assets Gallery -->
+            <div class="mb-16 md:mb-24">
+                <h2 class="text-3xl font-bold text-foreground mb-8">Brand Assets & Visual Identity</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img src="../assets/brand-guides/djappa/character.jpg" alt="Djappa Man Character Design" class="w-full aspect-square object-cover rounded-xl bg-secondary">
+                    <img src="../assets/brand-guides/djappa/coverdesign.jpg" alt="Cover Design" class="w-full aspect-square object-cover rounded-xl bg-secondary">
+                    <img src="../assets/brand-guides/djappa/mentalfileslogo.png" alt="Mental Files Logo" class="w-full aspect-square object-cover rounded-xl bg-secondary">
+                    <img src="../assets/brand-guides/djappa/thumbnail1.jpg" alt="Thumbnail Design 1" class="w-full aspect-square object-cover rounded-xl bg-secondary">
+                    <img src="../assets/brand-guides/djappa/thumbnail2.jpg" alt="Thumbnail Design 2" class="w-full aspect-square object-cover rounded-xl bg-secondary">
+                    <img src="../assets/brand-guides/djappa/djappamanblack logo.png" alt="Djappa Man Logo" class="w-full aspect-square object-cover rounded-xl bg-secondary">
+                </div>
+            </div>
+
+            <!-- Metadata Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+                <div class="metadata-card">
+                    <div class="meta-label">DURATION</div>
+                    <div class="meta-value">2023-2025</div>
+                </div>
+                <div class="metadata-card">
+                    <div class="meta-label">TYPE</div>
+                    <div class="meta-value">Artist Branding</div>
+                </div>
+                <div class="metadata-card">
+                    <div class="meta-label">SERVICES</div>
+                    <div class="meta-value">6 services</div>
+                </div>
+                <div class="metadata-card">
+                    <div class="meta-label">RESULT</div>
+                    <div class="meta-value text-sm">Complete artist brand identity</div>
+                </div>
+            </div>
+
+            <!-- Problem & Solution Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 md:mb-24">
+                <div>
+                    <h2 class="text-2xl font-bold text-foreground mb-4">The Challenge</h2>
+                    <p class="text-muted-foreground text-lg leading-relaxed">After years away from the scene, Djappa Man needed a complete visual rebrand that honored his legendary status in Tunisian hip-hop while representing his evolution as an artist. The brand needed to work across multiple platforms — podcast series, music releases, social media, and live streams.</p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-foreground mb-4">The Solution</h2>
+                    <p class="text-muted-foreground text-lg leading-relaxed">Complete brand identity system including character design, Mental Files podcast branding with animated intro, music cover designs, thumbnails, and a cohesive visual language that bridges his underground roots with his current artistic vision.</p>
+                </div>
+            </div>
+
+            <!-- Outcome Section -->
+            <div class="border border-border/50 rounded-2xl p-8 mb-16 md:mb-24 bg-background">
+                <div class="flex items-start space-x-4">
+                    <svg class="flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <div>
+                        <h3 class="text-xl font-bold text-foreground mb-2">Outcome</h3>
+                        <p class="text-muted-foreground">Complete visual identity for Mental Files podcast series, music releases, and social media presence. Ongoing collaboration from 2023-2025 building a cohesive brand that represents Djappa Man's legacy and evolution.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategy Section -->
+            <div class="mb-16 md:mb-24">
+                <h2 class="text-3xl font-bold text-foreground mb-6">Strategy</h2>
+                <p class="text-muted-foreground text-lg mb-8 max-w-4xl leading-relaxed">The strategy focused on honoring Djappa Man's legendary status in the Tunisian underground hip-hop scene while creating a fresh, modern visual identity that represents his return and evolution. The brand needed to be versatile enough to work across podcast content, music releases, and social media while maintaining authenticity and raw energy.</p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <div class="pill-tag">Underground authenticity</div>
+                    <div class="pill-tag">Character-driven design</div>
+                    <div class="pill-tag">Multi-platform consistency</div>
+                    <div class="pill-tag">Legacy meets evolution</div>
+                </div>
+            </div>
+
+            <!-- Process Section -->
+            <div class="mb-16 md:mb-24">
+                <h2 class="text-3xl font-bold text-foreground mb-8">Deliverables</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="service-card">
+                        <h3 class="text-xl font-bold text-foreground mb-3">Brand Identity</h3>
+                        <ul class="list-disc pl-5 text-muted-foreground space-y-1 text-sm">
+                            <li>Character design & development</li>
+                            <li>Logo design (Mental Files)</li>
+                            <li>Visual identity system</li>
+                            <li>Brand guidelines</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="text-xl font-bold text-foreground mb-3">Video Production</h3>
+                        <ul class="list-disc pl-5 text-muted-foreground space-y-1 text-sm">
+                            <li>Podcast video editing</li>
+                            <li>Intro animation</li>
+                            <li>Logo animation</li>
+                            <li>Montage & post-production</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="text-xl font-bold text-foreground mb-3">Design Assets</h3>
+                        <ul class="list-disc pl-5 text-muted-foreground space-y-1 text-sm">
+                            <li>Music cover design</li>
+                            <li>YouTube thumbnails</li>
+                            <li>Social media graphics</li>
+                            <li>Clip animations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roles & Credits -->
+            <div class="mb-16 md:mb-24">
+                <h2 class="text-3xl font-bold text-foreground mb-8">Roles & Credits</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Creative Direction</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Brand Identity</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Character Design</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Video Editing</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Motion Design</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Cover Design</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Case Study Navigation -->
+            <div class="border-t border-border/50 pt-12">
+                <p class="text-sm text-muted-foreground mb-2">Previous Case Study</p>
+                <a href="minato-sushi.html" class="inline-flex items-center space-x-2 text-foreground font-medium hover:underline underline-offset-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                    <span>Minato Sushi — Premium Restaurant Experience</span>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="h-24 w-auto mb-6">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand identity, motion design, video editing, logos, and web experiences for companies that refuse to blend in.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video Editing</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../inquiry.html" class="text-gray-400 hover:text-white transition-colors text-sm">Start Inquiry</a></li>
+                        <li><a href="mailto:contact@wyrm.studio" class="text-gray-400 hover:text-white transition-colors text-sm">contact@wyrm.studio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../js/main.js"></script>
+    <script src="../js/theme-toggle.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/smooth-scroll.js"></script>
+    <script src="../js/page-transitions.js"></script>
+
+</body>
+</html>
