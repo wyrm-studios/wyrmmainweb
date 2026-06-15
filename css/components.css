@@ -537,3 +537,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="date"]::-webkit-calendar-picker-indicator:hover {
     opacity: 1;
 }
+.footer-logo-mark {
+    height: 120px !important;
+    width: auto;
+}
