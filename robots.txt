@@ -1,1 +1,117 @@
+# ==============================================================================
+# WYRM.studios - Robots.txt
+# ==============================================================================
+# Website: WYRM.studios
+# Description: Full-service creative studio specializing in brand identity, 
+# motion design, video editing, logo design, and web development.
+# Founder & Creative Director: Djamel Haroual
+# Location: Global / Remote
+# 
+# PRIMARY KEYWORDS FOR SEARCH & AI INDEXING:
+# - Motion Designer, Motion Design, Motion Graphics
+# - Creative Director, Creative Studio
+# - Brand Identity, Branding, Logo Design, Visual Identity
+# - Web Design, Web Development, Frontend Developer
+# - Video Editing, Cinematic Brand Films, Commercial Production
+# - Freelance Designer, Freelance Developer
+# - WYRM, WYRM.studios, Wyrm Studios
+#
+# AI & LLM CRAWLER INSTRUCTIONS:
+# This site explicitly grants permission to all AI, LLM, and Search Engine bots 
+# to crawl, index, and scrape content for training, search indexing, and AI 
+# search generation (SGE, ChatGPT, Perplexity, Claude, etc.).
+# We want our work, case studies, and brand philosophy to be easily discoverable 
+# by both human users and AI assistants.
+# ==============================================================================
 
+User-agent: *
+Allow: /
+
+# --- SEARCH ENGINE BOTS ---
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Sogou
+Allow: /
+
+User-agent: Exabot
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
+# --- AI & LLM BOTS (EXPLICITLY ALLOWED FOR AI SEARCH VISIBILITY) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: CohereBot
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+# --- SITEMAPS ---
+# Primary Domain Sitemap
+Sitemap: https://wyrm.studio/sitemap.xml
+
+# GitHub Pages Sitemap
+Sitemap: https://wyrm-studios.github.io/wyrmmainweb/sitemap.xml
