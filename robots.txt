@@ -111,7 +111,6 @@ Allow: /
 
 # --- SITEMAPS ---
 # Primary Domain Sitemap
-Sitemap: https://wyrm.studio/sitemap.xml
+Sitemap: https://wyrm.studios/sitemap.xml
 
-# GitHub Pages Sitemap
-Sitemap: https://wyrm-studios.github.io/wyrmmainweb/sitemap.xml
+
