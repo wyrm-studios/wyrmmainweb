@@ -7,52 +7,52 @@
     
     <!-- HOME PAGE - Highest Priority -->
     <url>
-        <loc>https://wyrm.studio/</loc>
-        <lastmod>2026-01-15</lastmod>
+        <loc>https://wyrm.studios/</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
     <!-- WORK/PORTFOLIO PAGE - High Priority -->
     <url>
-        <loc>https://wyrm.studio/work.html</loc>
-        <lastmod>2026-01-15</lastmod>
+        <loc>https://wyrm.studios/work.html</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <!-- ABOUT PAGE - High Priority -->
     <url>
-        <loc>https://wyrm.studio/about.html</loc>
-        <lastmod>2026-01-15</lastmod>
+        <loc>https://wyrm.studios/about.html</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <!-- INQUIRY/CONTACT PAGE - High Priority -->
     <url>
-        <loc>https://wyrm.studio/inquiry.html</loc>
-        <lastmod>2026-01-15</lastmod>
+        <loc>https://wyrm.studios/inquiry.html</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <!-- BLOG PAGE - Medium Priority -->
     <url>
-        <loc>https://wyrm.studio/blog.html</loc>
-        <lastmod>2026-01-15</lastmod>
+        <loc>https://wyrm.studios/blog.html</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
 
     <!-- CASE STUDY: WYRM BRAND IDENTITY -->
     <url>
-        <loc>https://wyrm.studio/case-studies/wyrm-brand.html</loc>
-        <lastmod>2026-01-15</lastmod>
+        <loc>https://wyrm.studios/case-studies/wyrm-brand.html</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
-            <image:loc>https://wyrm.studio/assets/images/projects/wyrm-thumb.jpg</image:loc>
+            <image:loc>https://wyrm.studios/assets/images/projects/wyrm-thumb.jpg</image:loc>
             <image:title>WYRM Personal Brand and Studio Identity</image:title>
             <image:caption>Personal brand and creative studio identity system - Brand Identity, Motion Design, Web Design</image:caption>
         </image:image>
@@ -60,12 +60,12 @@
 
     <!-- CASE STUDY: MINATO SUSHI -->
     <url>
-        <loc>https://wyrm.studio/case-studies/minato-sushi.html</loc>
-        <lastmod>2026-01-15</lastmod>
+        <loc>https://wyrm.studios/case-studies/minato-sushi.html</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
-            <image:loc>https://wyrm.studio/assets/images/projects/minato-sushi-thumb.jpg</image:loc>
+            <image:loc>https://wyrm.studios/assets/images/projects/minato-sushi-thumb.jpg</image:loc>
             <image:title>Minato Sushi Premium Restaurant Experience</image:title>
             <image:caption>Premium sushi restaurant brand experience - Restaurant Branding, Hospitality, Visual Identity</image:caption>
         </image:image>
@@ -73,12 +73,12 @@
 
     <!-- CASE STUDY: DJAPPAMAN -->
     <url>
-        <loc>https://wyrm.studio/case-studies/djappaman.html</loc>
-        <lastmod>2026-01-15</lastmod>
+        <loc>https://wyrm.studios/case-studies/djappaman.html</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
-            <image:loc>https://wyrm.studio/assets/images/projects/djappaman-thumb.jpg</image:loc>
+            <image:loc>https://wyrm.studios/assets/images/projects/djappaman-thumb.jpg</image:loc>
             <image:title>Djappaman Music Artist Visual Identity</image:title>
             <image:caption>Visual identity and branding for music artist - Artist Branding, Music Industry, Visual Identity</image:caption>
         </image:image>
@@ -86,8 +86,8 @@
 
     <!-- BRAND GUIDELINES PDF -->
     <url>
-        <loc>https://wyrm.studio/assets/brand-guides/Wyrm — Branding Guidelines.pdf</loc>
-        <lastmod>2026-01-15</lastmod>
+        <loc>https://wyrm.studios/assets/brand-guides/Wyrm — Branding Guidelines.pdf</loc>
+        <lastmod>2026-06-16</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.6</priority>
     </url>
