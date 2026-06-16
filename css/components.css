@@ -541,3 +541,58 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     height: 120px !important;
     width: auto;
 }
+
+
+/* Shop Button Animation */
+.shop-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shop-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.shop-button.animating::before {
+    width: 300px;
+    height: 300px;
+}
+
+.shop-button.animating {
+    transform: scale(0.95);
+}
+
+.shop-button .button-text {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.shop-button.animating .button-text {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.shop-button .button-text-new {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.shop-button.animating .button-text-new {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
