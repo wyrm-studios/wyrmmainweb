@@ -596,3 +596,90 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     opacity: 1;
     transform: translate(-50%, -50%);
 }
+
+/* Cinematic Video Modal */
+#video-modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(0px);
+}
+
+#video-modal.active {
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+}
+
+#video-modal .modal-content {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#video-modal.active .modal-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+#video-modal .modal-content iframe {
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+#video-modal.active .modal-content iframe {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+/* Close button animation */
+#close-video-modal {
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.3s;
+}
+
+#video-modal.active #close-video-modal {
+    transform: scale(1);
+    opacity: 1;
+}
+
+#close-video-modal:hover {
+    transform: scale(1.1) rotate(90deg);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Play button hover effect */
+#hero-video-trigger {
+    position: relative;
+    overflow: hidden;
+}
+
+#hero-video-trigger::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
+}
+
+#hero-video-trigger:hover::before {
+    width: 600px;
+    height: 600px;
+}
+
+#hero-video-trigger .play-button {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#hero-video-trigger:hover .play-button {
+    transform: scale(1.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
