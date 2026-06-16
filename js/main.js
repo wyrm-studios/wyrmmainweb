@@ -143,3 +143,33 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c Built with precision. Same same. ', 'color: #888; font-size: 12px;');
 
 });
+// Shop Button Toggle Animation
+document.addEventListener('DOMContentLoaded', function() {
+    const shopButtons = document.querySelectorAll('.shop-button');
+    
+    shopButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Add animation class
+            this.classList.add('animating');
+            
+            // Toggle text after animation starts
+            setTimeout(() => {
+                const currentText = this.querySelector('.button-text');
+                const newText = this.querySelector('.button-text-new');
+                
+                if (currentText.textContent === 'Shop') {
+                    currentText.textContent = 'Soon';
+                } else {
+                    currentText.textContent = 'Shop';
+                }
+            }, 150);
+            
+            // Remove animation class after completion
+            setTimeout(() => {
+                this.classList.remove('animating');
+            }, 600);
+        });
+    });
+});
