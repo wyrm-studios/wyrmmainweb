@@ -692,10 +692,12 @@ footer .social-link:hover {
     transform: translateY(-2px);
 }
 
-/* BIGGER LOGO MARK - Updated from 6rem to 10rem */
+/* MUCH BIGGER LOGO MARK - Updated from 10rem to 16rem (256px) */
 .footer-logo-mark {
-    height: 10rem;
+    height: 16rem;
     width: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 /* =========================================
@@ -893,9 +895,9 @@ footer .social-link:hover {
         font-size: 1rem;
     }
     
-    /* Bigger logo mark on mobile too - changed from 4rem to 6rem */
+    /* MUCH BIGGER logo mark on mobile too - changed from 6rem to 10rem */
     .footer-logo-mark {
-        height: 6rem;
+        height: 10rem;
     }
     
     .pdf-container {
