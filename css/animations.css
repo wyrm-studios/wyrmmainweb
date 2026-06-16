@@ -1,9 +1,22 @@
 /* =========================================
-   CSS ANIMATIONS - Keyframes, Transitions & Effects
+   CSS ANIMATIONS - Premium Keyframes, Easing & Transitions
    ========================================= */
 
-/* --- Keyframes --- */
+/* --- Premium Easing Variables --- */
+/* These custom bezier curves create the "expensive" slow and smooth feel */
+:root {
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
+/* =========================================
+   1. KEYFRAMES
+   ========================================= */
+
+/* --- Core Opacity & Visibility --- */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -22,10 +35,22 @@
     }
 }
 
+@keyframes blurIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+/* --- Core Transforms (Slide & Scale) --- */
 @keyframes slideUp {
     0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(40px);
     }
     100% {
         opacity: 1;
@@ -36,7 +61,7 @@
 @keyframes slideDown {
     0% {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-40px);
     }
     100% {
         opacity: 1;
@@ -47,7 +72,7 @@
 @keyframes slideInRight {
     0% {
         opacity: 0;
-        transform: translateX(20px);
+        transform: translateX(40px);
     }
     100% {
         opacity: 1;
@@ -55,25 +80,40 @@
     }
 }
 
-@keyframes shake {
-    0%, 100% {
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
         transform: translateX(0);
-    }
-    10%, 30%, 50%, 70%, 90% {
-        transform: translateX(-4px);
-    }
-    20%, 40%, 60%, 80% {
-        transform: translateX(4px);
     }
 }
 
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- Micro-interactions & Feedback --- */
+@keyframes shakeSubtle {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-3px); }
+    40% { transform: translateX(3px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+}
+
 @keyframes blinkCursor {
-    0%, 100% {
-        border-color: transparent;
-    }
-    50% {
-        border-color: hsl(var(--foreground));
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 @keyframes pulseRing {
@@ -82,103 +122,84 @@
         opacity: 0.5;
     }
     100% {
-        transform: scale(2);
+        transform: scale(2.5);
         opacity: 0;
     }
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
-/* --- Utility Animation Classes --- */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
+/* =========================================
+   2. UTILITY ANIMATION CLASSES
+   ========================================= */
+
+/* --- Core Transitions --- */
 .animate-fade-in {
-    animation: fadeIn 0.4s ease-out forwards;
+    animation: fadeIn 0.8s var(--ease-out-expo) forwards;
 }
 
 .animate-fade-out {
-    animation: fadeOut 0.4s ease-out forwards;
+    animation: fadeOut 0.8s var(--ease-out-expo) forwards;
+}
+
+.animate-blur-in {
+    animation: blurIn 1s var(--ease-out-expo) forwards;
 }
 
 .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
+    animation: slideUp 1s var(--ease-out-expo) forwards;
 }
 
 .animate-slide-down {
-    animation: slideDown 0.5s ease-out forwards;
+    animation: slideDown 1s var(--ease-out-expo) forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 1s var(--ease-out-expo) forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 1s var(--ease-out-expo) forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.8s var(--ease-out-quart) forwards;
 }
 
 .animate-shake {
-    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+    animation: shakeSubtle 0.5s var(--ease-smooth) both;
 }
 
-/* --- Page Load Transitions --- */
+/* --- Staggered Delays for Grids --- */
+/* Use these to create a cascading reveal effect on lists and grids */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
 
+/* =========================================
+   3. GLOBAL & PAGE TRANSITIONS
+   ========================================= */
+
+/* --- Page Load Transition --- */
+/* Slow, elegant fade in on initial page load */
 body {
-    animation: fadeIn 0.3s ease-out;
-}
-
-/* --- Form Step Transitions --- */
-/* Used in the multi-step inquiry form to switch between steps smoothly */
-.form-step {
-    display: none;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.form-step.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-    animation: slideUp 0.4s ease-out forwards;
-}
-
-.form-step.exiting {
-    opacity: 0;
-    transform: translateY(-10px);
-    position: absolute;
-    width: 100%;
-}
-
-/* --- Form Validation Error Shake --- */
-/* Applied to the Continue button when user tries to proceed without input */
-.btn-shake-error {
-    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
-    position: relative;
-}
-
-.btn-shake-error::after {
-    content: '🚫'; /* Or use an SVG background, matching the red circle slash in video */
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    font-size: 1.2rem;
-    animation: fadeIn 0.2s ease-out;
-}
-
-/* --- Voice Note Typing Effect --- */
-/* Creates the blinking cursor at the end of the live transcript text */
-.voice-note-transcript.typing::after {
-    content: '';
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    background-color: hsl(var(--foreground));
-    margin-left: 2px;
-    vertical-align: text-bottom;
-    animation: blinkCursor 0.8s infinite;
+    animation: fadeIn 1s var(--ease-out-expo);
 }
 
 /* --- Mobile Menu Overlay Transition --- */
 #mobile-menu {
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.6s var(--ease-out-expo), visibility 0.6s var(--ease-out-expo);
 }
 
 #mobile-menu.hidden {
@@ -191,49 +212,93 @@ body {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    animation: fadeIn 0.3s ease-out forwards;
+    animation: fadeIn 0.6s var(--ease-out-expo) forwards;
 }
 
 #mobile-menu nav a {
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.4s var(--ease-smooth), transform 0.4s var(--ease-out-expo);
 }
 
 #mobile-menu nav a:hover {
-    transform: translateX(10px);
+    transform: translateX(12px);
 }
 
 /* --- Video Modal Transition --- */
+/* Adds a subtle scale and backdrop blur for a cinematic feel */
 #video-modal {
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.5s var(--ease-out-expo), visibility 0.5s var(--ease-out-expo);
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 0.5s var(--ease-out-expo), opacity 0.5s var(--ease-out-expo), visibility 0.5s var(--ease-out-expo);
 }
 
 #video-modal.hidden {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    backdrop-filter: blur(0px);
 }
 
 #video-modal:not(.hidden) {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    backdrop-filter: blur(8px);
 }
 
 #video-modal .relative {
     transform: scale(0.95);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s var(--ease-out-expo);
 }
 
 #video-modal:not(.hidden) .relative {
     transform: scale(1);
 }
 
+/* =========================================
+   4. COMPONENT SPECIFIC ANIMATIONS
+   ========================================= */
+
+/* --- Form Step Transitions --- */
+/* Cinematic slide and fade for the multi-step inquiry form */
+.form-step {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.form-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.8s var(--ease-out-expo) forwards;
+}
+
+/* --- Form Validation Error Shake --- */
+/* Subtle, premium shake without distracting emojis */
+.btn-shake-error {
+    animation: shakeSubtle 0.5s var(--ease-smooth) both;
+}
+
+/* --- Voice Note Typing Effect --- */
+/* Elegant, smooth blinking cursor for the live transcript */
+.voice-note-transcript.typing::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: hsl(var(--foreground));
+    margin-left: 3px;
+    vertical-align: text-bottom;
+    animation: blinkCursor 1s var(--ease-smooth) infinite;
+}
+
 /* --- FAQ & Accordion Content Transition --- */
+/* Ultra-smooth height and opacity transition for expanding sections */
 .faq-content,
 .accordion-content {
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.3s ease, 
-                padding 0.3s ease;
+    transition: max-height 0.6s var(--ease-out-expo), 
+                opacity 0.5s var(--ease-out-expo), 
+                padding 0.5s var(--ease-out-expo);
     opacity: 0;
 }
 
@@ -243,42 +308,50 @@ body {
 }
 
 /* --- Hero Play Button Hover Effect --- */
-#hero-video-trigger .group:hover .w-16 {
-    transform: scale(1.1);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Slow, deliberate scale on hover for the main video trigger */
+#hero-video-trigger .group:hover .w-16,
+#hero-video-trigger .group:hover .md\:w-20 {
+    transform: scale(1.15);
+    transition: transform 0.6s var(--ease-out-expo);
 }
 
 /* --- Project Card Image Hover Effect --- */
+/* Slow zoom for a cinematic, editorial feel */
 .project-card .card-image-wrapper img {
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.8s var(--ease-out-expo);
 }
 
 .project-card:hover .card-image-wrapper img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* --- Button Hover Micro-interactions --- */
+/* Subtle lift and shadow expansion */
 .btn-primary,
 .btn-secondary {
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.4s var(--ease-out-expo), 
+                box-shadow 0.4s var(--ease-out-expo), 
+                background-color 0.4s var(--ease-smooth);
 }
 
 .btn-primary:hover,
 .btn-secondary:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary:active,
 .btn-secondary:active {
     transform: translateY(0);
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.1);
 }
 
 /* --- Scroll Reveal Animation Classes --- */
 /* Used by JS to animate elements as they scroll into view */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(40px);
+    transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
 }
 
 .reveal-on-scroll.is-visible {
@@ -291,24 +364,27 @@ body {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
 
-/* --- Custom Cursor for Interactive Elements (Optional, matching premium feel) --- */
-a, button, .cursor-pointer {
-    cursor: pointer;
-}
-
-/* --- Loading Spinner (for form submission or video loading) --- */
+/* --- Loading Spinner --- */
+/* Minimal, thin spinner for premium loading states */
 .spinner {
     width: 24px;
     height: 24px;
-    border: 3px solid hsl(var(--border));
+    border: 2px solid hsl(var(--border) / 0.3);
     border-top-color: hsl(var(--foreground));
     border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+/* --- Custom Cursor for Interactive Elements --- */
+/* Ensures smooth pointer changes */
+a, button, .cursor-pointer {
+    cursor: pointer;
+    transition: opacity 0.3s var(--ease-smooth);
+}
+
+a:active, button:active {
+    opacity: 0.7;
 }
