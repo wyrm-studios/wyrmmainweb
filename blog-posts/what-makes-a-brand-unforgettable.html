@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>What Makes a Brand Unforgettable? The 3 Pillars of Brand Memory | WYRM.studios</title>
+    <meta name="description" content="Discover the three non-negotiable pillars behind every unforgettable brand. Learn why 95% of purchasing decisions are emotional and how to build a brand people remember.">
+    <meta name="keywords" content="unforgettable brand, memorable brand identity, brand recognition, brand strategy, brand consistency, emotional branding, WYRM studios">
+    <meta name="author" content="Omar Bouzganda, WYRM.studios">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'wyrm-black': '#1A1A1A',
+                        'wyrm-white': '#F5F5F5',
+                        'wyrm-blue': '#316CD3',
+                        'wyrm-oceanic': '#3E88FF',
+                        'wyrm-crimson': '#DC142C',
+                        'wyrm-oxford': '#1F2C5B',
+                        'wyrm-deep': '#1248A6',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+    <!-- FIXED NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <!-- Left: Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-600 hover:text-black transition-colors font-medium text-sm">Home</a>
+                    <a href="../work.html" class="text-gray-600 hover:text-black transition-colors font-medium text-sm">Work</a>
+                    <a href="../about.html" class="text-gray-600 hover:text-black transition-colors font-medium text-sm">About</a>
+                    <a href="../blog.html" class="text-black font-semibold text-sm border-b-2 border-black pb-0.5">Blog</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+
+                <!-- Center: Logo -->
+                <div class="flex items-center justify-center flex-1 md:flex-none md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+                    <a href="../index.html">
+                        <img src="../assets/logo/black logo png.png" alt="WYRM.studios" class="h-8 md:h-10 w-auto">
+                    </a>
+                </div>
+
+                <!-- Right: Shop + CTA -->
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hidden md:block text-gray-600 hover:text-black transition-colors text-sm font-medium">Shop</a>
+                    <a href="../inquiry.html" class="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors flex items-center space-x-2">
+                        <span>Start a Project</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white hidden flex-col">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <a href="../index.html">
+                <img src="../assets/logo/black logo png.png" alt="WYRM.studios" class="h-8 w-auto">
+            </a>
+            <button id="close-mobile-menu" class="p-2 text-black">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../index.html" class="text-5xl font-bold text-gray-300 hover:text-black transition-colors">Home</a>
+            <a href="../work.html" class="text-5xl font-bold text-gray-300 hover:text-black transition-colors">Work</a>
+            <a href="../about.html" class="text-5xl font-bold text-gray-300 hover:text-black transition-colors">About</a>
+            <a href="../blog.html" class="text-5xl font-bold text-black">Blog.</a>
+        </nav>
+        <div class="p-12">
+            <a href="../inquiry.html" class="flex items-center space-x-3 bg-black text-white px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-24 pb-24 px-4 sm:px-6 lg:px-8">
+        
+        <article class="max-w-4xl mx-auto">
+            
+            <!-- Blog Header -->
+            <header class="mb-16 text-center">
+                <div class="flex items-center justify-center space-x-3 mb-8">
+                    <span class="px-4 py-1.5 rounded-full bg-blue-50 text-wyrm-blue text-xs font-bold tracking-wider uppercase">Brand Identity</span>
+                    <span class="text-xs text-gray-500 tracking-wider uppercase">Strategy</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-black mb-6 leading-tight tracking-tight">
+                    What Makes a Brand Unforgettable?
+                </h1>
+                <h2 class="text-3xl md:text-4xl font-light text-gray-500 mb-8">
+                    The three non-negotiable pillars behind every brand people remember.
+                </h2>
+                <div class="flex items-center justify-center space-x-4 text-sm text-gray-500">
+                    <span>March 2026</span>
+                    <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                    <span>5 min read</span>
+                    <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                    <span>By Omar Bouzganda</span>
+                </div>
+            </header>
+
+            <!-- Introduction -->
+            <div class="mb-20">
+                <p class="text-2xl md:text-3xl text-black leading-relaxed font-light text-center max-w-3xl mx-auto">
+                    The average consumer is exposed to 10,000 brand messages per day. Most of them vanish before the next scroll. The brands that survive this noise do not do it by shouting louder. They do it by being impossible to confuse with anything else.
+                </p>
+            </div>
+
+            <!-- Section 1: The Forgetting Problem -->
+            <section class="mb-24">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-8 tracking-tight">The Forgetting Problem</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Unforgettable brands are not accidents. They are engineered.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    After working across brand identity, motion design, and web experiences, we have identified the pattern. Every brand people remember — from Nike to Apple to the studios we build — shares three non-negotiable traits.
+                </p>
+            </section>
+
+            <!-- Section 2: Pillar 1 - Consistency -->
+            <section class="mb-24">
+                <div class="flex items-baseline space-x-4 mb-8">
+                    <span class="text-7xl md:text-8xl font-bold text-wyrm-blue">01</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-black tracking-tight">Consistency</h2>
+                </div>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Consistency is not repetition. It is recognition.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                    When a brand looks, sounds, and feels the same across every touchpoint, the brain stops working to understand it and starts trusting it.
+                </p>
+
+                <!-- Data Graphs Section -->
+                <div class="bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-12 mb-12">
+                    <h3 class="text-sm font-bold tracking-widest text-gray-500 uppercase mb-10">The Data: Why Consistency Wins</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                            <div class="text-5xl font-bold text-wyrm-blue mb-3">3.5x</div>
+                            <p class="text-sm text-gray-600 leading-relaxed">More likely to enjoy excellent brand visibility with consistent presentation.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                            <div class="text-5xl font-bold text-wyrm-blue mb-3">71%</div>
+                            <p class="text-sm text-gray-600 leading-relaxed">Of consumers trust a brand more when its presentation is consistent across channels.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                            <div class="text-5xl font-bold text-wyrm-crimson mb-3">-40%</div>
+                            <p class="text-sm text-gray-600 leading-relaxed">Reduction in perceived quality when branding is inconsistent.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Positioning Note -->
+                <div class="border-l-4 border-wyrm-blue pl-8 py-4">
+                    <p class="text-xl text-black font-medium italic">
+                        Consistency is the foundation. Without it, nothing else matters.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 3: Pillar 2 - Emotion -->
+            <section class="mb-24">
+                <div class="flex items-baseline space-x-4 mb-8">
+                    <span class="text-7xl md:text-8xl font-bold text-wyrm-blue">02</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-black tracking-tight">Emotion</h2>
+                </div>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    People do not remember what you said. They remember how you made them feel.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                    A logo is a shape. A brand film is a feeling. A color palette is a mood. A typeface is a voice. The brands that live in memory are the ones that made you feel something before you even knew why.
+                </p>
+
+                <!-- Data Graphs Section -->
+                <div class="bg-black text-white rounded-3xl p-8 md:p-12 mb-12">
+                    <h3 class="text-sm font-bold tracking-widest text-gray-400 uppercase mb-10">The Data: Why Emotion Drives Revenue</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <div class="text-6xl md:text-7xl font-bold text-white mb-3">306%</div>
+                            <p class="text-sm text-gray-400 leading-relaxed">Higher lifetime value for emotionally connected customers.</p>
+                        </div>
+                        <div>
+                            <div class="text-6xl md:text-7xl font-bold text-white mb-3">95%</div>
+                            <p class="text-sm text-gray-400 leading-relaxed">Of purchasing decisions are subconscious and emotionally driven.</p>
+                        </div>
+                        <div>
+                            <div class="text-6xl md:text-7xl font-bold text-white mb-3">2:1</div>
+                            <p class="text-sm text-gray-400 leading-relaxed">Brands that lead with emotion outperform competitors in revenue growth.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Positioning Note -->
+                <div class="border-l-4 border-wyrm-crimson pl-8 py-4">
+                    <p class="text-xl text-black font-medium italic">
+                        Logic justifies the purchase. Emotion triggers it.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 4: Pillar 3 - Differentiation -->
+            <section class="mb-24">
+                <div class="flex items-baseline space-x-4 mb-8">
+                    <span class="text-7xl md:text-8xl font-bold text-wyrm-blue">03</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-black tracking-tight">Differentiation</h2>
+                </div>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    If your brand could be swapped with a competitor's without anyone noticing, you do not have a brand. You have a commodity.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                    Differentiation is not about being different for the sake of it. It is about being specifically, intentionally, unmistakably you.
+                </p>
+
+                <!-- Data Graphs Section -->
+                <div class="bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-12 mb-12">
+                    <h3 class="text-sm font-bold tracking-widest text-gray-500 uppercase mb-10">The Data: Why Differentiation Commands Premium Pricing</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                            <div class="text-5xl font-bold text-wyrm-blue mb-3">77%</div>
+                            <p class="text-sm text-gray-600 leading-relaxed">Of consumers choose brands based on shared values, not just products.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                            <div class="text-5xl font-bold text-wyrm-blue mb-3">20-30%</div>
+                            <p class="text-sm text-gray-600 leading-relaxed">More that differentiated brands can charge compared to competitors.</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                            <div class="text-5xl font-bold text-wyrm-blue mb-3">88%</div>
+                            <p class="text-sm text-gray-600 leading-relaxed">Of consumers say authenticity is a key factor in brand loyalty.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Positioning Note -->
+                <div class="border-l-4 border-wyrm-blue pl-8 py-4">
+                    <p class="text-xl text-black font-medium italic">
+                        Differentiation is what makes consistency and emotion worth remembering.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 5: The WYRM Method -->
+            <section class="mb-24">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-8 tracking-tight">The WYRM Method</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                    At WYRM.studios, we build brands around these three pillars. Every project follows the same structure:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <!-- Strategy First -->
+                    <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors bg-white">
+                        <div class="text-5xl font-bold text-wyrm-blue mb-6">01</div>
+                        <h3 class="text-2xl font-bold text-black mb-4">Strategy First</h3>
+                        <p class="text-gray-600 leading-relaxed">We identify what makes you different before we design anything.</p>
+                    </div>
+
+                    <!-- System Second -->
+                    <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors bg-white">
+                        <div class="text-5xl font-bold text-wyrm-blue mb-6">02</div>
+                        <h3 class="text-2xl font-bold text-black mb-4">System Second</h3>
+                        <p class="text-gray-600 leading-relaxed">We build a visual identity that can survive any platform, any format, any moment.</p>
+                    </div>
+
+                    <!-- Motion Third -->
+                    <div class="border border-gray-200 rounded-2xl p-8 hover:border-black transition-colors bg-white">
+                        <div class="text-5xl font-bold text-wyrm-blue mb-6">03</div>
+                        <h3 class="text-2xl font-bold text-black mb-4">Motion Third</h3>
+                        <p class="text-gray-600 leading-relaxed">We bring the brand to life through film, animation, and interaction — because static brands are forgettable brands.</p>
+                    </div>
+                </div>
+
+                <!-- Quote Block -->
+                <div class="relative py-16 px-8 md:px-12 bg-black text-white rounded-3xl mb-12 overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-wyrm-blue to-wyrm-oceanic"></div>
+                    <p class="text-2xl md:text-4xl font-bold leading-tight tracking-tight text-center">
+                        "The result is not a logo. It is not a website. It is not a video. It is a brand that works when you are not in the room."
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 6: The Test -->
+            <section class="mb-24">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-12 tracking-tight">The Test</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                    Ask yourself three questions:
+                </p>
+
+                <div class="space-y-6 mb-12">
+                    <!-- Question 1 -->
+                    <div class="border border-gray-200 rounded-2xl p-8 bg-white">
+                        <div class="text-3xl font-bold text-wyrm-blue mb-4">01</div>
+                        <p class="text-xl text-black font-medium mb-3">Can someone describe your brand in one sentence without using your product name?</p>
+                        <p class="text-gray-600">If not, you do not have a brand. You have a description.</p>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="border border-gray-200 rounded-2xl p-8 bg-white">
+                        <div class="text-3xl font-bold text-wyrm-blue mb-4">02</div>
+                        <p class="text-xl text-black font-medium mb-3">Does your brand look the same on Instagram, your website, and a billboard?</p>
+                        <p class="text-gray-600">If not, you are leaking trust at every touchpoint.</p>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="border border-gray-200 rounded-2xl p-8 bg-white">
+                        <div class="text-3xl font-bold text-wyrm-blue mb-4">03</div>
+                        <p class="text-xl text-black font-medium mb-3">Would your customers miss you if you disappeared tomorrow?</p>
+                        <p class="text-gray-600">If not, you are replaceable. And replaceable brands do not survive.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: Unforgettable Is a Choice -->
+            <section class="mb-24">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-8 tracking-tight">Unforgettable Is a Choice</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Being forgettable is the default. Being unforgettable is a decision — and a discipline.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    It requires strategy before aesthetics. Consistency before creativity. Emotion before explanation.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-12">
+                    The brands people remember are not the ones with the biggest budgets. They are the ones with the clearest identities.
+                </p>
+
+                <!-- Final Statement -->
+                <div class="text-center py-12 border-t border-b border-gray-200">
+                    <p class="text-3xl md:text-4xl font-bold text-black tracking-tight">
+                        We build brands people remember.
+                    </p>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="pt-16 text-center">
+                <p class="text-sm text-gray-500 mb-8 tracking-widest uppercase">Ready to be unforgettable?</p>
+                <a href="../inquiry.html" class="inline-flex items-center space-x-3 bg-black text-white px-10 py-5 rounded-full font-medium text-lg hover:bg-gray-800 transition-colors shadow-2xl">
+                    <span>Start a Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <div class="md:col-span-5">
+                    <img src="../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="h-32 w-auto mb-6">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand identity, motion design, video editing, logos, and web experiences for companies that refuse to blend in.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video Editing</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../inquiry.html" class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a></li>
+                        <li><a href="mailto:contact@wyrm.studio" class="text-gray-400 hover:text-white transition-colors text-sm">contact@wyrm.studio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex');
+                });
+            }
+
+            if (closeMobileMenuBtn && mobileMenu) {
+                closeMobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
