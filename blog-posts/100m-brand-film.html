@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>The $100M Brand Film: Are You Rich Enough to Waste It? | WYRM.studios</title>
+    <meta name="description" content="Discover why the world's biggest brands invest over $100M in brand films. Learn how cinematic video increases conversion by 80% and builds unforgettable brand recall.">
+    <meta name="keywords" content="brand film, corporate video, brand strategy, video marketing, conversion rate optimization, Netflix, Nike, Apple, WYRM studios">
+    <meta name="author" content="Omar Bouzganda, WYRM.studios">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="The $100M Brand Film: Are You Rich Enough to Waste It?">
+    <meta property="og:description" content="Companies spend more on brand films than they do on cars. And the ones doing it right? They're not wasting a single frame.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wyrm.studios/blog-posts/100m-brand-film.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                        // WYRM Brand Colors from Guidelines
+                        'wyrm-black': '#1A1A1A',
+                        'wyrm-white': '#F5F5F5',
+                        'wyrm-blue': '#316CD3',
+                        'wyrm-oceanic': '#3E88FF',
+                        'wyrm-crimson': '#DC142C',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-1.5" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16">
+            <div class="grid grid-cols-3 items-center h-full">
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="../index.html" class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="../work.html" class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+                        <a href="../about.html" class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="../blog.html" class="text-foreground font-medium underline underline-offset-4 decoration-1">Blog</a>
+                    </nav>
+                </div>
+                <div class="flex items-center justify-center">
+                    <a href="../index.html" class="flex items-center justify-center">
+                        <img src="../assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-10 md:h-12 w-auto dark:hidden">
+                        <img src="../assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-10 md:h-12 w-auto hidden dark:block">
+                    </a>
+                </div>
+                <div class="flex items-center justify-end space-x-4 md:space-x-6">
+                    <a href="#" class="hidden md:block text-muted-foreground hover:text-foreground transition-colors">Shop</a>
+                    <button id="theme-toggle" class="p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+                    <a href="../inquiry.html" class="flex items-center space-x-2 bg-foreground text-background px-4 md:px-5 py-2 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-sm md:text-base">
+                        <span>Start a Project</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden" style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="../index.html" class="flex items-center justify-center flex-1">
+                <img src="../assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-10 md:h-12 w-auto dark:hidden">
+                <img src="../assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-10 md:h-12 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../index.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="../work.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Work</a>
+            <a href="../about.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">About</a>
+            <a href="../blog.html" class="text-6xl font-bold text-foreground">Blog<span class="text-foreground">.</span></a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="../inquiry.html" class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-24 px-4 sm:px-6 md:px-8">
+        
+        <article class="max-w-[800px] mx-auto">
+            
+            <!-- Blog Header -->
+            <header class="mb-16 md:mb-24 text-center">
+                <div class="flex items-center justify-center space-x-3 mb-8">
+                    <span class="px-3 py-1 rounded-full bg-wyrm-blue/10 text-wyrm-blue text-xs font-bold tracking-widest uppercase">Brand Film</span>
+                    <span class="text-xs text-muted-foreground tracking-widest uppercase">Strategy</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight tracking-tight">
+                    The $100M Brand Film:<br>
+                    <span class="text-muted-foreground">Are You Rich Enough to Waste It?</span>
+                </h1>
+                <div class="flex items-center justify-center space-x-4 text-sm text-muted-foreground">
+                    <span>March 2026</span>
+                    <span class="w-1 h-1 rounded-full bg-muted-foreground/50"></span>
+                    <span>4 min read</span>
+                    <span class="w-1 h-1 rounded-full bg-muted-foreground/50"></span>
+                    <span>By Omar Bouzganda</span>
+                </div>
+            </header>
+
+            <!-- Introduction -->
+            <div class="prose prose-lg max-w-none mb-16 md:mb-24">
+                <p class="text-xl md:text-2xl text-foreground leading-relaxed font-light mb-8">
+                    Companies spend more on brand films than they do on cars. And the ones doing it right? They're not wasting a single frame.
+                </p>
+            </div>
+
+            <!-- Section 1: The $100M Reality -->
+            <section class="mb-20 md:mb-32">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-8 tracking-tight">The $100M Reality</h2>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+                    The world's biggest brands — <strong class="text-foreground">Netflix, Nike, Apple, Amazon</strong> — collectively invest over <span class="text-wyrm-blue font-bold">$100M annually</span> in video content that includes brand films. Not product ads. Not explainer videos. Brand films.
+                </p>
+                <p class="text-lg text-muted-foreground leading-relaxed">
+                    Why? Because a 45-second brand film can do what 200 pages of brand guidelines never will: make someone feel something about your brand.
+                </p>
+            </section>
+
+            <!-- Section 2: What a Brand Film Actually Does -->
+            <section class="mb-20 md:mb-32">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-8 tracking-tight">What a Brand Film Actually Does</h2>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-12">
+                    A brand film isn't a commercial. It's not a demo. It's a compressed identity — the who, the why, and the how of your brand, delivered in under a minute.
+                </p>
+
+                <!-- Data Graphs Section -->
+                <div class="bg-secondary/30 border border-border/50 rounded-2xl p-8 md:p-12 mb-12">
+                    <h3 class="text-sm font-bold tracking-widest text-muted-foreground uppercase mb-8">The Data: Video vs. Text</h3>
+                    
+                    <!-- Graph 1: Retention -->
+                    <div class="mb-10">
+                        <div class="flex justify-between items-baseline mb-3">
+                            <span class="text-lg font-bold text-foreground">Message Retention (Video)</span>
+                            <span class="text-3xl font-bold text-wyrm-blue">95%</span>
+                        </div>
+                        <div class="w-full bg-border/30 rounded-full h-2 mb-6">
+                            <div class="bg-wyrm-blue h-2 rounded-full transition-all duration-1000" style="width: 95%"></div>
+                        </div>
+
+                        <div class="flex justify-between items-baseline mb-3">
+                            <span class="text-lg font-bold text-foreground">Message Retention (Text)</span>
+                            <span class="text-3xl font-bold text-muted-foreground">10%</span>
+                        </div>
+                        <div class="w-full bg-border/30 rounded-full h-2">
+                            <div class="bg-foreground/30 h-2 rounded-full transition-all duration-1000" style="width: 10%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Graph 2: Conversion -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-border/50">
+                        <div>
+                            <div class="text-5xl md:text-6xl font-bold text-foreground mb-2">80%</div>
+                            <p class="text-sm text-muted-foreground leading-relaxed">Increase in landing page conversion when video is placed above the fold.</p>
+                        </div>
+                        <div>
+                            <div class="text-5xl md:text-6xl font-bold text-foreground mb-2">2.5x</div>
+                            <p class="text-sm text-muted-foreground leading-relaxed">More time spent on pages with video compared to pages without.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Positioning Note -->
+                <div class="border-l-2 border-wyrm-crimson pl-6 py-2">
+                    <p class="text-lg text-foreground font-medium italic">
+                        Cinematic quality signals premium pricing — before a single word is read.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 3: The Homepage Problem -->
+            <section class="mb-20 md:mb-32">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-8 tracking-tight">The Homepage Problem</h2>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+                    Most homepages are walls of text explaining what a company does. The problem? Nobody reads them.
+                </p>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-12">
+                    A brand film placed at the top of your homepage does the job of every hero section, mission statement, and value proposition — combined. In 45 seconds. With sound. With emotion. With intent.
+                </p>
+
+                <!-- Quote Block -->
+                <div class="relative py-12 px-8 bg-wyrm-black text-wyrm-white rounded-2xl mb-12 overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-wyrm-blue to-wyrm-oceanic"></div>
+                    <p class="text-2xl md:text-3xl font-bold leading-tight tracking-tight">
+                        "A great brand film doesn't explain your product. It makes your audience want to understand it."
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 4: Who, Why, How -->
+            <section class="mb-20 md:mb-32">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-12 tracking-tight">Who, Why, How — In Under a Minute</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- The Who -->
+                    <div class="border border-border/50 rounded-2xl p-8 hover:border-foreground/20 transition-colors">
+                        <div class="text-4xl font-bold text-wyrm-blue mb-4">01</div>
+                        <h3 class="text-xl font-bold text-foreground mb-3">The Who</h3>
+                        <p class="text-muted-foreground leading-relaxed">Your brand's personality, distilled into motion. Not a logo reveal — a feeling.</p>
+                    </div>
+
+                    <!-- The Why -->
+                    <div class="border border-border/50 rounded-2xl p-8 hover:border-foreground/20 transition-colors">
+                        <div class="text-4xl font-bold text-wyrm-blue mb-4">02</div>
+                        <h3 class="text-xl font-bold text-foreground mb-3">The Why</h3>
+                        <p class="text-muted-foreground leading-relaxed">The emotional reason your brand exists. The thing that makes someone choose you over the 47 alternatives.</p>
+                    </div>
+
+                    <!-- The How -->
+                    <div class="border border-border/50 rounded-2xl p-8 hover:border-foreground/20 transition-colors">
+                        <div class="text-4xl font-bold text-wyrm-blue mb-4">03</div>
+                        <h3 class="text-xl font-bold text-foreground mb-3">The How</h3>
+                        <p class="text-muted-foreground leading-relaxed">Your craft, your process, your standard — shown, not told. Cinematic quality signals that you take your work seriously.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Conclusion -->
+            <section class="mb-20 md:mb-32">
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-8 tracking-tight">So, Are You Rich Enough to Waste It?</h2>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                    The question isn't whether you can afford a brand film. It's whether you can afford not having one — while your competitors use theirs to convert, position, and be remembered.
+                </p>
+                <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                    A brand film is the single most efficient way to deliver your entire message to a busy audience. It speaks for you when you're not in the room. It sells without selling. It positions without explaining.
+                </p>
+                <p class="text-xl text-foreground font-medium leading-relaxed">
+                    The brands that invest in brand films aren't wasting money. They're buying recall.
+                </p>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="border-t border-border/50 pt-16 text-center">
+                <p class="text-sm text-muted-foreground mb-6 tracking-widest uppercase">Ready to build your brand film?</p>
+                <a href="../inquiry.html" class="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-colors shadow-xl">
+                    <span>Start a Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <div class="md:col-span-5">
+                    <img src="../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="footer-logo-mark mb-6">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand identity, motion design, video editing, logos, and web experiences for companies that refuse to blend in.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video Editing</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../inquiry.html" class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a></li>
+                        <li><a href="mailto:contact@wyrm.studio" class="text-gray-400 hover:text-white transition-colors text-sm">contact@wyrm.studio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../js/main.js"></script>
+    <script src="../js/theme-toggle.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/smooth-scroll.js"></script>
+    <script src="../js/page-transitions.js"></script>
+
+</body>
+</html>
