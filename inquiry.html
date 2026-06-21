@@ -47,6 +47,14 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("arfxHb9y1T0KbEcu4");
+        })();
+    </script>
 </head>
 <body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
 
@@ -151,11 +159,7 @@
                 <div class="form-progress-bar h-full bg-foreground rounded-full" style="width: 0%;"></div>
             </div>
 
-            <form id="inquiry-form" class="mt-4" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                
-                <!-- Hidden field for email destination -->
-                <input type="hidden" name="_to" value="studioswyrm@gmail.com">
-                <input type="hidden" name="_subject" value="New Project Inquiry from WYRM.studios">
+            <form id="inquiry-form" class="mt-4">
                 
                 <!-- STEP 1: Brand Name -->
                 <div class="form-step active" data-step="1">
@@ -168,7 +172,7 @@
                     
                     <input type="text" name="brand_name" class="form-input text-2xl md:text-3xl font-bold bg-transparent border-b-2 border-foreground/20 focus:border-foreground outline-none w-full py-4 mb-12 placeholder:text-muted-foreground/50" placeholder="Type your answer here..." required>
                     
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="1" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -192,7 +196,7 @@
                     </div>
 
                     <input type="hidden" name="industry" value="">
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="2" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -215,7 +219,7 @@
                     </div>
 
                     <input type="hidden" name="services" value="">
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="3" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -232,7 +236,7 @@
                     <label class="text-xl font-bold text-foreground block mb-2">Select a date</label>
                     <input type="date" name="project_debut" class="form-input text-2xl font-bold bg-transparent border-b-2 border-foreground/20 focus:border-foreground outline-none w-full py-4 mb-12" required>
                     
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="4" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -257,7 +261,7 @@
                     </div>
 
                     <input type="hidden" name="business_problems" value="">
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="5" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -280,7 +284,7 @@
                     </div>
 
                     <input type="hidden" name="referral_source" value="">
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="6" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -308,7 +312,7 @@
                         </div>
                     </div>
 
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="7" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -324,7 +328,7 @@
                     
                     <textarea name="prompt_reason" class="form-textarea text-2xl font-bold bg-transparent border-b-2 border-foreground/20 focus:border-foreground outline-none w-full py-4 mb-12 placeholder:text-muted-foreground/50 resize-none" placeholder="Type your answer here..." rows="4" required></textarea>
                     
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="8" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -345,7 +349,7 @@
                     </div>
 
                     <input type="hidden" name="budget" value="">
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="9" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -366,7 +370,7 @@
                     </div>
 
                     <input type="hidden" name="timeline" value="">
-                    <button type="button" id="form-continue-btn" class="btn btn-primary btn-disabled" disabled>
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="10" disabled>
                         Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -514,7 +518,6 @@
     <script src="js/main.js"></script>
     <script src="js/theme-toggle.js"></script>
     <script src="js/mobile-menu.js"></script>
-    <script src="js/form-engine.js"></script>
     <script src="js/smooth-scroll.js"></script>
     <script src="js/page-transitions.js"></script>
 
@@ -593,59 +596,198 @@
         });
     </script>
 
-    <!-- Form Submission Script -->
+    <!-- Form Engine Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('inquiry-form');
+            const steps = document.querySelectorAll('.form-step');
+            const continueButtons = document.querySelectorAll('.form-continue-btn');
+            const prevBtn = document.getElementById('form-prev-btn');
+            const nextBtn = document.getElementById('form-next-btn');
+            const progressBar = document.querySelector('.form-progress-bar');
+            const submitBtn = document.getElementById('form-submit-btn');
             const successMessage = document.getElementById('form-success');
+            
+            let currentStep = 1;
+            const totalSteps = steps.length;
 
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
+            // Form selectors for single and multi-select
+            const formSelectors = document.querySelectorAll('.form-selector');
+            const multiSelectSteps = document.querySelectorAll('[data-multi-select="true"]');
 
-                // Collect form data
-                const formData = new FormData(form);
+            // Update progress bar
+            function updateProgressBar() {
+                const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+                progressBar.style.width = progress + '%';
+            }
+
+            // Show specific step
+            function showStep(stepNumber) {
+                steps.forEach(step => {
+                    step.classList.remove('active');
+                    if (parseInt(step.dataset.step) === stepNumber) {
+                        step.classList.add('active');
+                    }
+                });
                 
-                // Create email body
-                let emailBody = 'New Project Inquiry from WYRM.studios\n\n';
-                emailBody += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
+                currentStep = stepNumber;
+                updateProgressBar();
+                updateContinueButton();
                 
-                for (let [key, value] of formData.entries()) {
-                    if (key.startsWith('_')) continue; // Skip Formspree internal fields
-                    emailBody += `${key.replace(/_/g, ' ').toUpperCase()}: ${value}\n`;
+                // Scroll to top of form
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // Check if current step has valid input
+            function isStepValid() {
+                const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+                const isMultiSelect = currentStepEl.dataset.multiSelect === 'true';
+                
+                if (isMultiSelect) {
+                    // For multi-select, check if at least one is selected
+                    const selectedOptions = currentStepEl.querySelectorAll('.form-selector.selected');
+                    return selectedOptions.length > 0;
+                } else {
+                    // For single select or input, check if something is selected/filled
+                    const selectedOption = currentStepEl.querySelector('.form-selector.selected');
+                    const inputField = currentStepEl.querySelector('input:not([type="hidden"]), textarea');
+                    
+                    if (selectedOption) return true;
+                    if (inputField && inputField.value.trim() !== '') return true;
+                    
+                    return false;
                 }
+            }
+
+            // Update continue button state
+            function updateContinueButton() {
+                const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+                const continueBtn = currentStepEl.querySelector('.form-continue-btn');
                 
-                emailBody += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
+                if (continueBtn) {
+                    if (isStepValid()) {
+                        continueBtn.classList.remove('btn-disabled');
+                        continueBtn.disabled = false;
+                    } else {
+                        continueBtn.classList.add('btn-disabled');
+                        continueBtn.disabled = true;
+                    }
+                }
+            }
 
-                try {
-                    // Send to Formspree (you'll need to replace YOUR_FORM_ID with actual Formspree form ID)
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
+            // Handle form selector clicks
+            formSelectors.forEach(selector => {
+                selector.addEventListener('click', function() {
+                    const step = this.closest('.form-step');
+                    const isMultiSelect = step.dataset.multiSelect === 'true';
+                    
+                    if (isMultiSelect) {
+                        // Toggle selection for multi-select
+                        this.classList.toggle('selected');
+                    } else {
+                        // Deselect all and select only this one for single select
+                        step.querySelectorAll('.form-selector').forEach(s => s.classList.remove('selected'));
+                        this.classList.add('selected');
+                    }
+                    
+                    // Update hidden input value
+                    updateHiddenInput(step);
+                    updateContinueButton();
+                });
+            });
 
-                    if (response.ok) {
+            // Update hidden input with selected values
+            function updateHiddenInput(step) {
+                const isMultiSelect = step.dataset.multiSelect === 'true';
+                const hiddenInput = step.querySelector('input[type="hidden"]');
+                
+                if (!hiddenInput) return;
+                
+                const selectedOptions = step.querySelectorAll('.form-selector.selected');
+                const values = Array.from(selectedOptions).map(opt => opt.dataset.value);
+                
+                if (isMultiSelect) {
+                    hiddenInput.value = values.join(', ');
+                } else {
+                    hiddenInput.value = values[0] || '';
+                }
+            }
+
+            // Handle input changes
+            const inputs = form.querySelectorAll('input:not([type="hidden"]), textarea');
+            inputs.forEach(input => {
+                input.addEventListener('input', updateContinueButton);
+                input.addEventListener('change', updateContinueButton);
+            });
+
+            // Continue button click
+            continueButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (!this.disabled && currentStep < totalSteps) {
+                        showStep(currentStep + 1);
+                    }
+                });
+            });
+
+            // Previous button
+            prevBtn.addEventListener('click', function() {
+                if (currentStep > 1) {
+                    showStep(currentStep - 1);
+                }
+            });
+
+            // Next button
+            nextBtn.addEventListener('click', function() {
+                if (currentStep < totalSteps) {
+                    showStep(currentStep + 1);
+                }
+            });
+
+            // Form submission with EmailJS
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Collect all form data
+                const formData = new FormData(form);
+                const templateParams = {
+                    from_name: formData.get('first_name') + ' ' + formData.get('last_name'),
+                    from_email: formData.get('email'),
+                    brand_name: formData.get('brand_name'),
+                    industry: formData.get('industry'),
+                    services: formData.get('services'),
+                    project_debut: formData.get('project_debut'),
+                    business_problems: formData.get('business_problems'),
+                    referral_source: formData.get('referral_source'),
+                    first_name: formData.get('first_name'),
+                    last_name: formData.get('last_name'),
+                    email: formData.get('email'),
+                    prompt_reason: formData.get('prompt_reason'),
+                    budget: formData.get('budget'),
+                    timeline: formData.get('timeline'),
+                    additional_info: formData.get('additional_info'),
+                    current_date: new Date().toLocaleDateString()
+                };
+
+                // Send email via EmailJS
+                emailjs.send('service_5ofrfln', 'template_f89r11k', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        
                         // Hide form, show success message
                         form.style.display = 'none';
                         successMessage.classList.remove('hidden');
                         
                         // Scroll to success message
                         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    } else {
+                    }, function(error) {
+                        console.log('FAILED...', error);
                         alert('There was an error submitting the form. Please try again or email studioswyrm@gmail.com directly.');
-                    }
-                } catch (error) {
-                    // Fallback: Open email client with pre-filled content
-                    const mailtoLink = `mailto:studioswyrm@gmail.com?subject=New Project Inquiry from WYRM.studios&body=${encodeURIComponent(emailBody)}`;
-                    window.location.href = mailtoLink;
-                    
-                    // Show success message anyway
-                    form.style.display = 'none';
-                    successMessage.classList.remove('hidden');
-                }
+                    });
             });
+
+            // Initialize
+            updateProgressBar();
+            updateContinueButton();
         });
     </script>
 
