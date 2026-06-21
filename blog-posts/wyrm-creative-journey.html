@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Art to Code: The WYRM Creative Journey | WYRM.studios</title>
+    <meta name="description" content="Explore the creative spectrum at WYRM.studios — from immersive 3D web experiences to graphic design and motion animation.">
+    <meta name="keywords" content="WYRM studios, creative journey, 3D web design, graphic design, motion design, ARCANE, brand animation">
+    <meta name="author" content="Omar Bouzganda, WYRM.studios">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'wyrm-black': '#1A1A1A',
+                        'wyrm-white': '#F5F5F5',
+                        'wyrm-blue': '#316CD3',
+                        'wyrm-oceanic': '#3E88FF',
+                        'wyrm-crimson': '#DC142C',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-black antialiased">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <!-- Left: Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-600 hover:text-black transition-colors font-medium text-sm">Home</a>
+                    <a href="../work.html" class="text-gray-600 hover:text-black transition-colors font-medium text-sm">Work</a>
+                    <a href="../about.html" class="text-gray-600 hover:text-black transition-colors font-medium text-sm">About</a>
+                    <a href="../blog.html" class="text-black font-bold underline underline-offset-4 decoration-2">Blog</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+
+                <!-- Center: Logo -->
+                <div class="flex items-center justify-center flex-1 md:flex-none md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+                    <a href="../index.html">
+                        <img src="../assets/logo/black logo png.png" alt="WYRM.studios" class="h-8 md:h-10 w-auto">
+                    </a>
+                </div>
+
+                <!-- Right: Shop + CTA -->
+                <div class="flex items-center space-x-4">
+                    <button id="shop-button" class="hidden md:block text-gray-600 hover:text-black transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+                    <a href="../inquiry.html" class="flex items-center space-x-2 bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white hidden flex-col">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <button id="close-mobile-menu" class="p-2 text-black">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="../index.html">
+                <img src="../assets/logo/black logo png.png" alt="WYRM.studios" class="h-8 w-auto">
+            </a>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../index.html" class="text-5xl font-bold text-gray-300 hover:text-black transition-colors">Home</a>
+            <a href="../work.html" class="text-5xl font-bold text-gray-300 hover:text-black transition-colors">Work</a>
+            <a href="../about.html" class="text-5xl font-bold text-gray-300 hover:text-black transition-colors">About</a>
+            <a href="../blog.html" class="text-5xl font-bold text-black">Blog.</a>
+        </nav>
+        <div class="p-12">
+            <a href="../inquiry.html" class="flex items-center space-x-3 bg-black text-white px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-24 pb-24 px-4 sm:px-6 lg:px-8">
+        
+        <article class="max-w-4xl mx-auto">
+            
+            <!-- Blog Header -->
+            <header class="mb-16 text-center">
+                <div class="flex items-center justify-center space-x-3 mb-8">
+                    <span class="px-4 py-1.5 rounded-full bg-gray-100 text-black text-xs font-bold tracking-wider uppercase">Portfolio</span>
+                    <span class="text-xs text-gray-500 tracking-wider uppercase">Creative Journey</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-black mb-6 leading-tight tracking-tight">
+                    From Art to Code:<br>
+                    <span class="text-gray-500">The WYRM Creative Journey</span>
+                </h1>
+                <div class="flex items-center justify-center space-x-4 text-sm text-gray-500">
+                    <span>March 2026</span>
+                    <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                    <span>6 min read</span>
+                    <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                    <span>By Omar Bouzganda</span>
+                </div>
+            </header>
+
+            <!-- Introduction -->
+            <div class="mb-20">
+                <p class="text-2xl md:text-3xl text-black leading-relaxed font-light text-center max-w-3xl mx-auto">
+                    WYRM.studios exists at the intersection of art and technology. From immersive 3D worlds to graphic design to motion animation — we don't just build brands, we craft experiences across every medium.
+                </p>
+            </div>
+
+            <!-- Section 1: ARCANE - 3D Web Experience -->
+            <section class="mb-24">
+                <div class="flex items-baseline space-x-4 mb-8">
+                    <span class="text-7xl md:text-8xl font-bold text-wyrm-blue">01</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-black tracking-tight">ARCANE: The Tree That Remembers</h2>
+                </div>
+                
+                <div class="mb-12">
+                    <a href="https://arcane-henna.vercel.app/" target="_blank" class="block group">
+                        <div class="aspect-video bg-gray-100 rounded-2xl overflow-hidden mb-6">
+                            <img src="https://arcane-henna.vercel.app/og-image.png" alt="ARCANE Website Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='assets/images/blog/arcane-placeholder.jpg'">
+                        </div>
+                        <p class="text-sm text-gray-500 text-center">Visit ARCANE →</p>
+                    </a>
+                </div>
+
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    ARCANE isn't just a website — it's a living, breathing digital ritual. It transcends traditional web design to become an immersive, VR-like experience that blends poetic storytelling, advanced 3D rendering, and persistent memory.
+                </p>
+
+                <h3 class="text-2xl font-bold text-black mb-4 mt-8">The User Journey</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    When a user enters ARCANE, they don't see a standard webpage. They step into a cinematic prologue: a stark, pitch-black void with film grain and a glowing symbol. A 6-screen poetic narrative plays while heavy 3D assets load invisibly in the background, teaching the user the rules of this world: <strong class="text-black">The tree does not grant wishes. It remembers them.</strong>
+                </p>
+
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The user is asked to type their deepest wish and choose a specific date in the future to return. Once sealed, the wish floats upward, blurring and dissolving into the ether like a cloud of smoke. Then they enter a breathtaking, fully rendered 3D environment — a sacred grove with a glowing purple tree at its center, surrounded by floating golden dust and atmospheric fog.
+                </p>
+
+                <h3 class="text-2xl font-bold text-black mb-4 mt-8">The Technology</h3>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-blue font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">Persistent Memory Engine:</strong> Using deep localStorage architecture, the website tracks the exact timestamp, the text of the wish, and the return date. If the user returns on or after their chosen date, the site greets them: "You Have Returned. The tree remembers your voice."</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-blue font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">Cinematic 3D Rendering:</strong> Powered by Three.js & WebGL with Unreal Engine bloom, organic heartbeat algorithms, 150+ floating particles with sine-wave oscillations, and ACES filmic tone mapping for Hollywood-grade color grading.</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-blue font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">VR-Like Navigation:</strong> Global touch-and-drag spatial engine using mathematically perfect Bézier curve camera arcs — feels like moving through a high-end VR game.</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-blue font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">Audio-Visual Synchronization:</strong> Custom ambient track tied directly to the emotional climax of the ritual.</span>
+                    </li>
+                </ul>
+
+                <div class="border-l-4 border-wyrm-blue pl-8 py-4">
+                    <p class="text-xl text-black font-medium italic">
+                        ARCANE proves that the web browser is capable of delivering the same emotional gravity as a AAA indie video game or an art-house film.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 2: Magic Hate - Graphic Design -->
+            <section class="mb-24">
+                <div class="flex items-baseline space-x-4 mb-8">
+                    <span class="text-7xl md:text-8xl font-bold text-wyrm-blue">02</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-black tracking-tight">Magic Hate: Album Artwork for Rūḥ</h2>
+                </div>
+                
+                <div class="mb-12">
+                    <a href="https://www.instagram.com/p/DNtr9Zx2CFL/?img_index=1" target="_blank" class="block group">
+                        <div class="aspect-square max-w-2xl mx-auto bg-gray-100 rounded-2xl overflow-hidden mb-6">
+                            <img src="../assets/images/537057154_17938494741062656_8285376585403829618_n.jpg" alt="Magic Hate Album Artwork" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <p class="text-sm text-gray-500 text-center">View on Instagram →</p>
+                    </a>
+                </div>
+
+                <h3 class="text-2xl font-bold text-black mb-4">Concept Overview</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    This haunting album cover visualizes the visceral terror of involuntary transformation captured in "Magic Hate." The design transforms a mysterious figure into a powerful statement about consumption, loss of self, and the curse of underground magic.
+                </p>
+
+                <h3 class="text-2xl font-bold text-black mb-4 mt-8">Visual Narrative</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The glowing blue figure becomes the embodiment of the narrator's ordeal — caught mid-transformation, light violently erupting from within. What was originally an ethereal, mystical moment is recontextualized as agony and erasure. The figure isn't wielding magic; they're being destroyed by it.
+                </p>
+
+                <h3 class="text-2xl font-bold text-black mb-4 mt-8">Typography & Text Treatment</h3>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-crimson font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">"THIS MAGIC OUT OF ME"</strong> dominates the composition, with "Get" and "Me" crossed out in red — representing the narrator's desperate plea being silenced, overwritten by the magic itself.</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-crimson font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">"CURSED BY THIS MAGIC"</strong> anchors the bottom, the final truth of the transformation.</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-crimson font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">Dark blue/black palette</strong> evokes the Underground's oppressive atmosphere.</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-crimson font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">"Nature of the Magic"</strong> text blocks frame the scene like clinical observations — cold documentation of something deeply personal and traumatic.</span>
+                    </li>
+                </ul>
+
+                <div class="border-l-4 border-wyrm-crimson pl-8 py-4">
+                    <p class="text-xl text-black font-medium italic">
+                        The design captures the core horror: exposure without salvation. The beautiful blue light that surface dwellers might call miraculous is revealed as destruction.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 3: Motion Design - Brand Film -->
+            <section class="mb-24">
+                <div class="flex items-baseline space-x-4 mb-8">
+                    <span class="text-7xl md:text-8xl font-bold text-wyrm-blue">03</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-black tracking-tight">We Build Brands People Remember</h2>
+                </div>
+                
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    Our brand film showcases the full spectrum of motion design capabilities — from conceptual storytelling to cinematic execution. It demonstrates how we transform complex brand challenges into clear, memorable visual narratives.
+                </p>
+
+                <div class="aspect-video bg-black rounded-2xl overflow-hidden mb-8 shadow-2xl">
+                    <iframe 
+                        src="https://player.vimeo.com/video/1190794803?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        title="WYRM.STUDIOS Brand Film" 
+                        class="w-full h-full">
+                    </iframe>
+                </div>
+
+                <h3 class="text-2xl font-bold text-black mb-4">The Story</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The film opens with a ChatGPT-style interface where a user types: <strong class="text-black">"why people forget my business...??"</strong> The AI responds with red glitch text highlighting the problems: NO PURPOSE, POOR BRANDING, NO STRATEGY, LACK OF VISION.
+                </p>
+
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Then, the mascot appears — a simple wave that triggers a transformation. Red drains away instantly, replaced by a premium blue gradient. The screen reveals the solution: BRAND DEVELOPMENT through brand films, identity systems, and strategic thinking.
+                </p>
+
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The film culminates with the promise: <strong class="text-black">"We build brands people remember."</strong> Followed by the WYRM.STUDIOS wordmark and the tagline: <strong class="text-black">"Step by step, we make your brand shine."</strong>
+                </p>
+
+                <h3 class="text-2xl font-bold text-black mb-4 mt-8">Technical Execution</h3>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-blue font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">Chat Interface Animation:</strong> Realistic typing effects with digital glitch SFX</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-blue font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">Color Transition:</strong> Smooth red (#DC2626) → blue (#1E3A8A) gradient shift with vacuum SFX</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-blue font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">Montage Sequence:</strong> Premium, Apple/Nike-tier aesthetic showcasing brand films, identity systems, and strategy</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-blue font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">Mascot Animation:</strong> Curly black hair silhouette with deliberate, 1-second ease wave</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <span class="text-wyrm-blue font-bold mt-1">✦</span>
+                        <span class="text-gray-700"><strong class="text-black">Audio Design:</strong> Layered music flow from ominous tension → smooth transition → confident peak energy → cinematic resolution</span>
+                    </li>
+                </ul>
+
+                <div class="border-l-4 border-wyrm-blue pl-8 py-4">
+                    <p class="text-xl text-black font-medium italic">
+                        This motion piece demonstrates that WYRM.studios doesn't just execute — we strategize, conceptualize, and deliver work that performs.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section class="mb-24">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-8 tracking-tight">The Full Spectrum</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    These three projects represent just a fraction of what WYRM.studios does. From immersive 3D web experiences that feel like stepping into another world, to graphic design that captures raw emotion, to motion design that tells stories in seconds — we operate across the entire creative spectrum.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The common thread? Every project is built on strategy, executed with precision, and designed to make people remember. Whether it's a tree that remembers wishes, an album cover that captures terror, or a brand film that transforms problems into solutions — we create work that resonates.
+                </p>
+                <p class="text-2xl text-black font-semibold leading-relaxed mt-8">
+                    This is what happens when art meets code. When strategy meets execution. When vision meets reality.
+                </p>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="border-t border-gray-200 pt-16 text-center">
+                <p class="text-sm text-gray-500 mb-8 tracking-widest uppercase">Ready to build something unforgettable?</p>
+                <a href="../inquiry.html" class="inline-flex items-center space-x-3 bg-black text-white px-10 py-5 rounded-full font-medium text-lg hover:bg-gray-800 transition-colors shadow-2xl">
+                    <span>Start a Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <div class="md:col-span-5">
+                    <img src="../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="h-32 w-auto mb-6">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand identity, motion design, video editing, logos, and web experiences for companies that refuse to blend in.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video Editing</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../inquiry.html" class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a></li>
+                        <li><a href="mailto:studioswyrm@gmail.com" class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../js/main.js"></script>
+    <script src="../js/theme-toggle.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/smooth-scroll.js"></script>
+    <script src="../js/page-transitions.js"></script>
+
+    <!-- Shop Button Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Desktop Shop Button
+            const shopButton = document.getElementById('shop-button');
+            if (shopButton) {
+                const shopText = shopButton.querySelector('.shop-text');
+                let isAnimating = false;
+
+                shopButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    if (isAnimating) return;
+                    isAnimating = true;
+
+                    shopText.style.opacity = '0';
+                    shopText.style.transform = 'translateY(-10px)';
+
+                    setTimeout(() => {
+                        shopText.textContent = 'Soon';
+                        shopText.style.opacity = '1';
+                        shopText.style.transform = 'translateY(0)';
+
+                        setTimeout(() => {
+                            shopText.style.opacity = '0';
+                            shopText.style.transform = 'translateY(10px)';
+
+                            setTimeout(() => {
+                                shopText.textContent = 'Shop';
+                                shopText.style.opacity = '1';
+                                shopText.style.transform = 'translateY(0)';
+                                isAnimating = false;
+                            }, 300);
+                        }, 3000);
+                    }, 300);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
