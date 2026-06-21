@@ -161,7 +161,7 @@
                     <span class="voice-note-current-time" id="voice-note-current-time">0:00</span>
                     <span class="voice-note-total-time">0:38</span>
                 </div>
-                <div class="voice-note-transcript typing" id="voice-note-transcript">Press play to hear from the founder</div>
+                <div class="voice-note-transcript" id="voice-note-transcript">Press play to hear from the founder</div>
                 <audio id="voice-note-audio" src="assets/audio/aboutme.wav" preload="metadata"></audio>
             </div>
 
@@ -450,7 +450,6 @@
     <script src="js/theme-toggle.js"></script>
     <script src="js/mobile-menu.js"></script>
     <script src="js/accordion.js"></script>
-    <script src="js/voice-note.js"></script>
     <script src="js/smooth-scroll.js"></script>
     <script src="js/page-transitions.js"></script>
 
@@ -529,11 +528,11 @@
         });
     </script>
 
-    <!-- Voice Note Script with Cinematic Transcript -->
+    <!-- Voice Note Script with Cinematic Transcript - FIXED VERSION -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // Cinematic transcript script
+            // ONLY the new cinematic script - no old script
             const transcriptScript = [
                 { time: 0, text: "Hello there, stranger." },
                 { time: 2075, text: "If you're reading this, you've found your way here." },
@@ -567,7 +566,7 @@
             const floatingVoiceNote = document.getElementById('floating-voice-note');
 
             let isPlaying = false;
-            let currentTranscriptIndex = 0;
+            let currentTranscriptIndex = -1;
 
             // Format time helper
             function formatTime(seconds) {
@@ -576,20 +575,29 @@
                 return `${mins}:${secs.toString().padStart(2, '0')}`;
             }
 
-            // Update transcript based on current time
+            // Update transcript based on current time - FIXED to prevent glitching
             function updateTranscript(currentTimeMs) {
-                for (let i = transcriptScript.length - 1; i >= 0; i--) {
+                let newIndex = -1;
+                
+                // Find the correct transcript line
+                for (let i = 0; i < transcriptScript.length; i++) {
                     if (currentTimeMs >= transcriptScript[i].time) {
-                        if (currentTranscriptIndex !== i) {
-                            currentTranscriptIndex = i;
-                            transcriptEl.textContent = transcriptScript[i].text;
-                            transcriptEl.classList.add('typing');
-                            setTimeout(() => {
-                                transcriptEl.classList.remove('typing');
-                            }, 500);
-                        }
+                        newIndex = i;
+                    } else {
                         break;
                     }
+                }
+                
+                // Only update if the index changed
+                if (newIndex !== currentTranscriptIndex && newIndex >= 0) {
+                    currentTranscriptIndex = newIndex;
+                    
+                    // Smooth transition
+                    transcriptEl.style.opacity = '0';
+                    setTimeout(() => {
+                        transcriptEl.textContent = transcriptScript[currentTranscriptIndex].text;
+                        transcriptEl.style.opacity = '1';
+                    }, 150);
                 }
             }
 
@@ -646,7 +654,7 @@
                 progressFill.style.width = '0%';
                 currentTimeEl.textContent = '0:00';
                 transcriptEl.textContent = 'Press play to hear from the founder';
-                currentTranscriptIndex = 0;
+                currentTranscriptIndex = -1;
             });
 
             // Close floating player
