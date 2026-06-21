@@ -80,7 +80,9 @@
 
                 <!-- Right Column: Shop, Theme Toggle, Inquiry -->
                 <div class="flex items-center justify-end space-x-2 md:space-x-6">
-                    <a href="#" class="hidden md:block text-muted-foreground hover:text-foreground transition-colors">Shop</a>
+                    <button id="shop-button" class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
                     
                     <!-- Theme Toggle -->
                     <button id="theme-toggle" class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
@@ -564,6 +566,46 @@
     <script src="js/video-modal.js"></script>
     <script src="js/smooth-scroll.js"></script>
     <script src="js/page-transitions.js"></script>
+
+    <!-- Shop Button Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const shopButton = document.getElementById('shop-button');
+            const shopText = shopButton.querySelector('.shop-text');
+            let isAnimating = false;
+
+            shopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (isAnimating) return;
+                isAnimating = true;
+
+                // Fade out current text
+                shopText.style.opacity = '0';
+                shopText.style.transform = 'translateY(-10px)';
+
+                setTimeout(() => {
+                    // Change to "Soon"
+                    shopText.textContent = 'Soon';
+                    shopText.style.opacity = '1';
+                    shopText.style.transform = 'translateY(0)';
+
+                    // Wait 3 seconds, then change back
+                    setTimeout(() => {
+                        shopText.style.opacity = '0';
+                        shopText.style.transform = 'translateY(10px)';
+
+                        setTimeout(() => {
+                            shopText.textContent = 'Shop';
+                            shopText.style.opacity = '1';
+                            shopText.style.transform = 'translateY(0)';
+                            isAnimating = false;
+                        }, 300);
+                    }, 3000);
+                }, 300);
+            });
+        });
+    </script>
 
 </body>
 </html>
