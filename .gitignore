@@ -1,0 +1,15 @@
+# Freebuff local workspace artifacts
+.freebuff/
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs
+*.log
+*.log.err
+
+# Editor
+.vscode/
+.idea/

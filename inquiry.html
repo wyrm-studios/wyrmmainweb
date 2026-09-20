@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start a Project — WYRM.studios</title>
+    <meta name="description" content="Start your project with WYRM.studios. Share your vision below.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("arfxHb9y1T0KbEcu4");
+        })();
+    </script>
+    
+    <style>
+        /* ── Step transitions (smoother, softer than before) ── */
+        .form-step {
+            opacity: 0;
+            transform: translateY(26px) scale(0.995);
+            filter: blur(4px);
+            transition: opacity .55s cubic-bezier(0.16,1,0.3,1),
+                        transform .55s cubic-bezier(0.16,1,0.3,1),
+                        filter .55s cubic-bezier(0.16,1,0.3,1);
+            display: none;
+        }
+        
+        .form-step.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+            display: block;
+        }
+
+        /* staggered entrance for elements inside an activating step */
+        .form-step.active > * {
+            animation: iq-rise .6s cubic-bezier(0.16,1,0.3,1) both;
+        }
+        .form-step.active > *:nth-child(1) { animation-delay: .02s; }
+        .form-step.active > *:nth-child(2) { animation-delay: .08s; }
+        .form-step.active > *:nth-child(3) { animation-delay: .14s; }
+        .form-step.active > *:nth-child(4) { animation-delay: .2s; }
+        .form-step.active > *:nth-child(5) { animation-delay: .26s; }
+
+        @keyframes iq-rise {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-selector {
+            transition: border-color .35s cubic-bezier(0.16,1,0.3,1),
+                        background-color .35s ease,
+                        transform .35s cubic-bezier(0.16,1,0.3,1);
+        }
+        
+        .form-selector.selected {
+            transform: scale(1.015);
+        }
+
+        .form-selector:hover .selector-letter {
+            transform: scale(1.1);
+        }
+
+        .form-selector .selector-letter {
+            transition: transform .3s cubic-bezier(0.16,1,0.3,1),
+                        background-color .35s ease,
+                        color .35s ease;
+        }
+
+        .form-selector .selector-check {
+            transform: scale(0.4) rotate(-20deg);
+            transition: opacity .35s ease, transform .45s cubic-bezier(0.34,1.56,0.64,1);
+        }
+
+        .form-selector.selected .selector-check {
+            transform: scale(1) rotate(0deg);
+        }
+        
+        .btn-primary {
+            transition: all .35s cubic-bezier(0.16,1,0.3,1);
+        }
+        
+        .btn-primary:not(.btn-disabled):hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px -8px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-primary:not(.btn-disabled):active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* input underline grows from the left on focus */
+        .form-input,
+        .form-textarea {
+            position: relative;
+            background-image: linear-gradient(hsl(var(--foreground)), hsl(var(--foreground)));
+            background-repeat: no-repeat;
+            background-size: 0% 2px;
+            background-position: 0 100%;
+            transition: background-size .45s cubic-bezier(0.16,1,0.3,1), border-color .3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            background-size: 100% 2px;
+            outline: none;
+        }
+
+        /* ── page chrome ── */
+        .iq-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: hsl(var(--foreground) / 0.55);
+        }
+
+        .iq-label::before {
+            content: '';
+            width: 2rem;
+            height: 2px;
+            background: hsl(var(--foreground));
+            display: inline-block;
+        }
+
+        /* the form card: clean paper with a soft top light */
+        .iq-card {
+            position: relative;
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border) / 0.6);
+            border-radius: 1.75rem;
+            box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.18);
+            overflow: hidden;
+        }
+
+        .iq-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.25), transparent);
+            pointer-events: none;
+        }
+
+        /* step badge pulse when a new step activates */
+        .form-step.active .iq-badge {
+            animation: iq-pop .5s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+
+        @keyframes iq-pop {
+            from { transform: scale(0.6); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+
+        /* trust row icons */
+        .iq-trust-icon {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            border: 1px solid hsl(var(--border));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+            transition: transform .35s cubic-bezier(0.16,1,0.3,1), background-color .3s ease;
+        }
+
+        .iq-trust:hover .iq-trust-icon {
+            transform: translateY(-3px);
+            background: hsl(var(--secondary) / 0.6);
+        }
+
+        /* success state */
+        #form-success .success-ring {
+            animation: iq-ring .7s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+
+        @keyframes iq-ring {
+            from { transform: scale(0.4); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+
+        /* scroll progress for the page */
+        #iq-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: hsl(var(--foreground));
+            z-index: 60;
+            transition: width .08s linear;
+        }
+
+        /* watermark behind hero */
+        .iq-watermark {
+            position: absolute;
+            top: 40%;
+            right: -6%;
+            transform: translateY(-50%);
+            font-size: clamp(7rem, 20vw, 16rem);
+            font-weight: 700;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1px hsl(var(--foreground) / 0.06);
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .form-step, .form-step.active > *, .form-selector, .btn-primary,
+            .form-input, .form-textarea, .iq-trust-icon { transition: none !important; animation: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <div id="iq-progress" aria-hidden="true"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+            
+            <!-- 3-Column Grid Layout to prevent logo overlap -->
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+                
+                <!-- Left Column: Navigation Links -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="work.html" class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+                        <a href="about.html" class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="blog.html" class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
+
+                <!-- Center Column: Logo (Perfectly Centered) -->
+                <div class="flex items-center justify-center">
+                    <a href="index.html" class="flex items-center justify-center">
+                        <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+
+                <!-- Right Column: Shop, Theme Toggle, Inquiry -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button" class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+
+                    <!-- Inquiry Button (Active State) - Smaller on mobile -->
+                    <a href="inquiry.html" class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden" style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="index.html" class="flex items-center justify-center flex-1">
+                <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="index.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="work.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Work</a>
+            <a href="about.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">About</a>
+            <a href="blog.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="inquiry.html" class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <button id="mobile-shop-button" class="p-4 border border-border rounded-full text-foreground">
+                <span class="mobile-shop-text">Shop</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-24 px-4 sm:px-6 md:px-8">
+        
+        <div class="max-w-[900px] mx-auto">
+
+            <!-- ── HERO ── -->
+            <div class="relative mb-14 md:mb-20">
+                <p class="iq-label mb-6" data-scroll="fade-up">Inquiry</p>
+                <h1 class="text-4xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-5" data-scroll-words data-scroll-words-base="45" data-scroll-duration="850">
+                    Tell us where you're going. We'll build the brand that gets you there.
+                </h1>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed" data-scroll="fade-up" data-scroll-delay="250">
+                    Seven quick questions. Under two minutes. A real reply within 24 hours — from a person, not a bot.
+                </p>
+                <span class="iq-watermark" aria-hidden="true" data-scroll-parallax data-scroll-parallax-speed="0.08">HELLO</span>
+            </div>
+
+            <!-- ── TRUST ROW ── -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 md:mb-14" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                <div class="iq-trust flex items-center gap-4 p-4">
+                    <div class="iq-trust-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sm">Reply in 24 hours</p>
+                        <p class="text-xs text-muted-foreground">Every inquiry, answered.</p>
+                    </div>
+                </div>
+                <div class="iq-trust flex items-center gap-4 p-4">
+                    <div class="iq-trust-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sm">No spam, ever</p>
+                        <p class="text-xs text-muted-foreground">Your details stay between us.</p>
+                    </div>
+                </div>
+                <div class="iq-trust flex items-center gap-4 p-4">
+                    <div class="iq-trust-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-sm">Clear next steps</p>
+                        <p class="text-xs text-muted-foreground">Scope, timeline, quote — up front.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORM ENGINE CARD -->
+            <div class="iq-card p-6 md:p-12" data-scroll="fade-up">
+                
+                <!-- Top Progress Bar -->
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-transparent overflow-hidden">
+                    <div class="form-progress-bar h-full bg-foreground transition-all duration-500 ease-out" style="width: 0%;"></div>
+                </div>
+
+                <form id="inquiry-form" class="mt-4">
+                
+                <!-- STEP 1: Brand Name -->
+                <div class="form-step active" data-step="1">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                        <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 1 OF 7</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-foreground mb-2">Brand Name / Organization</h2>
+                    <p class="text-xl text-muted-foreground mb-8 italic">Ex. "OpenAI" or "AirBnb"</p>
+                    
+                    <input type="text" name="brand_name" class="form-input text-2xl md:text-3xl font-bold bg-transparent border-b-2 border-foreground/20 focus:border-foreground w-full py-4 mb-12 placeholder:text-muted-foreground/50" placeholder="Type your answer here..." required>
+                    
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="1" disabled>
+                        Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+                <!-- STEP 2: Industry -->
+                <div class="form-step" data-step="2">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                        <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 2 OF 7</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-foreground mb-8">Industry</h2>
+                    
+                    <div class="space-y-3 mb-12">
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">A</div><div class="selector-text">Tech / Fintech</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">B</div><div class="selector-text">Crypto / Web3</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">C</div><div class="selector-text">Marketing / Creative Agency</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">D</div><div class="selector-text">Clothing / E-commerce</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">E</div><div class="selector-text">Event / Festival</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">F</div><div class="selector-text">Other</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                    </div>
+
+                    <input type="hidden" name="industry" value="">
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="2" disabled>
+                        Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+                <!-- STEP 3: Services (Multi-select) -->
+                <div class="form-step" data-step="3" data-multi-select="true">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                        <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 3 OF 7</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-foreground mb-2">Services Needed</h2>
+                    <p class="text-xl text-muted-foreground mb-8 italic">Select all that apply</p>
+                    
+                    <div class="space-y-3 mb-12">
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">A</div><div class="selector-text">Brand Identity</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">B</div><div class="selector-text">Motion Design</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">C</div><div class="selector-text">Web Design</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">D</div><div class="selector-text">Other</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                    </div>
+
+                    <input type="hidden" name="services" value="">
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="3" disabled>
+                        Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+                <!-- STEP 4: Contact Info -->
+                <div class="form-step" data-step="4">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                        <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 4 OF 7</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-foreground mb-8">Your Information</h2>
+                    
+                    <div class="space-y-8 mb-12">
+                        <div>
+                            <label class="text-xs font-bold tracking-widest text-muted-foreground uppercase block mb-2">First Name</label>
+                            <input type="text" name="first_name" class="form-input text-xl font-bold bg-transparent border-b border-foreground/20 focus:border-foreground w-full py-2 placeholder:text-muted-foreground/50" placeholder="Jane" required>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold tracking-widest text-muted-foreground uppercase block mb-2">Last Name</label>
+                            <input type="text" name="last_name" class="form-input text-xl font-bold bg-transparent border-b border-foreground/20 focus:border-foreground w-full py-2 placeholder:text-muted-foreground/50" placeholder="Smith" required>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold tracking-widest text-muted-foreground uppercase block mb-2">Email</label>
+                            <input type="email" name="email" class="form-input text-xl font-bold bg-transparent border-b border-foreground/20 focus:border-foreground w-full py-2 placeholder:text-muted-foreground/50" placeholder="name@example.com" required>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold tracking-widest text-muted-foreground uppercase block mb-2">Phone Number</label>
+                            <input type="tel" name="phone" class="form-input text-xl font-bold bg-transparent border-b border-foreground/20 focus:border-foreground w-full py-2 placeholder:text-muted-foreground/50" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="4" disabled>
+                        Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+                <!-- STEP 5: How did you hear -->
+                <div class="form-step" data-step="5">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                        <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 5 OF 7</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-foreground mb-8">How did you hear about us?</h2>
+                    
+                    <div class="space-y-3 mb-12">
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">A</div><div class="selector-text">Instagram</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">B</div><div class="selector-text">TikTok</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">C</div><div class="selector-text">LinkedIn</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">D</div><div class="selector-text">Blog / Article</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">E</div><div class="selector-text">Referral</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">F</div><div class="selector-text">Other</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                    </div>
+
+                    <input type="hidden" name="referral_source" value="">
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="5" disabled>
+                        Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+                <!-- STEP 6: Budget -->
+                <div class="form-step" data-step="6">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">6</div>
+                        <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 6 OF 7</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-foreground mb-8">Estimated Budget</h2>
+                    
+                    <div class="space-y-3 mb-12">
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">A</div><div class="selector-text">$120 - $500</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">B</div><div class="selector-text">$500 - $1,000</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">C</div><div class="selector-text">$1,000+</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                    </div>
+
+                    <input type="hidden" name="budget" value="">
+                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="6" disabled>
+                        Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+                <!-- STEP 7: Project Details -->
+                <div class="form-step" data-step="7">
+                    <div class="flex items-center space-x-3 mb-8">
+                        <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">7</div>
+                        <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 7 OF 7</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-foreground mb-2">Tell us about your project</h2>
+                    <p class="text-xl text-muted-foreground mb-8 italic">Optional but helpful</p>
+                    
+                    <textarea name="project_details" class="form-textarea text-2xl font-bold bg-transparent border-b-2 border-foreground/20 focus:border-foreground w-full py-4 mb-12 placeholder:text-muted-foreground/50 resize-none" placeholder="Describe your project, goals, and timeline..." rows="4"></textarea>
+                    
+                    <button type="submit" id="form-submit-btn" class="btn btn-primary">
+                        Submit Project <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="form-success" class="hidden text-center py-12">
+                <div class="success-ring w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h2 class="text-3xl font-bold text-foreground mb-4">Thank you!</h2>
+                <p class="text-xl text-muted-foreground mb-6">Your inquiry has been sent to studioswyrm@gmail.com</p>
+                <p class="text-muted-foreground">We'll get back to you within 24 hours.</p>
+            </div>
+
+            <!-- Form Engine Footer -->
+            <div class="mt-16 pt-8 border-t border-foreground/10 flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-bold tracking-widest text-muted-foreground uppercase">WYRM FORM ENGINE</p>
+                    <p class="text-sm text-muted-foreground italic mt-1">"How you ask is everything"</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button type="button" id="form-prev-btn" class="w-12 h-12 rounded-full bg-foreground/10 flex items-center justify-center hover:bg-foreground/20 transition-all duration-300 text-foreground hover:scale-110" aria-label="Previous step">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                    </button>
+                    <button type="button" id="form-next-btn" class="w-12 h-12 rounded-full bg-foreground/10 flex items-center justify-center hover:bg-foreground/20 transition-all duration-300 text-foreground hover:scale-110" aria-label="Next step">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            </div>
+
+            <!-- Bottom Link -->
+            <div class="text-center mt-12" data-scroll="fade-up">
+                <p class="text-muted-foreground mb-2">Want to see case studies?</p>
+                <a href="work.html" class="inline-flex items-center space-x-2 text-foreground font-medium hover:underline underline-offset-4 transition-all hover:translate-x-1">
+                    <span>See Work</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <!-- Logo Mark replacing WYRM.STUDIOS text -->
+                    <img src="assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6" style="height: 8rem; width: auto;">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand identity, motion design, video editing, logos, and web experiences for companies that refuse to blend in.</p>
+                    
+
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video Editing</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="inquiry.html" class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a></li>
+                        <li><a href="mailto:studioswyrm@gmail.com" class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/main.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/form-engine.js"></script>
+    <script src="js/page-transitions.js"></script>
+    <script src="js/scroll-animations.js?v=3"></script>
+    <script>
+        /* Page scroll progress */
+        (function () {
+            var bar = document.getElementById('iq-progress');
+            if (!bar) return;
+            window.addEventListener('scroll', function () {
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+            }, { passive: true });
+        })();
+
+        /* Smooth-scroll the card into view when a step changes (keyboard/mobile comfort) */
+        (function () {
+            var card = document.querySelector('.iq-card');
+            if (!card) return;
+            var observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (m) {
+                    if (m.attributeName === 'class' && m.target.classList &&
+                        m.target.classList.contains('active') && m.target.classList.contains('form-step')) {
+                        var r = card.getBoundingClientRect();
+                        if (r.top < 0 || r.top > window.innerHeight * 0.5) {
+                            window.scrollTo({ top: window.scrollY + r.top - 110, behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+            document.querySelectorAll('.form-step').forEach(function (s) {
+                observer.observe(s, { attributes: true, attributeFilter: ['class'] });
+            });
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — WYRM.studios</title>
+    <meta name="description" content="About WYRM.studios, a creative studio crafting cinematic brand experiences, identity, and web design.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+            
+            <!-- 3-Column Grid Layout to prevent logo overlap -->
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+                
+                <!-- Left Column: Navigation Links -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="work.html" class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+                        <a href="about.html" class="text-foreground font-medium underline underline-offset-4 decoration-1">About</a>
+                        <a href="blog.html" class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
+
+                <!-- Center Column: Logo (Perfectly Centered) -->
+                <div class="flex items-center justify-center">
+                    <a href="index.html" class="flex items-center justify-center">
+                        <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+
+                <!-- Right Column: Shop, Theme Toggle, Inquiry -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button" class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+
+                    <!-- Inquiry Button - Smaller on mobile -->
+                    <a href="inquiry.html" class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden" style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="index.html" class="flex items-center justify-center flex-1">
+                <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="index.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="work.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Work</a>
+            <a href="about.html" class="text-6xl font-bold text-foreground">About<span class="text-foreground">.</span></a>
+            <a href="blog.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="inquiry.html" class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <button id="mobile-shop-button" class="p-4 border border-border rounded-full text-foreground">
+                <span class="mobile-shop-text">Shop</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-24 px-4 sm:px-6 md:px-8">
+        
+        <div class="max-w-[800px] mx-auto">
+            
+            <!-- Voice Note Player -->
+            <div class="voice-note-player mb-16" data-scroll="fade-up" data-scroll-delay="50">
+                <div class="voice-note-header">
+                    <div class="voice-note-info">
+                        <img src="assets/about/profile.png" alt="Omar" class="voice-note-avatar">
+                        <div>
+                            <div class="voice-note-title">A Personal Introduction</div>
+                            <div class="voice-note-subtitle">Omar • Founder & Creative Director • Voice Note</div>
+                        </div>
+                    </div>
+                    <button class="voice-note-play-btn" id="voice-note-play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" id="play-icon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" id="pause-icon" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                </div>
+                <div class="voice-note-progress" id="voice-note-progress">
+                    <div class="voice-note-progress-fill" id="voice-note-progress-fill"></div>
+                </div>
+                <div class="voice-note-times">
+                    <span class="voice-note-current-time" id="voice-note-current-time">0:00</span>
+                    <span class="voice-note-total-time">0:38</span>
+                </div>
+                <div class="voice-note-transcript" id="voice-note-transcript">Press play to hear from the founder</div>
+                <audio id="voice-note-audio" src="assets/audio/aboutme.wav" preload="metadata"></audio>
+            </div>
+
+            <!-- Bio Section -->
+            <div class="text-center mb-16" data-scroll="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-4" data-scroll-words data-scroll-words-base="40">WYRM.studios</h1>
+                <p class="text-xl text-muted-foreground mb-2" data-scroll="fade-up" data-scroll-delay="250">Creative Studio crafting cinematic brand experiences.</p>
+                <p class="text-muted-foreground max-w-[600px] mx-auto" data-scroll="fade-up" data-scroll-delay="350">We help ambitious businesses turn complex ideas into clear, memorable visual identities and digital experiences.</p>
+                
+                <button class="mt-8 text-sm text-muted-foreground flex items-center space-x-1 mx-auto hover:text-foreground transition-colors" data-scroll="fade-up" data-scroll-delay="450">
+                    <span>Read All</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+            </div>
+
+            <!-- Accordions Section -->
+            <div class="space-y-0">
+                
+                <!-- Accordion 1: The Team -->
+                <div class="accordion-item" data-scroll="fade-up">
+                    <button class="accordion-header">
+                        <span class="text-2xl font-bold">The Team</span>
+                        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pt-6 space-y-8">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                                
+                                <!-- Omar -->
+                                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-6 border border-border/50 rounded-xl bg-background">
+                                    <img src="assets/about/profile.png" alt="Omar" class="w-20 h-20 rounded-full object-cover border-2 border-border">
+                                    <div class="flex-1">
+                                        <h5 class="text-lg font-bold text-foreground mb-1">Omar</h5>
+                                        <p class="text-sm text-muted-foreground mb-2">Creative Director • Multimedia Designer</p>
+                                        <p class="text-xs text-muted-foreground leading-relaxed">Leads creative direction, brand identity, and cinematic multimedia design across all studio projects.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Anwer -->
+                                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-6 border border-border/50 rounded-xl bg-background">
+                                    <img src="assets/about/anwer.jpg" alt="Anwer" class="w-20 h-20 rounded-full object-cover border-2 border-border">
+                                    <div class="flex-1">
+                                        <h5 class="text-lg font-bold text-foreground mb-1">Anwer</h5>
+                                        <p class="text-sm text-muted-foreground mb-2">Web Developer</p>
+                                        <p class="text-xs text-muted-foreground leading-relaxed">Engineers responsive, modern web applications and interactive digital experiences with clean, performant code.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Feriel -->
+                                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-6 border border-border/50 rounded-xl bg-background">
+                                    <img src="assets/about/feriel.jpg" alt="Feriel" class="w-20 h-20 rounded-full object-cover border-2 border-border">
+                                    <div class="flex-1">
+                                        <h5 class="text-lg font-bold text-foreground mb-1">Feriel</h5>
+                                        <p class="text-sm text-muted-foreground mb-2">Business Development Manager</p>
+                                        <p class="text-xs text-muted-foreground leading-relaxed">Drives strategic partnerships, client relationships, and business growth opportunities for WYRM.studios.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Eya -->
+                                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-6 border border-border/50 rounded-xl bg-background">
+                                    <img src="assets/about/eya.jpg" alt="Eya" class="w-20 h-20 rounded-full object-cover border-2 border-border">
+                                    <div class="flex-1">
+                                        <h5 class="text-lg font-bold text-foreground mb-1">Eya</h5>
+                                        <p class="text-sm text-muted-foreground mb-2">Marketing Manager</p>
+                                        <p class="text-xs text-muted-foreground leading-relaxed">Oversees creative brand marketing campaigns, digital storytelling, and audience engagement strategies.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Yasmine -->
+                                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-6 border border-border/50 rounded-xl bg-background md:col-span-2">
+                                    <img src="assets/about/yasmine.jpg" alt="Yasmine" class="w-20 h-20 rounded-full object-cover border-2 border-border">
+                                    <div class="flex-1">
+                                        <h5 class="text-lg font-bold text-foreground mb-1">Yasmine</h5>
+                                        <p class="text-sm text-muted-foreground mb-2">Graphic Designer</p>
+                                        <p class="text-xs text-muted-foreground leading-relaxed">Crafts impactful visual assets, brand identity collateral, and modern design systems across digital and print media.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- What This Means for Clients -->
+                            <div class="border border-border/50 rounded-xl p-6 bg-background" data-scroll="fade-up" data-scroll-delay="200">
+                                <h4 class="font-bold text-foreground mb-3">What This Means for You</h4>
+                                <p class="text-sm text-muted-foreground leading-relaxed">When you work with WYRM.studios, you get direct collaboration with our dedicated team of creative and technical specialists. Your project is crafted with high artistic standards, managed with care, and delivered with the precision of a studio that treats every brand like its own.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 2: Who We Are -->
+                <div class="accordion-item" data-scroll="fade-up" data-scroll-delay="120">
+                    <button class="accordion-header">
+                        <span class="text-2xl font-bold">Who We Are</span>
+                        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pt-6 space-y-8">
+                            <div>
+                                <h4 class="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-4" data-scroll="fade-up">Problems We Solve</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-muted-foreground" data-scroll-stagger="up" data-scroll-stagger-base="90">
+                                    <li>A brand that looks generic or forgettable in a crowded market</li>
+                                    <li>Marketing visuals that lack emotional impact and fail to convert</li>
+                                    <li>A complex product or service that is difficult to explain simply</li>
+                                    <li>A digital presence that doesn't reflect the quality of the business</li>
+                                </ul>
+                                <p class="mt-4 text-muted-foreground" data-scroll="fade-up" data-scroll-delay="350">Our work focuses on turning complexity into cinematic clarity and strategic design.</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-4" data-scroll="fade-up">The Journey</h4>
+                                <div class="space-y-6" data-scroll-stagger="up" data-scroll-stagger-base="130">
+                                    <div class="flex flex-col md:flex-row md:space-x-8 border-b border-border/50 pb-4">
+                                        <span class="text-sm font-bold text-foreground md:w-32 flex-shrink-0">2021</span>
+                                        <div>
+                                            <p class="font-bold text-foreground">Visual Storytelling</p>
+                                            <p class="text-sm text-muted-foreground">Started creating visual narratives and discovering the power of motion design.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row md:space-x-8 border-b border-border/50 pb-4">
+                                        <span class="text-sm font-bold text-foreground md:w-32 flex-shrink-0">2023</span>
+                                        <div>
+                                            <p class="font-bold text-foreground">Freelance Creative</p>
+                                            <p class="text-sm text-muted-foreground">Transitioned into full-time freelance brand identity and motion work.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row md:space-x-8 border-b border-border/50 pb-4">
+                                        <span class="text-sm font-bold text-foreground md:w-32 flex-shrink-0">2025</span>
+                                        <div>
+                                            <p class="font-bold text-foreground">Studio Expansion</p>
+                                            <p class="text-sm text-muted-foreground">Expanded capabilities to include full web design and development.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row md:space-x-8">
+                                        <span class="text-sm font-bold text-foreground md:w-32 flex-shrink-0">Today</span>
+                                        <div>
+                                            <p class="font-bold text-foreground">WYRM.studios</p>
+                                            <p class="text-sm text-muted-foreground">Operating as a full-service creative studio crafting brand identities, motion, and web experiences.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 3: What We Do -->
+                <div class="accordion-item" data-scroll="fade-up" data-scroll-delay="240">
+                    <button class="accordion-header">
+                        <span class="text-2xl font-bold">What We Do</span>
+                        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pt-6 grid grid-cols-1 md:grid-cols-3 gap-8" data-scroll-stagger="up" data-scroll-stagger-base="140">
+                            <div>
+                                <h4 class="text-lg font-bold text-foreground mb-2">Brand Identity</h4>
+                                <p class="text-sm text-muted-foreground">Complete visual identity systems that define how your brand is perceived and remembered.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-foreground mb-2">Motion Design</h4>
+                                <p class="text-sm text-muted-foreground">Cinematic brand films and animations that bring your story to life and drive engagement.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-foreground mb-2">Web Design</h4>
+                                <p class="text-sm text-muted-foreground">Digital experiences and websites built to convert visitors into loyal customers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 4: Our Approach -->
+                <div class="accordion-item" data-scroll="fade-up" data-scroll-delay="360">
+                    <button class="accordion-header">
+                        <span class="text-2xl font-bold">Our Approach</span>
+                        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pt-6 grid grid-cols-1 md:grid-cols-2 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                            <div class="border border-border/50 rounded-xl p-6">
+                                <h4 class="font-bold text-foreground mb-2">Clarity first</h4>
+                                <p class="text-sm text-muted-foreground">If the audience doesn't understand the message, the design has failed.</p>
+                            </div>
+                            <div class="border border-border/50 rounded-xl p-6">
+                                <h4 class="font-bold text-foreground mb-2">Emotion matters</h4>
+                                <p class="text-sm text-muted-foreground">People remember how a brand made them feel long after they forget the visuals.</p>
+                            </div>
+                            <div class="border border-border/50 rounded-xl p-6">
+                                <h4 class="font-bold text-foreground mb-2">Strategy over trends</h4>
+                                <p class="text-sm text-muted-foreground">Great design is built on business strategy, not just following the latest aesthetic trend.</p>
+                            </div>
+                            <div class="border border-border/50 rounded-xl p-6">
+                                <h4 class="font-bold text-foreground mb-2">Quality over volume</h4>
+                                <p class="text-sm text-muted-foreground">Fewer projects, deeper attention, stronger results for every client we work with.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-24 text-center" data-scroll="fade-up">
+                <p class="text-sm text-muted-foreground mb-6">Have a Project in mind ?</p>
+                <a href="inquiry.html" class="inline-flex items-center space-x-2 border border-border text-foreground px-8 py-4 rounded-full font-medium hover:bg-secondary transition-colors" data-scroll-magnetic>
+                    <span>Start a Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FLOATING VOICE NOTE PLAYER (Active on About Page) -->
+    <div id="floating-voice-note" class="fixed bottom-6 left-6 z-50 bg-foreground text-background px-4 py-3 rounded-full flex items-center space-x-3 shadow-xl">
+        <div class="flex space-x-1">
+            <div class="w-1 h-4 bg-background/50 rounded-full animate-pulse"></div>
+            <div class="w-1 h-6 bg-background/50 rounded-full animate-pulse" style="animation-delay: 0.1s;"></div>
+            <div class="w-1 h-3 bg-background/50 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+        </div>
+        <span class="text-sm font-medium">WYRM • Voice Note</span>
+        <button class="p-1 hover:bg-background/20 rounded-full transition-colors" id="floating-play-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" id="floating-play-icon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" id="floating-pause-icon" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </button>
+        <button class="p-1 hover:bg-background/20 rounded-full transition-colors" id="floating-close-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6" style="height: 8rem; width: auto;">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Creative Studio specializing in brand identity, motion design, and web experiences for ambitious businesses.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Creative Direction</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="inquiry.html" class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a></li>
+                        <li><a href="mailto:studioswyrm@gmail.com" class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/main.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/accordion.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/voice-note.js"></script>
+    <script src="js/page-transitions.js"></script>
+    <script src="js/scroll-animations.js"></script>
+
+</body>
+</html>

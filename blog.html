@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — WYRM.studios</title>
+    <meta name="description" content="Thought pieces on brand identity, motion design, and digital strategy by WYRM.studios.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        /* ── Blog page-local design ── */
+        .bl-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: hsl(var(--foreground) / 0.55);
+        }
+
+        .bl-label::before {
+            content: '';
+            width: 2rem;
+            height: 2px;
+            background: hsl(var(--foreground));
+            display: inline-block;
+        }
+
+        .bl-card {
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 1.25rem;
+            transition: border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+        }
+
+        .bl-card:hover {
+            border-color: hsl(var(--foreground) / 0.35);
+            transform: translateY(-5px);
+            box-shadow: 0 22px 48px rgba(0, 0, 0, .12);
+        }
+
+        .bl-chip {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid hsl(var(--border));
+            color: hsl(var(--foreground) / 0.75);
+            background: hsl(var(--secondary) / 0.6);
+            transition: background .3s ease, color .3s ease, border-color .3s ease;
+        }
+
+        .bl-card:hover .bl-chip {
+            background: hsl(var(--foreground));
+            color: hsl(var(--background));
+            border-color: hsl(var(--foreground));
+        }
+
+        .bl-title {
+            transition: color .3s ease;
+        }
+
+        .bl-card:hover .bl-title {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+
+        /* arrow that slides on hover */
+        .bl-arrow {
+            display: inline-block;
+            transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bl-card:hover .bl-arrow {
+            transform: translateX(6px);
+        }
+
+        /* giant outlined word drifting behind the featured card */
+        .bl-watermark {
+            position: absolute;
+            top: 50%;
+            right: -4%;
+            transform: translateY(-50%);
+            font-size: clamp(6rem, 18vw, 15rem);
+            font-weight: 700;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1px hsl(var(--foreground) / 0.07);
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        /* divider word for the grid section */
+        .bl-rule {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .bl-rule::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: hsl(var(--border));
+        }
+
+        /* scroll progress bar */
+        #bl-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: hsl(var(--foreground));
+            z-index: 60;
+            transition: width .08s linear;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bl-card, .bl-arrow, .bl-chip { transition: none !important; transform: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <div id="bl-progress" aria-hidden="true"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5" style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+            
+            <!-- 3-Column Grid Layout to prevent logo overlap -->
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+                
+                <!-- Left Column: Navigation Links -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="work.html" class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+                        <a href="about.html" class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="blog.html" class="text-foreground font-medium underline underline-offset-4 decoration-1">Blog</a>
+                    </nav>
+                </div>
+
+                <!-- Center Column: Logo (Perfectly Centered) -->
+                <div class="flex items-center justify-center">
+                    <a href="index.html" class="flex items-center justify-center">
+                        <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+
+                <!-- Right Column: Shop, Theme Toggle, Inquiry -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button" class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors" aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+
+                    <!-- Inquiry Button - Smaller on mobile -->
+                    <a href="inquiry.html" class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden" style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <a href="index.html" class="flex items-center justify-center flex-1">
+                <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo" class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="index.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="work.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Work</a>
+            <a href="about.html" class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">About</a>
+            <a href="blog.html" class="text-6xl font-bold text-foreground">Blog<span class="text-foreground">.</span></a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="inquiry.html" class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <button id="mobile-shop-button" class="p-4 border border-border rounded-full text-foreground">
+                <span class="mobile-shop-text">Shop</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-24 px-4 sm:px-6 md:px-8">
+        
+        <div class="max-w-[1200px] mx-auto">
+            
+            <!-- ── HERO ── -->
+            <div class="mb-14 md:mb-20 relative">
+                <p class="bl-label mb-6" data-scroll="fade-up">The WYRM Journal</p>
+                <h1 class="text-5xl md:text-7xl font-bold leading-[1.02] tracking-tight mb-6" data-scroll-words data-scroll-words-base="45" data-scroll-duration="850">
+                    Ideas that make brands impossible to forget
+                </h1>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed" data-scroll="fade-up" data-scroll-delay="250">
+                    Essays on brand identity, motion design and digital strategy — written by the studio, between projects.
+                </p>
+                <span class="bl-watermark" aria-hidden="true" data-scroll-parallax data-scroll-parallax-speed="0.08">NOTES</span>
+            </div>
+
+            <!-- ── FEATURED POST ── -->
+            <a href="blog-posts/100m-brand-film.html" class="bl-card group grid grid-cols-1 lg:grid-cols-2 overflow-hidden mb-16 md:mb-24" data-scroll="fade-up">
+                <div class="relative aspect-video lg:aspect-auto lg:min-h-[380px] overflow-hidden" data-scroll-img-reveal>
+                    <img src="assets/images/blog/blog-100m-brand.jpg" alt="$100M Brand Film — featured article" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700">
+                </div>
+                <div class="p-8 md:p-12 flex flex-col justify-center">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bl-chip">Featured</span>
+                        <span class="text-xs text-muted-foreground tracking-wider uppercase">March 2026 · 4 min read</span>
+                    </div>
+                    <h2 class="bl-title text-3xl md:text-4xl font-bold leading-tight mb-4">The $100M Brand Film — Are You Rich Enough to Waste It?</h2>
+                    <p class="text-muted-foreground leading-relaxed mb-8">Netflix, Nike, Apple, Amazon — over $100M a year goes into films that sell nothing. Here's what they're actually buying, and why it works.</p>
+                    <span class="inline-flex items-center gap-2 font-medium text-foreground">
+                        Read the essay
+                        <svg class="bl-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- ── GRID DIVIDER ── -->
+            <div class="bl-rule mb-10" data-scroll="fade-up">
+                <p class="bl-label m-0">All articles</p>
+            </div>
+
+            <!-- ── ARTICLES GRID ── -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" data-scroll-stagger="up" data-scroll-stagger-base="110" data-scroll-stagger-sel=":scope > a">
+                
+                <!-- Card: Creative Studio vs Freelancer -->
+                <a href="blog-posts/creative-studio-vs-freelancer.html" class="bl-card group flex flex-col overflow-hidden" data-scroll-tilt data-scroll-tilt-max="3">
+                    <div class="relative aspect-video overflow-hidden bg-secondary" data-scroll-img-reveal>
+                        <img src="assets/images/blog/blog-studio-vs-freelancer.jpg" alt="Creative Studio vs Freelancer Thumbnail" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700">
+                        <span class="bl-chip absolute top-3 left-3 backdrop-blur-md">Strategy</span>
+                    </div>
+                    <div class="p-7 flex flex-col flex-1">
+                        <p class="text-xs text-muted-foreground tracking-wider uppercase mb-3">March 2026 · 4 min read</p>
+                        <h2 class="bl-title text-xl font-bold leading-snug mb-3">When to Hire a Creative Studio vs. Freelancer</h2>
+                        <p class="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">The real question isn't about budget. It's about what you're actually buying.</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-medium text-foreground">
+                            Read
+                            <svg class="bl-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Card: What Makes a Brand Unforgettable -->
+                <a href="blog-posts/what-makes-a-brand-unforgettable.html" class="bl-card group flex flex-col overflow-hidden" data-scroll-tilt data-scroll-tilt-max="3" data-scroll-delay="120">
+                    <div class="relative aspect-video overflow-hidden bg-secondary" data-scroll-img-reveal>
+                        <img src="assets/images/blog/blog-unforgettable-brand.jpg" alt="What Makes a Brand Unforgettable Thumbnail" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700">
+                        <span class="bl-chip absolute top-3 left-3 backdrop-blur-md">Brand Identity</span>
+                    </div>
+                    <div class="p-7 flex flex-col flex-1">
+                        <p class="text-xs text-muted-foreground tracking-wider uppercase mb-3">March 2026 · 5 min read</p>
+                        <h2 class="bl-title text-xl font-bold leading-snug mb-3">What Makes a Brand Unforgettable?</h2>
+                        <p class="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">The three non-negotiable pillars behind every brand people remember.</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-medium text-foreground">
+                            Read
+                            <svg class="bl-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Card: WYRM Creative Journey -->
+                <a href="blog-posts/wyrm-creative-journey.html" class="bl-card group flex flex-col overflow-hidden md:col-span-2 xl:col-span-1" data-scroll-tilt data-scroll-tilt-max="3" data-scroll-delay="240">
+                    <div class="relative aspect-video overflow-hidden bg-secondary" data-scroll-img-reveal>
+                        <img src="assets/images/blog/coverwyrm.jpg" alt="WYRM Creative Journey Thumbnail" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700">
+                        <span class="bl-chip absolute top-3 left-3 backdrop-blur-md">Studio</span>
+                    </div>
+                    <div class="p-7 flex flex-col flex-1">
+                        <p class="text-xs text-muted-foreground tracking-wider uppercase mb-3">March 2026 · 6 min read</p>
+                        <h2 class="bl-title text-xl font-bold leading-snug mb-3">From Art to Code: The WYRM Creative Journey</h2>
+                        <p class="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">From 3D worlds to graphic art to motion design — exploring the creative spectrum.</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-medium text-foreground">
+                            Read
+                            <svg class="bl-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- ── NEWSLETTER CTA ── -->
+            <div class="mt-16 md:mt-24 rounded-3xl border border-border/50 bg-secondary/40 p-10 md:p-16 text-center" data-scroll="fade-up">
+                <p class="bl-label mb-6 justify-center" style="display:inline-flex">More where that came from</p>
+                <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-6">Have a brand worth writing about?</h2>
+                <p class="text-muted-foreground max-w-xl mx-auto mb-10">We build identities, films and websites for companies that refuse to blend in. Yours could be the next case study.</p>
+                <a href="inquiry.html" class="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-colors shadow-xl" data-scroll-magnetic>
+                    <span>Start a Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6" style="height: 8rem; width: auto;">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Creative Studio specializing in brand identity, motion design, and web experiences for ambitious businesses.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Creative Direction</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="inquiry.html" class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a></li>
+                        <li><a href="mailto:studioswyrm@gmail.com" class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/main.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/page-transitions.js"></script>
+    <script src="js/scroll-animations.js?v=3"></script>
+    <script>
+        /* Scroll progress bar */
+        (function () {
+            var bar = document.getElementById('bl-progress');
+            if (!bar) return;
+            window.addEventListener('scroll', function () {
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+            }, { passive: true });
+        })();
+    </script>
+
+</body>
+</html>

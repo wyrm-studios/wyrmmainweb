@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Djappa Man — Music Artist Visual Identity — Case Study | WYRM.studios</title>
+    <meta name="description"
+        content="Case study: complete artist branding for Djappa Man, legendary Tunisian underground rapper and ZOMRA founder — character design, Mental Files podcast branding, music covers and motion design.">
+    <meta name="theme-color" content="#111111">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Djappa Man — Music Artist Visual Identity — Case Study">
+    <meta property="og:description"
+        content="The return of a Tunisian hip-hop legend: character design, Mental Files podcast branding, music covers and motion design.">
+    <meta property="og:image" content="https://wyrm.studios/assets/images/projects/djappaman-thumb.jpg">
+    <meta property="og:url" content="https://wyrm.studios/case-studies/djappa%20man/djappaman.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                        /* Djappa Man palette — drawn from the Mental Files cover art */
+                        'djappa-red': '#E03A2F',
+                        'djappa-cream': '#F2EBDD',
+                        'djappa-ink': '#12100E',
+                        'djappa-blue': '#2E9BD6',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+    <style>
+        /* ── Page-local components (theme-aware; brand colors inside showcase panels) ── */
+        .dj-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #E03A2F;
+        }
+
+        .dj-section-label::before {
+            content: '';
+            width: 2rem;
+            height: 2px;
+            background: #E03A2F;
+            display: inline-block;
+        }
+
+        .dj-card {
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 1.25rem;
+            transition: border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+        }
+
+        .dj-card:hover {
+            border-color: rgba(224, 58, 47, 0.55);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+        }
+
+        .dj-card-top {
+            border-top: 2px solid transparent;
+            transition: border-color .35s ease;
+        }
+
+        .dj-card-top:hover {
+            border-top-color: #E03A2F;
+        }
+
+        /* Artist hero band — brand showcase panel */
+        .dj-hero-band {
+            background: #12100E;
+            color: #F2EBDD;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dj-hero-band::after {
+            /* spray-paint texture hint */
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: .14;
+            background-image: radial-gradient(circle at 18% 30%, #E03A2F 0 1.5px, transparent 2px),
+                radial-gradient(circle at 76% 18%, #2E9BD6 0 1.5px, transparent 2px),
+                radial-gradient(circle at 42% 82%, #F2EBDD 0 1px, transparent 1.6px),
+                radial-gradient(circle at 88% 64%, #E03A2F 0 1px, transparent 1.6px),
+                radial-gradient(circle at 8% 76%, #2E9BD6 0 1px, transparent 1.6px);
+            background-size: 260px 260px;
+        }
+
+        /* Marquee strip */
+        .dj-marquee {
+            background: #E03A2F;
+            color: #F2EBDD;
+            border-top: 3px solid #12100E;
+            border-bottom: 3px solid #12100E;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .dj-marquee [data-scroll-ticker] {
+            display: flex;
+        }
+
+        .dj-marquee .dj-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding-right: 2.5rem;
+            white-space: nowrap;
+        }
+
+        .dj-marquee .dj-marquee-star {
+            color: #12100E;
+        }
+
+        /* Phase number chip */
+        .dj-phase {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 999px;
+            background: #12100E;
+            color: #F2EBDD;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Cover animation loop */
+        .dj-cover-loop video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Credits underline */
+        .dj-credit-row {
+            border-bottom: 1px solid hsl(var(--border) / 0.5);
+        }
+
+        /* Next link hover */
+        .dj-next .dj-next-arrow {
+            transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dj-next:hover .dj-next-arrow {
+            transform: translateX(8px);
+        }
+
+        .dj-next .dj-next-title {
+            transition: color .3s ease;
+        }
+
+        .dj-next:hover .dj-next-title {
+            color: #E03A2F;
+        }
+
+        /* Palette chip — click to copy */
+        .dj-chip {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 0.3rem;
+            min-height: 7.5rem;
+            padding: 1.25rem;
+            border: 0;
+            border-radius: 1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .dj-chip:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, .15);
+        }
+
+        .dj-chip:active {
+            transform: translateY(-1px) scale(.98);
+        }
+
+        .dj-chip-tag {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.9rem;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity .25s ease;
+        }
+
+        .dj-chip:hover .dj-chip-tag,
+        .dj-chip.copied .dj-chip-tag {
+            opacity: .9;
+        }
+
+        .dj-chip-hex {
+            font-size: 0.72rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            opacity: .75;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .dj-card,
+            .dj-next .dj-next-arrow,
+            .dj-cover-loop video {
+                transition: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION (standard site header — same as all pages) -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5"
+        style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+
+            <!-- 3-Column Grid Layout to prevent logo overlap -->
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+
+                <!-- Left Column: Navigation Links -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="../../index.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="../../work.html"
+                            class="text-foreground font-medium underline underline-offset-4 decoration-1">Work</a>
+                        <a href="../../about.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="../../blog.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
+
+                <!-- Center Column: Logo (Perfectly Centered) -->
+                <div class="flex items-center justify-center">
+                    <a href="../../index.html" class="flex items-center justify-center">
+                        <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+
+                <!-- Right Column: Shop, Theme Toggle, Inquiry -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button"
+                        class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors"
+                        aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="hidden dark:block">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="block dark:hidden">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                    </button>
+
+                    <!-- Inquiry Button - Smaller on mobile -->
+                    <a href="../../inquiry.html"
+                        class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY (standard — unchanged) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden"
+        style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <a href="../../index.html" class="flex items-center justify-center flex-1">
+                <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto dark:hidden">
+                <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="hidden dark:block">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="block dark:hidden">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../../index.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="../../work.html" class="text-6xl font-bold text-foreground">Work<span
+                    class="text-foreground">.</span></a>
+            <a href="../../about.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">About</a>
+            <a href="../../blog.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="../../inquiry.html"
+                class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+            <button id="mobile-shop-button" class="p-4 border border-border rounded-full text-foreground">
+                <span class="mobile-shop-text">Shop</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-0">
+
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+
+            <!-- ── Breadcrumb row ── -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-4" data-scroll="fade-up">
+                <a href="../../work.html"
+                    class="inline-flex items-center space-x-2 border border-border text-foreground px-5 py-2.5 rounded-full font-medium hover:bg-secondary transition-colors w-fit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="M19 12H5" />
+                    </svg>
+                    <span>BACK TO WORK</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span
+                        class="inline-flex items-center bg-djappa-red text-white text-xs font-bold tracking-widest px-4 py-2 rounded-full">CASE
+                        STUDY</span>
+                    <span class="text-sm text-muted-foreground">2023–2025</span>
+                </div>
+            </div>
+
+            <!-- ── HERO ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="dj-section-label mb-6" data-scroll="fade-up">Artist Branding · Tunisia</p>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight mb-6 text-foreground"
+                    data-scroll-words data-scroll-words-base="50" data-scroll-duration="800">
+                    Djappa Man — The Return of a Legend
+                </h1>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-10" data-scroll="fade-up"
+                    data-scroll-delay="250">
+                    Complete artist branding for the founder of ZOMRA — the crew that built Tunisian underground
+                    hip-hop. Character design, Mental Files podcast branding, music covers, and motion design:
+                    a legend's legacy, rebuilt for his second era.
+                </p>
+
+                <!-- Meta chips -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3" data-scroll-stagger="up" data-scroll-stagger-base="90">
+                    <div class="dj-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">CLIENT</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Djappa Man</p>
+                    </div>
+                    <div class="dj-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">SERVICES</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Identity • Podcast • Motion</p>
+                    </div>
+                    <div class="dj-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">DURATION</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">2023 – 2025, ongoing</p>
+                    </div>
+                    <div class="dj-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">INDUSTRY</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Music / Hip-Hop</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── ARTIST HERO BAND (brand panel) ── -->
+            <section class="mb-0" data-scroll="fade-up">
+                <div class="dj-hero-band rounded-3xl px-6 md:px-14 py-12 md:py-20 text-center">
+                    <div class="inline-block bg-djappa-cream rounded-2xl p-6 md:p-8 mb-8 shadow-xl" data-scroll-scale
+                        data-scroll-scale-from="0.92">
+                        <img src="djappamanblack logo.png" alt="Djappa Man logo" class="w-44 md:w-64 h-auto mx-auto"
+                            loading="lazy">
+                    </div>
+                    <blockquote class="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight leading-tight max-w-4xl mx-auto"
+                        data-scroll-words data-scroll-words-base="55" data-scroll-duration="900">
+                        “I'm back. I want something that represents who I am now.”
+                    </blockquote>
+                    <p class="mt-6 text-sm tracking-[0.25em] uppercase" style="color:rgba(242,235,221,.55)">
+                        Djappa Man — first call with WYRM, 2023
+                    </p>
+                </div>
+            </section>
+
+            <!-- ── MARQUEE STRIP (brand panel) ── -->
+            <div class="dj-marquee py-4 mb-10 md:mb-14 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8"
+                data-scroll="fade-up" aria-hidden="true">
+                <div data-scroll-ticker data-scroll-ticker-speed="70">
+                    <div data-scroll-ticker-inner>
+                        <span class="dj-marquee-item">ZOMRA Founder <span class="dj-marquee-star">✦</span></span>
+                        <span class="dj-marquee-item">Mental Files <span class="dj-marquee-star">✦</span></span>
+                        <span class="dj-marquee-item">Tunisian Underground Hip-Hop <span class="dj-marquee-star">✦</span></span>
+                        <span class="dj-marquee-item">Character-Driven Brand <span class="dj-marquee-star">✦</span></span>
+                        <span class="dj-marquee-item">The Legend Returns <span class="dj-marquee-star">✦</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── THE STORY ── -->
+            <section class="mb-10 md:mb-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="dj-section-label mb-6" data-scroll="fade-up">The story</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up"
+                            data-scroll-delay="80">How it all started</h2>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p data-scroll="fade-up">
+                        I still remember the day Djappa Man reached out to us. For those who don't know, this man is a
+                        legend. He's the founder of <strong class="text-foreground">ZOMRA</strong> — the crew that
+                        literally built the foundation of underground hip-hop in Tunisia. Anti-system, raw, real —
+                        that's ZOMRA. That's Djappa Man.
+                    </p>
+                    <p data-scroll="fade-up">
+                        But here's the thing: he had been gone for a long time. Years away from the scene. No rap, no
+                        art, completely silent. When someone like that disappears, you feel it in the culture.
+                    </p>
+                    <p data-scroll="fade-up">
+                        Then out of nowhere, he hit us up at WYRM. <em>"I'm back,"</em> he told us. <em>"I want to
+                            create something new. I need a complete branding — something personal, something that
+                            represents who I am now."</em>
+                    </p>
+                    <p data-scroll="fade-up">
+                        I won't lie — I was honored. Nervous too. This is Djappa Man we're talking about. The guy who
+                        pioneered the movement. And he chose us to bring his vision back to life. He trusted us with
+                        his legacy. This wasn't just another project. This was history in the making.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ── BRAND IDENTITY — ALL ON THE PAGE ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="dj-section-label mb-6" data-scroll="fade-up">Brand guidelines</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">The identity system, up close</h2>
+                <p class="text-muted-foreground mb-10 max-w-2xl" data-scroll="fade-up" data-scroll-delay="180">
+                    No PDFs, no downloads — the whole system lives right here on the page: the logo, the podcast
+                    brand, the character and the palette, exactly as they ship.
+                </p>
+
+                <!-- Logo + podcast brand -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <figure class="rounded-2xl bg-djappa-cream p-10 md:p-14 flex flex-col items-center justify-center min-h-[300px]"
+                        data-scroll="fade-up">
+                        <img src="djappamanblack logo.png" alt="Djappa Man logo on cream"
+                            class="w-48 md:w-64 h-auto mb-6" loading="lazy">
+                        <figcaption class="text-xs font-bold tracking-widest" style="color:rgba(18,16,14,.45)">PRIMARY
+                            LOGO — INK ON CREAM</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl p-10 md:p-14 flex flex-col items-center justify-center min-h-[300px]"
+                        style="background:#12100E" data-scroll="fade-up" data-scroll-delay="140">
+                        <img src="djappa man podcast logo.png" alt="Mental Files podcast logo"
+                            class="w-48 md:w-64 h-auto mb-6" loading="lazy">
+                        <figcaption class="text-xs font-bold tracking-widest text-white/40">THE PODCAST BRAND — MENTAL
+                            FILES</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Character, both grounds -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4" data-scroll-stagger="up" data-scroll-stagger-base="130">
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="character design.jpg" alt="Djappa Man character — designed ground"
+                            class="w-full h-auto" loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground italic p-5">The character — raw energy,
+                            designed ground.</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="character design wiht white backgound.jpg" alt="Djappa Man character — clean ground"
+                            class="w-full h-auto" loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground italic p-5">Clean ground — for merch, print
+                            and light surfaces.</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Palette — click to copy -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="dj-palette" data-scroll-stagger="up"
+                    data-scroll-stagger-base="90">
+                    <button class="dj-chip" data-hex="#12100E"
+                        style="background:#12100E;color:#F2EBDD;box-shadow:inset 0 0 0 1px rgba(242,235,221,.25)"
+                        aria-label="Copy ink #12100E">
+                        <span class="dj-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Ink</span>
+                        <span class="dj-chip-hex">#12100E</span>
+                    </button>
+                    <button class="dj-chip" data-hex="#E03A2F" style="background:#E03A2F;color:#F2EBDD"
+                        aria-label="Copy spray red #E03A2F">
+                        <span class="dj-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Spray Red</span>
+                        <span class="dj-chip-hex">#E03A2F</span>
+                    </button>
+                    <button class="dj-chip" data-hex="#F2EBDD"
+                        style="background:#F2EBDD;color:#12100E;box-shadow:inset 0 0 0 1px rgba(18,16,14,.18)"
+                        aria-label="Copy cream #F2EBDD">
+                        <span class="dj-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Cream</span>
+                        <span class="dj-chip-hex">#F2EBDD</span>
+                    </button>
+                    <button class="dj-chip" data-hex="#2E9BD6" style="background:#2E9BD6;color:#FFFFFF"
+                        aria-label="Copy street blue #2E9BD6">
+                        <span class="dj-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Street Blue</span>
+                        <span class="dj-chip-hex">#2E9BD6</span>
+                    </button>
+                </div>
+                <p class="text-sm text-muted-foreground mt-4 text-center" data-scroll="fade-up">Four colors, straight
+                    off the cover art. Click any chip to copy its hex.</p>
+            </section>
+
+            <!-- ── PHASE 01 — CHARACTER & LOGO ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="flex items-center gap-4 mb-6" data-scroll="fade-up">
+                    <span class="dj-phase">01</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-foreground">Character &amp; Logo</h2>
+                </div>
+                <p class="text-muted-foreground text-lg mb-10 max-w-4xl leading-relaxed" data-scroll="fade-up">
+                    The foundation of every great brand starts with a strong visual identity. For Djappa Man, we began
+                    with a character that captures his essence — raw, authentic, unmistakably him. It became the
+                    cornerstone of the entire system, from podcast thumbnails to music covers, anchored by a bold logo
+                    mark that holds up from a billboard to an avatar.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <figure data-scroll-clip="clip-up" data-scroll-duration="1100">
+                        <img src="character design.jpg" alt="Djappa Man character design"
+                            class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy">
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">The character — designed to
+                            embody the raw energy of Tunisian underground hip-hop.</figcaption>
+                    </figure>
+                    <figure data-scroll-clip="clip-up" data-scroll-duration="1100" data-scroll-delay="140">
+                        <img src="character design wiht white backgound.jpg"
+                            alt="Djappa Man character design on white"
+                            class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy">
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">Clean-ground version for
+                            merch, print and light surfaces.</figcaption>
+                    </figure>
+                </div>
+
+                <figure class="mb-6" data-scroll="fade-up">
+                    <img src="character.jpg" alt="Djappa Man character — full-resolution master artwork"
+                        class="w-full max-w-3xl mx-auto h-auto rounded-2xl bg-secondary shadow-lg" loading="lazy"
+                        data-scroll-img-reveal>
+                    <figcaption class="text-sm text-muted-foreground mt-3 italic text-center">The master artwork —
+                        full resolution, from sketch lines to final ink.</figcaption>
+                </figure>
+
+                <figure class="mb-6" data-scroll="fade-up">
+                    <img src="djappamanblack logo.png" alt="Djappa Man logo mark"
+                        class="w-full max-w-2xl mx-auto object-contain rounded-2xl bg-djappa-cream shadow-lg"
+                        loading="lazy">
+                    <figcaption class="text-sm text-muted-foreground mt-3 italic text-center">The logo mark — built
+                        for instant recognition at any size, on any platform.</figcaption>
+                </figure>
+            </section>
+
+            <!-- ── PHASE 02 — MENTAL FILES ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="flex items-center gap-4 mb-6" data-scroll="fade-up">
+                    <span class="dj-phase">02</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-foreground">Mental Files Podcast</h2>
+                </div>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Mental Files is more than a podcast — it's a cultural platform where Djappa Man engages with
+                    artists, creators and thinkers. The branding carries the raw, unfiltered nature of those
+                    conversations across YouTube and every streaming platform.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6" data-scroll-stagger="up"
+                    data-scroll-stagger-base="120">
+                    <figure class="rounded-2xl overflow-hidden" style="background:#12100E" data-scroll="fade-up">
+                        <img src="mentalfileslogo.png" alt="Mental Files logo — clean transparent master"
+                            class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#12100E">
+                        <figcaption class="text-sm text-muted-foreground italic p-5">The clean master — transparent
+                            PNG, drops onto any surface.</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-djappa-cream" data-scroll="fade-up"
+                        data-scroll-delay="140">
+                        <img src="djappa man podcast logo.png" alt="Mental Files podcast logo on cream"
+                            class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#F2EBDD">
+                        <figcaption class="text-sm text-muted-foreground italic p-5">On cream — merch, print and
+                            light surfaces. Graffiti-inspired typography with the underground spirit built in.</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Motion: cover animation + intro animation -->
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4 items-stretch">
+                    <div class="md:col-span-3 rounded-2xl overflow-hidden bg-black shadow-lg" data-scroll-scale
+                        data-scroll-scale-from="0.94">
+                        <video controls playsinline class="w-full h-auto">
+                            <source src="music cover animation.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="md:col-span-2 dj-card p-7 flex flex-col justify-center" data-scroll="fade-right"
+                        data-scroll-delay="150">
+                        <p class="dj-section-label mb-4">In motion</p>
+                        <h3 class="text-xl font-bold text-foreground mb-3">The cover, animated</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">The music-cover artwork doesn't sit
+                            still — the loop carries the same visual language into motion for release promos and
+                            social drops.</p>
+                    </div>
+                </div>
+
+                <!-- The Mental Files intro animation -->
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6 items-stretch">
+                    <div class="md:col-span-3 rounded-2xl overflow-hidden bg-black shadow-lg" data-scroll-scale
+                        data-scroll-scale-from="0.94" data-scroll-delay="120">
+                        <video controls playsinline preload="metadata" class="w-full h-auto">
+                            <source src="intromentalfiles.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="md:col-span-2 dj-card p-7 flex flex-col justify-center" data-scroll="fade-right"
+                        data-scroll-delay="200">
+                        <p class="dj-section-label mb-4">The intro</p>
+                        <h3 class="text-xl font-bold text-foreground mb-3">Mental Files, animated</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">Every episode opens with the brand in
+                            motion — a custom intro sequence that stamps the identity into the first three seconds.</p>
+                    </div>
+                </div>
+
+                <!-- Thumbnails -->
+                <p class="text-muted-foreground text-lg mb-8 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Every episode needed a thumbnail that would stop the scroll — a consistent system where each
+                    episode still owns its own visual identity.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="130">
+                    <figure>
+                        <img src="thumbnail1.jpg" alt="Mental Files episode thumbnail"
+                            class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">Episode thumbnail — character,
+                            typography and imagery built for click-through.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="thumbnail2.jpg"
+                            alt="Mental Files episode thumbnail variation"
+                            class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">System variation — brand
+                            consistency with room for each episode's theme.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── PHASE 03 — MUSIC COVERS ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="flex items-center gap-4 mb-6" data-scroll="fade-up">
+                    <span class="dj-phase">03</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-foreground">Music Covers &amp; Design Assets</h2>
+                </div>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Every release needs artwork that matches the energy of the sound — a cover system, promo
+                    materials and social assets that all speak the same visual language.
+                </p>
+
+                <figure class="mb-6" data-scroll="fade-up">
+                    <img src="coverdesign.jpg" alt="Primary music cover design"
+                        class="w-full h-auto rounded-2xl bg-secondary shadow-lg" loading="lazy"
+                        data-scroll-img-reveal>
+                    <figcaption class="text-sm text-muted-foreground mt-3 italic text-center">Primary cover — the
+                        visual language every release builds on.</figcaption>
+                </figure>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6" data-scroll-stagger="up" data-scroll-stagger-base="120">
+                    <figure>
+                        <img src="another new cover 2.jpg" alt="Album cover variation"
+                            class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">Album variation — a different
+                            narrative inside the same system.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="anothercover 3.jpg" alt="Cover design exploration"
+                            class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">Exploration — pushing the
+                            boundaries while keeping the brand intact.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="anothercover4.jpg" alt="Cover design variant"
+                            class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">Additional variant — expanding
+                            the language across release types.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="mockup forcover design.jpg" alt="Cover mockup in real-world context"
+                            class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">Mockup — the design proven in
+                            the real world.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="120">
+                    <figure>
+                        <img src="socail media post for cover drop out.jpg"
+                            alt="Social media release announcement" class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">Release announcement —
+                            brand-consistent drop visuals for social.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="socailmedai design for the hole brading.jpg"
+                            alt="Complete social branding design" class="w-full h-auto rounded-2xl bg-secondary shadow-lg"
+                            loading="lazy" data-scroll-img-reveal>
+                        <figcaption class="text-sm text-muted-foreground mt-3 italic">The whole system — every element
+                            working together across platforms.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── MENTAL FILES EPISODES ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="dj-section-label mb-6" data-scroll="fade-up">On screen</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up">Mental Files
+                    episodes</h2>
+                <p class="text-muted-foreground mb-10 text-lg max-w-3xl" data-scroll="fade-up" data-scroll-delay="120">
+                    Video editing, intro animation and complete post-production for the Mental Files podcast series.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-scroll-stagger="up" data-scroll-stagger-base="140">
+                    <div class="video-wrapper" data-scroll-scale data-scroll-scale-from="0.95">
+                        <iframe src="https://www.youtube-nocookie.com/embed/y5FDMRISFgg?rel=0" frameborder="0"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen title="Mental Files episode"></iframe>
+                    </div>
+                    <div class="video-wrapper" data-scroll-scale data-scroll-scale-from="0.95"
+                        data-scroll-delay="120">
+                        <iframe src="https://www.youtube-nocookie.com/embed/OJHhjCyZirg?rel=0" frameborder="0"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen title="Mental Files episode"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CHALLENGE / SOLUTION ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="dj-card dj-card-top p-8" data-scroll-tilt data-scroll-tilt-max="4" data-scroll-tilt-scale="1.01">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Challenge</h2>
+                    <p class="text-muted-foreground leading-relaxed">After years away from the scene, Djappa Man needed
+                        a complete visual rebrand that honored his legendary status in Tunisian hip-hop while
+                        representing his evolution as an artist. The brand had to work across podcast series, music
+                        releases, social media and live streams — without losing the raw, authentic energy that defined
+                        ZOMRA.</p>
+                </div>
+                <div class="dj-card dj-card-top p-8" data-scroll-tilt data-scroll-tilt-max="4" data-scroll-tilt-scale="1.01"
+                    data-scroll-delay="140">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Solution</h2>
+                    <p class="text-muted-foreground leading-relaxed">A complete identity system: a character that
+                        captures his essence, Mental Files podcast branding with an animated intro, music cover
+                        designs, YouTube thumbnails, and a cohesive visual language bridging his underground roots with
+                        his current multimedia vision.</p>
+                </div>
+            </section>
+
+            <!-- ── OUTCOME (brand panel) ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl bg-djappa-red text-white p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-12 -right-2 text-[10rem] md:text-[15rem] font-bold leading-none select-none opacity-15">D</span>
+                    <div class="relative z-10 max-w-3xl">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-80">OUTCOME</p>
+                        <h2 class="text-2xl md:text-4xl font-bold leading-tight mb-5">A legend, rebranded — and still
+                            rolling.</h2>
+                        <p class="text-white/85 leading-relaxed mb-8">
+                            A complete visual identity running across the Mental Files podcast, every music release
+                            and the full social presence — an ongoing collaboration from 2023 to today, bridging the
+                            ZOMRA heritage with Djappa Man's new era.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Character
+                                system</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Podcast
+                                brand</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Cover
+                                library</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Motion
+                                toolkit</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── STRATEGY ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="dj-section-label mb-6" data-scroll="fade-up">Approach</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-foreground" data-scroll="fade-up">Strategy</h2>
+                <p class="text-muted-foreground text-lg mb-8 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Honor the legend, build for the comeback. Character-driven design became the cornerstone — a
+                    visual mascot that adapts across every touchpoint, from podcast frames to album art, carrying the
+                    underground DNA into a modern identity.
+                </p>
+                <div class="flex flex-wrap gap-3" data-scroll="fade-up" data-scroll-delay="150">
+                    <div class="pill-tag">Underground authenticity</div>
+                    <div class="pill-tag">Character-driven design</div>
+                    <div class="pill-tag">Multi-platform consistency</div>
+                    <div class="pill-tag">Legacy meets evolution</div>
+                    <div class="pill-tag">Visual storytelling</div>
+                </div>
+            </section>
+
+            <!-- ── DELIVERABLES ── -->
+            <section class="mb-8 md:mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up">Deliverables</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                    <div class="dj-card dj-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Brand Identity</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Character design &amp; development</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Mental Files logo design</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Visual identity system</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Complete brand guidelines — on this page</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Color palette &amp; typography</span></li>
+                        </ul>
+                    </div>
+                    <div class="dj-card dj-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Video Production</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Podcast video editing</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Intro animation sequence</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Logo animation</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Montage &amp; post-production</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Multi-platform optimization</span></li>
+                        </ul>
+                    </div>
+                    <div class="dj-card dj-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Design Assets</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Music cover design</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>YouTube thumbnails</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Social media graphics</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Clip animations</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-djappa-red mt-0.5">—</span><span>Promotional materials</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── ROLES & CREDITS ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="dj-section-label mb-6" data-scroll="fade-up">Credits</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up">Roles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5" data-scroll-stagger="up"
+                    data-scroll-stagger-base="70">
+                    <div class="dj-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Creative Direction</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="dj-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Brand Identity</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="dj-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Character Design</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="dj-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Video Editing</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="dj-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Motion Design</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="dj-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Cover Design</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CTA ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl border border-border/50 bg-secondary/40 p-8 md:p-14 text-center" data-scroll="fade-up">
+                    <p class="dj-section-label mb-6 justify-center" style="display:inline-flex">Your artist brand next</p>
+                    <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-6 text-foreground">Got a legacy worth
+                        branding?</h2>
+                    <p class="text-muted-foreground max-w-xl mx-auto mb-10">Whether you're an artist, a label or a
+                        creator — we build identities that honor where you came from and carry where you're going.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="../../inquiry.html"
+                            class="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-colors shadow-xl"
+                            data-scroll-magnetic>
+                            <span>Start a Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="../../work.html"
+                            class="inline-flex items-center space-x-2 border border-border text-foreground px-8 py-4 rounded-full font-medium text-lg hover:bg-secondary transition-colors">
+                            <span>See More Work</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── NEXT CASE STUDY ── -->
+            <section class="border-t border-border/50 pt-10 pb-12">
+                <a href="../minato-sushi/minato-sushi.html" class="dj-next flex flex-col md:flex-row md:items-center md:justify-between gap-6 group">
+                    <div>
+                        <p class="text-sm text-muted-foreground mb-2">Next Case Study</p>
+                        <h3 class="dj-next-title text-2xl md:text-3xl font-bold text-foreground">Minato Sushi — Premium
+                            Restaurant Experience</h3>
+                    </div>
+                    <span
+                        class="inline-flex items-center space-x-2 border border-border px-6 py-3 rounded-full font-medium text-foreground hover:bg-secondary transition-colors w-fit shrink-0">
+                        <span>View Case</span>
+                        <svg class="dj-next-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </span>
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="../../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6"
+                        style="height: 8rem; width: auto;" loading="lazy">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand
+                        identity, motion design, video editing, logos, and web experiences for companies that refuse
+                        to blend in.</p>
+
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a>
+                        </li>
+                        <li><a href="../../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a>
+                        </li>
+                        <li><a href="../../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a>
+                        </li>
+                        <li><a href="../../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand
+                                Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion
+                                Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video
+                                Editing</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../inquiry.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a>
+                        </li>
+                        <li><a href="mailto:studioswyrm@gmail.com"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/theme-toggle.js"></script>
+    <script src="../../js/mobile-menu.js"></script>
+    <script src="../../js/smooth-scroll.js"></script>
+    <script src="../../js/page-transitions.js"></script>
+    <script src="../../js/scroll-animations.js"></script>
+    <script>
+        /* Palette chips — click to copy the hex */
+        (function () {
+            document.querySelectorAll('.dj-chip').forEach(function (chip) {
+                var tag = chip.querySelector('.dj-chip-tag');
+                chip.addEventListener('click', function () {
+                    var hex = chip.getAttribute('data-hex');
+                    var done = function () {
+                        if (!tag) return;
+                        var prev = tag.textContent;
+                        tag.textContent = 'Copied!';
+                        chip.classList.add('copied');
+                        setTimeout(function () {
+                            tag.textContent = prev;
+                            chip.classList.remove('copied');
+                        }, 1300);
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(hex).then(done, done);
+                    } else {
+                        var ta = document.createElement('textarea');
+                        ta.value = hex;
+                        ta.style.position = 'fixed';
+                        ta.style.opacity = '0';
+                        document.body.appendChild(ta);
+                        ta.select();
+                        try { document.execCommand('copy'); } catch (e) { }
+                        document.body.removeChild(ta);
+                        done();
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

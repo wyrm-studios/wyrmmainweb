@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINATO — Premium Sushi Brand Identity — Case Study | WYRM.studios</title>
+    <meta name="description"
+        content="Case study: complete brand identity for MINATO (港), premium sushi in Port El Kantaoui, Sousse — logo system, packaging, social media design and a website in the making. From the ocean's heart to your plate.">
+    <meta name="theme-color" content="#465162">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MINATO — Premium Sushi Brand Identity — Case Study">
+    <meta property="og:description"
+        content="The harbor of premium sushi: identity, packaging and social design for MINATO — Port El Kantaoui, Sousse.">
+    <meta property="og:image" content="https://wyrm.studios/assets/images/projects/minato-sushi-thumb.jpg">
+    <meta property="og:url" content="https://wyrm.studios/case-studies/minato-sushi/minato-sushi.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        jp: ['"Noto Serif JP"', 'serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                        /* MINATO palette — from the official brand board */
+                        'min-slate': '#465162',
+                        'min-steel': '#59729A',
+                        'min-sky': '#B7CDE8',
+                        'min-mist': '#EAE8FD',
+                        'min-coral': '#FF554D',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+    <style>
+        /* ── Page-local components (site theme untouched; MINATO colors only in showcase panels) ── */
+        .min-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #FF554D;
+        }
+
+        .min-section-label::before {
+            content: '';
+            width: 2rem;
+            height: 2px;
+            background: #FF554D;
+            display: inline-block;
+        }
+
+        .min-card {
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 1.25rem;
+            transition: border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+        }
+
+        .min-card:hover {
+            border-color: rgba(89, 114, 154, 0.65);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(70, 81, 98, .12);
+        }
+
+        .min-card-top {
+            border-top: 2px solid transparent;
+            transition: border-color .35s ease;
+        }
+
+        .min-card-top:hover {
+            border-top-color: #FF554D;
+        }
+
+        /* Brand hero band — slate sea panel with the official wave texture */
+        .min-hero-band {
+            background: #465162;
+            color: #EAE8FD;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .min-hero-band::after {
+            /* official texture, used per the brand book: pattern as backdrop */
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image: url('texture.png');
+            background-size: 280px;
+            opacity: .08;
+        }
+
+        /* Marquee strip */
+        .min-marquee {
+            background: #FF554D;
+            color: #FFFFFF;
+            border-top: 3px solid #465162;
+            border-bottom: 3px solid #465162;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .min-marquee [data-scroll-ticker] {
+            display: flex;
+        }
+
+        .min-marquee .min-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding-right: 2.5rem;
+            white-space: nowrap;
+        }
+
+        .min-marquee .min-marquee-star {
+            color: #465162;
+        }
+
+        /* Palette chip — click to copy */
+        .min-chip {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 0.3rem;
+            min-height: 7.5rem;
+            padding: 1.25rem;
+            border: 0;
+            border-radius: 1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .min-chip:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(70, 81, 98, .18);
+        }
+
+        .min-chip:active {
+            transform: translateY(-1px) scale(.98);
+        }
+
+        .min-chip-tag {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.9rem;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity .25s ease;
+        }
+
+        .min-chip:hover .min-chip-tag,
+        .min-chip.copied .min-chip-tag {
+            opacity: .9;
+        }
+
+        .min-chip-hex {
+            font-size: 0.72rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            opacity: .75;
+        }
+
+        /* Website-in-build status card */
+        .min-status-dot {
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 999px;
+            background: #FF554D;
+            box-shadow: 0 0 0 0 rgba(255, 85, 77, .6);
+            animation: min-pulse 1.8s ease-out infinite;
+        }
+
+        @keyframes min-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 85, 77, .55); }
+            70% { box-shadow: 0 0 0 12px rgba(255, 85, 77, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 85, 77, 0); }
+        }
+
+        /* Credits underline */
+        .min-credit-row {
+            border-bottom: 1px solid hsl(var(--border) / 0.5);
+        }
+
+        /* Next link hover */
+        .min-next .min-next-arrow {
+            transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .min-next:hover .min-next-arrow {
+            transform: translateX(8px);
+        }
+
+        .min-next .min-next-title {
+            transition: color .3s ease;
+        }
+
+        .min-next:hover .min-next-title {
+            color: #FF554D;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .min-card,
+            .min-next .min-next-arrow,
+            .min-status-dot {
+                transition: none !important;
+                transform: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION (standard site header — same as all pages) -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5"
+        style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+
+            <!-- 3-Column Grid Layout to prevent logo overlap -->
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+
+                <!-- Left Column: Navigation Links -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="../../index.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="../../work.html"
+                            class="text-foreground font-medium underline underline-offset-4 decoration-1">Work</a>
+                        <a href="../../about.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="../../blog.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
+
+                <!-- Center Column: Logo (Perfectly Centered) -->
+                <div class="flex items-center justify-center">
+                    <a href="../../index.html" class="flex items-center justify-center">
+                        <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+
+                <!-- Right Column: Shop, Theme Toggle, Inquiry -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button"
+                        class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors"
+                        aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="hidden dark:block">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="block dark:hidden">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                    </button>
+
+                    <!-- Inquiry Button - Smaller on mobile -->
+                    <a href="../../inquiry.html"
+                        class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY (standard — unchanged) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden"
+        style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <a href="../../index.html" class="flex items-center justify-center flex-1">
+                <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto dark:hidden">
+                <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="hidden dark:block">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="block dark:hidden">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../../index.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="../../work.html" class="text-6xl font-bold text-foreground">Work<span
+                    class="text-foreground">.</span></a>
+            <a href="../../about.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">About</a>
+            <a href="../../blog.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="../../inquiry.html"
+                class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+            <button id="mobile-shop-button" class="p-4 border border-border rounded-full text-foreground">
+                <span class="mobile-shop-text">Shop</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-0">
+
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+
+            <!-- ── Breadcrumb row ── -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-4" data-scroll="fade-up">
+                <a href="../../work.html"
+                    class="inline-flex items-center space-x-2 border border-border text-foreground px-5 py-2.5 rounded-full font-medium hover:bg-secondary transition-colors w-fit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="M19 12H5" />
+                    </svg>
+                    <span>BACK TO WORK</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span
+                        class="inline-flex items-center bg-min-coral text-white text-xs font-bold tracking-widest px-4 py-2 rounded-full">CASE
+                        STUDY</span>
+                    <span class="text-sm text-muted-foreground">2025 — Ongoing</span>
+                </div>
+            </div>
+
+            <!-- ── HERO ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="min-section-label mb-6" data-scroll="fade-up">Restaurant Branding · Sousse, Tunisia</p>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight mb-6 text-foreground"
+                    data-scroll-words data-scroll-words-base="50" data-scroll-duration="800">
+                    MINATO — The Harbor of Premium Sushi
+                </h1>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-10" data-scroll="fade-up"
+                    data-scroll-delay="250">
+                    Complete brand identity for <strong class="text-foreground">MINATO (港)</strong> — authentic
+                    Japanese for "harbor" — a premium sushi restaurant at Port El Kantaoui. Logo system, packaging,
+                    social media design and a website in the making: a bridge between Japanese tradition and the
+                    coastal charm of Sousse.
+                </p>
+
+                <!-- Meta chips -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3" data-scroll-stagger="up" data-scroll-stagger-base="90">
+                    <div class="min-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">CLIENT</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">MINATO Premium Sushi</p>
+                    </div>
+                    <div class="min-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">SERVICES</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Identity • Packaging • Social</p>
+                    </div>
+                    <div class="min-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">DURATION</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">2025 — Ongoing</p>
+                    </div>
+                    <div class="min-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">INDUSTRY</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Food &amp; Hospitality</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── BRAND HERO BAND (showcase panel) ── -->
+            <section class="mb-0" data-scroll="fade-up">
+                <div class="min-hero-band rounded-3xl px-6 md:px-14 py-12 md:py-20 text-center">
+                    <span aria-hidden="true"
+                        class="absolute top-6 right-8 text-6xl md:text-8xl font-bold leading-none select-none opacity-10 font-jp"
+                        data-scroll-parallax data-scroll-parallax-speed="0.12">港</span>
+                    <div class="relative z-10">
+                        <div class="inline-block bg-min-mist rounded-2xl p-6 md:p-8 mb-8 shadow-xl" data-scroll-scale
+                            data-scroll-scale-from="0.92">
+                            <img src="logowithwordmark.png" alt="MINATO logo — mark and wordmark"
+                                class="w-52 md:w-80 h-auto mx-auto" loading="lazy">
+                        </div>
+                        <blockquote class="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight leading-tight max-w-4xl mx-auto"
+                            data-scroll-words data-scroll-words-base="55" data-scroll-duration="900">
+                            "From the Ocean's Heart to Your Plate."
+                        </blockquote>
+                        <p class="mt-6 text-sm tracking-[0.25em] uppercase" style="color:rgba(234,232,253,.55)">
+                            MINATO PREMIUM SUSHI — ローリング・ノリ — MADE IN SOUSSE
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── MARQUEE STRIP (brand panel) ── -->
+            <div class="min-marquee py-4 mb-10 md:mb-14 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8"
+                data-scroll="fade-up" aria-hidden="true">
+                <div data-scroll-ticker data-scroll-ticker-speed="65">
+                    <div data-scroll-ticker-inner>
+                        <span class="min-marquee-item">Fresh Ingredients 新鮮な食材 <span class="min-marquee-star">✦</span></span>
+                        <span class="min-marquee-item">Expert Preparation 職人の技 <span class="min-marquee-star">✦</span></span>
+                        <span class="min-marquee-item">Authentic Experience 本格的な体験 <span class="min-marquee-star">✦</span></span>
+                        <span class="min-marquee-item">Delivery in Sousse <span class="min-marquee-star">✦</span></span>
+                        <span class="min-marquee-item">@minato.sushii <span class="min-marquee-star">✦</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── THE STORY ── -->
+            <section class="mb-10 md:mb-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="min-section-label mb-6" data-scroll="fade-up">The story</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up"
+                            data-scroll-delay="80">Why "Minato"?</h2>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p data-scroll="fade-up">
+                        <strong class="text-foreground">Minato (港)</strong> is the authentic Japanese word for
+                        <em>harbor</em> — a sanctuary where journeys begin, cultures converge, and the freshest
+                        seafood arrives from the ocean. For a premium sushi restaurant sitting right on the water
+                        at Port El Kantaoui, the name isn't decoration. It's geography.
+                    </p>
+                    <p data-scroll="fade-up">
+                        The name had to pass a hard test before it earned the sign above the door: authentic in its
+                        use of genuine Japanese language and Kanji, short enough to pronounce for locals and tourists
+                        alike, sophisticated enough to carry a premium feel — and visually strong enough that a single
+                        Kanji character could anchor the signage.
+                    </p>
+                    <p data-scroll="fade-up">
+                        It creates a perfect bridge: Japanese tradition on one side, the maritime charm of Sousse on
+                        the other. That bridge became the entire identity — every color, every pattern, every package
+                        flows from it.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ── WHAT THE NAME CARRIES ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="min-section-label mb-6" data-scroll="fade-up">Naming</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">What the name
+                    carries</h2>
+                <p class="text-muted-foreground max-w-2xl mb-10" data-scroll="fade-up" data-scroll-delay="180">Five tests, passed
+                    before the first sketch.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                    <div class="min-card min-card-top p-7">
+                        <span class="text-xs font-bold text-min-coral tracking-widest block mb-4">01 — AUTHENTIC</span>
+                        <p class="text-muted-foreground leading-relaxed">Genuine Japanese language and Kanji signal
+                            respect for the cuisine's roots.</p>
+                    </div>
+                    <div class="min-card min-card-top p-7">
+                        <span class="text-xs font-bold text-min-coral tracking-widest block mb-4">02 — MEMORABLE</span>
+                        <p class="text-muted-foreground leading-relaxed">Short, elegant, and phonetically easy for both
+                            locals and tourists to pronounce.</p>
+                    </div>
+                    <div class="min-card min-card-top p-7">
+                        <span class="text-xs font-bold text-min-coral tracking-widest block mb-4">03 — RELEVANT</span>
+                        <p class="text-muted-foreground leading-relaxed">Directly evokes freshness, the sea, and safe
+                            arrival — exactly what a harbor promises.</p>
+                    </div>
+                    <div class="min-card min-card-top p-7">
+                        <span class="text-xs font-bold text-min-coral tracking-widest block mb-4">04 — SOPHISTICATED</span>
+                        <p class="text-muted-foreground leading-relaxed">Carries a premium feel that appeals to a
+                            diverse clientele.</p>
+                    </div>
+                    <div class="min-card min-card-top p-7">
+                        <span class="text-xs font-bold text-min-coral tracking-widest block mb-4">05 — VISUALLY STRONG</span>
+                        <p class="text-muted-foreground leading-relaxed">The Kanji 港 provides a unique, striking element
+                            for signage and branding.</p>
+                    </div>
+                    <div class="rounded-[1.25rem] p-7 bg-min-slate text-min-mist flex flex-col justify-between">
+                        <span class="text-xs font-bold tracking-widest block mb-4" style="color:#B7CDE8">THE TEST</span>
+                        <p class="text-xl font-semibold leading-snug">If the name doesn't taste of the sea, it doesn't
+                            go above the door.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── IDENTITY SYSTEM — ALL ON THE PAGE ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="min-section-label mb-6" data-scroll="fade-up">Brand guidelines</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">The identity
+                    system, up close</h2>
+                <p class="text-muted-foreground mb-10 max-w-2xl" data-scroll="fade-up" data-scroll-delay="180">
+                    No PDFs, no downloads — the whole system lives right here on the page: the mark and its meaning,
+                    the palette, the type, and the wave pattern that ties it together.
+                </p>
+
+                <!-- Logo meaning: two panels -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <figure class="rounded-2xl bg-min-mist p-10 md:p-14 flex flex-col items-center justify-center min-h-[320px]"
+                        data-scroll="fade-up">
+                        <img src="logo mark png.png" alt="MINATO logo mark" class="w-40 md:w-52 h-auto mb-6"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#EAE8FD">
+                        <figcaption class="text-xs font-bold tracking-widest" style="color:rgba(70,81,98,.65)">
+                            THE MARK — THE "O" OF MINATO, A SEA WAVE, A ROLLING MAKI
+                        </figcaption>
+                    </figure>
+                    <figure class="rounded-2xl bg-min-mist p-10 md:p-14 flex flex-col items-center justify-center min-h-[320px]"
+                        data-scroll="fade-up" data-scroll-delay="140">
+                        <img src="logowithwordmark.png" alt="MINATO wordmark lockup on pale mist"
+                            class="w-52 md:w-72 h-auto mb-6" loading="lazy" data-scroll-img-reveal
+                            data-scroll-img-color="#EAE8FD">
+                        <figcaption class="text-xs font-bold tracking-widest" style="color:rgba(70,81,98,.65)">
+                            THE LOCKUP — MINIMUM SIZE 32&nbsp;PX
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <!-- Logo story + typography -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4" data-scroll-stagger="up" data-scroll-stagger-base="130">
+                    <div class="min-card p-8">
+                        <h3 class="text-xl font-bold text-foreground mb-3">One letter, three stories</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+                            The logo is formed from the letter <strong class="text-foreground">"O"</strong> of MINATO —
+                            fused with a <strong class="text-foreground">sea wave</strong> and the round silhouette of
+                            <strong class="text-foreground">rolling sushi</strong>. Look again: it's the harbor,
+                            the ocean, and the craft, drawn as a single circle.
+                        </p>
+                        <p class="text-muted-foreground text-sm leading-relaxed">
+                            It holds at 32 pixels on an app icon and at three meters on a storefront — the same wave,
+                            the same roundness, the same story.
+                        </p>
+                    </div>
+                    <div class="min-card p-8">
+                        <h3 class="text-xl font-bold text-foreground mb-3">Type — clarity first</h3>
+                        <div class="flex items-end justify-between mb-4">
+                            <span class="text-6xl md:text-7xl font-bold leading-none text-foreground" data-scroll-blur
+                                data-scroll-blur-amount="10">Aa</span>
+                            <span class="text-5xl md:text-6xl leading-none text-min-steel font-jp" data-scroll-blur
+                                data-scroll-blur-amount="10">港</span>
+                        </div>
+                        <p class="text-muted-foreground text-sm leading-relaxed">
+                            A clean sans-serif face, chosen because it works best when clarity is required — menus,
+                            tables, numbers and small body text. Kanji set in a serif voice for the moments that
+                            deserve ceremony.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Palette — click to copy -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-3" id="min-palette" data-scroll-stagger="up"
+                    data-scroll-stagger-base="90">
+                    <button class="min-chip" data-hex="#465162"
+                        style="background:#465162;color:#EAE8FD" aria-label="Copy slate #465162">
+                        <span class="min-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Slate</span>
+                        <span class="text-xs opacity-60">Depth / structure</span>
+                        <span class="min-chip-hex">#465162</span>
+                    </button>
+                    <button class="min-chip" data-hex="#59729A" style="background:#59729A;color:#FFFFFF"
+                        aria-label="Copy steel blue #59729A">
+                        <span class="min-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Steel Blue</span>
+                        <span class="text-xs opacity-60">Brand voice</span>
+                        <span class="min-chip-hex">#59729A</span>
+                    </button>
+                    <button class="min-chip" data-hex="#B7CDE8" style="background:#B7CDE8;color:#465162"
+                        aria-label="Copy light blue #B7CDE8">
+                        <span class="min-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Light Blue</span>
+                        <span class="text-xs opacity-60">Calm / air</span>
+                        <span class="min-chip-hex">#B7CDE8</span>
+                    </button>
+                    <button class="min-chip" data-hex="#EAE8FD"
+                        style="background:#EAE8FD;color:#465162;box-shadow:inset 0 0 0 1px rgba(70,81,98,.18)"
+                        aria-label="Copy pale mist #EAE8FD">
+                        <span class="min-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Pale Mist</span>
+                        <span class="text-xs opacity-60">Canvas / light surfaces</span>
+                        <span class="min-chip-hex">#EAE8FD</span>
+                    </button>
+                    <button class="min-chip" data-hex="#FF554D" style="background:#FF554D;color:#FFFFFF"
+                        aria-label="Copy coral #FF554D">
+                        <span class="min-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Coral</span>
+                        <span class="text-xs opacity-70">Appetite / CTA</span>
+                        <span class="min-chip-hex">#FF554D</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 items-stretch">
+                    <figure class="rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up">
+                        <img src="palette of colors.png" alt="Official MINATO palette board" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#EAE8FD">
+                        <figcaption class="text-sm text-muted-foreground italic p-4">The official palette board, as
+                            specified in the brand book.</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden relative min-h-[240px]" data-scroll="fade-up"
+                        data-scroll-delay="140" style="background:#465162">
+                        <div class="absolute inset-0" style="background-image:url('texture.png');background-size:220px;opacity:.4">
+                        </div>
+                        <figcaption
+                            class="absolute bottom-0 left-0 right-0 text-sm italic p-4 text-white/85 z-10">
+                            The wave pattern — used at 40% opacity as a backdrop for covers and main illustrations.
+                        </figcaption>
+                    </figure>
+                </div>
+                <p class="text-sm text-muted-foreground mt-4 text-center" data-scroll="fade-up">Five colors, straight
+                    from the ocean. Click any chip to copy its hex.</p>
+            </section>
+
+            <!-- ── PACKAGING ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="min-section-label mb-6" data-scroll="fade-up">Packaging</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Refined
+                    presentation</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Packaging is the first bite — before the chopsticks ever land. The system carries the wave
+                    pattern, the slate depth and one coral accent across every box that leaves the harbor.
+                </p>
+
+                <figure class="mb-6" data-scroll="fade-up">
+                    <img src="MINATO Premium Sushi Packaging.png" alt="MINATO premium sushi packaging system"
+                        class="w-full h-auto rounded-2xl bg-secondary shadow-lg" loading="lazy" data-scroll-img-reveal
+                        data-scroll-img-color="#EAE8FD">
+                    <figcaption class="text-sm text-muted-foreground mt-3 italic text-center">
+                        MINATO Premium Sushi Packaging — refined presentation for an elevated sushi experience.
+                    </figcaption>
+                </figure>
+            </section>
+
+            <!-- ── THE THREE PILLARS ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="min-section-label mb-6" data-scroll="fade-up">The promise</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Three pillars,
+                    spoken in two languages</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="140">
+                    <div class="min-card min-card-top p-8">
+                        <p class="text-3xl font-bold text-min-coral mb-1 font-jp" data-scroll-counter>3</p>
+                        <p class="text-xs font-bold tracking-widest text-muted-foreground mb-4">PILLARS OF THE BRAND</p>
+                        <h3 class="text-xl font-bold mb-2 text-foreground">Fresh Ingredients</h3>
+                        <p class="text-min-steel font-jp text-lg mb-3">新鮮な食材</p>
+                        <p class="text-sm text-muted-foreground leading-relaxed">Fresh ingredients, refined recipes, and
+                            a passion for authentic Japanese flavors.</p>
+                    </div>
+                    <div class="min-card min-card-top p-8">
+                        <p class="text-3xl font-bold text-min-coral mb-1 font-jp" data-scroll-counter>32</p>
+                        <p class="text-xs font-bold tracking-widest text-muted-foreground mb-4">PX — SMALLEST LOGO SIZE</p>
+                        <h3 class="text-xl font-bold mb-2 text-foreground">Expert Preparation</h3>
+                        <p class="text-min-steel font-jp text-lg mb-3">職人の技</p>
+                        <p class="text-sm text-muted-foreground leading-relaxed">Craftsmanship in every cut — the mark
+                            holds from an app icon to a storefront.</p>
+                    </div>
+                    <div class="min-card min-card-top p-8">
+                        <p class="text-3xl font-bold text-min-coral mb-1 font-jp" data-scroll-counter>5</p>
+                        <p class="text-xs font-bold tracking-widest text-muted-foreground mb-4">COLORS, ZERO NOISE</p>
+                        <h3 class="text-xl font-bold mb-2 text-foreground">Authentic Experience</h3>
+                        <p class="text-min-steel font-jp text-lg mb-3">本格的な体験</p>
+                        <p class="text-sm text-muted-foreground leading-relaxed">Every bite is a journey — and every
+                            touchpoint speaks the same visual language.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── SOCIAL MEDIA DESIGNS ── -->
+            <section class="mb-10 md:mb-14">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-10">
+                    <div class="lg:col-span-5">
+                        <p class="min-section-label mb-6" data-scroll="fade-up">On the feed</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up"
+                            data-scroll-delay="100">Social media designs</h2>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <p class="text-muted-foreground text-lg leading-relaxed" data-scroll="fade-up" data-scroll-delay="160">
+                            Launch content built on the pattern and the palette — product drops, the dining essentials
+                            and delivery announcements, all unmistakably MINATO. Follow the harbor on Instagram.
+                        </p>
+                        <a href="https://www.instagram.com/minato.sushii/" target="_blank" rel="noopener noreferrer"
+                            class="mt-6 inline-flex items-center space-x-3 bg-foreground text-background px-6 py-3 rounded-full font-medium hover:bg-foreground/90 transition-colors"
+                            data-scroll="fade-up" data-scroll-delay="240" data-scroll-magnetic>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                            <span>@minato.sushii on Instagram</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Social grid — natural formats, staggered reveals -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                    <a href="https://www.instagram.com/minato.sushii/" target="_blank" rel="noopener noreferrer"
+                        class="group relative block rounded-2xl overflow-hidden bg-secondary md:col-span-2">
+                        <img src="social media designs/first.jpg" alt="MINATO social media design — launch post"
+                            class="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#EAE8FD">
+                    </a>
+                    <a href="https://www.instagram.com/minato.sushii/" target="_blank" rel="noopener noreferrer"
+                        class="group relative block rounded-2xl overflow-hidden bg-secondary">
+                        <img src="social media designs/two.jpg" alt="MINATO social media design — product drop"
+                            class="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#EAE8FD">
+                    </a>
+                    <a href="https://www.instagram.com/minato.sushii/" target="_blank" rel="noopener noreferrer"
+                        class="group relative block rounded-2xl overflow-hidden bg-secondary">
+                        <img src="social media designs/3.jpg" alt="MINATO social media design — dining essentials"
+                            class="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#EAE8FD">
+                    </a>
+                    <a href="https://www.instagram.com/minato.sushii/" target="_blank" rel="noopener noreferrer"
+                        class="group relative block rounded-2xl overflow-hidden bg-secondary">
+                        <img src="social media designs/dcsc-copy.jpg" alt="MINATO social media design — delivery in Sousse"
+                            class="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#EAE8FD">
+                    </a>
+                    <a href="https://www.instagram.com/minato.sushii/" target="_blank" rel="noopener noreferrer"
+                        class="group relative block rounded-2xl overflow-hidden bg-secondary">
+                        <img src="social media designs/dcsc copy 2.jpg" alt="MINATO social media design — sushi elevated"
+                            class="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#EAE8FD">
+                    </a>
+                </div>
+            </section>
+
+            <!-- ── WEBSITE IN BUILD ── -->
+            <section class="mb-10 md:mb-14">
+                <div class="rounded-3xl bg-min-slate text-min-mist p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up"
+                    data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-8 -right-2 text-[9rem] md:text-[15rem] font-bold leading-none select-none opacity-10 font-jp"
+                        data-scroll-parallax data-scroll-parallax-speed="0.12">港</span>
+                    <div class="relative z-10 max-w-3xl">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="min-status-dot" aria-hidden="true"></span>
+                            <p class="text-xs font-bold tracking-[0.25em] opacity-80">WEBSITE IN BUILD</p>
+                        </div>
+                        <h2 class="text-2xl md:text-4xl font-bold leading-tight mb-5">The harbor is getting its own dock
+                            online.</h2>
+                        <p class="opacity-85 leading-relaxed mb-8">
+                            The full MINATO website — menu, online ordering and delivery for Sousse — is under
+                            construction by WYRM. Until it launches, the harbor is open on Instagram: fresh drops,
+                            the dining essentials, and delivery in Sousse.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.instagram.com/minato.sushii/" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center space-x-2 bg-min-coral text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-min-coral/85 transition-colors">
+                                <span>Follow @minato.sushii</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M7 17 17 7" />
+                                    <path d="M7 7h10v10" />
+                                </svg>
+                            </a>
+                            <span
+                                class="inline-flex items-center space-x-2 border border-white/25 text-white/80 px-6 py-3 rounded-full text-sm font-medium">
+                                <span class="w-2 h-2 rounded-full bg-min-coral inline-block"></span>
+                                <span>Website — coming soon</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CHALLENGE / SOLUTION ── -->
+            <section class="mb-10 md:mb-14 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="min-card min-card-top p-8" data-scroll="fade-up">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Challenge</h2>
+                    <p class="text-muted-foreground leading-relaxed">Premium sushi on the Tunisian coast competes in a
+                        market full of generic takeaway branding. MINATO needed an identity sophisticated enough for a
+                        fine-dining menu, warm enough for a tourist promenade, and authentic enough to honor Japanese
+                        tradition — all while staying unmistakably local to Port El Kantaoui.</p>
+                </div>
+                <div class="min-card min-card-top p-8" data-scroll="fade-up" data-scroll-delay="140">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Solution</h2>
+                    <p class="text-muted-foreground leading-relaxed">A harbor, told visually: a name with real meaning
+                        (港 — port), a mark fusing the "O", the wave and the maki, a disciplined five-color palette
+                        ruled by slate depth and one coral accent, packaging with the wave pattern at 40% opacity, and
+                        a bilingual voice — Japanese soul, Sousse address. The website is the next dock under
+                        construction.</p>
+                </div>
+            </section>
+
+            <!-- ── OUTCOME (brand panel) ── -->
+            <section class="mb-10 md:mb-14">
+                <div class="rounded-3xl bg-min-coral text-white p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up"
+                    data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-12 -right-2 text-[10rem] md:text-[15rem] font-bold leading-none select-none opacity-15 font-jp">港</span>
+                    <div class="relative z-10 max-w-3xl">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-80">OUTCOME</p>
+                        <h2 class="text-2xl md:text-4xl font-bold leading-tight mb-5">A harbor, branded — and still
+                            expanding.</h2>
+                        <p class="text-white/85 leading-relaxed mb-8">
+                            A complete identity system running across the storefront, the packaging, the dining
+                            essentials and a live social feed — with the website as the next touchpoint in
+                            production. One wave, consistently applied.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Logo
+                                system</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Packaging</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Social
+                                toolkit</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Website — in
+                                build</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CTA ── -->
+            <section class="mb-10 md:mb-14">
+                <div class="rounded-3xl border border-border/50 bg-secondary/40 p-8 md:p-14 text-center" data-scroll="fade-up">
+                    <p class="min-section-label mb-6 justify-center" style="display:inline-flex">Your brand next</p>
+                    <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-6 text-foreground">Craving a brand people
+                        can taste?</h2>
+                    <p class="text-muted-foreground max-w-xl mx-auto mb-10">Whether you're a restaurant, a label or a
+                        creator — we build identities that carry the whole story, from concept to final code.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="../../inquiry.html"
+                            class="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-colors shadow-xl"
+                            data-scroll-magnetic>
+                            <span>Start a Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="../../work.html"
+                            class="inline-flex items-center space-x-2 border border-border text-foreground px-8 py-4 rounded-full font-medium text-lg hover:bg-secondary transition-colors">
+                            <span>See More Work</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── NEXT CASE STUDY ── -->
+            <section class="border-t border-border/50 pt-12 pb-16">
+                <a href="../wyrm/wyrm-brand.html" class="min-next flex flex-col md:flex-row md:items-center md:justify-between gap-6 group">
+                    <div>
+                        <p class="text-sm text-muted-foreground mb-2">Next Case Study</p>
+                        <h3 class="min-next-title text-2xl md:text-3xl font-bold text-foreground">WYRM — Personal Brand
+                            &amp; Studio Identity</h3>
+                    </div>
+                    <span
+                        class="inline-flex items-center space-x-2 border border-border px-6 py-3 rounded-full font-medium text-foreground hover:bg-secondary transition-colors w-fit shrink-0">
+                        <span>View Case</span>
+                        <svg class="min-next-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </span>
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="../../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6"
+                        style="height: 8rem; width: auto;" loading="lazy">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand
+                        identity, motion design, video editing, logos, and web experiences for companies that refuse
+                        to blend in.</p>
+
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a>
+                        </li>
+                        <li><a href="../../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a>
+                        </li>
+                        <li><a href="../../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a>
+                        </li>
+                        <li><a href="../../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand
+                                Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion
+                                Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video
+                                Editing</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../inquiry.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a>
+                        </li>
+                        <li><a href="mailto:studioswyrm@gmail.com"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/theme-toggle.js"></script>
+    <script src="../../js/mobile-menu.js"></script>
+    <script src="../../js/smooth-scroll.js"></script>
+    <script src="../../js/page-transitions.js"></script>
+    <script src="../../js/scroll-animations.js?v=3"></script>
+    <script>
+        /* Palette chips — click to copy the hex */
+        (function () {
+            document.querySelectorAll('.min-chip').forEach(function (chip) {
+                var tag = chip.querySelector('.min-chip-tag');
+                chip.addEventListener('click', function () {
+                    var hex = chip.getAttribute('data-hex');
+                    var done = function () {
+                        if (!tag) return;
+                        var prev = tag.textContent;
+                        tag.textContent = 'Copied!';
+                        chip.classList.add('copied');
+                        setTimeout(function () {
+                            tag.textContent = prev;
+                            chip.classList.remove('copied');
+                        }, 1300);
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(hex).then(done, done);
+                    } else {
+                        var ta = document.createElement('textarea');
+                        ta.value = hex;
+                        ta.style.position = 'fixed';
+                        ta.style.opacity = '0';
+                        document.body.appendChild(ta);
+                        ta.select();
+                        try { document.execCommand('copy'); } catch (e) { }
+                        document.body.removeChild(ta);
+                        done();
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

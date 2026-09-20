@@ -1,0 +1,907 @@
+/* =========================================
+   COMPONENTS CSS - All UI Component Styles
+   =========================================
+   
+   This file contains all component-specific styles for the WYRM.studios website.
+   It uses the premium easing variables defined in animations.css:
+   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1)
+   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1)
+   --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1)
+   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1)
+   --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1)
+   
+   Brand Colors (from WYRM Brand Guidelines 2026):
+   - White Smoke: #F5F5F5 (primary light)
+   - Eerie Black: #1A1A1A (primary dark)
+   - Crimson: #DC142C (accent)
+   - Oxford Blue: #1F2C5B (deep blue)
+   - Royal Blue: #316CD3 (primary blue)
+   - Oceanic Blue: #3E88FF (bright blue)
+   - Deep Ocean: #1248A6 (dark blue)
+   ========================================= */
+
+/* =========================================
+   1. HEADER / NAVIGATION
+   ========================================= */
+
+header {
+    transition: background-color 0.6s var(--ease-out-expo), 
+                border-color 0.6s var(--ease-out-expo),
+                backdrop-filter 0.6s var(--ease-out-expo);
+}
+
+header.scrolled {
+    background-color: hsl(var(--background) / 0.95);
+    border-bottom-color: hsl(var(--border));
+}
+
+/* =========================================
+   2. MOBILE MENU
+   ========================================= */
+
+#mobile-menu {
+    transition: opacity 0.6s var(--ease-out-expo), 
+                transform 0.6s var(--ease-out-expo),
+                visibility 0.6s var(--ease-out-expo);
+}
+
+#mobile-menu.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+#mobile-menu.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    visibility: hidden;
+}
+
+/* =========================================
+   3. HERO VIDEO CARD
+   ========================================= */
+
+.hero-video-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.6s var(--ease-out-expo), 
+                box-shadow 0.6s var(--ease-out-expo);
+}
+
+.hero-video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-video-card .signature {
+    transition: opacity 0.6s var(--ease-out-expo), 
+                transform 0.6s var(--ease-out-expo);
+}
+
+.hero-video-card:hover .signature {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.hero-video-card .play-button {
+    transition: transform 0.6s var(--ease-out-expo), 
+                background-color 0.6s var(--ease-out-expo);
+}
+
+.hero-video-card:hover .play-button {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   4. PROJECT CARDS (Work Page)
+   ========================================= */
+
+.project-card {
+    transition: transform 0.6s var(--ease-out-expo);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.project-card .card-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    aspect-ratio: 16 / 9;
+    background-color: hsl(var(--secondary));
+}
+
+.project-card .card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out-expo);
+}
+
+.project-card:hover .card-image-wrapper img {
+    transform: scale(1.08);
+}
+
+.project-card .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.project-card .card-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.25rem;
+}
+
+.project-card .card-category {
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.5;
+}
+
+.project-card .card-year {
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+    white-space: nowrap;
+}
+
+/* =========================================
+   5. FAQ ACCORDION
+   ========================================= */
+
+.faq-item {
+    transition: border-color 0.4s var(--ease-out-expo), 
+                background-color 0.4s var(--ease-out-expo);
+}
+
+.faq-item:hover {
+    border-color: hsl(var(--border));
+}
+
+.faq-item.active {
+    border-color: hsl(var(--border));
+    background-color: hsl(var(--secondary) / 0.3);
+}
+
+.faq-item .faq-icon {
+    transition: transform 0.4s var(--ease-out-expo);
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-item .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s var(--ease-out-expo), 
+                opacity 0.5s var(--ease-out-expo);
+    opacity: 0;
+}
+
+.faq-item.active .faq-content {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* =========================================
+   6. FORM ENGINE (Inquiry Page)
+   ========================================= */
+
+.form-engine-card {
+    position: relative;
+    transition: box-shadow 0.6s var(--ease-out-expo);
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.6s var(--ease-out-expo);
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-progress-bar {
+    transition: width 0.8s var(--ease-out-expo);
+}
+
+.form-selector {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border: 2px solid hsl(var(--border) / 0.5);
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out-expo);
+    background-color: hsl(var(--background));
+}
+
+.form-selector:hover {
+    border-color: hsl(var(--border));
+    background-color: hsl(var(--secondary) / 0.3);
+}
+
+.form-selector.selected {
+    border-color: hsl(var(--foreground));
+    background-color: hsl(var(--foreground) / 0.05);
+}
+
+.form-selector .selector-letter {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: hsl(var(--foreground) / 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-right: 1rem;
+    transition: all 0.4s var(--ease-out-expo);
+}
+
+.form-selector.selected .selector-letter {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+}
+
+.form-selector .selector-text {
+    flex: 1;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.form-selector .selector-check {
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out-expo);
+}
+
+.form-selector.selected .selector-check {
+    opacity: 1;
+}
+
+.form-input,
+.form-textarea {
+    transition: border-color 0.4s var(--ease-out-expo);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: hsl(var(--foreground));
+}
+
+/* =========================================
+   7. BUTTONS
+   ========================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.4s var(--ease-out-expo);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+}
+
+.btn-primary:hover:not(.btn-disabled) {
+    background-color: hsl(var(--foreground) / 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-shake-error {
+    animation: shake 0.5s var(--ease-smooth);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+.btn-icon-arrow {
+    transition: transform 0.4s var(--ease-out-expo);
+}
+
+.btn:hover .btn-icon-arrow {
+    transform: translateX(4px);
+}
+
+/* =========================================
+   8. VOICE NOTE PLAYER
+   ========================================= */
+
+.voice-note-player {
+    background-color: hsl(var(--secondary));
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: box-shadow 0.6s var(--ease-out-expo);
+}
+
+.voice-note-player:hover {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.voice-note-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.voice-note-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.voice-note-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.voice-note-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: hsl(var(--foreground));
+}
+
+.voice-note-subtitle {
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.voice-note-play-btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s var(--ease-out-expo);
+}
+
+.voice-note-play-btn:hover {
+    transform: scale(1.1);
+}
+
+.voice-note-progress {
+    height: 0.25rem;
+    background-color: hsl(var(--foreground) / 0.2);
+    border-radius: 9999px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.voice-note-progress-fill {
+    height: 100%;
+    background-color: hsl(var(--foreground));
+    border-radius: 9999px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.voice-note-times {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 1rem;
+}
+
+.voice-note-transcript {
+    font-size: 0.875rem;
+    color: hsl(var(--foreground));
+    font-style: italic;
+    min-height: 1.5rem;
+    transition: opacity 0.4s var(--ease-out-expo);
+}
+
+.voice-note-transcript.typing::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* =========================================
+   9. FLOATING VOICE NOTE
+   ========================================= */
+
+#floating-voice-note {
+    transition: transform 0.4s var(--ease-out-expo), 
+                opacity 0.4s var(--ease-out-expo);
+}
+
+#floating-voice-note:hover {
+    transform: translateY(-4px);
+}
+
+/* =========================================
+   10. SERVICE CARDS
+   ========================================= */
+
+.service-card {
+    background-color: hsl(var(--background));
+    border: 1px solid hsl(var(--border) / 0.5);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.6s var(--ease-out-expo);
+}
+
+.service-card:hover {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    border-color: hsl(var(--border));
+    transform: translateY(-4px);
+}
+
+/* =========================================
+   11. METADATA CARDS
+   ========================================= */
+
+.metadata-card {
+    background-color: hsl(var(--secondary) / 0.5);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.metadata-card .meta-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: hsl(var(--muted-foreground));
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.metadata-card .meta-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+}
+
+/* =========================================
+   12. VIDEO WRAPPERS
+   ========================================= */
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background-color: hsl(var(--secondary));
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* =========================================
+   13. PDF CONTAINER
+   ========================================= */
+
+.pdf-container {
+    width: 100%;
+    height: 800px;
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: hsl(var(--secondary));
+}
+
+.pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .pdf-container {
+        height: 600px;
+    }
+}
+
+/* =========================================
+   14. PILL TAGS
+   ========================================= */
+
+.pill-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: hsl(var(--secondary));
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(var(--foreground));
+    transition: all 0.4s var(--ease-out-expo);
+}
+
+.pill-tag:hover {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   15. BADGES
+   ========================================= */
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: hsl(var(--foreground) / 0.1);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: hsl(var(--foreground));
+    text-transform: uppercase;
+}
+
+/* =========================================
+   16. ACCORDION (About Page)
+   ========================================= */
+
+.accordion-item {
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+    transition: background-color 0.4s var(--ease-out-expo);
+}
+
+.accordion-item:first-child {
+    border-top: 1px solid hsl(var(--border) / 0.5);
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.4s var(--ease-out-expo);
+}
+
+.accordion-header:hover {
+    color: hsl(var(--foreground) / 0.8);
+}
+
+.accordion-icon {
+    transition: transform 0.4s var(--ease-out-expo);
+    flex-shrink: 0;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s var(--ease-out-expo);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 2000px;
+}
+
+/* =========================================
+   17. VIDEO MODAL
+   ========================================= */
+
+/* Video modal \u2014 see animations.css for all transition/state rules */
+
+
+/* =========================================
+   18. FOOTER
+   ========================================= */
+
+footer {
+    background-color: #111111;
+}
+
+footer a {
+    transition: color 0.4s var(--ease-out-expo);
+}
+
+footer .social-link {
+    transition: background-color 0.4s var(--ease-out-expo), 
+                transform 0.4s var(--ease-out-expo);
+}
+
+footer .social-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* MUCH BIGGER LOGO MARK - Updated from 10rem to 16rem (256px) */
+.footer-logo-mark {
+    height: 16rem;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* =========================================
+   19. SCROLL TO TOP BUTTON
+   ========================================= */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s var(--ease-out-expo);
+    z-index: 40;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   20. SHOP BUTTON ANIMATION
+   ========================================= */
+
+.shop-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s var(--ease-out-expo);
+}
+
+.shop-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s var(--ease-out-expo), 
+                height 0.6s var(--ease-out-expo);
+}
+
+.shop-button.animating::before {
+    width: 300px;
+    height: 300px;
+}
+
+.shop-button.animating {
+    transform: scale(0.95);
+}
+
+.shop-button .button-text {
+    display: inline-block;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.shop-button.animating .button-text {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.shop-button .button-text-new {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    opacity: 0;
+    transition: all 0.3s var(--ease-out-expo);
+    pointer-events: none;
+}
+
+.shop-button.animating .button-text-new {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+/* =========================================
+   21. PROTOCOL STEP INDICATOR
+   ========================================= */
+
+.protocol-step-indicator {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: hsl(var(--muted-foreground));
+    text-transform: uppercase;
+}
+
+/* =========================================
+   22. CARD (Generic)
+   ========================================= */
+
+.card {
+    background-color: hsl(var(--background));
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.6s var(--ease-out-expo);
+}
+
+.card:hover {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   23. PROSE (Content Typography)
+   ========================================= */
+
+.prose {
+    color: hsl(var(--foreground));
+}
+
+.prose h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: hsl(var(--foreground));
+}
+
+.prose p {
+    margin-bottom: 1.5rem;
+    line-height: 1.75;
+}
+
+.prose strong {
+    color: hsl(var(--foreground));
+    font-weight: 700;
+}
+
+.prose em {
+    font-style: italic;
+    color: hsl(var(--foreground) / 0.9);
+}
+
+/* =========================================
+   24. UTILITY CLASSES
+   ========================================= */
+
+.text-balance {
+    text-wrap: balance;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* =========================================
+   25. RESPONSIVE ADJUSTMENTS
+   ========================================= */
+
+@media (max-width: 768px) {
+    .hero-video-card {
+        border-radius: 1rem;
+    }
+    
+    .project-card .card-title {
+        font-size: 1rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .metadata-card {
+        padding: 1rem;
+    }
+    
+    .metadata-card .meta-value {
+        font-size: 1rem;
+    }
+    
+    /* MUCH BIGGER logo mark on mobile too - changed from 6rem to 10rem */
+    .footer-logo-mark {
+        height: 10rem;
+    }
+    
+    .pdf-container {
+        height: 500px;
+    }
+    
+    .voice-note-player {
+        padding: 1rem;
+    }
+    
+    .voice-note-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .faq-item {
+        padding: 1.25rem;
+    }
+    
+    .accordion-header {
+        padding: 1.25rem 0;
+    }
+    
+    .btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}

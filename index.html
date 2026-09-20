@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WYRM.studios — Creative Studio</title>
+    <meta name="description"
+        content="WYRM.studios — Full-service creative studio crafting brand identities, motion design, and web experiences for ambitious companies.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5"
+        style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+
+            <!-- 3-Column Grid Layout to prevent logo overlap -->
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+
+                <!-- Left Column: Navigation Links -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="index.html"
+                            class="text-foreground font-medium underline underline-offset-4 decoration-1">Home</a>
+                        <a href="work.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+                        <a href="about.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="blog.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
+
+                <!-- Center Column: Logo (Perfectly Centered) -->
+                <div class="flex items-center justify-center">
+                    <a href="index.html" class="flex items-center justify-center">
+                        <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+
+                <!-- Right Column: Shop, Theme Toggle, Inquiry -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button"
+                        class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors"
+                        aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="hidden dark:block">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="block dark:hidden">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                    </button>
+
+                    <!-- Inquiry Button - Smaller on mobile -->
+                    <a href="inquiry.html"
+                        class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden"
+        style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <a href="index.html" class="flex items-center justify-center flex-1">
+                <img src="assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto dark:hidden">
+                <img src="assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="hidden dark:block">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="block dark:hidden">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="index.html" class="text-6xl font-bold text-foreground">Home<span
+                    class="text-foreground">.</span></a>
+            <a href="work.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Work</a>
+            <a href="about.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">About</a>
+            <a href="blog.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="inquiry.html"
+                class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+            <a href="#" class="p-4 border border-border rounded-full text-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                    <path d="M3 6h18" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-16">
+
+        <!-- HERO SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-4 md:py-8 flex flex-col items-center overflow-hidden relative">
+            <div class="h-8 md:h-12 w-full flex-none"></div>
+
+            <div
+                class="flex-1 w-full flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 max-w-[1200px] mx-auto pb-5 md:pb-0">
+
+                <!-- Hero Video Card -->
+                <div class="flex justify-center w-full mb-4 md:mb-6">
+                    <div id="hero-video-trigger" class="relative w-full cursor-pointer group" style="max-width: 850px;" data-scroll-scrub="hero-video">
+                        <div class="w-full aspect-video bg-black rounded-3xl overflow-hidden relative shadow-2xl">
+
+                            <!-- Signature Graphic -->
+                            <div class="absolute top-0 left-0 right-0 flex justify-center z-10 pt-2 md:pt-4">
+                                <img src="assets/logo/signature white.png" alt="WYRM Signature"
+                                    class="w-1/2 max-w-[400px] opacity-95">
+                            </div>
+
+                            <!-- Blue Gradient Bottom -->
+                            <div
+                                class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-blue-600 via-blue-800/80 to-transparent z-0">
+                            </div>
+
+                            <!-- Play Button -->
+                            <div class="absolute inset-0 flex items-center justify-center z-20">
+                                <div
+                                    class="w-16 h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                        fill="white" stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="ml-1">
+                                        <polygon points="5 3 19 12 5 21 5 3" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Hero Text -->
+                            <div class="absolute bottom-16 md:bottom-20 left-0 right-0 text-center z-20 px-4">
+                                <h2 class="text-white text-sm md:text-base font-bold tracking-wider mb-2">We're
+                                    wyrm.studios</h2>
+                                <p class="text-white/70 text-xs md:text-sm max-w-md mx-auto">an independent creative
+                                    studio.</p>
+                            </div>
+
+                            <!-- Two Oval Shapes -->
+                            <div
+                                class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center space-x-3 z-20">
+                                <div class="w-4 h-6 md:w-5 md:h-8 bg-white/80 rounded-full"></div>
+                                <div class="w-4 h-6 md:w-5 md:h-8 bg-white/80 rounded-full"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Statement & Value Proposition with Liquid Glass Animation Overlay -->
+            <div id="hero-brand-statement" class="relative w-full max-w-5xl mx-auto group">
+                <!-- Liquid Glass Cluster WebGL Animation Canvas Overlay -->
+                <div id="liquid-glass-container"
+                    class="pointer-events-none absolute inset-0 z-20 flex items-center justify-center transition-all duration-700 ease-out will-change-transform"
+                    aria-hidden="true"
+                    style="opacity: 1; transform: scale(1);">
+                    <canvas id="liquid-glass-canvas" class="w-full h-full block" style="filter: drop-shadow(0 20px 35px rgba(0,0,0,0.25));"></canvas>
+                </div>
+
+                <!-- SLOGAN - "We build brands people remember" -->
+                <div class="relative z-10 text-center mb-20 md:mb-28 px-4" data-scroll="fade-up" data-scroll-delay="80">
+                    <p class="text-xl md:text-2xl font-bold text-foreground tracking-tight">We build brands people
+                        remember.</p>
+                </div>
+
+                <!-- Value Proposition Text (Mobile) -->
+                <div class="relative z-10 mb-2 text-center block md:hidden w-full max-w-[500px] mx-auto overflow-hidden px-4"
+                    style="opacity: 1; height: auto; margin-top: 3.5rem;" data-scroll="fade-up">
+                    <h1 class="text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4">
+                        Cinematic Brand Experiences<br>
+                        That make your brand impossible to ignore
+                    </h1>
+                </div>
+
+                <!-- Desktop Value Proposition -->
+                <div class="relative z-10 hidden md:block w-full text-center mb-12 px-4">
+                    <p class="inline-flex items-center space-x-2 border border-border/60 bg-secondary/40 text-muted-foreground text-xs font-medium tracking-wide px-4 py-1.5 rounded-full mb-6"
+                        data-scroll="fade-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span>Based in Tunisia — working worldwide</span>
+                    </p>
+                    <h1 class="text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6" data-scroll-words data-scroll-words-base="40" data-scroll-duration="850">
+                        Cinematic Brand Experiences<br>
+                        That make your brand impossible to ignore
+                    </h1>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto mb-10" data-scroll="fade-up" data-scroll-delay="250">
+                        Full-service creative studio crafting brand identities, motion design, video editing, logos, and web
+                        experiences for companies that refuse to blend in.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4" data-scroll="fade-up" data-scroll-delay="400">
+                        <a href="inquiry.html"
+                            class="hero-liquid-glass-trigger flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-colors shadow-xl">
+                            <span>Start a Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="work.html"
+                            class="hero-liquid-glass-trigger flex items-center space-x-2 bg-secondary text-foreground px-8 py-4 rounded-full font-medium text-lg hover:bg-secondary/80 transition-colors">
+                            <span>See Case Studies</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Value Proposition Buttons -->
+            <div class="md:hidden w-full text-center px-4 mb-16" data-scroll="fade-up" data-scroll-delay="200">
+                <p class="inline-flex items-center space-x-2 border border-border/60 bg-secondary/40 text-muted-foreground text-xs font-medium tracking-wide px-4 py-1.5 rounded-full mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>Based in Tunisia — working worldwide</span>
+                </p>
+                <div class="flex flex-col items-center space-y-4">
+                    <a href="inquiry.html"
+                        class="hero-liquid-glass-trigger flex items-center justify-center space-x-2 w-full max-w-xs bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg shadow-xl">
+                        <span>Start a Project</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="work.html"
+                        class="hero-liquid-glass-trigger flex items-center justify-center space-x-2 w-full max-w-xs bg-secondary text-foreground px-8 py-4 rounded-full font-medium text-lg">
+                        <span>See Case Studies</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ── TRUSTED BY STRIP ── -->
+            <div class="w-full flex flex-col items-center pb-12 md:pb-16 mt-2" data-scroll="fade-up" data-scroll-delay="100">
+                <div class="t-avatar-group flex items-center justify-center" id="trusted-avatar-group">
+
+                    <!-- Brand chip 1 — WYRM -->
+                    <div class="t-avatar" style="--order:0" title="WYRM">
+                        <div class="avatar-ring is-logo">
+                            <img src="assets/images/clients/logo-wyrm.png" alt="WYRM logo">
+                        </div>
+                    </div>
+                    <!-- Brand chip 2 — Djappa Man -->
+                    <div class="t-avatar" style="--order:1" title="Djappa Man">
+                        <div class="avatar-ring is-logo">
+                            <img src="assets/images/clients/logo-djappaman.png" alt="Djappa Man logo">
+                        </div>
+                    </div>
+                    <!-- Brand chip 3 — MINATO Sushi -->
+                    <div class="t-avatar" style="--order:2" title="MINATO Sushi">
+                        <div class="avatar-ring is-logo">
+                            <img src="assets/images/clients/logo-minato.png" alt="MINATO Sushi logo">
+                        </div>
+                    </div>
+                    <!-- Brand chip 4 — WDRINK -->
+                    <div class="t-avatar" style="--order:3" title="WDRINK">
+                        <div class="avatar-ring is-logo">
+                            <img src="assets/images/clients/logo-wdrink.png" alt="WDRINK logo">
+                        </div>
+                    </div>
+                    <!-- Brand chip 5 — THE GATE -->
+                    <div class="t-avatar" style="--order:4" title="THE GATE Consulting">
+                        <div class="avatar-ring is-logo">
+                            <img src="assets/images/clients/logo-thegate.png" alt="THE GATE Consulting logo">
+                        </div>
+                    </div>
+                    <!-- Brand chip 6 — BeFirst -->
+                    <div class="t-avatar" style="--order:5" title="BeFirst">
+                        <div class="avatar-ring is-logo">
+                            <img src="assets/images/clients/logo-nameless.png" alt="BeFirst logo">
+                        </div>
+                    </div>
+
+                    <!-- Trusted-by badge -->
+                    <div class="trusted-badge t-avatar" style="--order:6">
+                        <span class="trusted-count" data-scroll-counter data-scroll-duration="1500">66+</span>
+                        <span class="trusted-label">clients</span>
+                    </div>
+                </div>
+
+                <p class="trusted-text mt-4 text-sm text-muted-foreground tracking-wide">
+                    Based in Tunisia, trusted by more than <strong>66 clients</strong> worldwide
+                </p>
+            </div>
+
+            <!-- Avatar animation styles -->
+            <style>
+                :root {
+                    --avatar-lift: -10px;
+                    --avatar-dur: 320ms;
+                    --avatar-scale: 1.12;
+                    --avatar-falloff: 0.45;
+                    --avatar-ease-in: cubic-bezier(0.22, 1, 0.36, 1);
+                    --avatar-ease-out: cubic-bezier(0.34, 3.85, 0.64, 1);
+                }
+
+                .t-avatar-group {
+                    gap: 0;
+                    direction: ltr;
+                }
+
+                .t-avatar {
+                    position: relative;
+                    transform-origin: center bottom;
+                    transform:
+                        translateY(var(--shift, 0px)) scale(var(--scale-active, 1));
+                    transition: transform var(--avatar-dur) var(--avatar-ease-in);
+                    will-change: transform;
+                    cursor: pointer;
+                    /* overlap */
+                    margin-left: -10px;
+                    z-index: calc(10 + var(--order, 0));
+                }
+
+                .t-avatar:first-child {
+                    margin-left: 0;
+                }
+
+                .avatar-ring {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    border: 2.5px solid hsl(var(--background));
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+                    background: hsl(var(--secondary));
+                    flex-shrink: 0;
+                }
+
+                @media (min-width: 768px) {
+                    .avatar-ring {
+                        width: 56px;
+                        height: 56px;
+                    }
+                }
+
+                .avatar-ring img {
+                    width: 800%;
+                    /* 8 faces × 100% */
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    pointer-events: none;
+                    user-select: none;
+                }
+
+                /* logo chips — real client brand marks on a clean white face */
+                .avatar-ring.is-logo {
+                    background: #ffffff;
+                }
+
+                .avatar-ring.is-logo img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    padding: 7px;
+                }
+
+                /* badge */
+                .trusted-badge {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    background: hsl(var(--foreground));
+                    color: hsl(var(--background));
+                    border: 2.5px solid hsl(var(--background));
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+                    line-height: 1;
+                    flex-shrink: 0;
+                }
+
+                @media (min-width: 768px) {
+                    .trusted-badge {
+                        width: 56px;
+                        height: 56px;
+                    }
+                }
+
+                .trusted-count {
+                    font-size: 12px;
+                    font-weight: 700;
+                    letter-spacing: -0.02em;
+                }
+
+                .trusted-label {
+                    font-size: 8px;
+                    font-weight: 500;
+                    opacity: 0.7;
+                    text-transform: uppercase;
+                    letter-spacing: 0.04em;
+                }
+
+                .trusted-text {
+                    font-size: 0.85rem;
+                    letter-spacing: 0.01em;
+                }
+
+                .trusted-text strong {
+                    color: hsl(var(--foreground));
+                    font-weight: 600;
+                }
+
+                @media (prefers-reduced-motion: reduce) {
+                    .t-avatar {
+                        transition: none !important;
+                        transform: none !important;
+                    }
+                }
+            </style>
+
+            <!-- Avatar hover-spring JS -->
+            <script>
+                    (function () {
+                        const group = document.getElementById('trusted-avatar-group');
+                        if (!group) return;
+                        const avatars = Array.from(group.querySelectorAll('.t-avatar'));
+                        const LIFT = -10;   /* px — negative = up */
+                        const SCALE = 1.12;
+                        const FALLOFF = 0.45;
+                        const EASE_IN = 'cubic-bezier(0.22, 1, 0.36, 1)';
+                        const EASE_OUT = 'cubic-bezier(0.34, 3.85, 0.64, 1)';
+
+                        function applyHover(activeIdx) {
+                            avatars.forEach((el, i) => {
+                                const dist = Math.abs(i - activeIdx);
+                                const shift = (LIFT * Math.pow(FALLOFF, dist)).toFixed(3);
+                                el.style.transitionTimingFunction = EASE_IN;
+                                el.style.setProperty('--shift', shift + 'px');
+                                el.style.setProperty('--scale-active', i === activeIdx ? SCALE : 1);
+                            });
+                        }
+
+                        function resetAll() {
+                            avatars.forEach(el => {
+                                el.style.transitionTimingFunction = EASE_OUT;
+                                el.style.setProperty('--shift', '0px');
+                                el.style.setProperty('--scale-active', 1);
+                            });
+                        }
+
+                        avatars.forEach((el, i) => {
+                            el.addEventListener('mouseenter', () => applyHover(i));
+                        });
+                        group.addEventListener('mouseleave', resetAll);
+                    })();
+            </script>
+
+        </section>
+
+        <!-- SELECTED PROJECTS SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-16 md:py-24 hidden md:block">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="flex items-end justify-between mb-12" data-scroll="fade-up">
+                    <div>
+                        <p class="text-xs font-bold tracking-widest text-muted-foreground mb-2">RECENT WORK</p>
+                        <h2 class="text-3xl font-bold text-foreground">Selected Projects</h2>
+                    </div>
+                    <a href="work.html"
+                        class="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors" data-scroll-magnetic>
+                        <span>View All</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17 17 7" />
+                            <path d="M7 7h10v10" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-scroll-stagger="up" data-scroll-stagger-base="120" data-scroll-stagger-sel=":scope > a">
+                    <!-- Project Card 1: WYRM -->
+                    <a href="case-studies/wyrm/wyrm-brand.html" class="group block" data-scroll-tilt data-scroll-tilt-max="5">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4 relative" data-scroll-img-reveal>
+                            <img src="assets/images/projects/wyrm-thumb.jpg" alt="WYRM Project"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-scroll-scrub="parallax" data-scrub-speed="0.08">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">WYRM — Personal Brand & Studio
+                                     Identity</h3>
+                                <p class="text-sm text-muted-foreground">Brand Identity + Motion + Web</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 2: Minato Sushi -->
+                    <a href="case-studies/minato-sushi/minato-sushi.html" class="group block" data-scroll-tilt data-scroll-tilt-max="5">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4 relative" data-scroll-img-reveal>
+                            <img src="assets/images/projects/minato-sushi-thumb.jpg" alt="Minato Sushi Project"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-scroll-scrub="parallax" data-scrub-speed="0.12">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">Minato Sushi — Premium Restaurant
+                                    Experience</h3>
+                                <p class="text-sm text-muted-foreground">Restaurant Branding + Visual Identity</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 3: Djappaman -->
+                    <a href="case-studies/djappa%20man/djappaman.html" class="group block" data-scroll-tilt data-scroll-tilt-max="5">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4 relative" data-scroll-img-reveal>
+                            <img src="assets/images/projects/djappaman-thumb.jpg" alt="Djappaman Project"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-scroll-scrub="parallax" data-scrub-speed="0.08">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">Djappaman — Music Artist Visual
+                                    Identity</h3>
+                                <p class="text-sm text-muted-foreground">Artist Branding + Visual Identity</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 4: WDRINK -->
+                    <a href="case-studies/Wdrink/wdrink.html" class="group block" data-scroll-tilt data-scroll-tilt-max="5">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4 relative" data-scroll-img-reveal>
+                            <img src="assets/images/projects/wdrink-thumb.jpg" alt="WDRINK Project"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-scroll-scrub="parallax" data-scrub-speed="0.12">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">WDRINK — Energy Drink Brand
+                                    Identity & Motion</h3>
+                                <p class="text-sm text-muted-foreground">Beverage Branding + Mascot + Motion + Web</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 5: THE GATE -->
+                    <a href="case-studies/the-gate/the-gate.html" class="group block" data-scroll-tilt data-scroll-tilt-max="5">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4 relative" data-scroll-img-reveal>
+                            <img src="case-studies/the-gate/gate-thumb.jpg" alt="THE GATE CONSULTING Project"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-scroll-scrub="parallax" data-scrub-speed="0.12">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">THE GATE CONSULTING — Travel
+                                    Brand Identity</h3>
+                                <p class="text-sm text-muted-foreground">Travel Branding + Guidelines + Stationery</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2025</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 6: THE NAMELESS BRAND -->
+                    <a href="case-studies/befirst/the-brand.html" class="group block" data-scroll-tilt data-scroll-tilt-max="5">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4 relative" data-scroll-img-reveal>
+                            <img src="case-studies/befirst/befirst-thumb.jpg" alt="BeFirst Project"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-scroll-scrub="parallax" data-scrub-speed="0.12">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">BeFirst — Brand Identity &
+                                    Guidelines</h3>
+                                <p class="text-sm text-muted-foreground">Brand Identity + Guidelines + Design System</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOBILE SELECTED PROJECTS -->
+        <section class="px-4 sm:px-6 md:px-8 py-12 md:hidden">
+            <div class="max-w-[600px] mx-auto">
+                <div class="mb-8" data-scroll="fade-up">
+                    <p class="text-xs font-bold tracking-widest text-muted-foreground mb-2">RECENT WORK</p>
+                    <div class="flex items-end justify-between">
+                        <h2 class="text-3xl font-bold text-foreground">Selected Projects</h2>
+                        <a href="work.html" class="flex items-center space-x-2 text-muted-foreground text-sm">
+                            <span>View All Work</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-8" data-scroll-stagger="up" data-scroll-stagger-base="100" data-scroll-stagger-sel=":scope > a">
+                    <!-- Project Card 1: WYRM -->
+                    <a href="case-studies/wyrm/wyrm-brand.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4">
+                            <img src="assets/images/projects/wyrm-thumb.jpg" alt="WYRM Project"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">WYRM — Personal Brand & Studio
+                                    Identity</h3>
+                                <p class="text-sm text-muted-foreground">Brand Identity + Motion + Web</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 2: Minato Sushi -->
+                    <a href="case-studies/minato-sushi/minato-sushi.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4">
+                            <img src="assets/images/projects/minato-sushi-thumb.jpg" alt="Minato Sushi Project"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">Minato Sushi — Premium Restaurant
+                                    Experience</h3>
+                                <p class="text-sm text-muted-foreground">Restaurant Branding + Visual Identity</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 3: Djappaman -->
+                    <a href="case-studies/djappa%20man/djappaman.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4">
+                            <img src="assets/images/projects/djappaman-thumb.jpg" alt="Djappaman Project"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">Djappaman — Music Artist Visual
+                                    Identity</h3>
+                                <p class="text-sm text-muted-foreground">Artist Branding + Visual Identity</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 4: WDRINK -->
+                    <a href="case-studies/Wdrink/wdrink.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4">
+                            <img src="assets/images/projects/wdrink-thumb.jpg" alt="WDRINK Project"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">WDRINK — Energy Drink Brand
+                                    Identity & Motion</h3>
+                                <p class="text-sm text-muted-foreground">Beverage Branding + Mascot + Motion + Web</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 5: THE GATE -->
+                    <a href="case-studies/the-gate/the-gate.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4">
+                            <img src="case-studies/the-gate/gate-thumb.jpg" alt="THE GATE CONSULTING Project"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">THE GATE CONSULTING — Travel
+                                    Brand Identity</h3>
+                                <p class="text-sm text-muted-foreground">Travel Branding + Guidelines + Stationery</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2025</span>
+                        </div>
+                    </a>
+
+                    <!-- Project Card 6: THE NAMELESS BRAND -->
+                    <a href="case-studies/befirst/the-brand.html" class="group block">
+                        <div class="aspect-video bg-secondary rounded-2xl overflow-hidden mb-4">
+                            <img src="case-studies/befirst/befirst-thumb.jpg" alt="BeFirst Project"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-foreground mb-1">BeFirst — Brand Identity &
+                                    Guidelines</h3>
+                                <p class="text-sm text-muted-foreground">Brand Identity + Guidelines + Design System</p>
+                            </div>
+                            <span class="text-sm text-muted-foreground">2026</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT WE DO SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-16 md:py-24 bg-background">
+            <div class="max-w-[1200px] mx-auto text-center mb-16" data-scroll="fade-up">
+                <p class="text-xs font-bold tracking-widest text-muted-foreground mb-4">WHAT WE DO</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-foreground">Creative solutions for brand challenges.</h2>
+            </div>
+
+            <div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6" data-scroll-stagger="up" data-scroll-stagger-base="100" data-scroll-stagger-sel=":scope > div">
+                <!-- Service Card 1 -->
+                <div
+                    class="bg-background border border-border/50 rounded-2xl p-8 text-left hover:shadow-lg transition-shadow duration-300" data-scroll-tilt data-scroll-tilt-max="5">
+                    <span class="text-xs font-bold text-muted-foreground/50 mb-4 block">01</span>
+                    <h3 class="text-xl font-bold text-foreground mb-3">Brand Identity</h3>
+                    <p class="text-muted-foreground text-sm leading-relaxed">Logos, visual systems, and brand guidelines
+                        that position you as the obvious choice in your market.</p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div
+                    class="bg-background border border-border/50 rounded-2xl p-8 text-left hover:shadow-lg transition-shadow duration-300" data-scroll-tilt data-scroll-tilt-max="5">
+                    <span class="text-xs font-bold text-muted-foreground/50 mb-4 block">02</span>
+                    <h3 class="text-xl font-bold text-foreground mb-3">Motion Design</h3>
+                    <p class="text-muted-foreground text-sm leading-relaxed">Cinematic brand films, video editing, and
+                        animations that make your story impossible to scroll past.</p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div
+                    class="bg-background border border-border/50 rounded-2xl p-8 text-left hover:shadow-lg transition-shadow duration-300" data-scroll-tilt data-scroll-tilt-max="5">
+                    <span class="text-xs font-bold text-muted-foreground/50 mb-4 block">03</span>
+                    <h3 class="text-xl font-bold text-foreground mb-3">Web Design</h3>
+                    <p class="text-muted-foreground text-sm leading-relaxed">Digital experiences engineered to convert
+                        visitors into customers and customers into advocates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-16 md:py-24">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-12 gap-6">
+                    <div>
+                        <h2 class="text-4xl md:text-6xl font-bold text-foreground leading-tight" data-scroll-words data-scroll-words-base="50">Got any questions?</h2>
+                        <h2 class="text-4xl md:text-6xl font-bold text-muted-foreground/40 leading-tight" data-scroll="fade-right" data-scroll-delay="180">I've got answers.</h2>
+                    </div>
+                    <div class="md:pt-4">
+                        <a href="inquiry.html"
+                            class="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium hover:bg-foreground/90 transition-colors shadow-xl" data-scroll-magnetic>
+                            <span>Start a Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="80" data-scroll-stagger-sel=":scope > div">
+                    <!-- FAQ Item 1 -->
+                    <div
+                        class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">Why is a brand identity worth more than
+                                just a logo?</h3>
+                            <span
+                                class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>A logo is a symbol. A brand identity is a system — typography, color, motion, voice, and
+                                strategy working together. Companies with cohesive identities charge 20-30% more than
+                                competitors with fragmented visuals. It's not decoration. It's infrastructure.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div
+                        class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">Why not just hire a big agency?</h3>
+                            <span
+                                class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>Agencies bill for overhead — account managers, office space, junior staff learning on
+                                your budget. You work directly with the creative director. Every dollar goes into the
+                                work, not the bureaucracy. Same quality, fraction of the cost.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div
+                        class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">Can't I just use templates and AI tools?
+                            </h3>
+                            <span
+                                class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>You can — and so can every competitor in your industry. Templates make you look like
+                                everyone else. AI generates what already exists. Custom brand work is the only way to
+                                own a position in your market that no one else can replicate.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div
+                        class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">Why is your process different from other
+                                designers?</h3>
+                            <span
+                                class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>I don't start with aesthetics. I start with your business problem — who you're selling
+                                to, why they should care, what's blocking the sale. Strategy comes first. Then design
+                                executes that strategy. The result is work that doesn't just look good — it performs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div
+                        class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">How does good design actually increase
+                                revenue?</h3>
+                            <span
+                                class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>Strong design reduces friction at every stage of the buyer journey. It builds trust in
+                                seconds, justifies premium pricing, and turns first-time visitors into repeat customers.
+                                Companies investing in strategic design see 2-3x higher conversion rates on key pages.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div
+                        class="faq-item border border-border/50 rounded-2xl p-6 bg-background cursor-pointer transition-all duration-300 hover:border-border">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-bold text-foreground pr-4">How do you position a brand as premium
+                                through design?</h3>
+                            <span
+                                class="faq-icon text-2xl text-foreground font-light transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-content hidden mt-4 text-muted-foreground text-sm leading-relaxed">
+                            <p>Premium is a perception built through restraint. Intentional typography, controlled color
+                                palettes, generous white space, and considered motion — every detail signals quality
+                                before a word is read. We don't shout. We resonate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="px-4 sm:px-6 md:px-8 py-16 md:py-24 flex flex-col items-center justify-center text-center">
+            <p class="text-sm text-muted-foreground mb-6" data-scroll="fade-up">Have a Project in mind ?</p>
+            <a href="inquiry.html"
+                class="inline-flex items-center space-x-2 border border-border text-foreground px-8 py-4 rounded-full font-medium hover:bg-secondary transition-colors" data-scroll="fade-up" data-scroll-delay="120" data-scroll-magnetic>
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5" data-scroll="fade-up">
+                    <!-- Logo Mark replacing WYRM.STUDIOS text -->
+                    <img src="assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6"
+                        style="height: 8rem; width: auto;" data-scroll-blur>
+                    <h3 class="text-3xl font-bold mb-4" data-scroll="fade-up" data-scroll-delay="80">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8" data-scroll="fade-up" data-scroll-delay="160">Full-service creative studio — brand
+                        identity, motion design, video editing, logos, and web experiences for companies that refuse to
+                        blend in.</p>
+
+                    <div class="flex space-x-4" data-scroll="fade-up" data-scroll-delay="240">
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors" data-scroll-magnetic>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors" data-scroll-magnetic>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7" data-scroll="fade-up" data-scroll-delay="100">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                        <li><a href="work.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Work</a></li>
+                        <li><a href="about.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
+                        <li><a href="blog.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2" data-scroll="fade-up" data-scroll-delay="200">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand
+                                Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion
+                                Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video
+                                Editing</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2" data-scroll="fade-up" data-scroll-delay="300">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center space-x-2 text-gray-400 text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>Tunisia — working worldwide</span>
+                        </li>
+                        <li><a href="inquiry.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a>
+                        </li>
+                        <li><a href="mailto:studioswyrm@gmail.com"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VIDEO MODAL (starts closed via data-closed) -->
+    <div id="video-modal" data-closed class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+        <!-- Backdrop -->
+        <div class="modal-backdrop absolute inset-0"></div>
+        <!-- Content card -->
+        <div
+            class="modal-content relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
+            <button id="close-video-modal"
+                class="absolute top-4 right-4 z-10 p-2 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors"
+                aria-label="Close video">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <iframe id="vimeo-player" src="about:blank" width="3840" height="2160" frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" title="WYRM Showreel"
+                class="absolute inset-0 w-full h-full"></iframe>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/main.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/accordion.js"></script>
+    <script src="js/video-modal.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/page-transitions.js"></script>
+    <script src="js/liquid-glass.js"></script>
+    <script src="js/scroll-animations.js"></script>
+
+</body>
+
+</html>

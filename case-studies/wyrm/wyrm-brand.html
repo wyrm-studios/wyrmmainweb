@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WYRM — Personal Brand &amp; Studio Identity — Case Study | WYRM.studios</title>
+    <meta name="description"
+        content="Case study: the WYRM.studios own brand — slogan, purpose, visual language, color system and the cinematic identity built around it.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WYRM — Personal Brand & Studio Identity — Case Study">
+    <meta property="og:description"
+        content="We build brands people remember. The making of our own identity — strategy, design, motion and code.">
+    <meta property="og:image" content="https://wyrm.studios/assets/images/projects/wyrm-thumb.jpg">
+    <meta property="og:url" content="https://wyrm.studios/case-studies/wyrm/wyrm-brand.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                        /* WYRM.studios brand palette — for brand showcase elements only */
+                        'wyrm-red': '#DC142C',
+                        'wyrm-navy': '#1F2C5B',
+                        'wyrm-blue': '#316CD3',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+    <style>
+        /* ── Page-local components (use site theme; brand colors only inside showcase panels) ── */
+        .cs-section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #316CD3;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cs-section-label::before {
+            content: '';
+            width: 2rem;
+            height: 2px;
+            background: #DC142C;
+            display: inline-block;
+        }
+
+        .cs-card {
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 1.25rem;
+            transition: border-color .35s ease, transform .35s ease;
+        }
+
+        .cs-card:hover {
+            border-color: rgba(220, 20, 44, 0.55);
+            transform: translateY(-4px);
+        }
+
+        .cs-card-top {
+            border-top: 2px solid transparent;
+            transition: border-color .35s ease;
+        }
+
+        .cs-card-top:hover {
+            border-top-color: #DC142C;
+        }
+
+        /* Color chip */
+        .color-chip {
+            position: relative;
+            height: 15rem;
+            border-radius: 1rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            text-align: left;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform .3s ease, box-shadow .3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .color-chip:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .25);
+        }
+
+        .color-chip .chip-copy {
+            position: absolute;
+            top: .9rem;
+            right: .9rem;
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(-4px);
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+        .color-chip:hover .chip-copy,
+        .color-chip.copied .chip-copy {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .color-chip.copied .chip-copy {
+            color: #DC142C;
+        }
+
+        /* Storyboard rail */
+        .storyboard-rail {
+            scrollbar-width: thin;
+            scrollbar-color: #DC142C hsl(var(--border) / 0.4);
+        }
+
+        .storyboard-rail::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .storyboard-rail::-webkit-scrollbar-track {
+            background: hsl(var(--border) / 0.4);
+            border-radius: 999px;
+        }
+
+        .storyboard-rail::-webkit-scrollbar-thumb {
+            background: #DC142C;
+            border-radius: 999px;
+        }
+
+        .storyboard-rail img {
+            transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .storyboard-rail img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Brand showcase panels (kept in brand colors on purpose) */
+        .brand-panel-paper {
+            background: #F5F5F5;
+            color: #1A1A1A;
+        }
+
+        .accent-underline {
+            box-shadow: inset 0 -0.28em 0 0 rgba(220, 20, 44, .85);
+        }
+
+        /* Next-project hover arrow */
+        .next-link .next-arrow {
+            transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .next-link:hover .next-arrow {
+            transform: translateX(8px);
+        }
+
+        .next-link .next-title {
+            transition: color .3s ease;
+        }
+
+        .next-link:hover .next-title {
+            color: #DC142C;
+        }
+
+        /* Brand marquee strip */
+        .wyrm-marquee {
+            background: #DC142C;
+            color: #F5F5F5;
+            border-top: 3px solid #1A1A1A;
+            border-bottom: 3px solid #1A1A1A;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .wyrm-marquee [data-scroll-ticker] {
+            display: flex;
+        }
+
+        .wyrm-marquee .wyrm-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding-right: 2.5rem;
+            white-space: nowrap;
+        }
+
+        .wyrm-marquee .wyrm-marquee-star {
+            color: #1A1A1A;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .cs-card,
+            .color-chip,
+            .storyboard-rail img,
+            .next-link .next-arrow {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION (standard site header — same as all pages) -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5"
+        style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+
+            <!-- 3-Column Grid Layout to prevent logo overlap -->
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+
+                <!-- Left Column: Navigation Links -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="../../index.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="../../work.html"
+                            class="text-foreground font-medium underline underline-offset-4 decoration-1">Work</a>
+                        <a href="../../about.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="../../blog.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
+
+                <!-- Center Column: Logo (Perfectly Centered) -->
+                <div class="flex items-center justify-center">
+                    <a href="../../index.html" class="flex items-center justify-center">
+                        <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+
+                <!-- Right Column: Shop, Theme Toggle, Inquiry -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button"
+                        class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors"
+                        aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="hidden dark:block">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="block dark:hidden">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                    </button>
+
+                    <!-- Inquiry Button - Smaller on mobile -->
+                    <a href="../../inquiry.html"
+                        class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY (standard — unchanged) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden"
+        style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <a href="../../index.html" class="absolute left-1/2 transform -translate-x-1/2">
+                <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                    class="h-8 w-auto dark:hidden">
+                <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                    class="h-8 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="hidden dark:block">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="block dark:hidden">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../../index.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="../../work.html" class="text-6xl font-bold text-foreground">Work<span
+                    class="text-foreground">.</span></a>
+            <a href="../../about.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">About</a>
+            <a href="../../blog.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="../../inquiry.html"
+                class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start Inquiry</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+            <a href="#" class="p-4 border border-border rounded-full text-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                    <path d="M3 6h18" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-16 px-4 sm:px-6 md:px-8">
+
+        <div class="max-w-[1200px] mx-auto">
+
+            <!-- ── Breadcrumb row ── -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-4" data-scroll="fade-up">
+                <a href="../../work.html"
+                    class="inline-flex items-center space-x-2 border border-border text-foreground px-5 py-2.5 rounded-full font-medium hover:bg-secondary transition-colors w-fit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="M19 12H5" />
+                    </svg>
+                    <span>BACK TO WORK</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span
+                        class="inline-flex items-center bg-wyrm-red text-white text-xs font-bold tracking-widest px-4 py-2 rounded-full">CASE
+                        STUDY</span>
+                    <span class="text-sm text-muted-foreground">2026</span>
+                </div>
+            </div>
+
+            <!-- ── HERO ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="cs-section-label mb-6" data-scroll="fade-up">WYRM.studios — the own brand</p>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight mb-6 text-foreground"
+                    data-scroll="fade-up" data-scroll-duration="1000">
+                    WYRM — Personal Brand<br class="hidden sm:block">
+                    &amp; Studio <span class="text-wyrm-red">Identity</span>
+                </h1>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-10" data-scroll="fade-up"
+                    data-scroll-delay="200">
+                    How do you prove you can build unforgettable brands? You build your own — in public.
+                    This is the identity system behind WYRM.studios: one slogan, one palette, one visual
+                    language carrying everything from brand films to production code.
+                </p>
+
+                <!-- Meta chips -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3" data-scroll-stagger="up" data-scroll-stagger-base="90">
+                    <div class="cs-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">CLIENT</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">WYRM.studios</p>
+                    </div>
+                    <div class="cs-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">SERVICES</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Identity • Motion • Web</p>
+                    </div>
+                    <div class="cs-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">DURATION</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">4 years of experience</p>
+                    </div>
+                    <div class="cs-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">TEAM</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">8 roles, in-house</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── SIGNATURE / SLOGAN (brand showcase panel) ── -->
+            <section class="mb-10 md:mb-14">
+                <div class="brand-panel-paper rounded-3xl p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up" data-scroll-delay="80">
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <img src="signature in black.png" alt="WYRM handwritten signature" class="w-44 md:w-64 mb-8"
+                            loading="lazy">
+                        <p class="text-xs font-bold tracking-[0.25em] text-wyrm-ink/50 mb-4"
+                            style="color: rgba(26,26,26,.5)">OUR SLOGAN</p>
+                        <blockquote
+                            class="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight leading-tight max-w-3xl">
+                            “We build brands people <span class="accent-underline">remember</span>.”
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── MARQUEE STRIP (brand panel) ── -->
+            <div class="wyrm-marquee py-4 mb-10 md:mb-14 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8" aria-hidden="true">
+                <div data-scroll-ticker data-scroll-ticker-speed="60">
+                    <div data-scroll-ticker-inner>
+                        <span class="wyrm-marquee-item">We build brands people remember <span class="wyrm-marquee-star">✦</span></span>
+                        <span class="wyrm-marquee-item">Strategy <span class="wyrm-marquee-star">✦</span></span>
+                        <span class="wyrm-marquee-item">Design <span class="wyrm-marquee-star">✦</span></span>
+                        <span class="wyrm-marquee-item">Technology <span class="wyrm-marquee-star">✦</span></span>
+                        <span class="wyrm-marquee-item">Motion <span class="wyrm-marquee-star">✦</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── BRAND FILM ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="cs-section-label mb-6" data-scroll="fade-up">The brand film</p>
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl" data-scroll-scale data-scroll-scale-from="0.94" data-scroll-duration="1100">
+                    <div class="aspect-video bg-black">
+                        <iframe src="https://player.vimeo.com/video/1190794803?title=0&byline=0&portrait=0"
+                            class="w-full h-full" frameborder="0"
+                            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+                            title="WYRM — Brand Film"></iframe>
+                    </div>
+                </div>
+                <p class="text-sm text-muted-foreground mt-4 text-center" data-scroll="fade-up" data-scroll-delay="200">Cinematic manifesto — storyboarded, shot and
+                    scored in-house.</p>
+            </section>
+
+            <!-- ── OVERVIEW / BRIEF ── -->
+            <section class="mb-10 md:mb-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="cs-section-label mb-6" data-scroll="fade-up">Overview</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up" data-scroll-delay="100">The brief</h2>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p data-scroll="fade-up">
+                        Every studio preaches positioning — few can show their own. The brief for project
+                        <span class="text-foreground font-medium">№ 001</span> was internal but unforgiving:
+                        distill five years of work into an identity that signals
+                        <span class="text-foreground font-medium">strategy, design and technology under one roof</span>
+                        — and proves it the moment someone lands on the site.
+                    </p>
+                    <p data-scroll="fade-up" data-scroll-delay="120">
+                        The answer was a system, not a logo. A slogan sharp enough to lead with. A five-color
+                        palette with one crimson reserved for action. A wordmark, a signature and a mascot that
+                        make the studio feel human. And a motion language that turns every scroll into a
+                        brand moment.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 pt-2" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                        <div class="cs-card cs-card-top p-5">
+                            <p class="text-3xl font-bold text-wyrm-red mb-1" data-scroll-counter>5+</p>
+                            <p class="text-sm text-muted-foreground">years of experience distilled</p>
+                        </div>
+                        <div class="cs-card cs-card-top p-5">
+                            <p class="text-3xl font-bold text-wyrm-red mb-1" data-scroll-counter>1</p>
+                            <p class="text-sm text-muted-foreground">palette, five disciplined colors</p>
+                        </div>
+                        <div class="cs-card cs-card-top p-5">
+                            <p class="text-3xl font-bold text-wyrm-red mb-1" data-scroll-counter>100%</p>
+                            <p class="text-sm text-muted-foreground">concept to final code, in-house</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── BRAND DNA ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="cs-section-label mb-6" data-scroll="fade-up">Brand DNA</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">What we stand for</h2>
+                <p class="text-muted-foreground max-w-2xl mb-10" data-scroll="fade-up" data-scroll-delay="180">Five statements that decide every project we take and
+                    every pixel we ship.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                    <div class="cs-card cs-card-top p-7">
+                        <span class="text-xs font-bold text-wyrm-red tracking-widest block mb-4">01 — PURPOSE</span>
+                        <p class="text-muted-foreground leading-relaxed">To craft meaningful brand experiences and
+                            seamless digital products that leave a lasting impact on the market.</p>
+                    </div>
+                    <div class="cs-card cs-card-top p-7">
+                        <span class="text-xs font-bold text-wyrm-red tracking-widest block mb-4">02 — IDENTITY</span>
+                        <p class="text-muted-foreground leading-relaxed">An independent creative studio with over five
+                            years of experience, uniting strategy, design, and technology under one roof.</p>
+                    </div>
+                    <div class="cs-card cs-card-top p-7">
+                        <span class="text-xs font-bold text-wyrm-red tracking-widest block mb-4">03 — EXPERTISE</span>
+                        <p class="text-muted-foreground leading-relaxed">Visuals, branding, motion design, and
+                            comprehensive web development.</p>
+                    </div>
+                    <div class="cs-card cs-card-top p-7">
+                        <span class="text-xs font-bold text-wyrm-red tracking-widest block mb-4">04 — VISUAL
+                            LANGUAGE</span>
+                        <p class="text-muted-foreground leading-relaxed">Clean, modern, and highly readable — SF Pro
+                            typography with a bold, high-contrast color palette.</p>
+                    </div>
+                    <div class="cs-card cs-card-top p-7">
+                        <span class="text-xs font-bold text-wyrm-red tracking-widest block mb-4">05 — COMMITMENT</span>
+                        <p class="text-muted-foreground leading-relaxed">Delivering complete, end-to-end creative
+                            solutions from initial concept to final code.</p>
+                    </div>
+                    <div class="rounded-[1.25rem] p-7 bg-wyrm-navy text-white flex flex-col justify-between">
+                        <span class="text-xs font-bold text-wyrm-blue tracking-widest block mb-4"
+                            style="color:#8FB0F0">THE TEST</span>
+                        <p class="text-xl font-semibold leading-snug">If a deliverable doesn't make the brand more
+                            memorable — it doesn't ship.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── COLOR PALETTE (brand showcase) ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="cs-section-label mb-6" data-scroll="fade-up">Color system</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Five colors, zero noise</h2>
+                <p class="text-muted-foreground max-w-2xl mb-10" data-scroll="fade-up" data-scroll-delay="180">A disciplined palette: two neutrals carry the canvas,
+                    navy brings structure, blue handles interaction — and crimson is spent only where it counts. Click
+                    any swatch to copy its hex.</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-3" id="palette-grid" data-scroll-stagger="up" data-scroll-stagger-base="90">
+                    <button class="color-chip ring-1 ring-black/10" data-hex="#F5F5F5"
+                        style="background:#F5F5F5;color:#1A1A1A" aria-label="Copy off-white #F5F5F5">
+                        <span class="chip-copy">Copy</span>
+                        <span class="font-bold text-base">Off-White</span>
+                        <span class="text-xs opacity-60">Background / light surfaces</span>
+                        <span class="text-xs font-semibold mt-1 tracking-wider">#F5F5F5</span>
+                    </button>
+                    <button class="color-chip" data-hex="#1A1A1A" style="background:#1A1A1A;color:#F5F5F5"
+                        aria-label="Copy near black #1A1A1A">
+                        <span class="chip-copy">Copy</span>
+                        <span class="font-bold text-base">Near Black</span>
+                        <span class="text-xs opacity-60">Primary text / dark elements</span>
+                        <span class="text-xs font-semibold mt-1 tracking-wider">#1A1A1A</span>
+                    </button>
+                    <button class="color-chip" data-hex="#DC142C" style="background:#DC142C;color:#FFFFFF"
+                        aria-label="Copy crimson red #DC142C">
+                        <span class="chip-copy">Copy</span>
+                        <span class="font-bold text-base">Crimson Red</span>
+                        <span class="text-xs opacity-70">Accent / CTA</span>
+                        <span class="text-xs font-semibold mt-1 tracking-wider">#DC142C</span>
+                    </button>
+                    <button class="color-chip" data-hex="#1F2C5B" style="background:#1F2C5B;color:#F5F5F5"
+                        aria-label="Copy deep navy #1F2C5B">
+                        <span class="chip-copy">Copy</span>
+                        <span class="font-bold text-base">Deep Navy</span>
+                        <span class="text-xs opacity-60">Secondary / structure</span>
+                        <span class="text-xs font-semibold mt-1 tracking-wider">#1F2C5B</span>
+                    </button>
+                    <button class="color-chip" data-hex="#316CD3" style="background:#316CD3;color:#FFFFFF"
+                        aria-label="Copy bright blue #316CD3">
+                        <span class="chip-copy">Copy</span>
+                        <span class="font-bold text-base">Bright Blue</span>
+                        <span class="text-xs opacity-70">Interactive / highlights</span>
+                        <span class="text-xs font-semibold mt-1 tracking-wider">#316CD3</span>
+                    </button>
+                </div>
+
+                <!-- Palette in context: brand split panel -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
+                    <div class="rounded-2xl brand-panel-paper p-8 md:p-10" data-scroll="fade-right">
+                        <p class="text-xs font-bold tracking-widest mb-3" style="color:rgba(26,26,26,.4)">LIGHT MODE —
+                            #F5F5F5 CANVAS</p>
+                        <p class="text-2xl md:text-3xl font-bold leading-snug">Cinematic Brand Experiences<br>That make
+                            your brand impossible to ignore</p>
+                        <span
+                            class="inline-flex items-center space-x-2 bg-[#1A1A1A] text-[#F5F5F5] px-5 py-2.5 rounded-full text-sm font-medium mt-6">Primary
+                            action</span>
+                    </div>
+                    <div class="rounded-2xl bg-wyrm-navy text-white p-8 md:p-10" data-scroll="fade-left" data-scroll-delay="140">
+                        <p class="text-xs font-bold tracking-widest mb-3" style="color:#8FB0F0">STRUCTURE — #1F2C5B
+                            DEPTH</p>
+                        <p class="text-2xl md:text-3xl font-bold leading-snug">Strategy sets the direction.<br>Design
+                            makes it inevitable.</p>
+                        <span
+                            class="inline-flex items-center space-x-2 bg-wyrm-red text-white px-5 py-2.5 rounded-full text-sm font-medium mt-6">Accent,
+                            used sparingly</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── TYPOGRAPHY ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="cs-section-label mb-6" data-scroll="fade-up">Typography</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up" data-scroll-delay="100">SF Pro — clean, modern, highly
+                    readable</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="120">
+                    <div class="cs-card p-8 md:p-10">
+                        <div class="flex items-end justify-between mb-6">
+                            <span class="text-[7rem] md:text-[9rem] font-bold leading-none text-foreground" data-scroll-blur data-scroll-blur-amount="10">Aa</span>
+                            <div class="text-right">
+                                <p class="font-bold text-lg text-foreground">SF Pro Display</p>
+                                <p class="text-sm text-muted-foreground">Display &amp; Headings</p>
+                            </div>
+                        </div>
+                        <p class="text-muted-foreground text-sm leading-relaxed border-t border-border/50 pt-5">
+                            Tight tracking, confident weights. Headlines are set bold and close — the voice of the
+                            brand at full volume.
+                        </p>
+                    </div>
+                    <div class="cs-card p-8 md:p-10">
+                        <div class="flex items-end justify-between mb-6">
+                            <span class="text-[7rem] md:text-[9rem] font-normal leading-none text-foreground" data-scroll-blur data-scroll-blur-amount="10"
+                                style="font-family:'Inter',sans-serif">Aa</span>
+                            <div class="text-right">
+                                <p class="font-bold text-lg text-foreground">SF Pro Text / Inter</p>
+                                <p class="text-sm text-muted-foreground">Body &amp; UI</p>
+                            </div>
+                        </div>
+                        <p class="text-muted-foreground text-sm leading-relaxed border-t border-border/50 pt-5">
+                            High x-height, calm rhythm. Body copy stays out of the way so the work — and the message —
+                            stays front and center.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── LOGO & MASCOT ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="cs-section-label mb-6" data-scroll="fade-up">Logo &amp; character</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up" data-scroll-delay="100">A mark, a signature, a dragon</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="120">
+                    <!-- Logo panel -->
+                    <div
+                        class="rounded-3xl brand-panel-paper p-10 md:p-14 flex flex-col items-center justify-center min-h-[340px]">
+                        <img src="logo png in black.png" alt="WYRM wordmark in black" class="w-56 md:w-72 mb-8"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#F5F5F5">
+                        <p class="text-xs font-bold tracking-widest" style="color:rgba(26,26,26,.4)">THE WORDMARK —
+                            BUILT TO SIT ANYWHERE</p>
+                    </div>
+                    <!-- Mascot panel -->
+                    <div class="rounded-3xl bg-wyrm-navy text-white p-10 md:p-14 flex flex-col items-center justify-center min-h-[340px]">
+                        <img src="maskot with white backgound.jpg" alt="WYRM dragon mascot illustration"
+                            class="w-56 md:w-72 rounded-2xl mb-8" loading="lazy" data-scroll-img-reveal
+                            data-scroll-img-color="#1F2C5B">
+                        <p class="text-xs font-bold tracking-widest text-white/40">THE MASCOT — THE STUDIO'S
+                            PERSONALITY</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── MOTION — GALLERY HEADING (Matte Rise) ── -->
+            <section class="mb-10 md:mb-14">
+                <div class="flex items-end justify-between mb-8 gap-4">
+                    <div>
+                        <p class="cs-section-label mb-6" data-scroll="fade-up">Motion</p>
+                        <h2 class="text-3xl md:text-4xl font-bold text-foreground" data-scroll="fade-up" data-scroll-delay="100">The slogan, in orbit</h2>
+                    </div>
+                    <p class="hidden md:block text-sm text-muted-foreground shrink-0">Hover to spin →</p>
+                </div>
+
+                <div class="relative rounded-3xl overflow-hidden border border-border/50 bg-wyrm-paper" style="aspect-ratio: 16 / 8.5;">
+                    <iframe src="gallery-heading.html"
+                        title="Gallery heading — Matte Rise — We build brands people remember"
+                        class="absolute inset-0 w-full h-full border-0"
+                        loading="lazy"></iframe>
+                </div>
+                <p class="text-sm text-muted-foreground mt-4 text-center">
+                    A gallery of twelve matte plates orbiting the slogan — three of them carry the WYRM palette.
+                    Hover to set the ring in motion.
+                </p>
+            </section>
+
+            <!-- ── WYRM.ARTS ── -->
+            <section class="mb-10 md:mb-14">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-10">
+                    <div class="lg:col-span-5">
+                        <p class="cs-section-label mb-6" data-scroll="fade-up">Beyond client work</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up" data-scroll-delay="100">wyrm<span
+                                class="text-wyrm-red">.arts</span></h2>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <p class="text-muted-foreground text-lg leading-relaxed" data-scroll="fade-up" data-scroll-delay="160">
+                            Not everything we make is for a client. <span
+                                class="text-foreground font-medium">wyrm.arts</span> is the studio's playground — a
+                            separate practice where we build art for its own sake: personal pieces, experiments and
+                            visual explorations with no brief, no deadline and no one to please but ourselves.
+                        </p>
+                        <p class="text-muted-foreground text-lg leading-relaxed mt-4" data-scroll="fade-up" data-scroll-delay="240">
+                            It's the same eye and the same craft we bring to professional work — just turned loose.
+                            Follow along on Instagram to see new pieces as they drop.
+                        </p>
+                        <a href="https://www.instagram.com/wyrm.arts/" target="_blank" rel="noopener noreferrer"
+                            class="mt-6 inline-flex items-center space-x-3 bg-foreground text-background px-6 py-3 rounded-full font-medium hover:bg-foreground/90 transition-colors"
+                            data-scroll="fade-up" data-scroll-delay="320" data-scroll-magnetic>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                            <span>@wyrm.arts on Instagram</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Artwork gallery — pieces from @wyrm.arts -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                    <a href="https://www.instagram.com/wyrm.arts/" target="_blank" rel="noopener noreferrer"
+                        class="group relative block rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up">
+                        <img src="wyrmarts/1ee285223258563.67f5a403ec716.jpg"
+                            alt="wyrm.arts artwork — personal piece"
+                            class="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                            loading="lazy">
+                        <span
+                            class="absolute inset-0 bg-wyrm-ink/0 group-hover:bg-wyrm-ink/40 transition-colors duration-300 flex items-end justify-end p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="https://www.instagram.com/wyrm.arts/" target="_blank" rel="noopener noreferrer"
+                        class="group relative block rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up" data-scroll-delay="120">
+                        <img src="wyrmarts/537057154_17938494741062656_8285376585403829618_n.jpg"
+                            alt="wyrm.arts artwork — personal piece"
+                            class="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                            loading="lazy">
+                        <span
+                            class="absolute inset-0 bg-wyrm-ink/0 group-hover:bg-wyrm-ink/40 transition-colors duration-300 flex items-end justify-end p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="https://www.instagram.com/wyrm.arts/" target="_blank" rel="noopener noreferrer"
+                        class="group relative block rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up" data-scroll-delay="240">
+                        <img src="wyrmarts/dbdcbf223258563.67f5a403ecbe1.jpg"
+                            alt="wyrm.arts artwork — personal piece"
+                            class="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                            loading="lazy">
+                        <span
+                            class="absolute inset-0 bg-wyrm-ink/0 group-hover:bg-wyrm-ink/40 transition-colors duration-300 flex items-end justify-end p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="https://www.instagram.com/wyrm.arts/" target="_blank" rel="noopener noreferrer"
+                        class="group relative block rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up" data-scroll-delay="360">
+                        <img src="wyrmarts/fezf.jpg" alt="wyrm.arts artwork — personal piece"
+                            class="w-full h-auto group-hover:scale-[1.03] transition-transform duration-500"
+                            loading="lazy">
+                        <span
+                            class="absolute inset-0 bg-wyrm-ink/0 group-hover:bg-wyrm-ink/40 transition-colors duration-300 flex items-end justify-end p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ── PROCESS ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="cs-section-label mb-6" data-scroll="fade-up">Process</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up" data-scroll-delay="100">From concept to final code</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="120">
+                    <div class="cs-card cs-card-top p-7">
+                        <span class="text-xs font-bold text-muted-foreground/50 tracking-widest block mb-4">PHASE
+                            01</span>
+                        <h3 class="text-xl font-bold mb-3 text-foreground">Visual System</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-wyrm-red mt-0.5">—</span><span>Wordmark, signature &amp; mascot lockups</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-wyrm-red mt-0.5">—</span><span>Five-color palette with usage rules</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-wyrm-red mt-0.5">—</span><span>Typographic scale &amp; grid</span></li>
+                        </ul>
+                    </div>
+                    <div class="cs-card cs-card-top p-7">
+                        <span class="text-xs font-bold text-muted-foreground/50 tracking-widest block mb-4">PHASE
+                            02</span>
+                        <h3 class="text-xl font-bold mb-3 text-foreground">Motion Design</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-wyrm-red mt-0.5">—</span><span>Cinematic brand film &amp; manifesto</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-wyrm-red mt-0.5">—</span><span>Logo animations &amp; transitions</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-wyrm-red mt-0.5">—</span><span>Scroll-linked motion language</span></li>
+                        </ul>
+                    </div>
+                    <div class="cs-card cs-card-top p-7">
+                        <span class="text-xs font-bold text-muted-foreground/50 tracking-widest block mb-4">PHASE
+                            03</span>
+                        <h3 class="text-xl font-bold mb-3 text-foreground">Web Design</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-wyrm-red mt-0.5">—</span><span>Case-study &amp; portfolio experience</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-wyrm-red mt-0.5">—</span><span>Interactive highlights in brand blue</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-wyrm-red mt-0.5">—</span><span>Production build, no templates</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── ROLES & CREDITS ── -->
+            <section class="mb-10 md:mb-14">
+                <p class="cs-section-label mb-6" data-scroll="fade-up">Credits</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Roles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5" data-scroll-stagger="up" data-scroll-stagger-base="70">
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Creative Direction</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Brand Strategy</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Visual Identity</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Motion Design</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Web Development</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-border/50 pb-4">
+                        <span class="font-bold text-foreground">Sound Design</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── OUTCOME (brand panel) ── -->
+            <section class="mb-10 md:mb-14">
+                <div class="rounded-3xl bg-wyrm-red text-white p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up" data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-10 -right-4 text-[10rem] md:text-[16rem] font-bold leading-none select-none opacity-10"
+                        data-scroll-parallax data-scroll-parallax-speed="0.12">W</span>
+                    <div class="relative z-10 max-w-3xl">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-80">OUTCOME</p>
+                        <h2 class="text-2xl md:text-4xl font-bold leading-tight mb-5">A living identity — not a PDF
+                            that gathers dust.</h2>
+                        <p class="text-white/85 leading-relaxed mb-8">
+                            The WYRM identity now runs the entire studio: the site you're reading, the brand film,
+                            every proposal and every post. One system, consistently applied — the same discipline we
+                            bring to client work.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Full
+                                brand system</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Motion
+                                toolkit</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Flagship
+                                website</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CTA (brand panel) ── -->
+            <section class="mb-10 md:mb-14">
+                <div class="rounded-3xl bg-wyrm-navy text-white p-8 md:p-14 text-center" data-scroll="fade-up">
+                    <p class="cs-section-label mb-6 justify-center" style="display:inline-flex">Your brand next</p>
+                    <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-6">Ready for a brand people
+                        remember?</h2>
+                    <p class="text-white/60 max-w-xl mx-auto mb-10">Tell us where your brand is stuck. We'll show you
+                        the way out — concept to final code.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="../../inquiry.html"
+                            class="inline-flex items-center space-x-2 bg-wyrm-red text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-wyrm-red/85 transition-colors shadow-xl"
+                            data-scroll-magnetic>
+                            <span>Start a Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="../../work.html"
+                            class="inline-flex items-center space-x-2 border border-white/20 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-white/5 transition-colors">
+                            <span>See More Work</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── NEXT CASE STUDY ── -->
+            <section class="border-t border-border/50 pt-12">
+                <a href="../minato-sushi/minato-sushi.html"
+                    class="next-link flex flex-col md:flex-row md:items-center md:justify-between gap-6 group">
+                    <div>
+                        <p class="text-sm text-muted-foreground mb-2">Next Case Study</p>
+                        <h3 class="next-title text-2xl md:text-3xl font-bold text-foreground">Minato Sushi — Premium
+                            Restaurant Experience</h3>
+                    </div>
+                    <span
+                        class="inline-flex items-center space-x-2 border border-border px-6 py-3 rounded-full font-medium text-foreground hover:bg-secondary transition-colors w-fit shrink-0">
+                        <span>View Case</span>
+                        <svg class="next-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </span>
+                </a>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="../../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6"
+                        style="height: 8rem; width: auto;" loading="lazy">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Creative Studio specializing in
+                        brand identity, motion design, and web experiences for ambitious businesses.</p>
+
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a>
+                        </li>
+                        <li><a href="../../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a>
+                        </li>
+                        <li><a href="../../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a>
+                        </li>
+                        <li><a href="../../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand
+                                Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion
+                                Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Creative
+                                Direction</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../inquiry.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Start Inquiry</a>
+                        </li>
+                        <li><a href="mailto:contact@wyrm.studio"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">contact@wyrm.studio</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../../js/main.js"></script>
+    <script src="../../js/theme-toggle.js"></script>
+    <script src="../../js/mobile-menu.js"></script>
+    <script src="../../js/smooth-scroll.js"></script>
+    <script src="../../js/page-transitions.js"></script>
+    <script src="../../js/scroll-animations.js"></script>
+
+    <script>
+        /* Copy hex on color chip click */
+        (function () {
+            var grid = document.getElementById('palette-grid');
+            if (!grid) return;
+            grid.addEventListener('click', function (e) {
+                var chip = e.target.closest('.color-chip');
+                if (!chip) return;
+                var hex = chip.getAttribute('data-hex');
+                var copyEl = chip.querySelector('.chip-copy');
+                function done(ok) {
+                    if (!copyEl) return;
+                    var prev = copyEl.textContent;
+                    copyEl.textContent = ok ? 'Copied ✓' : hex;
+                    chip.classList.add('copied');
+                    setTimeout(function () {
+                        copyEl.textContent = prev === 'Copy' ? 'Copy' : prev;
+                        chip.classList.remove('copied');
+                    }, 1200);
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(hex).then(function () { done(true); }, function () { done(false); });
+                } else {
+                    done(false);
+                }
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
