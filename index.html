@@ -202,6 +202,7 @@
                     <path d="m12 5 7 7-7 7" />
                 </svg>
             </a>
+            <button id="mobile-lang-toggle" class="p-4 border border-border rounded-full text-foreground" aria-label="Change language" type="button"></button>
             <a href="#" class="p-4 border border-border rounded-full text-foreground">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -259,11 +260,11 @@
                                     studio.</p>
                             </div>
 
-                            <!-- Two Oval Shapes -->
+                            <!-- Two Oval Shapes — the eyes -->
                             <div
                                 class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center space-x-3 z-20">
-                                <div class="w-4 h-6 md:w-5 md:h-8 bg-white/80 rounded-full"></div>
-                                <div class="w-4 h-6 md:w-5 md:h-8 bg-white/80 rounded-full"></div>
+                                <div id="eye-left" class="wyrm-eye w-4 h-6 md:w-5 md:h-8 bg-white/80 rounded-full" style="transform-origin: center;"></div>
+                                <div id="eye-right" class="wyrm-eye w-4 h-6 md:w-5 md:h-8 bg-white/80 rounded-full" style="transform-origin: center;"></div>
                             </div>
 
                         </div>
@@ -1130,6 +1131,7 @@
     </div>
 
     <!-- JAVASCRIPT FILES -->
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/theme-toggle.js"></script>
     <script src="js/mobile-menu.js"></script>

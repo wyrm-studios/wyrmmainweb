@@ -111,7 +111,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    // --- 5. Studio Console Identity ---
+    // --- 5. Wyrm Eyes — random blink every 3–10 s ---
+    const eyes = [document.getElementById('eye-left'), document.getElementById('eye-right')];
+    if (eyes[0] && eyes[1]) {
+        const blinkOnce = (eye) => {
+            eye.style.transition = 'transform 130ms ease-in';
+            eye.style.transform = 'scaleY(0.08)';
+            setTimeout(() => {
+                eye.style.transition = 'transform 200ms cubic-bezier(0.16, 1, 0.3, 1)';
+                eye.style.transform = 'scaleY(1)';
+            }, 140);
+        };
+        const scheduleBlink = () => {
+            const delay = 3000 + Math.random() * 7000; /* 3s – 10s */
+            setTimeout(() => {
+                eyes.forEach(blinkOnce);
+                scheduleBlink();
+            }, delay);
+        };
+        scheduleBlink();
+    }
+
+    // --- 6. Studio Console Identity ---
     console.log(
         '%c WYRM.studios %c Creative Studio // Identity • Motion • Digital ',
         'background: #111; color: #3E88FF; font-weight: 700; font-size: 13px; padding: 6px 10px; border-radius: 4px;',

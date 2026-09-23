@@ -28,7 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
             progressBar.style.width = progress + '%';
         }
         if (stepIndicator) {
-            stepIndicator.textContent = 'PROTOCOL STEP ' + currentStep + '/' + totalSteps;
+            /* respect the site language (i18n.js may have translated the label) */
+            const match = stepIndicator.textContent.match(/(\d+)\s*\/\s*(\d+)/);
+            const shownStep = match ? match[1] : currentStep;
+            const prefix = stepIndicator.textContent.indexOf('ÉTAPE') === 0 ? 'ÉTAPE '
+                         : stepIndicator.textContent.indexOf('الخطوة') === 0 ? 'الخطوة '
+                         : 'PROTOCOL STEP ';
+            const joiner = prefix === 'الخطوة ' ? ' ' : (prefix === 'ÉTAPE ' ? ' sur ' : '/');
+            stepIndicator.textContent = prefix + shownStep + joiner + totalSteps;
         }
     }
 
