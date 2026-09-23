@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNITED SOULS — Fashion With Meaning — Case Study | WYRM.studios</title>
+    <meta name="description"
+        content="Case study: brand identity and collection design for UNITED SOULS — streetwear with a soul. The U+S mark, seven original collections, tableaus, trend flags and a mission: every order supports children with ADHD.">
+    <meta name="theme-color" content="#181311">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="UNITED SOULS — Fashion With Meaning — Case Study">
+    <meta property="og:description"
+        content="United Souls inside, where hope abides — streetwear built on purpose: original collections, gallery-grade art, and fashion that helps kids thrive.">
+    <meta property="og:image" content="https://wyrm.studios/case-studies/united-souls/united-souls-thumb.jpg">
+    <meta property="og:url" content="https://wyrm.studios/case-studies/united-souls/united-souls.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                        /* UNITED SOULS palette — sampled from the official brand deck */
+                        'us-ink': '#181311',
+                        'us-cacao': '#654438',
+                        'us-taupe': '#A79E95',
+                        'us-stone': '#C5C0BC',
+                        'us-cream': '#F1EDEB',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+    <style>
+        /* ── Page-local components (site theme untouched; UNITED SOULS colors only in showcase panels) ── */
+        .us-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #654438;
+        }
+
+        .us-section-label::before {
+            content: '';
+            width: 2rem;
+            height: 2px;
+            background: #181311;
+            display: inline-block;
+        }
+
+        .us-card {
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 1.25rem;
+            transition: border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+        }
+
+        .us-card:hover {
+            border-color: rgba(101, 68, 56, 0.55);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(24, 19, 17, .12);
+        }
+
+        .us-card-top {
+            border-top: 2px solid transparent;
+            transition: border-color .35s ease;
+        }
+
+        .us-card-top:hover {
+            border-top-color: #654438;
+        }
+
+        .us-display {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 500;
+        }
+
+        /* Brand hero band — ink with quiet grain */
+        .us-hero-band {
+            background: linear-gradient(165deg, #181311 0%, #241B16 55%, #3B2A20 125%);
+            color: #F1EDEB;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .us-hero-band::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: .12;
+            background-image: radial-gradient(circle at 20% 30%, #A79E95 0 1.5px, transparent 2.5px),
+                radial-gradient(circle at 75% 18%, #654438 0 2px, transparent 3px),
+                radial-gradient(circle at 50% 80%, #C5C0BC 0 1px, transparent 2px),
+                radial-gradient(circle at 88% 62%, #654438 0 1px, transparent 2px);
+            background-size: 260px 260px;
+        }
+
+        /* Marquee strip */
+        .us-marquee {
+            background: #181311;
+            color: #F1EDEB;
+            border-top: 3px solid #654438;
+            border-bottom: 3px solid #654438;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .us-marquee [data-scroll-ticker] {
+            display: flex;
+        }
+
+        .us-marquee .us-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding-right: 2.5rem;
+            white-space: nowrap;
+        }
+
+        .us-marquee .us-marquee-star {
+            color: #A79E95;
+        }
+
+        /* Palette chip — click to copy */
+        .us-chip {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 0.3rem;
+            min-height: 7.5rem;
+            padding: 1.25rem;
+            border: 0;
+            border-radius: 1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .us-chip:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(24, 19, 17, .18);
+        }
+
+        .us-chip:active {
+            transform: translateY(-1px) scale(.98);
+        }
+
+        .us-chip-tag {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.9rem;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity .25s ease;
+        }
+
+        .us-chip:hover .us-chip-tag,
+        .us-chip.copied .us-chip-tag {
+            opacity: .9;
+        }
+
+        .us-chip-hex {
+            font-size: 0.72rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            opacity: .75;
+        }
+
+        /* Collection card */
+        .us-collection {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.25rem;
+            background: #F1EDEB;
+            border: 1px solid rgba(24, 19, 17, .08);
+            transition: transform .4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .4s ease;
+        }
+
+        .us-collection:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(24, 19, 17, .16);
+        }
+
+        .us-collection img {
+            transition: transform .8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .us-collection:hover img {
+            transform: scale(1.05);
+        }
+
+        .us-collection-num {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-style: italic;
+        }
+
+        /* Credits underline */
+        .us-credit-row {
+            border-bottom: 1px solid hsl(var(--border) / 0.5);
+        }
+
+        /* Next link hover */
+        .us-next .us-next-arrow {
+            transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .us-next:hover .us-next-arrow {
+            transform: translateX(8px);
+        }
+
+        .us-next .us-next-title {
+            transition: color .3s ease;
+        }
+
+        .us-next:hover .us-next-title {
+            color: #654438;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .us-card,
+            .us-collection,
+            .us-collection img,
+            .us-next .us-next-arrow {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION (standard site header — same as all pages) -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5"
+        style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+                <!-- Left Column -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="../../index.html" class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="../../work.html"
+                            class="text-foreground font-medium underline underline-offset-4 decoration-1">Work</a>
+                        <a href="../../about.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="../../blog.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
+                <!-- Center Column -->
+                <div class="flex items-center justify-center">
+                    <a href="../../index.html" class="flex items-center justify-center">
+                        <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+                <!-- Right Column -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button"
+                        class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+                    <button id="theme-toggle"
+                        class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors"
+                        aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="hidden dark:block">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="block dark:hidden">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                    </button>
+                    <a href="../../inquiry.html"
+                        class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY (standard — unchanged) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden"
+        style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <a href="../../index.html" class="flex items-center justify-center flex-1">
+                <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto dark:hidden">
+                <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="hidden dark:block">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="block dark:hidden">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../../index.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="../../work.html" class="text-6xl font-bold text-foreground">Work<span
+                    class="text-foreground">.</span></a>
+            <a href="../../about.html"
+                class="text-muted-foreground/30 hover:text-foreground transition-colors text-6xl font-bold">About</a>
+            <a href="../../blog.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="../../inquiry.html"
+                class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+            <button id="mobile-shop-button" class="p-4 border border-border rounded-full text-foreground">
+                <span class="mobile-shop-text">Shop</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-0">
+
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+
+            <!-- ── Breadcrumb row ── -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-4" data-scroll="fade-up">
+                <a href="../../work.html"
+                    class="inline-flex items-center space-x-2 border border-border text-foreground px-5 py-2.5 rounded-full font-medium hover:bg-secondary transition-colors w-fit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="M19 12H5" />
+                    </svg>
+                    <span>BACK TO WORK</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span
+                        class="inline-flex items-center bg-us-ink text-us-cream text-xs font-bold tracking-widest px-4 py-2 rounded-full">CASE
+                        STUDY</span>
+                    <span class="text-sm text-muted-foreground">2026</span>
+                </div>
+            </div>
+
+            <!-- ── HERO ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="us-section-label mb-6" data-scroll="fade-up">Fashion Branding · Collections · Art Direction</p>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight mb-6 text-foreground"
+                    data-scroll-words data-scroll-words-base="50" data-scroll-duration="800">
+                    UNITED SOULS — Fashion With Meaning
+                </h1>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-10" data-scroll="fade-up"
+                    data-scroll-delay="250">
+                    A streetwear house built on purpose — the U+S monogram, seven original collections, gallery-grade
+                    tableaus, and a promise stitched into every order:
+                    <strong class="text-foreground">no child is forgotten.</strong>
+                </p>
+
+                <!-- Meta chips -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3" data-scroll-stagger="up" data-scroll-stagger-base="90">
+                    <div class="us-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">CLIENT</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">United Souls</p>
+                    </div>
+                    <div class="us-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">SERVICES</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Identity • Collections • Art</p>
+                    </div>
+                    <div class="us-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">DURATION</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">2026</p>
+                    </div>
+                    <div class="us-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">INDUSTRY</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Fashion / Streetwear</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── BRAND HERO BAND ── -->
+            <section class="mb-0" data-scroll="fade-up">
+                <div class="us-hero-band rounded-3xl px-6 md:px-14 py-12 md:py-20 text-center">
+                    <span aria-hidden="true"
+                        class="absolute top-6 right-8 text-6xl md:text-8xl font-bold leading-none select-none opacity-10 us-display"
+                        data-scroll-parallax data-scroll-parallax-speed="0.12">U+S</span>
+                    <div class="relative z-10">
+                        <div class="inline-block bg-us-cream rounded-2xl p-6 md:p-8 mb-8 shadow-xl" data-scroll-scale
+                            data-scroll-scale-from="0.92">
+                            <img src="logo-lockup-card.jpg" alt="United Souls lockup — the U mark and wordmark"
+                                class="w-52 md:w-80 h-auto mx-auto" loading="lazy">
+                        </div>
+                        <blockquote class="us-display text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight max-w-4xl mx-auto italic"
+                            data-scroll-words data-scroll-words-base="55" data-scroll-duration="900">
+                            "United Souls inside, where hope abides."
+                        </blockquote>
+                        <p class="mt-6 text-sm tracking-[0.25em] uppercase" style="color:rgba(241,237,235,.55)">
+                            @UNITED.SOULS — STYLE WITH MEANING, ELEGANCE WITH IMPACT
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── MARQUEE STRIP ── -->
+            <div class="us-marquee py-4 mb-8 md:mb-10 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8"
+                data-scroll="fade-up" aria-hidden="true">
+                <div data-scroll-ticker data-scroll-ticker-speed="55">
+                    <div data-scroll-ticker-inner>
+                        <span class="us-marquee-item">United through purpose <span class="us-marquee-star">✦</span></span>
+                        <span class="us-marquee-item">Every order makes a difference <span class="us-marquee-star">✦</span></span>
+                        <span class="us-marquee-item">Collect the art <span class="us-marquee-star">✦</span></span>
+                        <span class="us-marquee-item">Wear the vibe <span class="us-marquee-star">✦</span></span>
+                        <span class="us-marquee-item">Live the vision <span class="us-marquee-star">✦</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── THE STORY ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="us-section-label mb-6" data-scroll="fade-up">The story</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up"
+                            data-scroll-delay="80">We don't just make clothes. We cultivate hope.</h2>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p data-scroll="fade-up">
+                        United Souls carries a noble purpose — to weave humanity closer through the art of fashion.
+                        Clothing should do more than adorn: it should inspire unity, celebrate diversity, and honor
+                        the sacred connection between all people.
+                    </p>
+                    <p data-scroll="fade-up">
+                        But we go beyond the fit. With every order, a portion of profits supports
+                        <strong class="text-foreground">children with ADHD</strong> — funding tools and programs that
+                        help them learn, grow, and feel understood.
+                    </p>
+                    <p data-scroll="fade-up">
+                        Because being fresh isn't just about fashion — it's about impact. Every piece helps build a
+                        world where <strong class="text-foreground">no child is forgotten.</strong>
+                    </p>
+                    <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up" data-scroll-delay="120">
+                        <img src="story-hands.jpg" alt="United Souls — hands in a quiet gesture of unity"
+                            class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                        <figcaption class="text-sm text-muted-foreground italic p-4 bg-secondary">Unity, worn openly.
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── THE LOGO ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="us-section-label mb-6" data-scroll="fade-up">The logo</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Two letters, one soul</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    The mark merges the letters <strong class="text-foreground">U</strong> and
+                    <strong class="text-foreground">S</strong> into one sleek symbol — U for United, S for Souls —
+                    reflecting the mission: style with meaning, elegance with impact.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+                    <figure class="rounded-2xl overflow-hidden bg-us-cream flex items-center justify-center p-8 md:p-12" data-scroll="fade-up">
+                        <img src="logo-dark.png" alt="United Souls monogram on cream" class="w-48 md:w-72 h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#D5CEC6">
+                        <figcaption class="sr-only">The U+S monogram on cream</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden us-hero-band flex items-center justify-center p-8 md:p-12" data-scroll="fade-up" data-scroll-delay="140">
+                        <img src="logo-white.png" alt="United Souls monogram on ink" class="w-64 md:w-96 h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                        <figcaption class="sr-only">The U+S monogram on ink</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Palette -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-6" id="us-palette" data-scroll-stagger="up"
+                    data-scroll-stagger-base="90">
+                    <button class="us-chip" data-hex="#F1EDEB" style="background:#F1EDEB;color:#181311;border:1px solid rgba(24,19,17,.12)"
+                        aria-label="Copy cream #F1EDEB">
+                        <span class="us-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Cream</span>
+                        <span class="text-xs opacity-60">Canvas</span>
+                        <span class="us-chip-hex">#F1EDEB</span>
+                    </button>
+                    <button class="us-chip" data-hex="#C5C0BC" style="background:#C5C0BC;color:#181311"
+                        aria-label="Copy stone #C5C0BC">
+                        <span class="us-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Stone</span>
+                        <span class="text-xs opacity-60">Soft light</span>
+                        <span class="us-chip-hex">#C5C0BC</span>
+                    </button>
+                    <button class="us-chip" data-hex="#A79E95" style="background:#A79E95;color:#181311"
+                        aria-label="Copy taupe #A79E95">
+                        <span class="us-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Taupe</span>
+                        <span class="text-xs opacity-60">Warm neutral</span>
+                        <span class="us-chip-hex">#A79E95</span>
+                    </button>
+                    <button class="us-chip" data-hex="#654438" style="background:#654438;color:#F1EDEB"
+                        aria-label="Copy cacao #654438">
+                        <span class="us-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Cacao</span>
+                        <span class="text-xs opacity-70">Accent / depth</span>
+                        <span class="us-chip-hex">#654438</span>
+                    </button>
+                    <button class="us-chip" data-hex="#181311" style="background:#181311;color:#F1EDEB"
+                        aria-label="Copy ink #181311">
+                        <span class="us-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Ink</span>
+                        <span class="text-xs opacity-60">Foundation</span>
+                        <span class="us-chip-hex">#181311</span>
+                    </button>
+                </div>
+                <p class="text-sm text-muted-foreground mt-4 text-center" data-scroll="fade-up">Warm earth on ink — quiet luxury with street
+                    roots. Click any chip to copy its hex.</p>
+            </section>
+
+            <!-- ── VISION ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl us-hero-band p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up" data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-10 -right-2 text-[9rem] md:text-[14rem] leading-none select-none opacity-10 us-display"
+                        data-scroll-parallax data-scroll-parallax-speed="0.12">US</span>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                        <div class="lg:col-span-7">
+                            <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-70">OUR VISION</p>
+                            <h2 class="us-display text-3xl md:text-5xl leading-tight mb-6 italic">A global community
+                                where style becomes a force for good.</h2>
+                            <p class="opacity-85 leading-relaxed mb-6 max-w-2xl">
+                                Every outfit tells a story, every collection celebrates diversity, and every purchase
+                                helps a child thrive. At United Souls, we don't just dress people — we dress
+                                <strong>conscious minds, kind hearts, and fearless spirits.</strong>
+                            </p>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up" data-scroll-delay="160">
+                                <img src="vision-field.jpg" alt="United Souls vision — open field, open future"
+                                    class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── THE STRATEGY ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="us-section-label mb-6" data-scroll="fade-up">Our strategy</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up"
+                            data-scroll-delay="80">Unlimited creativity, zero risk</h2>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p data-scroll="fade-up">
+                        The trick behind United Souls: <strong class="text-foreground">we go all in on creativity</strong>
+                        — unlimited collections, bold ideas, constant drops. From anime to memes to artwear, everything
+                        goes out there.
+                    </p>
+                    <p data-scroll="fade-up">
+                        And the best part? <strong class="text-foreground">We only print when you order.</strong>
+                        No stock, no risk — just pure design freedom. Printify handles the rest. We focus on creating.
+                        You get the drip. We lose nothing.
+                    </p>
+                    <div class="flex flex-wrap gap-3" data-scroll="fade-up" data-scroll-delay="150">
+                        <span class="pill-tag">Print on demand</span>
+                        <span class="pill-tag">Constant drops</span>
+                        <span class="pill-tag">Unlimited collections</span>
+                        <span class="pill-tag">Zero inventory</span>
+                    </div>
+                    <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up" data-scroll-delay="120">
+                        <img src="strategy-model.jpg" alt="United Souls strategy — the craft behind the drop"
+                            class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                        <figcaption class="text-sm text-muted-foreground italic p-4 bg-secondary">Design freedom, worn
+                            daily.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── THE COLLECTIONS ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="us-section-label mb-6" data-scroll="fade-up">The collections</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Every drop tells a story</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Each collection speaks a truth. Each style carries its own world — original, unapologetic, and
+                    designed from scratch.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-scroll-stagger="up"
+                    data-scroll-stagger-base="110">
+                    <figure class="us-collection" data-scroll-tilt data-scroll-tilt-max="3" data-scroll-tilt-scale="1.01">
+                        <img src="col-nba.jpg" alt="NBA collection tee" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
+                        <figcaption class="p-5">
+                            <p class="us-collection-num text-sm text-us-cacao mb-1">01 — CASUAL</p>
+                            <h3 class="text-xl font-bold text-foreground">NBA Collection</h3>
+                            <p class="text-sm text-muted-foreground mt-2">Team pride turned merch — the league wishes
+                                it made these.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="us-collection" data-scroll-tilt data-scroll-tilt-max="3" data-scroll-tilt-scale="1.01">
+                        <img src="col-artistes.jpg" alt="Artistes collection tee" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
+                        <figcaption class="p-5">
+                            <p class="us-collection-num text-sm text-us-cacao mb-1">02 — CASUAL</p>
+                            <h3 class="text-xl font-bold text-foreground">Artistes</h3>
+                            <p class="text-sm text-muted-foreground mt-2">Drip with a sense of humor — fashion can be
+                                funny, loud, and still fire.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="us-collection" data-scroll-tilt data-scroll-tilt-max="3" data-scroll-tilt-scale="1.01">
+                        <img src="col-art.jpg" alt="Art collection tee" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
+                        <figcaption class="p-5">
+                            <p class="us-collection-num text-sm text-us-cacao mb-1">03 — CASUAL</p>
+                            <h3 class="text-xl font-bold text-foreground">Art</h3>
+                            <p class="text-sm text-muted-foreground mt-2">A tribute to the creative soul — expression
+                                worn like a second skin.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="us-collection" data-scroll-tilt data-scroll-tilt-max="3" data-scroll-tilt-scale="1.01">
+                        <img src="col-dark-street.jpg" alt="Dark streetwear collection tee" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
+                        <figcaption class="p-5">
+                            <p class="us-collection-num text-sm text-us-cacao mb-1">04 — CASUAL</p>
+                            <h3 class="text-xl font-bold text-foreground">Dark Streetwear</h3>
+                            <p class="text-sm text-muted-foreground mt-2">A web of rebellion, stitched in the threads
+                                of chaos.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="us-collection" data-scroll-tilt data-scroll-tilt-max="3" data-scroll-tilt-scale="1.01">
+                        <img src="col-anime.jpg" alt="Anime collection tee" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
+                        <figcaption class="p-5">
+                            <p class="us-collection-num text-sm text-us-cacao mb-1">05 — CASUAL</p>
+                            <h3 class="text-xl font-bold text-foreground">Anime</h3>
+                            <p class="text-sm text-muted-foreground mt-2">Streetwear meets anime flair — the heroes we
+                                grew up with, worn out loud.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="us-collection" data-scroll-tilt data-scroll-tilt-max="3" data-scroll-tilt-scale="1.01">
+                        <img src="col-afterlife.jpg" alt="Afterlife collection tee" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
+                        <figcaption class="p-5">
+                            <p class="us-collection-num text-sm text-us-cacao mb-1">06 — CASUAL</p>
+                            <h3 class="text-xl font-bold text-foreground">Afterlife</h3>
+                            <p class="text-sm text-muted-foreground mt-2">Dripped in darkness, born beyond the veil —
+                                welcome to the other side.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="us-collection sm:col-span-2 lg:col-span-3" data-scroll-tilt data-scroll-tilt-max="2"
+                        data-scroll-tilt-scale="1.005">
+                        <img src="col-trend-flags.jpg" alt="Trend flags collection" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
+                        <figcaption class="p-5 md:p-6">
+                            <p class="us-collection-num text-sm text-us-cacao mb-1">07 — FLAGS FOR THE CULTURE WAR</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-foreground">Trend Flags</h3>
+                            <p class="text-sm md:text-base text-muted-foreground mt-2 max-w-3xl">When a trend blows
+                                up, we turn it into a banner. Finals drama, meme wars, moments that split the internet
+                                into "us vs. them" — printed on a flag before the trend dies. Pre-orders only, pure
+                                shareable merch.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── KING OMAR — EVERY DESIGN ORIGINAL ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+                    <div class="lg:col-span-5 rounded-3xl us-hero-band p-8 md:p-12 relative overflow-hidden" data-scroll="fade-up">
+                        <span aria-hidden="true"
+                            class="absolute top-4 right-6 text-7xl md:text-9xl leading-none select-none opacity-10 us-display italic"
+                            data-scroll-parallax data-scroll-parallax-speed="0.1">K.O</span>
+                        <div class="relative z-10 h-full flex flex-col justify-center">
+                            <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-70">FROM THE FOUNDER</p>
+                            <blockquote class="us-display text-2xl md:text-4xl leading-snug italic mb-6">
+                                "Every design comes straight from King Omar — no trends copied, no ideas borrowed."
+                            </blockquote>
+                            <p class="text-sm tracking-[0.2em] uppercase opacity-60">This is only the beginning.</p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 grid grid-cols-2 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="120">
+                        <figure class="rounded-2xl overflow-hidden bg-secondary">
+                            <img src="coming-soon.jpg" alt="Upcoming United Souls design" class="w-full h-full object-cover"
+                                loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                        </figure>
+                        <figure class="rounded-2xl overflow-hidden bg-secondary">
+                            <img src="coming-soon-2.jpg" alt="Upcoming United Souls design, second view"
+                                class="w-full h-full object-cover" loading="lazy" data-scroll-img-reveal
+                                data-scroll-img-color="#181311">
+                        </figure>
+                        <div class="col-span-2 bg-secondary rounded-2xl p-6 text-sm text-muted-foreground leading-relaxed"
+                            data-scroll="fade-up">
+                            Dozens of collections are already built — from bold streetwear drops to soft minimal
+                            layers, vibrant cultural capsules to experimental artwear. Each one crafted with
+                            intention, each one built from scratch.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── TABLEAUS & POSTERS ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="us-section-label mb-6" data-scroll="fade-up">Tableaus &amp; posters</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Gallery walls, not
+                    product shots</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Every piece is 100% original — sketched, inked, and designed by hand. No generic templates, no
+                    stock art. Bold, one-of-a-kind creations blending streetwear edge, vintage nostalgia, and modern
+                    artistry.
+                </p>
+                <figure class="rounded-2xl overflow-hidden bg-secondary mb-4" data-scroll="fade-up">
+                    <img src="tableau-hero.jpg" alt="United Souls framed tableau" class="w-full h-auto" loading="lazy"
+                        data-scroll-img-reveal data-scroll-img-color="#181311">
+                    <figcaption class="text-sm text-muted-foreground italic p-4">The tableau — art first, apparel
+                        close behind.</figcaption>
+                </figure>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="100">
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="poster-1.jpg" alt="United Souls poster — take your flight" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="poster-2.jpg" alt="United Souls poster" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#181311">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="poster-3.jpg" alt="United Souls poster, third design" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="poster-4.jpg" alt="United Souls poster, fourth design" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── FULL EXPRESSION — MERCH ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl bg-us-cream p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up"
+                    data-scroll-duration="1000">
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                        <div class="lg:col-span-6">
+                            <p class="us-section-label mb-6">Collections</p>
+                            <h2 class="text-3xl md:text-4xl font-bold leading-tight text-us-ink mb-5">More than tees —
+                                full-on expression.</h2>
+                            <p class="text-us-ink/70 leading-relaxed mb-6">
+                                Shirts, hoodies, posters, stickers, canvases — if it can be printed, we're on it. Each
+                                design becomes a visual story, ready to wear, hang, or stick anywhere.
+                            </p>
+                            <p class="us-display text-2xl md:text-3xl italic text-us-cacao">Collect the art. Wear the
+                                vibe. Live the vision.</p>
+                        </div>
+                        <div class="lg:col-span-6 space-y-4">
+                            <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up">
+                                <img src="merch-wide.jpg" alt="United Souls merch spread" class="w-full h-auto"
+                                    loading="lazy" data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
+                            </figure>
+                            <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up" data-scroll-delay="140">
+                                <img src="merch-tall.jpg" alt="United Souls merch — hoodie detail" class="w-full h-auto"
+                                    loading="lazy" data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── SOCIAL & DROPS ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="us-section-label mb-6" data-scroll="fade-up">Social &amp; drops</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up"
+                            data-scroll-delay="80">A click trap, not a feed</h2>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p data-scroll="fade-up">
+                        We're building a click trap — nobody scrolls past the page without hitting that link.
+                        <strong class="text-foreground">Viral challenges</strong> that spark mass tagging,
+                        <strong class="text-foreground">trending meme formats</strong> ridden while they're still
+                        48&nbsp;hours fresh.
+                    </p>
+                    <p data-scroll="fade-up">
+                        The secret sauce? Pro-level mockups so clean people think the designs are already in stores.
+                        Reels so slick the algorithm owes us traffic. Drops track the NBA calendar — All-Star
+                        Weekend, Draft hype, Ring Night — moments turned into merch.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-scroll-stagger="up" data-scroll-stagger-base="100">
+                        <div class="us-card us-card-top p-5">
+                            <p class="text-2xl mb-2">🔥</p>
+                            <p class="font-semibold text-foreground text-sm">Metalheads</p>
+                            <p class="text-xs text-muted-foreground mt-1">Anthem tees, zero filler.</p>
+                        </div>
+                        <div class="us-card us-card-top p-5">
+                            <p class="text-2xl mb-2">🏀</p>
+                            <p class="font-semibold text-foreground text-sm">NBA fans</p>
+                            <p class="text-xs text-muted-foreground mt-1">Team flags, viral moment merch.</p>
+                        </div>
+                        <div class="us-card us-card-top p-5">
+                            <p class="text-2xl mb-2">🎨</p>
+                            <p class="font-semibold text-foreground text-sm">Art heads</p>
+                            <p class="text-xs text-muted-foreground mt-1">Drops you spot across the room.</p>
+                        </div>
+                    </div>
+                    <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up" data-scroll-delay="120">
+                        <img src="culture-model.jpg" alt="United Souls — speaking your culture" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                        <figcaption class="text-sm text-muted-foreground italic p-4 bg-secondary">Nobody walks out
+                            empty-handed — we speak your culture.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── IMPACT BAND ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl bg-us-cacao text-us-cream p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up"
+                    data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-12 -right-2 text-[10rem] md:text-[15rem] font-bold leading-none select-none opacity-15 us-display">U</span>
+                    <div class="relative z-10 max-w-3xl">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-80">THE IMPACT</p>
+                        <h2 class="us-display text-3xl md:text-5xl leading-tight italic mb-5">Every order helps a child
+                            thrive.</h2>
+                        <p class="opacity-90 leading-relaxed mb-8">
+                            A portion of profits funds tools and programs for children with ADHD — helping them learn,
+                            grow, and feel understood. Fashion that funds a better tomorrow: conscious minds, kind
+                            hearts, fearless spirits.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">ADHD
+                                support programs</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Learning
+                                tools funded</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">No child
+                                forgotten</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CHALLENGE / SOLUTION ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="us-card us-card-top p-8" data-scroll-tilt data-scroll-tilt-max="4" data-scroll-tilt-scale="1.01">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Challenge</h2>
+                    <p class="text-muted-foreground leading-relaxed">Streetwear is the loudest corner of fashion —
+                        every brand shouting values it doesn't keep. United Souls needed an identity that could carry
+                        real meaning without losing edge: elegant enough to feel premium, raw enough for the culture,
+                        and flexible enough to stretch across unlimited collections, flags, posters and canvases.</p>
+                </div>
+                <div class="us-card us-card-top p-8" data-scroll-tilt data-scroll-tilt-max="4" data-scroll-tilt-scale="1.01"
+                    data-scroll-delay="140">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Solution</h2>
+                    <p class="text-muted-foreground leading-relaxed">A warm, gallery-grade identity: the U+S monogram,
+                        an earthy ink-cacao-cream palette, serif display typography with quiet luxury — and a mission
+                        woven into the business model itself. Seven original collections at launch, hand-drawn tableaus
+                        and posters, trend-flag drops, and print-on-demand freedom that turns every idea into product
+                        with zero risk.</p>
+                </div>
+            </section>
+
+            <!-- ── DELIVERABLES ── -->
+            <section class="mb-8 md:mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up">Deliverables</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                    <div class="us-card us-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Brand Identity</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>U+S
+                                    monogram &amp; lockup</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Ink
+                                    / cacao / cream palette</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Serif
+                                    display typography</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Light
+                                    &amp; dark logo system</span></li>
+                        </ul>
+                    </div>
+                    <div class="us-card us-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Collections</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Seven
+                                    launch collections</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Trend
+                                    Flags culture line</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Dozens
+                                    of drops in reserve</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Print-on-demand
+                                    pipeline</span></li>
+                        </ul>
+                    </div>
+                    <div class="us-card us-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Art &amp; Content</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Hand-drawn
+                                    tableaus &amp; posters</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Stickers,
+                                    canvases, full merch line</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>Viral
+                                    social &amp; drops strategy</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-us-cacao mt-0.5">—</span><span>NBA-calendar
+                                    drop calendar</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CREDITS ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="us-section-label mb-6" data-scroll="fade-up">Credits</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up">Roles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5" data-scroll-stagger="up"
+                    data-scroll-stagger-base="70">
+                    <div class="us-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Founder &amp; Design</span>
+                        <span class="text-sm text-muted-foreground">King Omar</span>
+                    </div>
+                    <div class="us-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Creative Direction</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="us-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Brand Identity</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="us-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Collection Design</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="us-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Tableaus &amp; Poster Art</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="us-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Drops Strategy</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── OUTCOME ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl us-hero-band text-us-cream p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up"
+                    data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-12 -right-2 text-[10rem] md:text-[15rem] leading-none select-none opacity-10 us-display italic">US</span>
+                    <div class="relative z-10 max-w-3xl">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-70">OUTCOME</p>
+                        <h2 class="us-display text-3xl md:text-5xl leading-tight italic mb-5">A brand with a soul — and
+                            a cause.</h2>
+                        <p class="opacity-85 leading-relaxed mb-8">
+                            A complete fashion house: identity, seven collections, gallery art and a drop machine —
+                            built so every purchase funds programs for kids with ADHD. This is United Souls. And this…
+                            is our story.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Full
+                                identity system</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">7
+                                collections live</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Original
+                                art line</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Charity
+                                built in</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CTA ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl border border-border/50 bg-secondary/40 p-8 md:p-14 text-center" data-scroll="fade-up">
+                    <p class="us-section-label mb-6 justify-center" style="display:inline-flex">Your brand next</p>
+                    <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-6 text-foreground">Got a brand with that
+                        much soul?</h2>
+                    <p class="text-muted-foreground max-w-xl mx-auto mb-10">Whether you're a label, a creator or a
+                        cause — we build identities from concept to execution, all under one roof.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="../../inquiry.html"
+                            class="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-colors shadow-xl"
+                            data-scroll-magnetic>
+                            <span>Start a Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/united.souls/" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center space-x-2 border border-border text-foreground px-8 py-4 rounded-full font-medium text-lg hover:bg-secondary transition-colors">
+                            <span>Follow @united.souls</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── NEXT CASE STUDY ── -->
+            <section class="border-t border-border/50 pt-10 pb-12">
+                <a href="../Wdrink/wdrink.html" class="us-next flex flex-col md:flex-row md:items-center md:justify-between gap-6 group">
+                    <div>
+                        <p class="text-sm text-muted-foreground mb-2">Next Case Study</p>
+                        <h3 class="us-next-title text-2xl md:text-3xl font-bold text-foreground">WDRINK — Energy Drink
+                            Brand Identity &amp; Motion</h3>
+                    </div>
+                    <span
+                        class="inline-flex items-center space-x-2 border border-border px-6 py-3 rounded-full font-medium text-foreground hover:bg-secondary transition-colors w-fit shrink-0">
+                        <span>View Case</span>
+                        <svg class="us-next-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </span>
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="../../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6"
+                        style="height: 8rem; width: auto;" loading="lazy">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand
+                        identity, motion design, video editing, logos, and web experiences for companies that refuse
+                        to blend in.</p>
+
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a>
+                        </li>
+                        <li><a href="../../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a>
+                        </li>
+                        <li><a href="../../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a>
+                        </li>
+                        <li><a href="../../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand
+                                Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion
+                                Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video
+                                Editing</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../inquiry.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a>
+                        </li>
+                        <li><a href="mailto:studioswyrm@gmail.com"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../../js/i18n.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/theme-toggle.js"></script>
+    <script src="../../js/mobile-menu.js"></script>
+    <script src="../../js/smooth-scroll.js"></script>
+    <script src="../../js/page-transitions.js"></script>
+    <script src="../../js/scroll-animations.js?v=3"></script>
+    <script>
+        /* Palette chips — click to copy the hex */
+        (function () {
+            document.querySelectorAll('.us-chip').forEach(function (chip) {
+                var tag = chip.querySelector('.us-chip-tag');
+                chip.addEventListener('click', function () {
+                    var hex = chip.getAttribute('data-hex');
+                    var done = function () {
+                        if (!tag) return;
+                        var prev = tag.textContent;
+                        tag.textContent = 'Copied!';
+                        chip.classList.add('copied');
+                        setTimeout(function () {
+                            tag.textContent = prev;
+                            chip.classList.remove('copied');
+                        }, 1300);
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(hex).then(done, done);
+                    } else {
+                        var ta = document.createElement('textarea');
+                        ta.value = hex;
+                        ta.style.position = 'fixed';
+                        ta.style.opacity = '0';
+                        document.body.appendChild(ta);
+                        ta.select();
+                        try { document.execCommand('copy'); } catch (e) { }
+                        document.body.removeChild(ta);
+                        done();
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

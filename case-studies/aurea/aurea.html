@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUREA — Old Money, New Rules — Case Study | WYRM.studios</title>
+    <meta name="description"
+        content="Case study: AUREA clothing brand — Tunisian luxury fashion house founded in 2025 by Amine and Hadil. Where modern meets old money: the sunrise monogram, the gold palette, and a full brand guidelines system.">
+    <meta name="theme-color" content="#131625">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AUREA — Old Money, New Rules — Case Study">
+    <meta property="og:description"
+        content="Tunisian luxury fashion, founded 2025 by Amine and Hadil. The sunrise monogram, the gold palette, and a complete identity for a generation that refuses to choose between classic and edgy.">
+    <meta property="og:image" content="https://wyrm.studios/case-studies/aurea/aurea-thumb.jpg">
+    <meta property="og:url" content="https://wyrm.studios/case-studies/aurea/aurea.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/logo/icon.png">
+
+    <!-- Fonts — AUREA brand fonts from the guidelines -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                        /* AUREA palette — from the official brand guidelines */
+                        'au-ink': '#131625',
+                        'au-cream': '#ECE9DA',
+                        'au-gold': '#F8FD3E',
+                        'au-olive': '#605A38',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+    <style>
+        /* ── Page-local components (site theme untouched; AUREA colors only in showcase panels) ── */
+        .au-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: #605A38;
+        }
+
+        .au-section-label::before {
+            content: '';
+            width: 2rem;
+            height: 1px;
+            background: #605A38;
+            display: inline-block;
+        }
+
+        .au-card {
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 1.25rem;
+            transition: border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+        }
+
+        .au-card:hover {
+            border-color: rgba(96, 90, 56, 0.55);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(19, 22, 37, .10);
+        }
+
+        .au-card-top {
+            border-top: 2px solid transparent;
+            transition: border-color .35s ease;
+        }
+
+        .au-card-top:hover {
+            border-top-color: #605A38;
+        }
+
+        /* Ink band — deep navy with a gold dawn glow */
+        .au-band {
+            background:
+                radial-gradient(ellipse 60% 45% at 50% 0%, rgba(248, 253, 62, 0.10), transparent 65%),
+                linear-gradient(160deg, #131625 0%, #1A1E33 55%, #232845 125%);
+            color: #ECE9DA;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Serif display quote */
+        .au-serif {
+            font-family: '"Playfair Display"', Georgia, serif;
+        }
+
+        /* Marquee strip */
+        .au-marquee {
+            background: #131625;
+            color: #ECE9DA;
+            border-top: 1px solid rgba(248, 253, 62, 0.4);
+            border-bottom: 1px solid rgba(248, 253, 62, 0.4);
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .au-marquee [data-scroll-ticker] {
+            display: flex;
+        }
+
+        .au-marquee .au-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding-right: 2.5rem;
+            white-space: nowrap;
+        }
+
+        .au-marquee .au-marquee-star {
+            color: #F8FD3E;
+        }
+
+        /* Palette chip — click to copy */
+        .au-chip {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 0.3rem;
+            min-height: 7.5rem;
+            padding: 1.25rem;
+            border: 0;
+            border-radius: 1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .au-chip:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(19, 22, 37, .18);
+        }
+
+        .au-chip:active {
+            transform: translateY(-1px) scale(.98);
+        }
+
+        .au-chip-tag {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.9rem;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity .25s ease;
+        }
+
+        .au-chip:hover .au-chip-tag,
+        .au-chip.copied .au-chip-tag {
+            opacity: .9;
+        }
+
+        .au-chip-hex {
+            font-size: 0.72rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            opacity: .75;
+        }
+
+        /* Credits underline */
+        .au-credit-row {
+            border-bottom: 1px solid hsl(var(--border) / 0.5);
+        }
+
+        /* Next link hover */
+        .au-next .au-next-arrow {
+            transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .au-next:hover .au-next-arrow {
+            transform: translateX(8px);
+        }
+
+        .au-next .au-next-title {
+            transition: color .3s ease;
+        }
+
+        .au-next:hover .au-next-title {
+            color: #605A38;
+        }
+
+        /* Editorial pull quote */
+        .au-pullquote {
+            font-family: '"Playfair Display"', Georgia, serif;
+            font-style: italic;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .au-card,
+            .au-next .au-next-arrow {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION (standard site header — same as all pages) -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5"
+        style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+                <!-- Left Column -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="../../index.html" class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="../../work.html"
+                            class="text-foreground font-medium underline underline-offset-4 decoration-1">Work</a>
+                        <a href="../../about.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="../../blog.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                    <div class="md:hidden flex-1"></div>
+                </div>
+                <!-- Center Column -->
+                <div class="flex items-center justify-center">
+                    <a href="../../index.html" class="flex items-center justify-center">
+                        <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+                <!-- Right Column -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button"
+                        class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+                    <button id="theme-toggle"
+                        class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors"
+                        aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="hidden dark:block">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="block dark:hidden">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                    </button>
+                    <a href="../../inquiry.html"
+                        class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY (standard — unchanged) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden"
+        style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <a href="../../index.html" class="flex items-center justify-center flex-1">
+                <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto dark:hidden">
+                <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="hidden dark:block">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="block dark:hidden">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../../index.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="../../work.html" class="text-6xl font-bold text-foreground">Work<span
+                    class="text-foreground">.</span></a>
+            <a href="../../about.html"
+                class="text-muted-foreground/30 hover:text-foreground transition-colors text-6xl font-bold">About</a>
+            <a href="../../blog.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="../../inquiry.html"
+                class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+            <button id="mobile-shop-button" class="p-4 border border-border rounded-full text-foreground">
+                <span class="mobile-shop-text">Shop</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-0">
+
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+
+            <!-- ── Breadcrumb row ── -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-4" data-scroll="fade-up">
+                <a href="../../work.html"
+                    class="inline-flex items-center space-x-2 border border-border text-foreground px-5 py-2.5 rounded-full font-medium hover:bg-secondary transition-colors w-fit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="M19 12H5" />
+                    </svg>
+                    <span>BACK TO WORK</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span
+                        class="inline-flex items-center bg-au-ink text-au-cream text-xs font-bold tracking-widest px-4 py-2 rounded-full">CASE
+                        STUDY</span>
+                    <span class="text-sm text-muted-foreground">2025 — 2026</span>
+                </div>
+            </div>
+
+            <!-- ── HERO ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="au-section-label mb-6" data-scroll="fade-up">Fashion Branding · Art Direction · Identity</p>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight mb-6 text-foreground"
+                    data-scroll-words data-scroll-words-base="50" data-scroll-duration="800">
+                    AUREA — Old Money, New Rules
+                </h1>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-10" data-scroll="fade-up"
+                    data-scroll-delay="250">
+                    A Tunisian luxury clothing house founded in 2025 by <strong class="text-foreground">Amine and
+                    Hadil</strong> — where modern meets old money. Bold prints, unique embellishments, and silhouettes
+                    designed to fit men and women alike, made <strong class="text-foreground">wearable and
+                    affordable</strong> for a generation that refuses to choose between classic and edgy.
+                </p>
+
+                <!-- Meta chips -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3" data-scroll-stagger="up" data-scroll-stagger-base="90">
+                    <div class="au-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">CLIENT</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">AUREA Clothing</p>
+                    </div>
+                    <div class="au-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">SERVICES</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Brand Guidelines • Art Direction</p>
+                    </div>
+                    <div class="au-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">DURATION</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">2025 — 2026</p>
+                    </div>
+                    <div class="au-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">INDUSTRY</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Fashion / Luxury</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CAMPAIGN HERO ── -->
+            <section class="mb-0" data-scroll="fade-up">
+                <figure class="rounded-3xl overflow-hidden mb-6">
+                    <img src="aurea-hero.jpg" alt="AUREA campaign — three figures by the water in rust, cream and ink"
+                        class="w-full h-auto" loading="eager" data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                </figure>
+                <figure class="rounded-3xl overflow-hidden au-band px-6 md:px-14 py-12 md:py-20 text-center">
+                    <div class="relative z-10">
+                        <div class="inline-block bg-au-cream rounded-2xl p-6 md:p-10 mb-8 shadow-xl" data-scroll-scale
+                            data-scroll-scale-from="0.92">
+                            <img src="aurea-logo-gold.jpg" alt="AUREA sunrise lockup on ink" class="w-56 md:w-96 h-auto mx-auto rounded-xl"
+                                loading="lazy">
+                        </div>
+                        <blockquote class="au-serif text-2xl sm:text-3xl md:text-5xl tracking-tight leading-tight max-w-4xl mx-auto"
+                            data-scroll-words data-scroll-words-base="55" data-scroll-duration="900">
+                            “Fashion should be empowering — we never settle for anything less than a lasting
+                            impression.”
+                        </blockquote>
+                        <p class="mt-6 text-sm tracking-[0.25em] uppercase" style="color:rgba(236,233,218,.5)">
+                            AUREA — BRAND GUIDELINES · 2025 / 2026
+                        </p>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- ── MARQUEE STRIP ── -->
+            <div class="au-marquee py-4 mb-8 md:mb-10 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8"
+                data-scroll="fade-up" aria-hidden="true">
+                <div data-scroll-ticker data-scroll-ticker-speed="60">
+                    <div data-scroll-ticker-inner>
+                        <span class="au-marquee-item">Classic meets edgy <span class="au-marquee-star">✦</span></span>
+                        <span class="au-marquee-item">Bold prints <span class="au-marquee-star">✦</span></span>
+                        <span class="au-marquee-item">Old money, new rules <span class="au-marquee-star">✦</span></span>
+                        <span class="au-marquee-item">For men &amp; women alike <span class="au-marquee-star">✦</span></span>
+                        <span class="au-marquee-item">L'or — the gold from nature <span class="au-marquee-star">✦</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── ABOUT ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="au-section-label mb-6" data-scroll="fade-up">About</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up"
+                            data-scroll-delay="80">The gold from nature</h2>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p data-scroll="fade-up">
+                        AUREA is Tunisian, founded in 2025 by <strong class="text-foreground">Amine and Hadil</strong>.
+                        The problem it solves: luxury fashion that combines modern and old-money style —
+                        <strong class="text-foreground">wearable and affordable</strong> for the young, modern
+                        generation, for the rich and not rich alike, in high-quality materials sourced from different
+                        countries: <strong class="text-foreground">Tunisia, Turkey, Thailand, Italy, France</strong> —
+                        a supply chain that symbolises the gold from nature.
+                    </p>
+                    <p data-scroll="fade-up">
+                        The name carries the story: <em class="au-serif text-foreground">l'or est un métal précieux, de
+                        couleur jaune brillante, très malléable, inoxydable et rare</em>. Gold has fascinated humanity
+                        since prehistory — found pure in rivers, worked at scale by the ancient Egyptians around 3000
+                        BC, present in the oldest known goldwork from Varna around 4500 BC. AUREA borrows that
+                        permanence: rare, untarnished, brilliant.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-scroll-stagger="up"
+                        data-scroll-stagger-base="120">
+                        <figure class="rounded-2xl overflow-hidden">
+                            <img src="aurea-portrait-1.jpg" alt="AUREA portrait — rust blazer by the water"
+                                class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                        </figure>
+                        <figure class="rounded-2xl overflow-hidden">
+                            <img src="aurea-portrait-2.jpg" alt="AUREA portrait — cream suiting at the shore"
+                                class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── THE LOGO ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="au-section-label mb-6" data-scroll="fade-up">Logo</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">A sunrise, set in
+                    serif</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    The mark pairs a rising sun with radiating rays above the AUREA wordmark — set in an elegant serif
+                    with a distinctive swooping <strong class="text-foreground">R</strong>. The logo must always be
+                    used in its entirety, never altered in shape, color or proportions.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+                    <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up">
+                        <img src="aurea-logo-gold.jpg" alt="AUREA lockup — gold sunrise on ink" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#131625">
+                        <figcaption class="text-sm text-muted-foreground italic p-4 bg-secondary">Primary — gold on
+                            ink.</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up" data-scroll-delay="140">
+                        <img src="aurea-logo-white.jpg" alt="AUREA lockup — cream on ink" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#131625">
+                        <figcaption class="text-sm text-muted-foreground italic p-4 bg-secondary">Monochrome — cream
+                            on ink.</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up" data-scroll-delay="180">
+                        <img src="aurea-logo-bronze.jpg" alt="AUREA lockup — bronze on ink" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#131625">
+                        <figcaption class="text-sm text-muted-foreground italic p-4 bg-secondary">Bronze — for warm
+                            grounds.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── TYPOGRAPHY ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="au-section-label mb-6" data-scroll="fade-up">Typography</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Two faces, one
+                    voice</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    <strong class="text-foreground">Montserrat</strong> carries headlines and paragraphs;
+                    <strong class="text-foreground">Playfair Display</strong> sets the subheadings. Used in their
+                    original, approved versions, balanced to reflect the look and feel of the brand.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+                    <figure class="rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up">
+                        <img src="aurea-typography.jpg" alt="AUREA typography specimen — Montserrat and Playfair Display"
+                            class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#131625">
+                        <figcaption class="text-sm text-muted-foreground italic p-4">The official type specimen.
+                        </figcaption>
+                    </figure>
+                    <div class="rounded-2xl border border-border/50 p-8 flex flex-col justify-center gap-6" data-scroll="fade-up" data-scroll-delay="140">
+                        <div>
+                            <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-2">HEADLINES &amp; PARAGRAPHS</p>
+                            <p class="text-4xl font-bold text-foreground" style="font-family:'Montserrat',sans-serif">Montserrat</p>
+                        </div>
+                        <div class="border-t border-border/50 pt-6">
+                            <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-2">SUBHEADINGS</p>
+                            <p class="text-5xl au-serif text-foreground">Playfair Display</p>
+                        </div>
+                        <p class="text-sm text-muted-foreground">Aa Bb Cc Dd Ee Ff Gg — 0123456789</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── PALETTE ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="au-section-label mb-6" data-scroll="fade-up">Palette</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Elegant &amp; modern,
+                    always as approved</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    The primary colors are <strong class="text-foreground">black and white</strong>, carried by shades
+                    of <strong class="text-foreground">dark red and dark beige</strong> as accents — always used in
+                    their original, approved versions, in balance with the brand's overall feel.
+                </p>
+                <figure class="rounded-2xl overflow-hidden bg-secondary mb-6" data-scroll="fade-up">
+                    <img src="aurea-palette.jpg" alt="AUREA official palette board" class="w-full h-auto" loading="lazy"
+                        data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                    <figcaption class="text-sm text-muted-foreground italic p-4">The official palette board from the
+                        guidelines.</figcaption>
+                </figure>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3" data-scroll-stagger="up" data-scroll-stagger-base="90">
+                    <button class="au-chip" data-hex="#131625" style="background:#131625;color:#ECE9DA"
+                        aria-label="Copy ink #131625">
+                        <span class="au-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Ink</span>
+                        <span class="text-xs opacity-60">Primary — black</span>
+                        <span class="au-chip-hex">#131625</span>
+                    </button>
+                    <button class="au-chip" data-hex="#ECE9DA" style="background:#ECE9DA;color:#131625;border:1px solid rgba(19,22,37,.12)"
+                        aria-label="Copy cream #ECE9DA">
+                        <span class="au-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Cream</span>
+                        <span class="text-xs opacity-60">Primary — white</span>
+                        <span class="au-chip-hex">#ECE9DA</span>
+                    </button>
+                    <button class="au-chip" data-hex="#F8FD3E" style="background:#F8FD3E;color:#131625"
+                        aria-label="Copy chartreuse gold #F8FD3E">
+                        <span class="au-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Chartreuse Gold</span>
+                        <span class="text-xs opacity-70">Accent N.1</span>
+                        <span class="au-chip-hex">#F8FD3E</span>
+                    </button>
+                    <button class="au-chip" data-hex="#605A38" style="background:#605A38;color:#ECE9DA"
+                        aria-label="Copy olive gold #605A38">
+                        <span class="au-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Olive Gold</span>
+                        <span class="text-xs opacity-70">Accent N.2</span>
+                        <span class="au-chip-hex">#605A38</span>
+                    </button>
+                </div>
+                <p class="text-sm text-muted-foreground mt-4 text-center" data-scroll="fade-up">Ink, cream, and two
+                    golds — click any chip to copy its hex.</p>
+            </section>
+
+            <!-- ── CAMPAIGN GALLERY ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="au-section-label mb-6" data-scroll="fade-up">Imagery</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">The launch campaign</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Shot on the shore: rust, cream and ink against water and stone. The imagery rules are simple —
+                    natural light, honest textures, and silhouettes that read as luxury without shouting.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                    <figure class="rounded-2xl overflow-hidden">
+                        <img src="aurea-campaign-1.jpg" alt="AUREA campaign — trio by the water" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden">
+                        <img src="aurea-campaign-2.jpg" alt="AUREA campaign — figures on the rocks" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden">
+                        <img src="aurea-campaign-3.jpg" alt="AUREA campaign — trio walking past stone" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                    </figure>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="100">
+                    <figure class="rounded-2xl overflow-hidden">
+                        <img src="aurea-leaf.jpg" alt="AUREA lockup on leaf" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#131625">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden">
+                        <img src="aurea-cream.jpg" alt="AUREA lockup on cream" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden">
+                        <img src="aurea-tags.jpg" alt="AUREA hang tags — cream and olive" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden">
+                        <img src="aurea-tote.jpg" alt="AUREA tote bag" class="w-full h-auto" loading="lazy"
+                            data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── APPLICATIONS ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="au-section-label mb-6" data-scroll="fade-up">Applications</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">The brand, out in the
+                    world</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    From hang tags to signage to the digital storefront — one sunrise, every touchpoint.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+                    <figure class="rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up">
+                        <img src="aurea-signage.jpg" alt="AUREA signage — gold mark on olive panel" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                        <figcaption class="text-sm text-muted-foreground italic p-4">Storefront signage — the mark on
+                            olive.</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up" data-scroll-delay="140">
+                        <img src="aurea-tablet.jpg" alt="AUREA web experience on tablet" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#ECE9DA">
+                        <figcaption class="text-sm text-muted-foreground italic p-4">The digital flagship — AUREA on
+                            tablet.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── CHALLENGE / SOLUTION ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="au-card au-card-top p-8" data-scroll-tilt data-scroll-tilt-max="4" data-scroll-tilt-scale="1.01">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Challenge</h2>
+                    <p class="text-muted-foreground leading-relaxed">"Old money" is easy to draw and hard to wear —
+                        most luxury identities either whisper into invisibility or cosplay wealth. AUREA needed a
+                        system that reads <em>luxury</em> at first glance yet stays young, wearable and affordable —
+                        without tipping into costume.</p>
+                </div>
+                <div class="au-card au-card-top p-8" data-scroll-tilt data-scroll-tilt-max="4" data-scroll-tilt-scale="1.01"
+                    data-scroll-delay="140">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Solution</h2>
+                    <p class="text-muted-foreground leading-relaxed">A complete guidelines book: the sunrise-serif
+                        lockup with strict usage rules, Montserrat × Playfair Display pairing, the ink / cream / gold
+                        palette, and a full shore-shot imagery direction — one warm, gilded language from hang tag to
+                        storefront to screen.</p>
+                </div>
+            </section>
+
+            <!-- ── DELIVERABLES ── -->
+            <section class="mb-8 md:mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up">Deliverables</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                    <div class="au-card au-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Brand Identity</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Sunrise
+                                    serif lockup + usage rules</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Primary
+                                    &amp; approved logo versions</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Ink /
+                                    cream / gold palette system</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Montserrat
+                                    × Playfair type system</span></li>
+                        </ul>
+                    </div>
+                    <div class="au-card au-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Art Direction</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Launch
+                                    campaign photography</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Shore
+                                    imagery direction</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Portraits
+                                    &amp; campaign retouching</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Imagery
+                                    rules for future shoots</span></li>
+                        </ul>
+                    </div>
+                    <div class="au-card au-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Applications</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Hang
+                                    tags &amp; packaging</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Storefront
+                                    signage</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Tote
+                                    &amp; merch suite</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-au-olive mt-0.5">—</span><span>Digital
+                                    flagship mockups</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CREDITS ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="au-section-label mb-6" data-scroll="fade-up">Credits</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up">Roles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5" data-scroll-stagger="up"
+                    data-scroll-stagger-base="70">
+                    <div class="au-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Founders</span>
+                        <span class="text-sm text-muted-foreground">Amine &amp; Hadil</span>
+                    </div>
+                    <div class="au-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Creative Direction</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="au-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Brand Guidelines</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="au-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Art Direction &amp; Campaign</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="au-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Applications &amp; Mockups</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="au-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Markets</span>
+                        <span class="text-sm text-muted-foreground">TN · TR · TH · IT · FR</span>
+                    </div>
+                    <div class="au-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Web</span>
+                        <span class="text-sm text-muted-foreground">WWW.AUREA.COM</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── OUTCOME ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl au-band p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up"
+                    data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-12 -right-2 text-[10rem] md:text-[15rem] font-bold leading-none select-none opacity-10 au-serif">A</span>
+                    <div class="relative z-10 max-w-3xl">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-70">OUTCOME</p>
+                        <h2 class="au-serif text-3xl md:text-5xl leading-tight mb-5">A gilded language, ready to
+                            wear.</h2>
+                        <p class="opacity-85 leading-relaxed mb-8">
+                            From the first ray of the sunrise mark to the last hang tag, AUREA now speaks one gilded
+                            language — classic enough for old money, bold enough for the generation that invents its
+                            own.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Brand
+                                guidelines</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Launch
+                                campaign</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Full
+                                applications</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">WWW.AUREA.COM</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CTA ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl border border-border/50 bg-secondary/40 p-8 md:p-14 text-center" data-scroll="fade-up">
+                    <p class="au-section-label mb-6 justify-center" style="display:inline-flex">Your brand next</p>
+                    <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-6 text-foreground">Building a brand
+                        worth remembering?</h2>
+                    <p class="text-muted-foreground max-w-xl mx-auto mb-10">Whether you're a fashion house, a startup
+                        or a cause — we build identities from concept to execution, all under one roof.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="../../inquiry.html"
+                            class="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-colors shadow-xl"
+                            data-scroll-magnetic>
+                            <span>Start a Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="../../work.html"
+                            class="inline-flex items-center space-x-2 border border-border text-foreground px-8 py-4 rounded-full font-medium text-lg hover:bg-secondary transition-colors">
+                            <span>See More Work</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── NEXT CASE STUDY ── -->
+            <section class="border-t border-border/50 pt-10 pb-12">
+                <a href="../anir/anir.html" class="au-next flex flex-col md:flex-row md:items-center md:justify-between gap-6 group">
+                    <div>
+                        <p class="text-sm text-muted-foreground next-label mb-2">Next Case Study</p>
+                        <h3 class="au-next-title text-2xl md:text-3xl font-bold text-foreground">ANIR — The Smart
+                            Wallet, Reinvented</h3>
+                    </div>
+                    <span
+                        class="inline-flex items-center space-x-2 border border-border px-6 py-3 rounded-full font-medium text-foreground hover:bg-secondary transition-colors w-fit shrink-0">
+                        <span class="next-cta">View Case</span>
+                        <svg class="au-next-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </span>
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="../../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6"
+                        style="height: 8rem; width: auto;" loading="lazy">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand
+                        identity, motion design, video editing, logos, and web experiences for companies that refuse
+                        to blend in.</p>
+
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a>
+                        </li>
+                        <li><a href="../../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a>
+                        </li>
+                        <li><a href="../../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a>
+                        </li>
+                        <li><a href="../../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand
+                                Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion
+                                Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video
+                                Editing</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../inquiry.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a>
+                        </li>
+                        <li><a href="mailto:studioswyrm@gmail.com"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../../js/i18n.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/theme-toggle.js"></script>
+    <script src="../../js/mobile-menu.js"></script>
+    <script src="../../js/smooth-scroll.js"></script>
+    <script src="../../js/page-transitions.js"></script>
+    <script src="../../js/scroll-animations.js?v=3"></script>
+    <script>
+        /* Palette chips — click to copy the hex */
+        (function () {
+            document.querySelectorAll('.au-chip').forEach(function (chip) {
+                var tag = chip.querySelector('.au-chip-tag');
+                chip.addEventListener('click', function () {
+                    var hex = chip.getAttribute('data-hex');
+                    var done = function () {
+                        if (!tag) return;
+                        var prev = tag.textContent;
+                        tag.textContent = 'Copied!';
+                        chip.classList.add('copied');
+                        setTimeout(function () {
+                            tag.textContent = prev;
+                            chip.classList.remove('copied');
+                        }, 1300);
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(hex).then(done, done);
+                    } else {
+                        var ta = document.createElement('textarea');
+                        ta.value = hex;
+                        ta.style.position = 'fixed';
+                        ta.style.opacity = '0';
+                        document.body.appendChild(ta);
+                        ta.select();
+                        try { document.execCommand('copy'); } catch (e) { }
+                        document.body.removeChild(ta);
+                        done();
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

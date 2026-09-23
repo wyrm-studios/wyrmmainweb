@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIR — The Smart Wallet, Reinvented — Case Study | WYRM.studios</title>
+    <meta name="description"
+        content="Case study: brand identity and investor pitch design for ANIR — a smart wallet with GPS tracking, NFC shielding and military-grade tech. The AN charte graphique, the 22-page pitch deck, and the story of redefining everyday carry.">
+    <meta name="theme-color" content="#1A1B1C">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ANIR — The Smart Wallet, Reinvented — Case Study">
+    <meta property="og:description"
+        content="Your wallet, reinvented with military-grade tech — GPS + GSM tracking, NFC shielding, 2-year battery. Brand identity + investor pitch deck by WYRM.studios.">
+    <meta property="og:image" content="https://wyrm.studios/case-studies/anir/anir-thumb.jpg">
+    <meta property="og:url" content="https://wyrm.studios/case-studies/anir/anir.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/logo/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: 'hsl(var(--primary))',
+                        secondary: 'hsl(var(--secondary))',
+                        muted: 'hsl(var(--muted))',
+                        accent: 'hsl(var(--accent))',
+                        border: 'hsl(var(--border))',
+                        /* ANIR palette — from the official charte graphique */
+                        'an-ink': '#221F1F',
+                        'an-red': '#E50913',
+                        'an-bone': '#F5F6F1',
+                        'an-mist': '#DBE0E4',
+                        'an-night': '#1A1B1C',
+                        'an-signal': '#FFD11B',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+    <style>
+        /* ── Page-local components (site theme untouched; ANIR colors only in showcase panels) ── */
+        .an-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #E50913;
+        }
+
+        .an-section-label::before {
+            content: '';
+            width: 2rem;
+            height: 2px;
+            background: #221F1F;
+            display: inline-block;
+        }
+
+        .an-card {
+            background: hsl(var(--background));
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 1.25rem;
+            transition: border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+        }
+
+        .an-card:hover {
+            border-color: rgba(229, 9, 19, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(26, 27, 28, .12);
+        }
+
+        .an-card-top {
+            border-top: 2px solid transparent;
+            transition: border-color .35s ease;
+        }
+
+        .an-card-top:hover {
+            border-top-color: #E50913;
+        }
+
+        /* Night hero band — carbon with signal charge */
+        .an-hero-band {
+            background: linear-gradient(160deg, #1A1B1C 0%, #232428 55%, #2E2F33 125%);
+            color: #F5F6F1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .an-hero-band::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: .14;
+            background-image: radial-gradient(circle at 18% 28%, #FFD11B 0 1.5px, transparent 2.5px),
+                radial-gradient(circle at 76% 16%, #E50913 0 2px, transparent 3px),
+                radial-gradient(circle at 48% 78%, #F5F6F1 0 1px, transparent 2px),
+                radial-gradient(circle at 90% 60%, #FFD11B 0 1px, transparent 2px);
+            background-size: 250px 250px;
+        }
+
+        /* Marquee strip */
+        .an-marquee {
+            background: #E50913;
+            color: #FFFFFF;
+            border-top: 3px solid #1A1B1C;
+            border-bottom: 3px solid #1A1B1C;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .an-marquee [data-scroll-ticker] {
+            display: flex;
+        }
+
+        .an-marquee .an-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 2.5rem;
+            padding-right: 2.5rem;
+            white-space: nowrap;
+        }
+
+        .an-marquee .an-marquee-star {
+            color: #FFD11B;
+        }
+
+        /* Palette chip — click to copy */
+        .an-chip {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: 0.3rem;
+            min-height: 7.5rem;
+            padding: 1.25rem;
+            border: 0;
+            border-radius: 1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .an-chip:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(26, 27, 28, .18);
+        }
+
+        .an-chip:active {
+            transform: translateY(-1px) scale(.98);
+        }
+
+        .an-chip-tag {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.9rem;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity .25s ease;
+        }
+
+        .an-chip:hover .an-chip-tag,
+        .an-chip.copied .an-chip-tag {
+            opacity: .9;
+        }
+
+        .an-chip-hex {
+            font-size: 0.72rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            opacity: .75;
+        }
+
+        /* Feature card on night */
+        .an-feature {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            transition: background .3s ease, transform .3s ease, border-color .3s ease;
+        }
+
+        .an-feature:hover {
+            background: rgba(255, 209, 27, 0.08);
+            border-color: rgba(255, 209, 27, 0.35);
+            transform: translateY(-3px);
+        }
+
+        /* Stats band */
+        .an-stat-num {
+            color: #FFD11B;
+            font-weight: 700;
+        }
+
+        /* Credits underline */
+        .an-credit-row {
+            border-bottom: 1px solid hsl(var(--border) / 0.5);
+        }
+
+        /* Next link hover */
+        .an-next .an-next-arrow {
+            transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .an-next:hover .an-next-arrow {
+            transform: translateX(8px);
+        }
+
+        .an-next .an-next-title {
+            transition: color .3s ease;
+        }
+
+        .an-next:hover .an-next-title {
+            color: #E50913;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .an-card,
+            .an-feature,
+            .an-next .an-next-arrow {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION (standard site header — same as all pages) -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-xl transition-colors border-b border-border/30 py-2 md:py-1.5"
+        style="transition-duration: 300ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 h-16 md:h-16">
+            <div class="grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-full gap-3 md:gap-0">
+                <!-- Left Column -->
+                <div class="flex items-center">
+                    <button id="mobile-menu-btn" class="md:hidden p-1.5 md:p-2 text-foreground" aria-label="Open menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" x2="20" y1="12" y2="12" />
+                            <line x1="4" x2="20" y1="6" y2="6" />
+                            <line x1="4" x2="20" y1="18" y2="18" />
+                        </svg>
+                    </button>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="../../index.html" class="text-muted-foreground hover:text-foreground transition-colors">Home</a>
+                        <a href="../../work.html"
+                            class="text-foreground font-medium underline underline-offset-4 decoration-1">Work</a>
+                        <a href="../../about.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">About</a>
+                        <a href="../../blog.html"
+                            class="text-muted-foreground hover:text-foreground transition-colors">Blog</a>
+                    </nav>
+                </div>
+                <!-- Center Column -->
+                <div class="flex items-center justify-center">
+                    <a href="../../index.html" class="flex items-center justify-center">
+                        <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto dark:hidden" style="object-fit: contain;">
+                        <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                            class="h-12 md:h-12 w-auto hidden dark:block" style="object-fit: contain;">
+                    </a>
+                </div>
+                <!-- Right Column -->
+                <div class="flex items-center justify-end space-x-2 md:space-x-6">
+                    <button id="shop-button"
+                        class="hidden md:block text-muted-foreground hover:text-foreground transition-all duration-300 relative overflow-hidden">
+                        <span class="shop-text">Shop</span>
+                    </button>
+                    <button id="theme-toggle"
+                        class="p-1.5 md:p-2 text-foreground hover:bg-secondary rounded-full transition-colors"
+                        aria-label="Toggle theme">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="hidden dark:block">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="block dark:hidden">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                        </svg>
+                    </button>
+                    <a href="../../inquiry.html"
+                        class="flex items-center space-x-1.5 md:space-x-2 bg-foreground text-background px-3 md:px-5 py-1.5 md:py-2.5 rounded-full font-medium hover:bg-foreground/90 transition-colors text-xs md:text-base">
+                        <span class="hidden sm:inline">Start a Project</span>
+                        <span class="sm:hidden">Start</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY (standard — unchanged) -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-background hidden flex-col overflow-hidden"
+        style="background-color: hsl(var(--background)); opacity: 1; transform: none;">
+        <div class="flex items-center justify-between p-6">
+            <button id="close-mobile-menu" class="p-2 text-foreground" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <a href="../../index.html" class="flex items-center justify-center flex-1">
+                <img src="../../assets/logo/black logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto dark:hidden">
+                <img src="../../assets/logo/white logo png.png" alt="WYRM.studios Logo"
+                    class="h-12 md:h-12 w-auto hidden dark:block">
+            </a>
+            <button id="mobile-theme-toggle" class="p-2 text-foreground" aria-label="Toggle theme">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="hidden dark:block">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="block dark:hidden">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-start justify-center flex-1 px-12 space-y-8">
+            <a href="../../index.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Home</a>
+            <a href="../../work.html" class="text-6xl font-bold text-foreground">Work<span
+                    class="text-foreground">.</span></a>
+            <a href="../../about.html"
+                class="text-muted-foreground/30 hover:text-foreground transition-colors text-6xl font-bold">About</a>
+            <a href="../../blog.html"
+                class="text-6xl font-bold text-muted-foreground/30 hover:text-foreground transition-colors">Blog</a>
+        </nav>
+        <div class="p-12 flex items-center justify-between">
+            <a href="../../inquiry.html"
+                class="flex items-center space-x-3 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg">
+                <span>Start a Project</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+            <button id="mobile-shop-button" class="p-4 border border-border rounded-full text-foreground">
+                <span class="mobile-shop-text">Shop</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="min-h-screen bg-background text-foreground font-inter pt-32 pb-0">
+
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+
+            <!-- ── Breadcrumb row ── -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-4" data-scroll="fade-up">
+                <a href="../../work.html"
+                    class="inline-flex items-center space-x-2 border border-border text-foreground px-5 py-2.5 rounded-full font-medium hover:bg-secondary transition-colors w-fit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m12 19-7-7 7-7" />
+                        <path d="M19 12H5" />
+                    </svg>
+                    <span>BACK TO WORK</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span
+                        class="inline-flex items-center bg-an-ink text-an-bone text-xs font-bold tracking-widest px-4 py-2 rounded-full">CASE
+                        STUDY</span>
+                    <span class="text-sm text-muted-foreground">2025 — 2026</span>
+                </div>
+            </div>
+
+            <!-- ── HERO ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="an-section-label mb-6" data-scroll="fade-up">Product Branding · Pitch Deck · Hardware</p>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight mb-6 text-foreground"
+                    data-scroll-words data-scroll-words-base="50" data-scroll-duration="800">
+                    ANIR — The Smart Wallet, Reinvented
+                </h1>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-10" data-scroll="fade-up"
+                    data-scroll-delay="250">
+                    A smart wallet built for the age of NFC theft — GPS tracking, an NFC shield and a quick-access
+                    card ejector. We forged the identity in the
+                    <strong class="text-foreground">charte graphique</strong> and told the story in a
+                    <strong class="text-foreground">22-page investor pitch deck.</strong>
+                </p>
+
+                <!-- Meta chips -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3" data-scroll-stagger="up" data-scroll-stagger-base="90">
+                    <div class="an-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">CLIENT</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">ANIR Smart Wallets</p>
+                    </div>
+                    <div class="an-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">SERVICES</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Brand Book • Pitch Deck</p>
+                    </div>
+                    <div class="an-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">DURATION</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">2025 — 2026</p>
+                    </div>
+                    <div class="an-card p-4">
+                        <p class="text-[0.65rem] font-bold tracking-widest text-muted-foreground mb-1">INDUSTRY</p>
+                        <p class="font-semibold text-sm md:text-base text-foreground">Hardware / Fintech</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── NIGHT HERO BAND ── -->
+            <section class="mb-0" data-scroll="fade-up">
+                <div class="an-hero-band rounded-3xl px-6 md:px-14 py-12 md:py-20 text-center">
+                    <span aria-hidden="true"
+                        class="absolute top-6 right-8 text-6xl md:text-8xl font-bold leading-none select-none opacity-10"
+                        data-scroll-parallax data-scroll-parallax-speed="0.12">A</span>
+                    <div class="relative z-10">
+                        <div class="inline-block bg-an-mist rounded-2xl p-6 md:p-10 mb-8 shadow-xl" data-scroll-scale
+                            data-scroll-scale-from="0.92">
+                            <img src="anir-mark-dark.png" alt="ANIR logomark — the N/R monogram"
+                                class="w-56 md:w-96 h-auto mx-auto" loading="lazy">
+                        </div>
+                        <blockquote class="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight leading-tight max-w-4xl mx-auto"
+                            data-scroll-words data-scroll-words-base="55" data-scroll-duration="900">
+                            "YOUR WALLET, REINVENTED WITH MILITARY-GRADE TECH."
+                        </blockquote>
+                        <p class="mt-6 text-sm tracking-[0.25em] uppercase" style="color:rgba(245,246,241,.55)">
+                            ANIR — REDEFINING THE FUTURE OF SMART WALLETS
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── MARQUEE STRIP ── -->
+            <div class="an-marquee py-4 mb-8 md:mb-10 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8"
+                data-scroll="fade-up" aria-hidden="true">
+                <div data-scroll-ticker data-scroll-ticker-speed="60">
+                    <div data-scroll-ticker-inner>
+                        <span class="an-marquee-item">GPS + GSM tracking <span class="an-marquee-star">◆</span></span>
+                        <span class="an-marquee-item">NFC shield <span class="an-marquee-star">◆</span></span>
+                        <span class="an-marquee-item">2-year battery <span class="an-marquee-star">◆</span></span>
+                        <span class="an-marquee-item">Sound alert <span class="an-marquee-star">◆</span></span>
+                        <span class="an-marquee-item">Encrypted location <span class="an-marquee-star">◆</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── WHO ARE WE ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="an-section-label mb-6" data-scroll="fade-up">Who are we</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up"
+                            data-scroll-delay="80">A dynamic company that evolved and thrived</h2>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p data-scroll="fade-up">
+                        ANIR is a passionate company focused on innovation and committed to making a difference in the
+                        world of smart wallets — a product born from a simple observation: the things we carry every
+                        day are the least protected things we own.
+                    </p>
+                    <p data-scroll="fade-up">
+                        The risk of theft through emerging technology, and the high likelihood of losing wallets and
+                        essential documents — that's the problem ANIR was designed to kill.
+                        <strong class="text-foreground">Redefining the future of smart wallets</strong> means security
+                        you don't have to think about.
+                    </p>
+                    <figure class="rounded-2xl overflow-hidden" data-scroll="fade-up" data-scroll-delay="120">
+                        <img src="charte-lifestyle.jpg" alt="ANIR wallet and watch — everyday carry, protected"
+                            class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                        <figcaption class="text-sm text-muted-foreground italic p-4 bg-secondary">Everyday carry,
+                            engineered.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── THE PROBLEM — STATS ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl an-hero-band p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up" data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-10 -right-2 text-[9rem] md:text-[14rem] font-bold leading-none select-none opacity-10"
+                        data-scroll-parallax data-scroll-parallax-speed="0.12">!</span>
+                    <div class="relative z-10">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-70">THE PROBLEM</p>
+                        <h2 class="text-2xl md:text-4xl font-bold leading-tight mb-10 max-w-3xl">Contactless payments
+                            are exploding — and so is wireless theft.</h2>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6" data-scroll-stagger="up"
+                            data-scroll-stagger-base="110">
+                            <div>
+                                <p class="an-stat-num text-4xl md:text-5xl mb-2" data-scroll-counter>60%</p>
+                                <p class="text-sm opacity-75">of global credit card fraud happens in urban areas</p>
+                            </div>
+                            <div>
+                                <p class="an-stat-num text-4xl md:text-5xl mb-2">$43B</p>
+                                <p class="text-sm opacity-75">of ID cards lost annually</p>
+                            </div>
+                            <div>
+                                <p class="an-stat-num text-4xl md:text-5xl mb-2" data-scroll-counter>62M</p>
+                                <p class="text-sm opacity-75">Americans hit with fraudulent credit charges</p>
+                            </div>
+                            <div>
+                                <p class="an-stat-num text-4xl md:text-5xl mb-2" data-scroll-counter>8.5M</p>
+                                <p class="text-sm opacity-75">Tunisians hold a financial account — the launch market
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── THE IDENTITY — CHARTE GRAPHIQUE ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="an-section-label mb-6" data-scroll="fade-up">The identity — charte graphique</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">A monogram with
+                    an agenda</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    The ANIR mark deconstructs the letters into sharp, angular strokes — an
+                    <strong class="text-foreground">N and R fused into one engineered monogram</strong> that reads like
+                    a circuit trace. Precision-cut, no ornament, all intent.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+                    <figure class="rounded-2xl overflow-hidden bg-an-mist flex items-center justify-center p-8 md:p-12" data-scroll="fade-up">
+                        <img src="anir-mark-dark.png" alt="ANIR monogram on mist" class="w-full max-w-md h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#DBE0E4">
+                        <figcaption class="sr-only">The ANIR monogram on mist</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden an-hero-band flex items-center justify-center p-8 md:p-12" data-scroll="fade-up" data-scroll-delay="140">
+                        <img src="anir-mark-white.png" alt="ANIR monogram on ink" class="w-full max-w-md h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                        <figcaption class="sr-only">The ANIR monogram on ink</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Palette -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6" id="an-palette" data-scroll-stagger="up"
+                    data-scroll-stagger-base="90">
+                    <button class="an-chip" data-hex="#E50913" style="background:#E50913;color:#FFFFFF"
+                        aria-label="Copy signal red #E50913">
+                        <span class="an-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Signal Red</span>
+                        <span class="text-xs opacity-70">Alert / accent</span>
+                        <span class="an-chip-hex">#E50913</span>
+                    </button>
+                    <button class="an-chip" data-hex="#221F1F" style="background:#221F1F;color:#F5F6F1"
+                        aria-label="Copy carbon #221F1F">
+                        <span class="an-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Carbon</span>
+                        <span class="text-xs opacity-60">Ink / structure</span>
+                        <span class="an-chip-hex">#221F1F</span>
+                    </button>
+                    <button class="an-chip" data-hex="#F5F6F1" style="background:#F5F6F1;color:#221F1F;border:1px solid rgba(34,31,31,.12)"
+                        aria-label="Copy bone white #F5F6F1">
+                        <span class="an-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Bone White</span>
+                        <span class="text-xs opacity-60">Canvas</span>
+                        <span class="an-chip-hex">#F5F6F1</span>
+                    </button>
+                    <button class="an-chip" data-hex="#FFD11B" style="background:#FFD11B;color:#221F1F"
+                        aria-label="Copy signal yellow #FFD11B">
+                        <span class="an-chip-tag">Copy</span>
+                        <span class="font-bold text-base">Signal Yellow</span>
+                        <span class="text-xs opacity-70">Deck highlight</span>
+                        <span class="an-chip-hex">#FFD11B</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 items-stretch">
+                    <figure class="rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up">
+                        <img src="charte-palette.jpg" alt="ANIR official palette board" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#DBE0E4">
+                        <figcaption class="text-sm text-muted-foreground italic p-4">The official palette board —
+                            red, carbon, bone.</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up" data-scroll-delay="140">
+                        <img src="charte-anatomy.jpg" alt="ANIR logo anatomy — letter construction" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#DBE0E4">
+                        <figcaption class="text-sm text-muted-foreground italic p-4">Logo anatomy — the angular
+                            letterform system.</figcaption>
+                    </figure>
+                </div>
+                <p class="text-sm text-muted-foreground mt-4 text-center" data-scroll="fade-up">Signal red on carbon,
+                    with bone white space. Click any chip to copy its hex.</p>
+            </section>
+
+            <!-- ── THE PRODUCT ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="an-section-label mb-6" data-scroll="fade-up">The product</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Smart solutions
+                    for everyday carry</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    A sleek RFID-protected wallet with a quick-access pull mechanism — 6–7 cards, 4 leather pockets, a
+                    secure snap closure and a cash pocket. Carbon-fiber / aluminum composite body with an embedded A9G
+                    chip and an NFC shield layer.
+                </p>
+                <figure class="rounded-2xl overflow-hidden bg-secondary mb-4" data-scroll="fade-up">
+                    <img src="charte-mockup.jpg" alt="ANIR wallet in box — the unboxing moment" class="w-full h-auto"
+                        loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                    <figcaption class="text-sm text-muted-foreground italic p-4">The unboxing moment — carbon and
+                        leather, monogram up front.</figcaption>
+                </figure>
+                <div class="rounded-3xl an-hero-band p-8 md:p-12 relative overflow-hidden" data-scroll="fade-up">
+                    <div class="relative z-10">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-6 opacity-70">MILITARY-GRADE TECH</p>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3" data-scroll-stagger="up"
+                            data-scroll-stagger-base="90">
+                            <div class="an-feature p-5">
+                                <p class="text-2xl mb-2">📡</p>
+                                <p class="font-semibold text-an-bone text-sm">GPS + GSM real-time tracking</p>
+                                <p class="text-xs opacity-65 mt-1">Live map, encrypted location data</p>
+                            </div>
+                            <div class="an-feature p-5">
+                                <p class="text-2xl mb-2">🛡️</p>
+                                <p class="font-semibold text-an-bone text-sm">NFC blocking + app lock</p>
+                                <p class="text-xs opacity-65 mt-1">Flipper-proof wireless shield</p>
+                            </div>
+                            <div class="an-feature p-5">
+                                <p class="text-2xl mb-2">🔔</p>
+                                <p class="font-semibold text-an-bone text-sm">"Ring wallet" sound alert</p>
+                                <p class="text-xs opacity-65 mt-1">Find it under the couch, instantly</p>
+                            </div>
+                            <div class="an-feature p-5">
+                                <p class="text-2xl mb-2">🔋</p>
+                                <p class="font-semibold text-an-bone text-sm">2-year battery life</p>
+                                <p class="text-xs opacity-65 mt-1">Charge it twice a year</p>
+                            </div>
+                            <div class="an-feature p-5">
+                                <p class="text-2xl mb-2">📍</p>
+                                <p class="font-semibold text-an-bone text-sm">Last-known location history</p>
+                                <p class="text-xs opacity-65 mt-1">Even when the signal drops</p>
+                            </div>
+                            <div class="an-feature p-5">
+                                <p class="text-2xl mb-2">📱</p>
+                                <p class="font-semibold text-an-bone text-sm">iOS / Android app</p>
+                                <p class="text-xs opacity-65 mt-1">Custom firmware, your wallet your rules</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── VS COMPETITORS ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="an-section-label mb-6" data-scroll="fade-up">Market analysis</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">Nothing else on the
+                    market does this</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Local wallets sit between 55.9 and 294 TND — handsome leather, zero technology. ANIR enters at
+                    <strong class="text-foreground">120 TND with tracking, shielding and a 3D-printed carbon body.</strong>
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                    <div class="an-card an-card-top p-7">
+                        <h3 class="text-lg font-bold text-foreground mb-4">Tracking</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span><strong
+                                        class="text-foreground">ANIR:</strong> A9G board, GPS + GSM</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-muted-foreground/50 mt-0.5">—</span><span>Competitors:
+                                    none</span></li>
+                        </ul>
+                    </div>
+                    <div class="an-card an-card-top p-7">
+                        <h3 class="text-lg font-bold text-foreground mb-4">Security</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span><strong
+                                        class="text-foreground">ANIR:</strong> NFC blocking + app lock</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-muted-foreground/50 mt-0.5">—</span><span>Competitors:
+                                    basic RFID at best</span></li>
+                        </ul>
+                    </div>
+                    <div class="an-card an-card-top p-7">
+                        <h3 class="text-lg font-bold text-foreground mb-4">Durability</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span><strong
+                                        class="text-foreground">ANIR:</strong> 3D-printed carbon fiber</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-muted-foreground/50 mt-0.5">—</span><span>Competitors:
+                                    leather / plastic</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── THE PITCH DECK ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="an-section-label mb-6" data-scroll="fade-up">The pitch deck</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground" data-scroll="fade-up" data-scroll-delay="100">22 pages that ask
+                    for the yes</h2>
+                <p class="text-muted-foreground text-lg mb-10 max-w-3xl leading-relaxed" data-scroll="fade-up">
+                    Signal yellow on carbon black — a deck engineered like the product: direct, data-heavy,
+                    impossible to misread. Problem, market, solution, financials, timeline — every spread built to
+                    move an investor to the next page.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <figure class="rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up">
+                        <img src="deck-cover.jpg" alt="ANIR investor pitch deck cover" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                        <figcaption class="text-sm text-muted-foreground italic p-4">The cover — carbon, signal
+                            yellow, monogram.</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up" data-scroll-delay="140">
+                        <img src="deck-redefining.jpg" alt="ANIR deck — redefining the future of smart wallets"
+                            class="w-full h-auto" loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                        <figcaption class="text-sm text-muted-foreground italic p-4">The opening promise.</figcaption>
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary" data-scroll="fade-up" data-scroll-delay="180">
+                        <img src="deck-solutions.jpg" alt="ANIR deck — the solution spread" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                        <figcaption class="text-sm text-muted-foreground italic p-4">The solution, in one spread.
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="100">
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="deck-problem.jpg" alt="ANIR deck — the problem spread" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="deck-stats.jpg" alt="ANIR deck — market statistics" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="deck-competitors.jpg" alt="ANIR deck — competitors analysis" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                    </figure>
+                    <figure class="rounded-2xl overflow-hidden bg-secondary">
+                        <img src="deck-features.jpg" alt="ANIR deck — military-grade feature spread" class="w-full h-auto"
+                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                    </figure>
+                </div>
+            </section>
+
+            <!-- ── THE NUMBERS ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl an-hero-band p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up" data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-12 -right-2 text-[10rem] md:text-[15rem] font-bold leading-none select-none opacity-10">₮</span>
+                    <div class="relative z-10">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-70">FINANCIAL PROJECTIONS</p>
+                        <h2 class="text-2xl md:text-4xl font-bold leading-tight mb-10 max-w-3xl">A launch built on
+                            honest math.</h2>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10" data-scroll-stagger="up"
+                            data-scroll-stagger-base="110">
+                            <div>
+                                <p class="an-stat-num text-3xl md:text-4xl mb-2" data-scroll-counter>15000</p>
+                                <p class="text-sm opacity-75">clicks at a 3% CTR</p>
+                            </div>
+                            <div>
+                                <p class="an-stat-num text-3xl md:text-4xl mb-2" data-scroll-counter>300</p>
+                                <p class="text-sm opacity-75">first-launch sales at 2% conversion</p>
+                            </div>
+                            <div>
+                                <p class="an-stat-num text-3xl md:text-4xl mb-2" data-scroll-counter>31000</p>
+                                <p class="text-sm opacity-75">TND projected launch revenue</p>
+                            </div>
+                            <div>
+                                <p class="an-stat-num text-3xl md:text-4xl mb-2" data-scroll-counter>11968</p>
+                                <p class="text-sm opacity-75">TND projected launch profit</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up"
+                            data-scroll-stagger-base="100">
+                            <figure class="rounded-2xl overflow-hidden">
+                                <img src="deck-cost.jpg" alt="ANIR deck — final product cost breakdown"
+                                    class="w-full h-auto" loading="lazy" data-scroll-img-reveal
+                                    data-scroll-img-color="#1A1B1C">
+                            </figure>
+                            <figure class="rounded-2xl overflow-hidden">
+                                <img src="deck-margins.jpg" alt="ANIR deck — launch costs and margins"
+                                    class="w-full h-auto" loading="lazy" data-scroll-img-reveal
+                                    data-scroll-img-color="#1A1B1C">
+                            </figure>
+                            <figure class="rounded-2xl overflow-hidden">
+                                <img src="deck-investment.jpg" alt="ANIR deck — launch investment breakdown"
+                                    class="w-full h-auto" loading="lazy" data-scroll-img-reveal
+                                    data-scroll-img-color="#1A1B1C">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── GO-TO-MARKET ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="an-section-label mb-6" data-scroll="fade-up">Go-to-market</p>
+                        <h2 class="text-3xl md:text-4xl font-bold leading-tight text-foreground" data-scroll="fade-up"
+                            data-scroll-delay="80">Two phases, one funnel</h2>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 space-y-6 text-muted-foreground text-lg leading-relaxed">
+                    <p data-scroll="fade-up">
+                        <strong class="text-foreground">Phase 1 — 15 days before release:</strong> Instagram lead
+                        forms, influencer ads and Facebook ads pour traffic into a landing page that feeds the email
+                        list. Hype first, hardware second.
+                    </p>
+                    <p data-scroll="fade-up">
+                        <strong class="text-foreground">Phase 2 — product day:</strong> the email and SMS lists get
+                        first access through the sales landing page. The audience arrives warm; day one converts.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-scroll-stagger="up"
+                        data-scroll-stagger-base="120">
+                        <figure class="rounded-2xl overflow-hidden bg-secondary">
+                            <img src="deck-marketing1.jpg" alt="ANIR marketing journey — phase one" class="w-full h-auto"
+                                loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                            <figcaption class="text-sm text-muted-foreground italic p-4">Phase 1 — the 15-day warm-up.
+                            </figcaption>
+                        </figure>
+                        <figure class="rounded-2xl overflow-hidden bg-secondary">
+                            <img src="deck-marketing2.jpg" alt="ANIR marketing journey — release day" class="w-full h-auto"
+                                loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                            <figcaption class="text-sm text-muted-foreground italic p-4">Phase 2 — release day, lists
+                                first.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CHALLENGE / SOLUTION ── -->
+            <section class="mb-8 md:mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="an-card an-card-top p-8" data-scroll-tilt data-scroll-tilt-max="4" data-scroll-tilt-scale="1.01">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Challenge</h2>
+                    <p class="text-muted-foreground leading-relaxed">A hardware startup with a genuinely new product
+                        and zero brand presence. ANIR needed an identity that could feel engineered rather than
+                        decorated — sharp enough for tech press, credible enough for investors — plus a pitch deck
+                        that could carry a hardware story through problem, market, product and financials without
+                        losing the room.</p>
+                </div>
+                <div class="an-card an-card-top p-8" data-scroll-tilt data-scroll-tilt-max="4" data-scroll-tilt-scale="1.01"
+                    data-scroll-delay="140">
+                    <h2 class="text-xl font-bold text-foreground mb-4">The Solution</h2>
+                    <p class="text-muted-foreground leading-relaxed">A complete charte graphique — the angular N/R
+                        monogram, signal red / carbon / bone palette, mockups and letterform anatomy — paired with a
+                        22-page investor deck in signal yellow on carbon black: stat counters, competitor tables,
+                        cost breakdowns and a two-phase go-to-market. One visual language from logo to ledger.</p>
+                </div>
+            </section>
+
+            <!-- ── DELIVERABLES ── -->
+            <section class="mb-8 md:mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up">Deliverables</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="110">
+                    <div class="an-card an-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Brand Identity</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>AN/R
+                                    angular monogram</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Signal
+                                    red / carbon / bone palette</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Logo
+                                    anatomy &amp; usage rules</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Product
+                                    mockup system</span></li>
+                        </ul>
+                    </div>
+                    <div class="an-card an-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Investor Pitch Deck</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>22
+                                    pages, carbon &amp; signal yellow</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Problem
+                                    / market / solution narrative</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Financial
+                                    projections &amp; margins</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Two-phase
+                                    go-to-market timeline</span></li>
+                        </ul>
+                    </div>
+                    <div class="an-card an-card-top p-7">
+                        <h3 class="text-xl font-bold text-foreground mb-4">Product Story</h3>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Military-grade
+                                    feature messaging</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Competitor
+                                    differentiation system</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Launch
+                                    funnel design</span></li>
+                            <li class="flex items-start space-x-2"><span class="text-an-red mt-0.5">—</span><span>Manufacturing
+                                    &amp; design visuals</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CREDITS ── -->
+            <section class="mb-8 md:mb-10">
+                <p class="an-section-label mb-6" data-scroll="fade-up">Credits</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-10 text-foreground" data-scroll="fade-up">Roles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5" data-scroll-stagger="up"
+                    data-scroll-stagger-base="70">
+                    <div class="an-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Founder</span>
+                        <span class="text-sm text-muted-foreground">King Bouzganda</span>
+                    </div>
+                    <div class="an-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Creative Direction</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="an-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Brand Identity — Charte Graphique</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="an-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Investor Pitch Deck</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="an-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Product Mockups</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                    <div class="an-credit-row flex justify-between items-center pb-4">
+                        <span class="font-bold text-foreground">Go-to-Market Strategy</span>
+                        <span class="text-sm text-muted-foreground">WYRM Studios</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── OUTCOME ── -->
+            <section class="mb-8 md:mb-10">
+                <figure class="rounded-2xl overflow-hidden bg-secondary mb-6" data-scroll="fade-up">
+                    <img src="deck-merci.jpg" alt="ANIR deck closing slide — merci" class="w-full h-auto"
+                        loading="lazy" data-scroll-img-reveal data-scroll-img-color="#1A1B1C">
+                    <figcaption class="text-sm text-muted-foreground italic p-4">The closing slide — merci.
+                    </figcaption>
+                </figure>
+                <div class="rounded-3xl an-hero-band text-an-bone p-8 md:p-14 relative overflow-hidden" data-scroll="fade-up"
+                    data-scroll-duration="1000">
+                    <span aria-hidden="true"
+                        class="absolute -bottom-12 -right-2 text-[10rem] md:text-[15rem] font-bold leading-none select-none opacity-10">A</span>
+                    <div class="relative z-10 max-w-3xl">
+                        <p class="text-xs font-bold tracking-[0.25em] mb-4 opacity-70">OUTCOME</p>
+                        <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-5">A brand ready to leave the
+                            lab.</h2>
+                        <p class="opacity-85 leading-relaxed mb-8">
+                            From angular monogram to final ledger page, ANIR now speaks one engineered language —
+                            investor-ready, launch-ready, and impossible to confuse with another leather wallet on a
+                            shelf. Together, we can create a smarter, safer future.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Charte
+                                graphique</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">22-page
+                                pitch deck</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Launch
+                                funnel</span>
+                            <span class="bg-white/15 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Investor-ready</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CTA ── -->
+            <section class="mb-8 md:mb-10">
+                <div class="rounded-3xl border border-border/50 bg-secondary/40 p-8 md:p-14 text-center" data-scroll="fade-up">
+                    <p class="an-section-label mb-6 justify-center" style="display:inline-flex">Your brand next</p>
+                    <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-6 text-foreground">Building something
+                        worth investing in?</h2>
+                    <p class="text-muted-foreground max-w-xl mx-auto mb-10">Whether you're a hardware startup, a
+                        label or a cause — we build identities from concept to execution, all under one roof.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="../../inquiry.html"
+                            class="inline-flex items-center space-x-2 bg-foreground text-background px-8 py-4 rounded-full font-medium text-lg hover:bg-foreground/90 transition-colors shadow-xl"
+                            data-scroll-magnetic>
+                            <span>Start a Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="../../work.html"
+                            class="inline-flex items-center space-x-2 border border-border text-foreground px-8 py-4 rounded-full font-medium text-lg hover:bg-secondary transition-colors">
+                            <span>See More Work</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── NEXT CASE STUDY ── -->
+            <section class="border-t border-border/50 pt-10 pb-12">
+                <a href="../united-souls/united-souls.html" class="an-next flex flex-col md:flex-row md:items-center md:justify-between gap-6 group">
+                    <div>
+                        <p class="text-sm text-muted-foreground mb-2">Next Case Study</p>
+                        <h3 class="an-next-title text-2xl md:text-3xl font-bold text-foreground">UNITED SOULS — Fashion
+                            With Meaning</h3>
+                    </div>
+                    <span
+                        class="inline-flex items-center space-x-2 border border-border px-6 py-3 rounded-full font-medium text-foreground hover:bg-secondary transition-colors w-fit shrink-0">
+                        <span>View Case</span>
+                        <svg class="an-next-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </span>
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111111] text-white py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
+                <!-- Footer Brand Column -->
+                <div class="md:col-span-5">
+                    <img src="../../assets/logo/whitelogomark.png" alt="WYRM.studios Logo Mark" class="mb-6"
+                        style="height: 8rem; width: auto;" loading="lazy">
+                    <h3 class="text-3xl font-bold mb-4">Create different</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">Full-service creative studio — brand
+                        identity, motion design, video editing, logos, and web experiences for companies that refuse
+                        to blend in.</p>
+
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="md:col-span-2 md:col-start-7">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">EXPLORE</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a>
+                        </li>
+                        <li><a href="../../work.html" class="text-gray-400 hover:text-white transition-colors text-sm">Work</a>
+                        </li>
+                        <li><a href="../../about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About</a>
+                        </li>
+                        <li><a href="../../blog.html" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">SERVICES</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Brand
+                                Identity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Motion
+                                Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Web Design</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Video
+                                Editing</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="text-xs font-bold tracking-widest text-gray-500 mb-6">CONNECT</h4>
+                    <ul class="space-y-4">
+                        <li><a href="../../inquiry.html"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">Start a Project</a>
+                        </li>
+                        <li><a href="mailto:studioswyrm@gmail.com"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">studioswyrm@gmail.com</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shop</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 space-y-4 md:space-y-0">
+                <p>© 2026 WYRM.studios. All rights reserved.</p>
+                <p>Built by Wyrm Studios</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../../js/i18n.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/theme-toggle.js"></script>
+    <script src="../../js/mobile-menu.js"></script>
+    <script src="../../js/smooth-scroll.js"></script>
+    <script src="../../js/page-transitions.js"></script>
+    <script src="../../js/scroll-animations.js?v=3"></script>
+    <script>
+        /* Palette chips — click to copy the hex */
+        (function () {
+            document.querySelectorAll('.an-chip').forEach(function (chip) {
+                var tag = chip.querySelector('.an-chip-tag');
+                chip.addEventListener('click', function () {
+                    var hex = chip.getAttribute('data-hex');
+                    var done = function () {
+                        if (!tag) return;
+                        var prev = tag.textContent;
+                        tag.textContent = 'Copied!';
+                        chip.classList.add('copied');
+                        setTimeout(function () {
+                            tag.textContent = prev;
+                            chip.classList.remove('copied');
+                        }, 1300);
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(hex).then(done, done);
+                    } else {
+                        var ta = document.createElement('textarea');
+                        ta.value = hex;
+                        ta.style.position = 'fixed';
+                        ta.style.opacity = '0';
+                        document.body.appendChild(ta);
+                        ta.select();
+                        try { document.execCommand('copy'); } catch (e) { }
+                        document.body.removeChild(ta);
+                        done();
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
