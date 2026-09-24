@@ -905,3 +905,200 @@ footer .social-link:hover {
         font-size: 0.875rem;
     }
 }
+
+/* ==============================================================================
+   MEET THE TEAM — index.html
+   Polaroid-style cards, playful hover, reduced-motion respected.
+   ============================================================================== */
+
+.wyrm-team {
+    position: relative;
+}
+
+.wyrm-team::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(hsl(var(--foreground) / 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 65% at 50% 45%, black 30%, transparent 75%);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+.team-card {
+    position: relative;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border) / 0.6);
+    border-radius: 1.25rem;
+    padding: 1rem 1rem 1.25rem;
+    box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.35);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s ease;
+    will-change: transform;
+}
+
+.team-card:nth-child(even) {
+    transform: rotate(1.6deg) translateY(1.25rem);
+}
+
+.team-card:nth-child(odd) {
+    transform: rotate(-1.8deg);
+}
+
+.team-card:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.025);
+    box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.45);
+    border-color: hsl(var(--foreground) / 0.35);
+    z-index: 2;
+}
+
+.team-photo {
+    position: relative;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: hsl(var(--secondary));
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-card:hover .team-photo img {
+    transform: scale(1.06);
+}
+
+.team-tag {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.65rem;
+    z-index: 2;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border-radius: 9999px;
+    color: #fff;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.team-tag.tag-lead {
+    background: rgba(220, 20, 44, 0.92);
+}
+
+.team-tag.tag-dev {
+    background: rgba(31, 44, 91, 0.92);
+}
+
+.team-tag.tag-biz {
+    background: rgba(49, 108, 211, 0.92);
+}
+
+.team-tag.tag-mkt {
+    background: rgba(26, 26, 26, 0.82);
+}
+
+.team-tag.tag-des {
+    background: rgba(122, 90, 44, 0.92);
+}
+
+.team-tape {
+    position: absolute;
+    top: -0.55rem;
+    left: 50%;
+    width: 4.5rem;
+    height: 1.35rem;
+    transform: translateX(-50%) rotate(-3deg);
+    background: hsl(var(--foreground) / 0.08);
+    border-left: 1px dashed hsl(var(--foreground) / 0.15);
+    border-right: 1px dashed hsl(var(--foreground) / 0.15);
+    border-radius: 2px;
+}
+
+.team-card:nth-child(even) .team-tape {
+    transform: translateX(-50%) rotate(2.5deg);
+}
+
+.team-name {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+}
+
+.team-role {
+    font-size: 0.8rem;
+    color: hsl(var(--muted-foreground));
+    margin-top: 0.2rem;
+}
+
+.team-line {
+    margin-top: 0.65rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: hsl(var(--muted-foreground) / 0.85);
+}
+
+.team-marquee {
+    overflow: hidden;
+    margin-top: 3rem;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+
+.team-marquee-inner {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: team-scroll 28s linear infinite;
+}
+
+.team-marquee:hover .team-marquee-inner {
+    animation-play-state: paused;
+}
+
+@keyframes team-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+.team-marquee-inner span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.22);
+    padding-right: 3rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .team-card,
+    .team-card:hover,
+    .team-photo img,
+    .team-card:hover .team-photo img {
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .team-marquee-inner {
+        animation: none !important;
+    }
+}

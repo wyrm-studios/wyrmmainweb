@@ -109,7 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const selectedOptions = step.querySelectorAll('.form-selector.selected');
         const values = Array.from(selectedOptions).map(function(opt) {
-            return opt.dataset.value || opt.textContent.trim();
+            /* read only the label, not the letter badge / check icon */
+            var label = opt.querySelector('.selector-text');
+            return (label ? label.textContent : opt.textContent).trim();
         });
 
         if (isMultiSelect) {
@@ -169,11 +171,30 @@ document.addEventListener('DOMContentLoaded', function() {
     if (nextBtn) {
         nextBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            if (isStepValid() && currentStep < totalSteps) {
+            /* chevron doubles as "skip" — no validation gate on the way forward */
+            if (currentStep < totalSteps) {
                 showStep(currentStep + 1);
             }
         });
     }
+
+    // Skip buttons on optional steps — clear selections, then move on
+    document.querySelectorAll('.form-skip-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            /* type=submit variants ("Skip & send") fall through to the form's submit handler */
+            if (this.getAttribute('type') === 'submit') return;
+            e.preventDefault();
+            var step = this.closest('.form-step');
+            if (step) {
+                step.querySelectorAll('.form-selector.selected').forEach(function(s) {
+                    s.classList.remove('selected');
+                });
+                var hidden = step.querySelector('input[type="hidden"]');
+                if (hidden) hidden.value = '';
+            }
+            showStep(currentStep + 1);
+        });
+    });
 
     // Form submission with EmailJS
     form.addEventListener('submit', function(e) {
@@ -209,10 +230,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }, function(error) {
                     console.error('EmailJS Error:', error);
-                    alert('There was an error submitting your inquiry. Please email us directly at contact@wyrm.studio');
+                    alert('There was an error submitting your inquiry. Please email us directly at studioswyrm@gmail.com');
                     if (submitBtn) {
                         submitBtn.disabled = false;
-                        submitBtn.innerHTML = 'Submit Protocol →';
+                        submitBtn.innerHTML = 'Submit Project';
                     }
                 });
         } else {

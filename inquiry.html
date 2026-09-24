@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start a Project — Brand & Motion Design Inquiry | WYRM.studios</title>
-    <meta name="description" content="Start your project with WYRM.studios. Share your vision below.">
+    <meta name="description" content="Start your brand, motion or web project with WYRM.studios — a creative studio in Tunis, Tunisia working worldwide. Answer what matters, skip the rest.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo/icon.png">
@@ -130,6 +130,30 @@
 
         .btn-primary:not(.btn-disabled):active {
             transform: translateY(0) scale(0.98);
+        }
+
+        /* skip affordance for optional steps */
+        .form-skip-btn {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: hsl(var(--foreground) / 0.5);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color .3s ease;
+        }
+
+        .form-skip-btn:hover {
+            color: hsl(var(--foreground));
+        }
+
+        .form-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.25rem 1.75rem;
         }
 
         /* input underline grows from the left on focus */
@@ -318,7 +342,7 @@
         "jobTitle": "Founder & Creative Director"
       },
       "sameAs": [
-        "https://www.instagram.com/wyrm.arts"
+        "https://www.instagram.com/wyrm.studios/"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -471,7 +495,7 @@
                     Tell us where you're going. We'll build the brand that gets you there.
                 </h1>
                 <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed" data-scroll="fade-up" data-scroll-delay="250">
-                    Seven quick questions. Under two minutes. A real reply within 24 hours — from a person, not a bot.
+                    A few quick questions — answer what matters, skip the rest. Under two minutes. A real reply within 24 hours — from a person, not a bot.
                 </p>
                 <span class="iq-watermark" aria-hidden="true" data-scroll-parallax data-scroll-parallax-speed="0.08">HELLO</span>
             </div>
@@ -534,12 +558,13 @@
                 </div>
 
                 <!-- STEP 2: Industry -->
-                <div class="form-step" data-step="2">
+                <div class="form-step" data-step="2" data-multi-select="true">
                     <div class="flex items-center space-x-3 mb-8">
                         <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">2</div>
                         <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 2 OF 7</span>
                     </div>
-                    <h2 class="text-3xl font-bold text-foreground mb-8">Industry</h2>
+                    <h2 class="text-3xl font-bold text-foreground mb-2">Industry</h2>
+                    <p class="text-xl text-muted-foreground mb-8 italic">Select all that apply — or skip this step</p>
                     
                     <div class="space-y-3 mb-12">
                         <div class="form-selector cursor-pointer"><div class="selector-letter">A</div><div class="selector-text">Tech / Fintech</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
@@ -551,9 +576,12 @@
                     </div>
 
                     <input type="hidden" name="industry" value="">
-                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="2" disabled>
-                        Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </button>
+                    <div class="form-actions">
+                        <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="2" disabled>
+                            Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                        <button type="button" class="form-skip-btn">Skip this step →</button>
+                    </div>
                 </div>
 
                 <!-- STEP 3: Services (Multi-select) -->
@@ -611,12 +639,13 @@
                 </div>
 
                 <!-- STEP 5: How did you hear -->
-                <div class="form-step" data-step="5">
+                <div class="form-step" data-step="5" data-multi-select="true">
                     <div class="flex items-center space-x-3 mb-8">
                         <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">5</div>
                         <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 5 OF 7</span>
                     </div>
-                    <h2 class="text-3xl font-bold text-foreground mb-8">How did you hear about us?</h2>
+                    <h2 class="text-3xl font-bold text-foreground mb-2">How did you hear about us?</h2>
+                    <p class="text-xl text-muted-foreground mb-8 italic">Select all that apply — or skip this step</p>
                     
                     <div class="space-y-3 mb-12">
                         <div class="form-selector cursor-pointer"><div class="selector-letter">A</div><div class="selector-text">Instagram</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
@@ -628,9 +657,12 @@
                     </div>
 
                     <input type="hidden" name="referral_source" value="">
-                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="5" disabled>
-                        Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </button>
+                    <div class="form-actions">
+                        <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="5" disabled>
+                            Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                        <button type="button" class="form-skip-btn">Skip this step →</button>
+                    </div>
                 </div>
 
                 <!-- STEP 6: Budget -->
@@ -639,18 +671,22 @@
                         <div class="iq-badge w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center font-bold text-sm">6</div>
                         <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase protocol-step-indicator">STEP 6 OF 7</span>
                     </div>
-                    <h2 class="text-3xl font-bold text-foreground mb-8">Estimated Budget</h2>
+                    <h2 class="text-3xl font-bold text-foreground mb-2">Estimated Budget</h2>
+                    <p class="text-xl text-muted-foreground mb-8 italic">Pick a range — or skip if you're not sure yet</p>
                     
                     <div class="space-y-3 mb-12">
-                        <div class="form-selector cursor-pointer"><div class="selector-letter">A</div><div class="selector-text">$120 - $500</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
-                        <div class="form-selector cursor-pointer"><div class="selector-letter">B</div><div class="selector-text">$500 - $1,000</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
-                        <div class="form-selector cursor-pointer"><div class="selector-letter">C</div><div class="selector-text">$1,000+</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">A</div><div class="selector-text">250 DT - 500 DT</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">B</div><div class="selector-text">500 DT - 1000 DT</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+                        <div class="form-selector cursor-pointer"><div class="selector-letter">C</div><div class="selector-text">1000 DT - 4000 DT</div><div class="selector-check"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
                     </div>
 
                     <input type="hidden" name="budget" value="">
-                    <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="6" disabled>
-                        Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </button>
+                    <div class="form-actions">
+                        <button type="button" class="form-continue-btn btn btn-primary btn-disabled" data-step="6" disabled>
+                            Continue <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                        <button type="button" class="form-skip-btn">Skip this step →</button>
+                    </div>
                 </div>
 
                 <!-- STEP 7: Project Details -->
@@ -664,9 +700,12 @@
                     
                     <textarea name="project_details" class="form-textarea text-2xl font-bold bg-transparent border-b-2 border-foreground/20 focus:border-foreground w-full py-4 mb-12 placeholder:text-muted-foreground/50 resize-none" placeholder="Describe your project, goals, and timeline..." rows="4"></textarea>
                     
-                    <button type="submit" id="form-submit-btn" class="btn btn-primary">
-                        Submit Project <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </button>
+                    <div class="form-actions">
+                        <button type="submit" id="form-submit-btn" class="btn btn-primary">
+                            Submit Project <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                        <button type="submit" class="form-skip-btn">Skip &amp; send →</button>
+                    </div>
                 </div>
 
             </form>
@@ -785,7 +824,7 @@
     <script src="js/theme-toggle.js"></script>
     <script src="js/mobile-menu.js"></script>
     <script src="js/smooth-scroll.js"></script>
-    <script src="js/form-engine.js"></script>
+    <script src="js/form-engine.js?v=2"></script>
     <script src="js/page-transitions.js"></script>
     <script src="js/scroll-animations.js?v=3"></script>
     <script>
