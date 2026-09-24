@@ -4,51 +4,56 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    
+
     <!-- HOME PAGE - Highest Priority -->
     <url>
         <loc>https://wyrm.studios/</loc>
-        <lastmod>2026-06-16</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://wyrm.studios/assets/images/wyrm-thumb.jpg</image:loc>
+            <image:title>WYRM.studios — Creative Studio in Tunisia</image:title>
+            <image:caption>Full-service creative studio — brand identity, motion design, video editing, logos and web design.</image:caption>
+        </image:image>
     </url>
 
-    <!-- WORK/PORTFOLIO PAGE - High Priority -->
+    <!-- WORK/PORTFOLIO PAGE -->
     <url>
         <loc>https://wyrm.studios/work.html</loc>
-        <lastmod>2026-06-16</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- ABOUT PAGE - High Priority -->
+    <!-- ABOUT PAGE -->
     <url>
         <loc>https://wyrm.studios/about.html</loc>
-        <lastmod>2026-06-16</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- INQUIRY/CONTACT PAGE - High Priority -->
+    <!-- INQUIRY/CONTACT PAGE -->
     <url>
         <loc>https://wyrm.studios/inquiry.html</loc>
-        <lastmod>2026-06-16</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- BLOG PAGE - Medium Priority -->
+    <!-- BLOG PAGE -->
     <url>
         <loc>https://wyrm.studios/blog.html</loc>
-        <lastmod>2026-06-16</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
     </url>
 
     <!-- CASE STUDY: WYRM BRAND IDENTITY -->
     <url>
         <loc>https://wyrm.studios/case-studies/wyrm/wyrm-brand.html</loc>
-        <lastmod>2026-09-19</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -61,7 +66,7 @@
     <!-- CASE STUDY: MINATO SUSHI -->
     <url>
         <loc>https://wyrm.studios/case-studies/minato-sushi/minato-sushi.html</loc>
-        <lastmod>2026-09-19</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -74,7 +79,7 @@
     <!-- CASE STUDY: DJAPPAMAN -->
     <url>
         <loc>https://wyrm.studios/case-studies/djappa%20man/djappaman.html</loc>
-        <lastmod>2026-09-19</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -87,7 +92,7 @@
     <!-- CASE STUDY: WDRINK -->
     <url>
         <loc>https://wyrm.studios/case-studies/Wdrink/wdrink.html</loc>
-        <lastmod>2026-09-19</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -100,7 +105,7 @@
     <!-- CASE STUDY: THE GATE CONSULTING -->
     <url>
         <loc>https://wyrm.studios/case-studies/the-gate/the-gate.html</loc>
-        <lastmod>2026-09-19</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -110,21 +115,23 @@
         </image:image>
     </url>
 
-    <!-- CASE STUDY: THE NAMELESS BRAND -->
+    <!-- CASE STUDY: BEFIRST (THE NAMELESS BRAND) -->
     <url>
         <loc>https://wyrm.studios/case-studies/befirst/the-brand.html</loc>
-        <lastmod>2026-09-19</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
             <image:loc>https://wyrm.studios/case-studies/befirst/befirst-thumb.jpg</image:loc>
-            <image:title>BeFirst - Brand Identity & Guidelines</image:title>
+            <image:title>BeFirst - Brand Identity &amp; Guidelines</image:title>
             <image:caption>Complete identity delivered nameless - B/W system, T lockup, six named colors, guidelines</image:caption>
         </image:image>
     </url>
+
+    <!-- CASE STUDY: UNITED SOULS -->
     <url>
         <loc>https://wyrm.studios/case-studies/united-souls/united-souls.html</loc>
-        <lastmod>2026-09-23</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -134,9 +141,10 @@
         </image:image>
     </url>
 
+    <!-- CASE STUDY: FORMULA ONE COFFEE SHOP -->
     <url>
         <loc>https://wyrm.studios/case-studies/formula-one-coffee/formula-one-coffee.html</loc>
-        <lastmod>2026-09-23</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -146,9 +154,10 @@
         </image:image>
     </url>
 
+    <!-- CASE STUDY: AUREA -->
     <url>
         <loc>https://wyrm.studios/case-studies/aurea/aurea.html</loc>
-        <lastmod>2026-09-23</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -158,9 +167,10 @@
         </image:image>
     </url>
 
+    <!-- CASE STUDY: ANIR -->
     <url>
         <loc>https://wyrm.studios/case-studies/anir/anir.html</loc>
-        <lastmod>2026-09-23</lastmod>
+        <lastmod>2026-09-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -170,12 +180,64 @@
         </image:image>
     </url>
 
+    <!-- BLOG POST: WHAT MAKES A BRAND UNFORGETTABLE -->
+    <url>
+        <loc>https://wyrm.studios/blog-posts/what-makes-a-brand-unforgettable.html</loc>
+        <lastmod>2026-09-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://wyrm.studios/assets/images/blog/blog-unforgettable-brand.jpg</image:loc>
+            <image:title>What Makes a Brand Unforgettable? The 3 Pillars of Brand Memory</image:title>
+            <image:caption>Why 95% of purchasing decisions are emotional and how to build a brand people remember</image:caption>
+        </image:image>
+    </url>
+
+    <!-- BLOG POST: CREATIVE STUDIO VS FREELANCER -->
+    <url>
+        <loc>https://wyrm.studios/blog-posts/creative-studio-vs-freelancer.html</loc>
+        <lastmod>2026-09-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://wyrm.studios/assets/images/blog/blog-studio-vs-freelancer.jpg</image:loc>
+            <image:title>When to Hire a Creative Studio vs. Freelancer</image:title>
+            <image:caption>The hidden costs of fragmented branding and why a unified studio delivers 23% higher revenue</image:caption>
+        </image:image>
+    </url>
+
+    <!-- BLOG POST: THE $100M BRAND FILM -->
+    <url>
+        <loc>https://wyrm.studios/blog-posts/100m-brand-film.html</loc>
+        <lastmod>2026-09-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://wyrm.studios/assets/images/blog/blog-100m-brand.jpg</image:loc>
+            <image:title>The $100M Brand Film: Are You Rich Enough to Waste It?</image:title>
+            <image:caption>Why the world's biggest brands invest over $100M in brand films — 80% higher conversion and unforgettable recall</image:caption>
+        </image:image>
+    </url>
+
+    <!-- BLOG POST: FROM ART TO CODE -->
+    <url>
+        <loc>https://wyrm.studios/blog-posts/wyrm-creative-journey.html</loc>
+        <lastmod>2026-09-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://wyrm.studios/assets/images/blog/coverwyrm.jpg</image:loc>
+            <image:title>From Art to Code: The WYRM Creative Journey</image:title>
+            <image:caption>The creative spectrum at WYRM.studios — immersive 3D web experiences, graphic design and motion animation</image:caption>
+        </image:image>
+    </url>
+
     <!-- BRAND GUIDELINES PDF -->
     <url>
         <loc>https://wyrm.studios/assets/brand-guides/Brand%20Guidelines%20v6.pdf</loc>
         <lastmod>2026-06-16</lastmod>
         <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
+        <priority>0.5</priority>
     </url>
 
 </urlset>
