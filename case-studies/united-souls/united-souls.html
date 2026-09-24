@@ -241,6 +241,77 @@
             font-style: italic;
         }
 
+        /* Trend Flags — CSS-built banner tile (no photo for this collection) */
+        .us-flags-tile {
+            background: #F1EDEB;
+        }
+
+        .us-flags-art {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .us-flags-pole {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 6px;
+            height: 88%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, rgba(24,19,17,.65), rgba(24,19,17,.3));
+            border-radius: 3px;
+        }
+
+        .us-flags-banner {
+            position: absolute;
+            top: 0;
+            width: min(560px, 78%);
+            aspect-ratio: 3 / 2;
+            background: #654438;
+            clip-path: polygon(0 0, 100% 0, 100% 72%, 50% 100%, 0 72%);
+            display: grid;
+            place-items: center;
+            box-shadow: 0 18px 40px rgba(24,19,17,.18);
+            animation: us-flag-sway 5.5s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        .us-flags-stripe {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 9%;
+            background: rgba(241, 237, 235, .14);
+        }
+
+        .us-flags-stripe:nth-child(1) { top: 7%; }
+        .us-flags-stripe:nth-child(2) { top: 22%; }
+        .us-flags-stripe:nth-child(3) { top: 37%; }
+        .us-flags-stripe:nth-child(4) { top: 52%; }
+        .us-flags-stripe:nth-child(5) { top: 67%; }
+
+        .us-flags-mark {
+            grid-row: 1 / -1;
+            grid-column: 1;
+            color: #F1EDEB;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            letter-spacing: .08em;
+            text-shadow: 0 2px 18px rgba(0,0,0,.25);
+        }
+
+        @keyframes us-flag-sway {
+            0%, 100% { transform: rotate(-2.4deg); }
+            50% { transform: rotate(2.4deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .us-flags-banner { animation: none; }
+        }
+
         /* Credits underline */
         .us-credit-row {
             border-bottom: 1px solid hsl(var(--border) / 0.5);
@@ -489,8 +560,8 @@
                     <div class="relative z-10">
                         <div class="inline-block bg-us-cream rounded-2xl p-6 md:p-8 mb-8 shadow-xl" data-scroll-scale
                             data-scroll-scale-from="0.92">
-                            <img src="logo-lockup-card.jpg" alt="United Souls lockup — the U mark and wordmark"
-                                class="w-52 md:w-80 h-auto mx-auto" loading="lazy">
+                            <img src="hero-model.jpg" alt="United Souls — the brand worn, in the wild"
+                                class="w-52 md:w-80 h-auto mx-auto rounded-lg" loading="lazy">
                         </div>
                         <blockquote class="us-display text-3xl sm:text-4xl md:text-6xl tracking-tight leading-tight max-w-4xl mx-auto italic"
                             data-scroll-words data-scroll-words-base="55" data-scroll-duration="900">
@@ -561,7 +632,7 @@
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
                     <figure class="rounded-2xl overflow-hidden bg-us-cream flex items-center justify-center p-8 md:p-12" data-scroll="fade-up">
-                        <img src="logo-dark.png" alt="United Souls monogram on cream" class="w-48 md:w-72 h-auto"
+                        <img src="logo-black.png" alt="United Souls monogram on cream" class="w-48 md:w-72 h-auto"
                             loading="lazy" data-scroll-img-reveal data-scroll-img-color="#D5CEC6">
                         <figcaption class="sr-only">The U+S monogram on cream</figcaption>
                     </figure>
@@ -611,6 +682,12 @@
                         <span class="us-chip-hex">#181311</span>
                     </button>
                 </div>
+                <figure class="rounded-2xl overflow-hidden bg-secondary mt-4 max-w-3xl mx-auto" data-scroll="fade-up">
+                    <img src="palette-strip.jpg" alt="United Souls official palette strip" class="w-full h-auto"
+                        loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
+                    <figcaption class="text-sm text-muted-foreground italic p-4">The official palette strip — cream,
+                        stone, taupe, cacao, ink.</figcaption>
+                </figure>
                 <p class="text-sm text-muted-foreground mt-4 text-center" data-scroll="fade-up">Warm earth on ink — quiet luxury with street
                     roots. Click any chip to copy its hex.</p>
             </section>
@@ -748,11 +825,20 @@
                                 welcome to the other side.</p>
                         </figcaption>
                     </figure>
-                    <figure class="us-collection sm:col-span-2 lg:col-span-3" data-scroll-tilt data-scroll-tilt-max="2"
+                    <figure class="us-collection us-flags-tile sm:col-span-2 lg:col-span-3" data-scroll-tilt data-scroll-tilt-max="2"
                         data-scroll-tilt-scale="1.005">
-                        <img src="col-trend-flags.jpg" alt="Trend flags collection" class="w-full h-auto" loading="lazy"
-                            data-scroll-img-reveal data-scroll-img-color="#F1EDEB">
-                        <figcaption class="p-5 md:p-6">
+                        <div class="us-flags-art" aria-hidden="true">
+                            <span class="us-flags-pole"></span>
+                            <span class="us-flags-banner">
+                                <span class="us-flags-stripe"></span>
+                                <span class="us-flags-stripe"></span>
+                                <span class="us-flags-stripe"></span>
+                                <span class="us-flags-stripe"></span>
+                                <span class="us-flags-stripe"></span>
+                                <span class="us-flags-mark us-display">U+S</span>
+                            </span>
+                        </div>
+                        <figcaption class="p-5 md:p-6 relative z-10">
                             <p class="us-collection-num text-sm text-us-cacao mb-1">07 — FLAGS FOR THE CULTURE WAR</p>
                             <h3 class="text-xl md:text-2xl font-bold text-foreground">Trend Flags</h3>
                             <p class="text-sm md:text-base text-muted-foreground mt-2 max-w-3xl">When a trend blows
@@ -814,8 +900,7 @@
                         data-scroll-img-reveal data-scroll-img-color="#181311">
                     <figcaption class="text-sm text-muted-foreground italic p-4">The tableau — art first, apparel
                         close behind.</figcaption>
-                </figure>
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="100">
+                </figure>                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-scroll-stagger="up" data-scroll-stagger-base="100">
                     <figure class="rounded-2xl overflow-hidden bg-secondary">
                         <img src="poster-1.jpg" alt="United Souls poster — take your flight" class="w-full h-auto"
                             loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
@@ -823,14 +908,6 @@
                     <figure class="rounded-2xl overflow-hidden bg-secondary">
                         <img src="poster-2.jpg" alt="United Souls poster" class="w-full h-auto" loading="lazy"
                             data-scroll-img-reveal data-scroll-img-color="#181311">
-                    </figure>
-                    <figure class="rounded-2xl overflow-hidden bg-secondary">
-                        <img src="poster-3.jpg" alt="United Souls poster, third design" class="w-full h-auto"
-                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
-                    </figure>
-                    <figure class="rounded-2xl overflow-hidden bg-secondary">
-                        <img src="poster-4.jpg" alt="United Souls poster, fourth design" class="w-full h-auto"
-                            loading="lazy" data-scroll-img-reveal data-scroll-img-color="#181311">
                     </figure>
                 </div>
             </section>
