@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        fetch('https://app.wyrm.studios/api/inquiries', {
+        fetch('https://app.wyrmstudios.com/api/inquiries', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
