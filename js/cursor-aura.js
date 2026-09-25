@@ -1,12 +1,11 @@
 /* ==============================================================================
-   WYRM.studios — cursor aura + trailing dot
-   A soft pollen glow follows the pointer with easing; a tiny dot rides it.
-   Fine pointers only, skipped entirely for reduced-motion. Zero dependencies.
+   WYRM.studios — cursor layer (disabled)
+   The glow was too bright for daily use; the world scene alone carries
+   the mood now. Kept as a no-op so cached pages don't 404.
    ============================================================================== */
 (function () {
     'use strict';
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (!window.matchMedia('(pointer: fine)').matches) return;
+    return;
 
     var aura = document.createElement('div');
     aura.className = 'wyrm-cursor-aura';
