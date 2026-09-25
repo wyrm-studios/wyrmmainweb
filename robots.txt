@@ -1,6 +1,6 @@
 # ==============================================================================
 # WYRM.studios — robots.txt
-# https://wyrm.studios/
+# https://wyrmstudios.com/
 # ==============================================================================
 # Full-service creative studio — brand identity, motion design, video editing,
 # logo design, web design. Founder & Creative Director: Omar Bouzganda.
@@ -10,7 +10,7 @@
 # indexed, quoted, and recommended by AI assistants (ChatGPT, Perplexity,
 # Gemini, Claude, Copilot) and classic search (Google, Bing, Yandex...).
 #
-# AI-discovery guide for machines: https://wyrm.studios/llms.txt
+# AI-discovery guide for machines: https://wyrmstudios.com/llms.txt
 # ==============================================================================
 
 User-agent: *
@@ -109,7 +109,7 @@ Allow: /
 
 # --- AI DISCOVERY GUIDE ---
 # llms.txt — structured site guide for LLMs and AI search engines:
-# https://wyrm.studios/llms.txt
-Sitemap: https://wyrm.studios/sitemap.xml
+# https://wyrmstudios.com/llms.txt
+Sitemap: https://wyrmstudios.com/sitemap.xml
 
 # Contact: studioswyrm@gmail.com — Founder: Omar Bouzganda, Tunis, Tunisia.
