@@ -6,7 +6,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    const form = document.getElementById('inquiry-form');
+    const form = document.getElementById('request-form')
+               || document.getElementById('inquiry-form');
     const steps = document.querySelectorAll('.form-step');
     if (!form || steps.length === 0) return;
 
