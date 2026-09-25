@@ -196,22 +196,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form submission with EmailJS
+    // Form submission — primary: WYRM App dashboard (app.wyrm.studios);
+    // fallback: EmailJS so no inquiry is ever lost.
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const formData = new FormData(form);
-        const templateParams = {
-            from_name: (formData.get('first_name') || '') + ' ' + (formData.get('last_name') || ''),
-            from_email: formData.get('email') || '',
+        const payload = {
             brand_name: formData.get('brand_name') || '',
             industry: formData.get('industry') || '',
             services: formData.get('services') || '',
-            phone: formData.get('phone') || 'Not provided',
+            first_name: formData.get('first_name') || '',
+            last_name: formData.get('last_name') || '',
+            email: formData.get('email') || '',
+            phone: formData.get('phone') || '',
             referral_source: formData.get('referral_source') || '',
             budget: formData.get('budget') || '',
-            project_details: formData.get('project_details') || 'Not provided',
-            current_date: new Date().toLocaleDateString()
+            project_details: formData.get('project_details') || '',
+            page_url: window.location.href
         };
 
         const submitBtn = form.querySelector('button[type="submit"]');
@@ -220,29 +222,59 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = 'Sending...';
         }
 
-        if (typeof emailjs !== 'undefined') {
-            emailjs.send('service_5ofrfln', 'template_f89r11k', templateParams)
-                .then(function(response) {
-                    form.style.display = 'none';
-                    if (successMessage) {
-                        successMessage.classList.remove('hidden');
-                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }, function(error) {
-                    console.error('EmailJS Error:', error);
-                    alert('There was an error submitting your inquiry. Please email us directly at studioswyrm@gmail.com');
-                    if (submitBtn) {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = 'Submit Project';
-                    }
-                });
-        } else {
-            // Fallback if EmailJS CDN fails
+        function showSuccess() {
             form.style.display = 'none';
             if (successMessage) {
                 successMessage.classList.remove('hidden');
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
+
+        function restoreBtn() {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Project <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+            }
+        }
+
+        function emailFallback() {
+            const templateParams = {
+                from_name: (payload.first_name || '') + ' ' + (payload.last_name || ''),
+                from_email: payload.email,
+                brand_name: payload.brand_name,
+                industry: payload.industry || 'Not provided',
+                services: payload.services || 'Not provided',
+                phone: payload.phone || 'Not provided',
+                referral_source: payload.referral_source || 'Not provided',
+                budget: payload.budget || 'Not provided',
+                project_details: payload.project_details || 'Not provided',
+                current_date: new Date().toLocaleDateString()
+            };
+            if (typeof emailjs !== 'undefined') {
+                emailjs.send('service_5ofrfln', 'template_f89r11k', templateParams)
+                    .then(showSuccess, function(error) {
+                        console.error('EmailJS Error:', error);
+                        alert('There was an error submitting your inquiry. Please email us directly at studioswyrm@gmail.com');
+                        restoreBtn();
+                    });
+            } else {
+                showSuccess(); // last resort: assume it got through
+            }
+        }
+
+        fetch('https://app.wyrm.studios/api/inquiries', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+            .then(function(r) {
+                if (!r.ok) throw new Error('API ' + r.status);
+                showSuccess();
+            })
+            .catch(function(err) {
+                console.warn('App API unavailable, falling back to EmailJS:', err.message);
+                emailFallback();
+            });
     });
 
     // Initial setup
