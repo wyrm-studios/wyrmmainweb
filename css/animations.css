@@ -475,3 +475,113 @@ a:active, button:active {
     #wyrm-scroll-progress { display: none; }
 }
 
+
+/* ==============================================================================
+   JOKER QUOTE BAND — index.html
+   Deep ink band with a drifting green-violet joker aura and a scrub-reveal
+   quote. Reduced-motion flattens everything.
+   ============================================================================== */
+
+.joker-band {
+    background:
+        radial-gradient(70% 90% at 12% 8%, rgba(167, 139, 250, 0.14), transparent 62%),
+        radial-gradient(64% 84% at 88% 92%, rgba(127, 176, 105, 0.13), transparent 64%),
+        radial-gradient(50% 60% at 78% 6%, rgba(220, 20, 44, 0.10), transparent 60%),
+        #101013;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+/* two slow "smoke" orbs drifting behind the words */
+.joker-band::before,
+.joker-band::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.joker-band::before {
+    width: 46%;
+    padding-top: 46%;
+    left: -8%;
+    top: -18%;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.22), transparent 68%);
+    animation: joker-drift-a 16s ease-in-out infinite alternate;
+}
+
+.joker-band::after {
+    width: 52%;
+    padding-top: 52%;
+    right: -10%;
+    bottom: -26%;
+    background: radial-gradient(circle, rgba(127, 176, 105, 0.20), transparent 68%);
+    animation: joker-drift-b 19s ease-in-out infinite alternate;
+}
+
+@keyframes joker-drift-a {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to   { transform: translate3d(9%, 12%, 0) scale(1.14); }
+}
+
+@keyframes joker-drift-b {
+    from { transform: translate3d(0, 0, 0) scale(1.08); }
+    to   { transform: translate3d(-11%, -9%, 0) scale(0.94); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .joker-band::before,
+    .joker-band::after {
+        animation: none !important;
+    }
+}
+
+/* ==============================================================================
+   SITE-WIDE CURSOR AURA — a soft pollen glow trailing the pointer.
+   Fine pointers only; reduced-motion hides it entirely.
+   ============================================================================== */
+
+.wyrm-cursor-aura {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 4;
+    background: radial-gradient(circle,
+        rgba(200, 214, 180, 0.075) 0%,
+        rgba(168, 201, 138, 0.045) 36%,
+        transparent 70%);
+    mix-blend-mode: multiply;
+    will-change: transform;
+}
+
+.wyrm-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 5;
+    background: rgba(242, 239, 220, 0.85);
+    box-shadow: 0 0 10px rgba(200, 214, 180, 0.55);
+    mix-blend-mode: difference;
+    will-change: transform;
+}
+
+@media (pointer: coarse) {
+    .wyrm-cursor-aura,
+    .wyrm-cursor-dot { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wyrm-cursor-aura,
+    .wyrm-cursor-dot { display: none; }
+}
