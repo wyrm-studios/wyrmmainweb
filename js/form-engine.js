@@ -263,19 +263,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        fetch('https://app.wyrmstudios.com/api/inquiries', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        })
-            .then(function(r) {
-                if (!r.ok) throw new Error('API ' + r.status);
-                showSuccess();
-            })
-            .catch(function(err) {
-                console.warn('App API unavailable, falling back to EmailJS:', err.message);
+        const API_ENDPOINTS = [
+            'https://app.wyrmstudios.com/api/inquiries',
+            'https://wyrm-app.vercel.app/api/inquiries'  /* direct fallback until domain connects */
+        ];
+
+        function tryEndpoint(i) {
+            if (i >= API_ENDPOINTS.length) {
+                console.warn('App APIs unreachable, falling back to EmailJS');
                 emailFallback();
-            });
+                return;
+            }
+            fetch(API_ENDPOINTS[i], {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+                .then(function(r) {
+                    if (!r.ok) throw new Error('API ' + r.status);
+                    showSuccess();
+                })
+                .catch(function() { tryEndpoint(i + 1); });
+        }
+        tryEndpoint(0);
     });
 
     // Initial setup
