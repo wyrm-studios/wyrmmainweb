@@ -1104,3 +1104,148 @@ footer .social-link:hover {
         animation: none !important;
     }
 }
+
+/* ==============================================================================
+   WORK PROCESS — index.html
+   Four-step flow with a dashed connector path, numbered corners, staggered
+   scroll reveal (data-scroll) and a lift/glow hover. Reduced-motion respected.
+   ============================================================================== */
+
+.process-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+/* dashed connector running through the row behind the icon nodes.
+   4.05rem = icon-node center line (1px border + 1.5rem padding + 2.5rem icon half). */
+.process-grid::before {
+    content: '';
+    position: absolute;
+    top: 4.05rem;
+    left: 12%;
+    right: 12%;
+    border-top: 2px dashed hsl(var(--foreground) / 0.18);
+    pointer-events: none;
+}
+
+@media (min-width: 768px) {
+    .process-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* mid-card steps sit lower so the path zig-zags like a real journey.
+       Margin, not transform — the scroll engine leaves inline transforms
+       on the cards after revealing, which would override a CSS transform. */
+    .process-card:nth-child(even) {
+        margin-top: 2.25rem;
+    }
+}
+
+.process-card {
+    position: relative;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border) / 0.6);
+    border-radius: 1.25rem;
+    padding: 1.5rem 1.25rem 1.4rem;
+    text-align: center;
+    box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.35);
+    /* Hover uses the individual translate/scale properties: the scroll engine
+       leaves `transform: translate(0,0)` inline after reveal, and individual
+       properties compose with it instead of being overridden by it. */
+    transition: translate 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                scale 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s ease;
+}
+
+.process-card:hover {
+    translate: 0 -10px;
+    scale: 1.03;
+    border-color: hsl(var(--foreground) / 0.35);
+    box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.45);
+    z-index: 2;
+}
+
+.process-num {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: hsl(var(--muted-foreground) / 0.6);
+    transition: color 0.3s ease;
+}
+
+.process-card:hover .process-num {
+    color: #dc142c;
+}
+
+.process-icon {
+    position: relative;
+    z-index: 1;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto 1.1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--border) / 0.8);
+    box-shadow: 0 10px 26px -14px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s ease,
+                box-shadow 0.5s ease;
+}
+
+.process-icon svg {
+    width: 1.9rem;
+    height: 1.9rem;
+    color: hsl(var(--foreground));
+    transition: color 0.3s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-card:hover .process-icon {
+    border-color: rgba(220, 20, 44, 0.55);
+    box-shadow: 0 14px 34px -14px rgba(220, 20, 44, 0.45);
+}
+
+.process-card:hover .process-icon svg {
+    color: #dc142c;
+    transform: scale(1.12) rotate(-4deg);
+}
+
+.process-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+}
+
+.process-desc {
+    margin-top: 0.55rem;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: hsl(var(--muted-foreground) / 0.85);
+}
+
+@media (max-width: 767px) {
+    .process-grid::before {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .process-card,
+    .process-card:hover,
+    .process-icon,
+    .process-icon svg,
+    .process-card:hover .process-icon svg {
+        transform: none !important;
+        translate: none !important;
+        scale: none !important;
+        transition: none !important;
+    }
+}
