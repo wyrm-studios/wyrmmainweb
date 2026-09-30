@@ -109,11 +109,11 @@
 
         /* ---- index work process ---- */
         ['HOW WE WORK', 'NOTRE MÉTHODE', 'طريقتنا في العمل'],
-        ['Idea to launch.', 'De l’idée au lancement.', 'من الفكرة إلى الإطلاق.'],
-        ['No fog in between.', 'Sans brouillard entre les deux.', 'ولا ضباب في الطريق.'],
-        ['Four steps from first hello to final handoff — and you always know exactly where your project stands.',
-         'Quatre étapes du premier contact à la livraison finale — et vous savez toujours exactement où en est votre projet.',
-         'أربع خطوات من أول «مرحبًا» إلى التسليم النهائي — وتعرف دائمًا بدقة أين يقف مشروعك.'],
+        ['From idea to launch.', 'De l’idée au lancement.', 'من الفكرة إلى الإطلاق.'],
+        ['Clear from start to finish.', 'Clair du début à la fin.', 'واضح من البداية إلى النهاية.'],
+        ['Four simple steps from our first conversation to the final delivery. You always know what’s happening with your project.',
+         'Quatre étapes simples de notre première conversation à la livraison finale. Vous savez toujours ce qu’il advient de votre projet.',
+         'أربع خطوات بسيطة من أول محادثة بيننا إلى التسليم النهائي. وتعرف دائمًا ما يجري مع مشروعك.'],
         ['Pick your service', 'Choisissez votre service', 'اختر خدمتك'],
         ['Branding, motion, or web — tell us where it hurts and we\'ll point you at the right fix. Not sure? That\'s what step two is for.',
          'Branding, motion ou web — dites-nous où ça coince et nous viserons la bonne solution. Un doute ? C’est le rôle de l’étape deux.',
