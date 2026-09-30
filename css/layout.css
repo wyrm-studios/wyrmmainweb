@@ -434,20 +434,13 @@ footer .border-t .flex.space-x-6 {
 }
 
 .faq-item .faq-content {
-    display: none;
-    margin-top: 1rem;
+    margin-top: 0;
     color: hsl(var(--muted-foreground));
     font-size: 0.875rem;
     line-height: 1.625;
 }
 
-.faq-item.active .faq-content {
-    display: block;
-}
-
-.faq-item.active .faq-icon {
-    transform: rotate(45deg);
-}
+/* Height/opacity animation handled in components.css (grid-rows reveal) */
 
 /* --- Services Grid --- */
 .grid.grid-cols-1.md\:grid-cols-3.gap-6 {

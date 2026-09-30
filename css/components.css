@@ -159,9 +159,28 @@ header.scrolled {
    5. FAQ ACCORDION
    ========================================= */
 
+/* Structure: .faq-item > header row + .faq-content > .faq-inner > p
+   Exclusive open (one at a time) enforced in js/accordion.js. */
+
 .faq-item {
-    transition: border-color 0.4s var(--ease-out-expo), 
-                background-color 0.4s var(--ease-out-expo);
+    position: relative;
+    transition: border-color 0.45s var(--ease-out-expo),
+                background-color 0.45s var(--ease-out-expo);
+}
+
+/* Accent edge rail — grows in when a question opens */
+.faq-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12%;
+    height: 76%;
+    width: 2px;
+    border-radius: 2px;
+    background: hsl(var(--foreground));
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform 0.55s var(--ease-out-expo) 0.05s;
 }
 
 .faq-item:hover {
@@ -173,26 +192,87 @@ header.scrolled {
     background-color: hsl(var(--secondary) / 0.3);
 }
 
+.faq-item.active::before {
+    transform: scaleY(1);
+}
+
+/* Plus icon drawn in pure CSS so + can morph to − with a spring */
 .faq-item .faq-icon {
-    transition: transform 0.4s var(--ease-out-expo);
+    position: relative;
+    width: 1em;
+    height: 1em;
     flex-shrink: 0;
+    transition: transform 0.5s var(--ease-elastic);
+}
+
+.faq-item .faq-icon::before,
+.faq-item .faq-icon::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1em;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.5s var(--ease-elastic);
+}
+
+.faq-item .faq-icon::before {
+    transform: translate(-50%, -50%);
+}
+
+.faq-item .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+    transition: transform 0.5s var(--ease-elastic) 0.08s;
 }
 
 .faq-item.active .faq-icon {
-    transform: rotate(45deg);
+    transform: rotate(180deg);
 }
 
-.faq-item .faq-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.6s var(--ease-out-expo), 
-                opacity 0.5s var(--ease-out-expo);
+.faq-item.active .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
     opacity: 0;
 }
 
+/* Height reveal via grid-template-rows: stays smooth at any text length,
+   unlike max-height which needs a magic number and snaps on the way out. */
+.faq-item .faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.65s var(--ease-out-expo);
+}
+
 .faq-item.active .faq-content {
-    max-height: 500px;
+    grid-template-rows: 1fr;
+}
+
+.faq-item .faq-inner {
+    min-height: 0;
+    overflow: hidden;
+    color: hsl(var(--muted-foreground));
+}
+
+/* Answer text: blur + rise as the panel opens */
+.faq-item .faq-inner p {
+    margin: 0.9rem 0 0;
+    font-size: 0.875rem;
+    line-height: 1.625;
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(8px);
+    transition: opacity 0.45s var(--ease-out-expo),
+                filter 0.45s var(--ease-out-expo),
+                transform 0.45s var(--ease-out-expo);
+}
+
+.faq-item.active .faq-inner p {
     opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+    transition: opacity 0.65s var(--ease-out-expo) 0.12s,
+                filter 0.65s var(--ease-out-expo) 0.12s,
+                transform 0.65s var(--ease-out-expo) 0.12s;
 }
 
 /* =========================================
@@ -1255,5 +1335,32 @@ footer .social-link:hover {
         translate: none !important;
         scale: none !important;
         transition: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .faq-item,
+    .faq-item::before,
+    .faq-item .faq-icon,
+    .faq-item .faq-icon::before,
+    .faq-item .faq-icon::after,
+    .faq-item .faq-content,
+    .faq-item .faq-inner p {
+        transition: none !important;
+    }
+
+    .faq-item .faq-content {
+        grid-template-rows: 0fr;
+    }
+
+    .faq-item.active .faq-content {
+        grid-template-rows: 1fr;
+    }
+
+    /* Panels are height-clipped, so answers are always visible once shown */
+    .faq-item .faq-inner p {
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
     }
 }

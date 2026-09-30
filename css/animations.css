@@ -309,9 +309,9 @@
     animation: blinkCursor 1s var(--ease-smooth) infinite;
 }
 
-/* --- FAQ & Accordion Content Transition --- */
-/* Ultra-smooth height and opacity transition for expanding sections */
-.faq-content,
+/* --- Accordion Content Transition (About page) --- */
+/* Height/opacity reveal for about.html; the home FAQ has its own
+   grid-rows + blur-rise treatment in components.css. */
 .accordion-content {
     transition: max-height 0.6s var(--ease-out-expo), 
                 opacity 0.5s var(--ease-out-expo), 
@@ -319,7 +319,6 @@
     opacity: 0;
 }
 
-.faq-item.active .faq-content,
 .accordion-item.active .accordion-content {
     opacity: 1;
 }
