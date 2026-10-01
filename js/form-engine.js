@@ -203,6 +203,15 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         const formData = new FormData(form);
+
+        // browser-side intel (server can't see these) — best effort, never blocking
+        let clientTz = '';
+        try { clientTz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+        const utm = function (k) {
+            const v = new URLSearchParams(window.location.search).get('utm_' + k);
+            return v ? String(v).slice(0, 120) : '';
+        };
+
         const payload = {
             brand_name: formData.get('brand_name') || '',
             industry: formData.get('industry') || '',
@@ -214,7 +223,13 @@ document.addEventListener('DOMContentLoaded', function() {
             referral_source: formData.get('referral_source') || '',
             budget: formData.get('budget') || '',
             project_details: formData.get('project_details') || '',
-            page_url: window.location.href
+            page_url: window.location.href,
+            client_language: (navigator.languages && navigator.languages[0]) || navigator.language || '',
+            client_timezone: clientTz,
+            client_screen: screen.width + 'x' + screen.height,
+            utm_source: utm('source'),
+            utm_medium: utm('medium'),
+            utm_campaign: utm('campaign')
         };
 
         const submitBtn = form.querySelector('button[type="submit"]');
