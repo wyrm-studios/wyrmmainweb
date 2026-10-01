@@ -254,9 +254,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function emailFallback() {
-            const templateParams = {
-                from_name: (payload.first_name || '') + ' ' + (payload.last_name || ''),
-                from_email: payload.email,
+            const clientEmail = payload.email || '';
+            const clientName  = (payload.first_name || '') + ' ' + (payload.last_name || '');
+            const STUDIO_EMAIL = 'contact.wyrmstudio@gmail.com';
+
+            // 1. Thank-you email to the client — FROM the studio, TO the client's email
+            const clientParams = {
+                from_name: 'WYRM.studios',
+                from_email: STUDIO_EMAIL,
+                user_email: clientEmail,        /* <-- routes the EmailJS template 'To' field to the client */
+                to_name: clientName,
                 brand_name: payload.brand_name,
                 industry: payload.industry || 'Not provided',
                 services: payload.services || 'Not provided',
@@ -266,12 +273,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 project_details: payload.project_details || 'Not provided',
                 current_date: new Date().toLocaleDateString()
             };
+
+            // 2. Notification email to the studio — FROM the client, TO the studio
+            const studioParams = {
+                from_name: clientName,
+                from_email: clientEmail,
+                user_email: STUDIO_EMAIL,
+                brand_name: payload.brand_name,
+                industry: payload.industry || 'Not provided',
+                services: payload.services || 'Not provided',
+                phone: payload.phone || 'Not provided',
+                referral_source: payload.referral_source || 'Not provided',
+                budget: payload.budget || 'Not provided',
+                project_details: payload.project_details || 'Not provided',
+                current_date: new Date().toLocaleDateString()
+            };
+
             if (typeof emailjs !== 'undefined') {
-                emailjs.send('service_5ofrfln', 'template_f89r11k', templateParams)
+                /* Send the client thank-you — success/failure controls the user-facing response */
+                emailjs.send('service_5ofrfln', 'template_f89r11k', clientParams)
                     .then(showSuccess, function(error) {
                         console.error('EmailJS Error:', error);
-                        alert('There was an error submitting your inquiry. Please email us directly at studioswyrm@gmail.com');
+                        alert('There was an error submitting your inquiry. Please email us directly at ' + STUDIO_EMAIL);
                         restoreBtn();
+                    });
+                /* Also notify the studio team (fire-and-forget) */
+                emailjs.send('service_5ofrfln', 'template_f89r11k', studioParams)
+                    .catch(function(error) {
+                        console.warn('Studio notification failed:', error);
                     });
             } else {
                 showSuccess(); // last resort: assume it got through
