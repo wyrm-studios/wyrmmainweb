@@ -253,7 +253,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        function emailFallback() {
+        /* Always emails the client a thank-you (and notifies the studio).
+           Runs on BOTH paths: after the dashboard API succeeds, and as the
+           EmailJS fallback when the API is unreachable. */
+        function sendThankYouEmail() {
             const clientEmail = payload.email || '';
             const clientName  = (payload.first_name || '') + ' ' + (payload.last_name || '');
             const STUDIO_EMAIL = 'contact.wyrmstudio@gmail.com';
@@ -290,18 +293,47 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             if (typeof emailjs !== 'undefined') {
-                /* Send the client thank-you — success/failure controls the user-facing response */
+                /* Send the client thank-you (fire-and-forget on the API path —
+                   the dashboard already saved the request, so never block or
+                   alarm the client over a failed email). */
                 emailjs.send('service_5ofrfln', 'template_f89r11k', clientParams)
-                    .then(showSuccess, function(error) {
-                        console.error('EmailJS Error:', error);
-                        alert('There was an error submitting your inquiry. Please email us directly at ' + STUDIO_EMAIL);
-                        restoreBtn();
+                    .catch(function(error) {
+                        console.warn('Client thank-you email failed:', error);
                     });
                 /* Also notify the studio team (fire-and-forget) */
                 emailjs.send('service_5ofrfln', 'template_f89r11k', studioParams)
                     .catch(function(error) {
                         console.warn('Studio notification failed:', error);
                     });
+            }
+        }
+
+        /* Fallback used only when every dashboard API is unreachable: the
+           thank-you email becomes the primary delivery and controls the
+           success/error UX. */
+        function emailFallback() {
+            if (typeof emailjs !== 'undefined') {
+                const clientEmail = payload.email || '';
+                const clientName  = (payload.first_name || '') + ' ' + (payload.last_name || '');
+                const STUDIO_EMAIL = 'contact.wyrmstudio@gmail.com';
+                emailjs.send('service_5ofrfln', 'template_f89r11k', {
+                    from_name: 'WYRM.studios',
+                    from_email: STUDIO_EMAIL,
+                    user_email: clientEmail,
+                    to_name: clientName,
+                    brand_name: payload.brand_name,
+                    industry: payload.industry || 'Not provided',
+                    services: payload.services || 'Not provided',
+                    phone: payload.phone || 'Not provided',
+                    referral_source: payload.referral_source || 'Not provided',
+                    budget: payload.budget || 'Not provided',
+                    project_details: payload.project_details || 'Not provided',
+                    current_date: new Date().toLocaleDateString()
+                }).then(showSuccess, function(error) {
+                    console.error('EmailJS Error:', error);
+                    alert('There was an error submitting your inquiry. Please email us directly at ' + STUDIO_EMAIL);
+                    restoreBtn();
+                });
             } else {
                 showSuccess(); // last resort: assume it got through
             }
@@ -326,6 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(function(r) {
                     if (!r.ok) throw new Error('API ' + r.status);
                     showSuccess();
+                    sendThankYouEmail();  /* client thank-you on every successful submission */
                 })
                 .catch(function() { tryEndpoint(i + 1); });
         }
