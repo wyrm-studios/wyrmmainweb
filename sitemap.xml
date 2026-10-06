@@ -232,6 +232,22 @@
         </image:image>
     </url>
 
+    <!-- TERMS OF SERVICE -->
+    <url>
+        <loc>https://wyrmstudios.com/terms.html</loc>
+        <lastmod>2026-10-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- PRIVACY POLICY -->
+    <url>
+        <loc>https://wyrmstudios.com/privacy.html</loc>
+        <lastmod>2026-10-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
     <!-- BRAND GUIDELINES PDF -->
     <url>
         <loc>https://wyrmstudios.com/assets/brand-guides/Brand%20Guidelines%20v6.pdf</loc>
