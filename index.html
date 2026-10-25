@@ -1357,7 +1357,7 @@
             @keyframes gw-ripple { 0% { transform:scale(1); opacity:.9; } 100% { transform:scale(8); opacity:0; } }
             /* 03 — rebrand orbit: renewal, things turning */
             /* 03 — orbit: renewal — rings turning around a fresh mark */
-            .grow-orbit .pivot { position:absolute; left:50%; bottom:44px; width:100%; display:flex; flex-direction:column; align-items:center; transform:none; }
+            .grow-orbit .pivot { position:absolute; left:50%; bottom:44px; width:1px; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:none; }
             .grow-orbit .ring { width:86px; height:86px; border-radius:50%; border:1.5px dashed hsl(var(--foreground) / 0.3); position:relative; animation: gw-spin 7s linear infinite; }
             .grow-orbit .ring::after { content:''; position:absolute; top:-5px; left:50%; margin-left:-5px; width:10px; height:10px; border-radius:50%; background:hsl(var(--primary)); }
             .grow-orbit .outer { position:absolute; left:50%; top:-18px; width:122px; height:122px; margin-left:-61px 0 0 0; border-radius:50%; border:1px solid hsl(var(--foreground) / 0.15); animation: gw-spin 11s linear infinite reverse; }
@@ -1429,7 +1429,7 @@
                         <span class="grow-num" aria-hidden="true">03</span>
                         <div class="grow-scene grow-orbit" aria-hidden="true">
                             <span class="grow-x"></span>
-                            <span class="pivot"><span class="outer"></span><span class="ring"></span></span>
+                            <div class="pivot"><span class="outer"></span><span class="ring"></span></div>
                         </div>
                         <p class="text-xs font-bold tracking-widest text-muted-foreground mb-3">For businesses in motion</p>
                         <h3 class="text-xl md:text-2xl font-bold text-foreground leading-snug mb-3">Dated today, head-turning tomorrow</h3>
