@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const videoModal        = document.getElementById('video-modal');
     const closeBtn          = document.getElementById('close-video-modal');
     const iframe            = document.getElementById('vimeo-player');
-    const VIMEO_SRC         = 'https://player.vimeo.com/video/1190794803?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479';
+    const VIMEO_SRC         = 'https://player.vimeo.com/video/1239312024?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479';
     const TRANSITION_MS     = 500; // must match CSS duration
 
     if (!heroVideoTrigger || !videoModal || !iframe) return;
