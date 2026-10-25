@@ -572,8 +572,7 @@
                 <div class="relative z-10 mb-2 text-center block md:hidden w-full max-w-[500px] mx-auto overflow-hidden px-4"
                     style="opacity: 1; height: auto; margin-top: 3.5rem;" data-scroll="fade-up">
                     <h1 class="text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4">
-                        Cinematic Brand Experiences<br>
-                        That make your brand impossible to ignore
+                        We&rsquo;re the team that makes your brand impossible to ignore
                     </h1>
                 </div>
 
@@ -589,8 +588,7 @@
                         <span>Based in Tunisia — working worldwide</span>
                     </p>
                     <h1 class="text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6" data-scroll-words data-scroll-words-base="40" data-scroll-duration="850">
-                        Cinematic Brand Experiences<br>
-                        That make your brand impossible to ignore
+                        We&rsquo;re the team that makes your brand impossible to ignore
                     </h1>
                     <p class="text-lg text-muted-foreground max-w-2xl mx-auto mb-10" data-scroll="fade-up" data-scroll-delay="250">
                         Full-service creative studio crafting brand identities, motion design, video editing, logos, and web
@@ -869,10 +867,10 @@
                     <div>
                         <p class="text-xs font-bold tracking-widest text-muted-foreground mb-2">RECENT WORK</p>
                         <h2 class="text-3xl font-bold text-foreground">Selected Projects</h2>
-                    </div>
-                    <a href="work.html"
+                        <p class="text-sm text-muted-foreground mt-2">Our latest projects</p>
+                    </div>                        <a href="work.html"
                         class="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors" data-scroll-magnetic>
-                        <span>View All</span>
+                        <span>Our latest projects</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M7 17 17 7" />
@@ -1058,8 +1056,9 @@
                     <p class="text-xs font-bold tracking-widest text-muted-foreground mb-2">RECENT WORK</p>
                     <div class="flex items-end justify-between">
                         <h2 class="text-3xl font-bold text-foreground">Selected Projects</h2>
-                        <a href="work.html" class="flex items-center space-x-2 text-muted-foreground text-sm">
-                            <span>View All Work</span>
+                        <p class="text-sm text-muted-foreground">Our latest projects</p>                        <a href="work.html"
+                        class="flex items-center space-x-2 text-muted-foreground text-sm">
+                            <span>Our latest projects</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -1324,87 +1323,134 @@
             </div>
         </section>
 
-        <!-- MEET THE TEAM SECTION -->
-        <section id="team" class="wyrm-team px-4 sm:px-6 md:px-8 py-16 md:py-24">
+        <!-- GROW WITH US SECTION (static, code-drawn) -->
+        <style>
+            .grow-card { position:relative; overflow:hidden; }
+            .grow-num { position:absolute; top:1rem; right:1.5rem; font-weight:800; font-size:5rem; line-height:1; color:transparent; -webkit-text-stroke:1px hsl(var(--foreground) / 0.12); pointer-events:none; user-select:none; transition:-webkit-text-stroke-color .4s ease, transform .6s cubic-bezier(0.16,1,0.3,1); }
+            .grow-card:hover .grow-num { transform:translateY(-4px); -webkit-text-stroke-color: hsl(var(--foreground) / 0.28); }
+            .grow-scene { position:relative; height:140px; margin-bottom:1.75rem; }
+            .grow-x { position:absolute; left:0; right:0; bottom:44px; height:1px; background:hsl(var(--foreground) / 0.15); }
+            .grow-x::after { content:''; position:absolute; right:0; top:-3px; width:7px; height:7px; border-radius:50%; background:hsl(var(--foreground) / 0.4); }
+
+            /* 01 — launch arc: dashed trail + rocket dot climbing */
+            .grow-launch svg { position:absolute; inset:0; width:100%; height:100%; }
+            .grow-launch .arc { fill:none; stroke:hsl(var(--foreground) / 0.2); stroke-width:1.5; stroke-dasharray:5 7; stroke-linecap:round; }
+            .grow-card:hover .grow-launch .arc { stroke:hsl(var(--foreground) / 0.4); }
+            .grow-launch .trail { fill:none; stroke:hsl(var(--primary)); stroke-width:2; stroke-linecap:round; stroke-dasharray:150; stroke-dashoffset:150; animation: gw-trail 3.2s cubic-bezier(0.4,0,0.4,1) infinite; }
+            .grow-launch .rocket { fill:hsl(var(--primary)); animation: gw-rocket 3.2s cubic-bezier(0.4,0,0.4,1) infinite; }
+            @keyframes gw-trail { 0% { stroke-dashoffset:150; } 55% { stroke-dashoffset:0; } 100% { stroke-dashoffset:0; } }
+            @keyframes gw-rocket {
+                0%   { offset-distance:0%;   transform:scale(.6); opacity:.4; }
+                55%  { offset-distance:80%;  transform:scale(1);  opacity:1; }
+                62%  { offset-distance:100%; transform:scale(1.15); opacity:1; }
+                78%  { offset-distance:100%; transform:scale(1.35); opacity:0; }
+                100% { offset-distance:100%; transform:scale(.6);  opacity:0; }
+            }
+            /* 02 — social ripples */
+            /* 02 — ripples: rings expanding from a fixed core */
+            .grow-ripple .core { position:absolute; left:50%; bottom:44px; width:12px; height:12px; margin-left:-6px; }
+            .grow-ripple .core > span { position:absolute; inset:0; border-radius:50%; border:1.5px solid hsl(var(--primary)); animation: gw-ripple 2.4s ease-out infinite; opacity:0; }
+            .grow-ripple .core > span:nth-child(3) { animation-delay:.8s; }
+            .grow-ripple .core > span:nth-child(4) { animation-delay:1.6s; }
+            .grow-ripple .core > i { position:absolute; inset:2px; border-radius:50%; background:hsl(var(--primary)); }
+            @keyframes gw-ripple { 0% { transform:scale(1); opacity:.9; } 100% { transform:scale(7); opacity:0; } }
+            @keyframes gw-ripple { 0% { transform:scale(1); opacity:.9; } 100% { transform:scale(8); opacity:0; } }
+            /* 03 — rebrand orbit: renewal, things turning */
+            /* 03 — orbit: renewal — rings turning around a fresh mark */
+            .grow-orbit .pivot { position:absolute; left:50%; bottom:44px; width:100%; display:flex; flex-direction:column; align-items:center; transform:none; }
+            .grow-orbit .ring { width:86px; height:86px; border-radius:50%; border:1.5px dashed hsl(var(--foreground) / 0.3); position:relative; animation: gw-spin 7s linear infinite; }
+            .grow-orbit .ring::after { content:''; position:absolute; top:-5px; left:50%; margin-left:-5px; width:10px; height:10px; border-radius:50%; background:hsl(var(--primary)); }
+            .grow-orbit .outer { position:absolute; left:50%; top:-18px; width:122px; height:122px; margin-left:-61px 0 0 0; border-radius:50%; border:1px solid hsl(var(--foreground) / 0.15); animation: gw-spin 11s linear infinite reverse; }
+            .grow-card:hover .grow-orbit .ring { border-color:hsl(var(--primary) / 0.7); }
+            @keyframes gw-spin { to { transform:rotate(360deg); } }
+            /* 04 — packaging stack: boxes landing on the belt */
+            /* 04 — packaging: boxes landing on a belt */
+            .grow-pack .belt { position:absolute; left:50%; bottom:44px; width:156px; margin-left:-78px; height:1px; background:hsl(var(--foreground) / 0.2); }
+            .grow-pack .box { position:absolute; width:34px; height:34px; border-radius:8px; background:hsl(var(--primary) / 0.9); box-shadow:0 0 0 1px hsl(var(--primary)); animation: gw-pack 4.8s cubic-bezier(0.34,1.2,0.4,1) infinite; opacity:0; }
+            .grow-pack .box::after { content:''; position:absolute; inset:11px 6px; height:2px; background:hsl(var(--background) / 0.9); }
+            .grow-pack .box:nth-child(2) { left:calc(50% - 40px); bottom:45px; animation-delay:0s; }
+            .grow-pack .box:nth-child(3) { left:calc(50% + 6px);  bottom:45px; animation-delay:1.6s; }
+            .grow-pack .box:nth-child(4) { left:calc(50% - 17px); bottom:81px; animation-delay:3.2s; }
+            @keyframes gw-pack {
+                0%   { transform:translateY(-86px) scale(.85); opacity:0; }
+                25%  { opacity:1; }
+                45%  { transform:translateY(0) scale(1); opacity:1; }
+                78%  { transform:translateY(0) scale(1); opacity:1; }
+                100% { transform:translateY(0) scale(1); opacity:0; }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .grow-launch .trail, .grow-launch .rocket, .grow-ripple .core > span, .grow-orbit .ring, .grow-orbit .outer, .grow-pack .box { animation:none !important; }
+                .grow-launch .trail { stroke-dashoffset:0; } .grow-launch .rocket { offset-distance:100%; opacity:1; }
+                .grow-pack .box { opacity:1; transform:none; }
+            }
+        </style>
+        <section id="grow" class="wyrm-journal px-4 sm:px-6 md:px-8 py-16 md:py-24">
             <div class="max-w-[1200px] mx-auto">
 
                 <div class="text-center mb-14 md:mb-20">
-                    <p class="text-xs font-bold tracking-widest text-muted-foreground mb-4" data-scroll="fade-up">MEET OUR TEAM</p>
-                    <h2 class="text-4xl md:text-6xl font-bold text-foreground leading-tight" data-scroll-words data-scroll-words-base="50">Small team.</h2>
-                    <h2 class="text-4xl md:text-6xl font-bold text-muted-foreground/40 leading-tight" data-scroll="fade-right" data-scroll-delay="180">Big brand energy.</h2>
-                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto mt-6" data-scroll="fade-up" data-scroll-delay="250">Five humans, zero account managers. You always talk to the person actually doing the work.</p>
+                    <p class="text-xs font-bold tracking-widest text-muted-foreground mb-4" data-scroll="fade-up">SPOT YOURSELF HERE</p>
+                    <h2 class="text-4xl md:text-6xl font-bold text-foreground leading-tight" data-scroll-words data-scroll-words-base="50">Want one of these?</h2>
+                    <h2 class="text-4xl md:text-6xl font-bold text-muted-foreground/40 leading-tight" data-scroll="fade-right" data-scroll-delay="180">Or already deep in one?</h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto mt-6" data-scroll="fade-up" data-scroll-delay="250">If you want one of these — or you're already doing one — talk to us. We help businesses in Tunisia get bigger: sharper brand, louder presence, more clients.</p>
                 </div>
 
-                <div class="team-grid">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" data-scroll-stagger="up" data-scroll-stagger-base="110" data-scroll-stagger-sel=":scope > div">
 
-                    <!-- Omar -->
-                    <div class="team-card" data-scroll="fade-up">
-                        <span class="team-tape" aria-hidden="true"></span>
-                        <div class="team-photo">
-                            <span class="team-tag tag-lead">The Eye</span>
-                            <img src="assets/about/profile.png" alt="Omar Bouzganda — Creative Director & Multimedia Designer at WYRM.studios" loading="lazy" width="400" height="400">
+                    <!-- Card 1 — Product launch -->
+                    <div class="grow-card border border-border/50 rounded-3xl bg-secondary/30 p-8 md:p-10 hover:border-border transition-colors" data-scroll="fade-up">
+                        <span class="grow-num" aria-hidden="true">01</span>
+                        <div class="grow-scene grow-launch" aria-hidden="true">
+                            <span class="grow-x"></span>
+                            <svg viewBox="0 0 480 140" preserveAspectRatio="none">
+                                <path class="arc"  d="M36 118 Q 210 112 360 44 T 448 14" />
+                                <path class="trail" d="M36 118 Q 210 112 360 44 T 448 14" />
+                            </svg>
+                            <span class="rocket" style="offset-path:path('M36 118 Q 210 112 360 44 T 448 14'); position:absolute; width:9px; height:9px; border-radius:50%; transform-radius:50%; left:0; top:0;"></span>
                         </div>
-                        <h3 class="team-name">Omar</h3>
-                        <p class="team-role">Creative Director • Multimedia Designer</p>
-                        <p class="team-line">Turns business problems into brands people remember. Signs every pixel.</p>
+                        <p class="text-xs font-bold tracking-widest text-muted-foreground mb-3">For startups coming to life</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-foreground leading-snug mb-3">Not born yet, already magnetic</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">Opening soon? We build the whole birth kit — name, identity, story, web presence and a launch the market actually shows up for, so on day one you're a brand, not a beginner.</p>
                     </div>
 
-                    <!-- Feriel -->
-                    <div class="team-card" data-scroll="fade-up" data-scroll-delay="90">
-                        <span class="team-tape" aria-hidden="true"></span>
-                        <div class="team-photo">
-                            <span class="team-tag tag-biz">The Deals</span>
-                            <img src="assets/about/feriel.jpg" alt="Feriel — Business Development Manager at WYRM.studios" loading="lazy" width="400" height="400">
+                    <!-- Card 2 — Social media -->
+                    <div class="grow-card border border-border/50 rounded-3xl bg-secondary/30 p-8 md:p-10 hover:border-border transition-colors" data-scroll="fade-up" data-scroll-delay="110">
+                        <span class="grow-num" aria-hidden="true">02</span>
+                        <div class="grow-scene grow-ripple" aria-hidden="true">
+                            <span class="grow-x"></span>
+                            <span class="core"><i></i><span></span><span></span><span></span></span>
                         </div>
-                        <h3 class="team-name">Feriel</h3>
-                        <p class="team-role">Business Development Manager</p>
-                        <p class="team-line">Connects ambitious clients with the right ideas — and keeps the coffee flowing.</p>
+                        <p class="text-xs font-bold tracking-widest text-muted-foreground mb-3">For brand owners</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-foreground leading-snug mb-3">Be present in every place that matters</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">Your brand exists — but is it seen? We take the identity you own and make it ripple: social media with a voice, campaigns with rhythm, audiences that actually follow.</p>
                     </div>
 
-                    <!-- Anwer -->
-                    <div class="team-card" data-scroll="fade-up" data-scroll-delay="180">
-                        <span class="team-tape" aria-hidden="true"></span>
-                        <div class="team-photo">
-                            <span class="team-tag tag-dev">The Code</span>
-                            <img src="assets/about/anwer.png" alt="Anwer — Web Developer at WYRM.studios" loading="lazy" width="400" height="400">
+                    <!-- Card 3 — Lead generation -->
+                    <div class="grow-card border border-border/50 rounded-3xl bg-secondary/30 p-8 md:p-10 hover:border-border transition-colors" data-scroll="fade-up" data-scroll-delay="220">
+                        <span class="grow-num" aria-hidden="true">03</span>
+                        <div class="grow-scene grow-orbit" aria-hidden="true">
+                            <span class="grow-x"></span>
+                            <span class="pivot"><span class="outer"></span><span class="ring"></span></span>
                         </div>
-                        <h3 class="team-name">Anwer</h3>
-                        <p class="team-role">Web Developer</p>
-                        <p class="team-line">Builds the websites that make brands move — fast, responsive, interactive.</p>
+                        <p class="text-xs font-bold tracking-widest text-muted-foreground mb-3">For businesses in motion</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-foreground leading-snug mb-3">Dated today, head-turning tomorrow</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">You're open and running — but the look stopped growing. We renovate from the inside out: refreshed identity, sharper messaging, a face-lift your clients feel the moment they see you again.</p>
                     </div>
 
-                    <!-- Eya -->
-                    <div class="team-card" data-scroll="fade-up" data-scroll-delay="270">
-                        <span class="team-tape" aria-hidden="true"></span>
-                        <div class="team-photo">
-                            <span class="team-tag tag-mkt">The Voice</span>
-                            <img src="assets/about/eya.png" alt="Eya — Marketing Manager at WYRM.studios" loading="lazy" width="400" height="400">
+                    <!-- Card 4 — Communication -->
+                    <div class="grow-card border border-border/50 rounded-3xl bg-secondary/30 p-8 md:p-10 hover:border-border transition-colors" data-scroll="fade-up" data-scroll-delay="330">
+                        <span class="grow-num" aria-hidden="true">04</span>
+                        <div class="grow-scene grow-pack" aria-hidden="true">
+                            <span class="belt"></span>
+                            <span class="box"></span><span class="box"></span><span class="box"></span>
                         </div>
-                        <h3 class="team-name">Eya</h3>
-                        <p class="team-role">Marketing Manager</p>
-                        <p class="team-line">Makes sure the world hears about the brands we build.</p>
-                    </div>
-
-                    <!-- Yasmine -->
-                    <div class="team-card" data-scroll="fade-up" data-scroll-delay="360">
-                        <span class="team-tape" aria-hidden="true"></span>
-                        <div class="team-photo">
-                            <span class="team-tag tag-des">The Craft</span>
-                            <img src="assets/about/yasmine.jpg" alt="Yasmine — Photographer & Graphic Designer at WYRM.studios" loading="lazy" width="400" height="400">
-                        </div>
-                        <h3 class="team-name">Yasmine</h3>
-                        <p class="team-role">Photographer & Graphic Designer</p>
-                        <p class="team-line">Gives every brand its texture — print, packaging, pixels.</p>
+                        <p class="text-xs font-bold tracking-widest text-muted-foreground mb-3">For product owners</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-foreground leading-snug mb-3">Shelf-ready: packaging that sells itself</h3>
+                        <p class="text-muted-foreground text-sm leading-relaxed">A great product wrapped in silence doesn't move. We design packaging, labels and print collateral that speak a thousand words in three seconds — and the photography, print and launch to match.</p>
                     </div>
 
                 </div>
 
-                <div class="team-marquee" aria-hidden="true">
-                    <div class="team-marquee-inner">
-                        <span>Brand Identity ✦ Motion Design ✦ Web Design ✦ Video Editing ✦ Logo Design ✦ Strategy First ✦&nbsp;</span>
-                        <span>Brand Identity ✦ Motion Design ✦ Web Design ✦ Video Editing ✦ Logo Design ✦ Strategy First ✦&nbsp;</span>
-                    </div>
-                </div>
+                <p class="text-center text-muted-foreground mt-10 text-sm" data-scroll="fade-up">Sound familiar? Any one of these is one conversation away from a plan — and that conversation is free.</p>
 
             </div>
         </section>
