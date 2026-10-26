@@ -521,12 +521,6 @@
         document.querySelectorAll('.lang-code').forEach(function (span) {
             span.textContent = CODES[currentLang];
         });
-        document.querySelectorAll('[data-wyrm-lang-pill]').forEach(function (p) {
-            var on = p.dataset.wyrmLangPill === currentLang;
-            p.style.background = on ? 'hsl(var(--foreground, #eee))' : 'transparent';
-            p.style.color = on ? 'hsl(var(--background, #111))' : 'hsl(var(--muted-foreground, #888))';
-            p.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
         refreshLangMenu();
     }
 
@@ -584,12 +578,10 @@
     }
 
     /* ------------------------------------------------------------------ *
-       DISCOVERABILITY — five visible ways the site shows it translates
+       DISCOVERABILITY — two visible language affordances
        1. Globe opens a real dropdown — English / Français / العربية
-       2. One-time hint bubble anchored to the globe
-       3. Language pill strip on the homepage (above the trusted strip)
-       4. Language pill row in every site footer
-       5. Labeled language row inside the mobile menu overlay
+       2. One-time hint bubble anchored to the globe (shows for 6s)
+       Switching languages animates with a soft page fade.
      * ------------------------------------------------------------------ */
     var LANG_NAMES = { en: 'English', fr: 'Français', ar: 'العربية' };
     var HINT_TEXT = {
@@ -601,36 +593,14 @@
     function setLang(code) {
         if (LANGS.indexOf(code) === -1 || code === currentLang) return;
         try { localStorage.setItem(STORAGE_KEY, code); } catch (e) {}
-        setHtmlAttrs(code);
-        applyAll(code);
-    }
-
-    function pillStyles() {
-        return 'display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:999px;' +
-               'border:1px solid hsl(var(--border, rgba(128,128,128,.35)));background:transparent;' +
-               'font-size:12px;font-weight:700;letter-spacing:.04em;color:hsl(var(--muted-foreground, #888));' +
-               'cursor:pointer;transition:background .15s ease,color .15s ease;';
-    }
-
-    function makePill(lang) {
-        var p = document.createElement('button');
-        p.type = 'button';
-        p.dataset.wyrmLangPill = lang;
-        p.style.cssText = pillStyles();
-        p.setAttribute('aria-label', 'Switch to ' + LANG_NAMES[lang]);
-        p.setAttribute('aria-pressed', 'false');
-        p.textContent = LANG_NAMES[lang];
-        p.addEventListener('click', function (e) { e.preventDefault(); setLang(lang); closeLangMenu(); });
-        return p;
-    }
-
-    function makePillRow() {
-        var row = document.createElement('div');
-        row.style.cssText = 'display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;';
-        row.appendChild(makePill('en'));
-        row.appendChild(makePill('fr'));
-        row.appendChild(makePill('ar'));
-        return row;
+        var apply = function () {
+            setHtmlAttrs(code);
+            applyAll(code);
+            document.documentElement.classList.remove('wyrm-lang-switching');
+        };
+        /* soft fade out → swap all text → fade back in */
+        document.documentElement.classList.add('wyrm-lang-switching');
+        setTimeout(apply, 170);
     }
 
     /* 1 — dropdown menu anchored to any globe button (desktop + mobile) */
@@ -668,6 +638,7 @@
             var on = l === currentLang;
             b.style.background = on ? 'hsl(var(--foreground, #eee))' : 'transparent';
             b.style.color = on ? 'hsl(var(--background, #111))' : 'hsl(var(--foreground, #eee))';
+            if (on) { b.setAttribute('data-active', 'true'); } else { b.removeAttribute('data-active'); }
         });
     }
 
@@ -676,6 +647,10 @@
         refreshLangMenu();
         var r = anchorBtn.getBoundingClientRect();
         menu.style.display = 'block';
+        /* restart the slide-in animation on every open */
+        menu.style.animation = 'none';
+        void menu.offsetHeight;
+        menu.style.animation = 'wyrmLangMenuIn 200ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards';
         var mw = menu.offsetWidth, mh = menu.offsetHeight;
         var left = Math.max(8, Math.min(r.left, window.innerWidth - mw - 8));
         var top = r.bottom + 8;
@@ -730,77 +705,23 @@
             bubble.style.opacity = '1';
         }
         function dismiss() {
+            if (!bubble.parentNode) return;
+            window.removeEventListener('scroll', reposition);
+            window.removeEventListener('resize', reposition);
             try { localStorage.setItem('wyrm-lang-hint', '1'); } catch (e) {}
-            bubble.remove();
-            window.removeEventListener('scroll', dismiss);
-            window.removeEventListener('resize', dismiss);
+            bubble.style.opacity = '0';
+            setTimeout(function () { bubble.remove(); }, 350);
         }
+        function reposition() { if (bubble.parentNode) place(); }
         requestAnimationFrame(function () { requestAnimationFrame(place); });
-        window.addEventListener('scroll', dismiss, { passive: true });
-        window.addEventListener('resize', function () { if (bubble.parentNode) place(); });
+        /* stays 6 seconds, then fades away (still dismissible by click) */
+        window.addEventListener('scroll', reposition, { passive: true });
+        window.addEventListener('resize', reposition);
         bubble.addEventListener('click', dismiss);
-        setTimeout(dismiss, 9000);
-    }
-
-    /* 3 — homepage hero strip (both desktop & mobile use the trusted-strip block) */
-    function injectHeroLangStrip() {
-        var anchor = document.getElementById('trusted-avatar-group');
-        if (!anchor) return;
-        var host = anchor.parentElement;
-        if (!host || host.querySelector('[data-wyrm-lang-strip]')) return;
-        var wrap = document.createElement('div');
-        wrap.setAttribute('data-wyrm-lang-strip', '');
-        wrap.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:18px;';
-        var tag = document.createElement('span');
-        tag.textContent = 'LANGUAGE · LANGUE · اللغة';
-        tag.style.cssText = 'font-size:10px;font-weight:700;letter-spacing:.16em;color:hsl(var(--muted-foreground, #888));';
-        wrap.appendChild(tag);
-        wrap.appendChild(makePillRow());
-        host.parentNode.insertBefore(wrap, host);
-    }
-
-    /* 4 — footer language row site-wide */
-    function injectFooterLangRow() {
-        var footer = document.querySelector('footer');
-        if (!footer || footer.querySelector('[data-wyrm-lang-footer]')) return;
-        var wrap = document.createElement('div');
-        wrap.setAttribute('data-wyrm-lang-footer', '');
-        wrap.style.cssText = 'margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:8px;';
-        var tag = document.createElement('span');
-        tag.textContent = 'LANGUAGE · LANGUE · اللغة';
-        tag.style.cssText = 'font-size:10px;font-weight:700;letter-spacing:.16em;color:hsl(var(--muted-foreground, #888));';
-        wrap.appendChild(tag);
-        wrap.appendChild(makePillRow());
-        footer.appendChild(wrap);
-    }
-
-    /* 5 — labeled language row inside the mobile menu overlay */
-    function injectMobileLangRow() {
-        var menu = document.getElementById('mobile-menu');
-        if (!menu || menu.querySelector('[data-wyrm-lang-mobile]')) return;
-        var row = document.createElement('div');
-        row.setAttribute('data-wyrm-lang-mobile', '');
-        row.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:8px;margin:14px 0;';
-        var tag = document.createElement('span');
-        tag.textContent = 'LANGUAGE · LANGUE · اللغة';
-        tag.style.cssText = 'font-size:10px;font-weight:700;letter-spacing:.16em;color:hsl(var(--muted-foreground, #888));';
-        row.appendChild(tag);
-        row.appendChild(makePillRow());
-        var toggle = document.getElementById('mobile-lang-toggle');
-        if (toggle) {
-            /* the labeled pill row replaces the lone globe in the menu */
-            toggle.style.display = 'none';
-            if (toggle.parentElement === menu) menu.insertBefore(row, toggle);
-            else menu.appendChild(row);
-        } else {
-            menu.appendChild(row);
-        }
+        setTimeout(dismiss, 6000);
     }
 
     function injectLanguageVisibility() {
-        injectFooterLangRow();
-        injectHeroLangStrip();
-        injectMobileLangRow();
         maybeLangHint();
         updateButtons();
     }
@@ -815,7 +736,16 @@
         style.textContent =
             'html[lang="ar"] body{font-family:"SF Pro AR","Segoe UI",Tahoma,"Noto Naskh Arabic","Noto Kufi Arabic",Arial,sans-serif;}' +
             'html[lang="ar"] *{letter-spacing:0 !important;}' +
-            '#lang-toggle .lang-code{color:currentColor;}';
+            '#lang-toggle .lang-code{color:currentColor;}' +
+            /* soft page fade while the language swaps */
+            'body{transition:opacity 160ms ease,filter 160ms ease;}' +
+            'html.wyrm-lang-switching body{opacity:0.25;filter:blur(2px);pointer-events:none;}' +
+            'html.wyrm-lang-switching #lang-toggle,html.wyrm-lang-switching #mobile-lang-toggle{pointer-events:auto;opacity:1;filter:none;}' +
+            /* dropdown entrance */
+            '@keyframes wyrmLangMenuIn{from{opacity:0;transform:translateY(-7px) scale(0.96);}to{opacity:1;transform:translateY(0) scale(1);}}' +
+            /* dropdown item hover */
+            '#wyrm-lang-menu button[data-wyrm-lang-menu]{transition:background 140ms ease,color 140ms ease;}' +
+            '#wyrm-lang-menu button[data-wyrm-lang-menu]:not([data-active="true"]):hover{background:hsl(var(--accent,rgba(128,128,128,.14)));}';
         document.head.appendChild(style);
     }
 
